@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="../apprentices" class="govuk-back-link">Back to manage your apprentices</a>
+
+        <h1 class="govuk-heading-xl">
+            Your cohort requests
+        </h1>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                <a href="#" class="block-panel block-panel-blue">
+                    <h2 class="govuk-heading-xl">0</h2>
+                    <p class="govuk-body govuk-!-font-size-19">Ready for review</p>
+                </a>
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <a href="cohorts/provider" class="block-panel block-panel-blue">
+                    <h2 class="govuk-heading-xl">{{ providers_count }}</h2>
+                    <p class="govuk-body govuk-!-font-size-19">With training providers</p>
+                </a>
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <a href="cohorts/draft" class="block-panel block-panel-blue">
+                    <h2 class="govuk-heading-xl">{{ draft_count }}</h2>
+                    <p class="govuk-body govuk-!-font-size-19">Draft</p>
+                </a>
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <a href="#" class="block-panel block-panel-blue">
+                    <h2 class="govuk-heading-xl">0</h2>
+                    <p class="govuk-body govuk-!-font-size-19">With transfer sending employers</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

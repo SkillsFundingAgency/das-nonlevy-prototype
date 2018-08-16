@@ -14,6 +14,235 @@ $govuk-global-styles: true;
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+//// Sorchas styles
+
+// Utilities
+.nowrap {
+    white-space: nowrap;
+}
+
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+
+.details-list {
+    .govuk-table__header {
+        width: 55%;
+        font-weight: normal;
+    }
+
+    tr:first-child {
+        th, td {
+            border-top: 1px solid $govuk-border-colour;
+        }
+    }
+}
+
+.table-nav {
+    padding-top: 45px;
+    width: 20%;
+    float: left;
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+    .table-nav-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 0;
+
+        li {
+            white-space: nowrap;
+        }
+        li:before {
+            content: "-";
+            display: block;
+            float: left;
+            width: 15px;            
+        }
+    }
+
+    // sticky -> https://css-tricks.com/position-sticky-2/ not supported in IE
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+}
+
+.table-content {
+    width: 80%;
+    float: right;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.filter-option-select {
+    font-family: "nta",Arial,sans-serif;
+    margin-bottom: 30px;
+    background-color: #dee0e2;
+    padding: 5px;
+
+    .container-head {
+        padding-left: 15px;
+        cursor: pointer;
+        display: block;
+        position: relative;
+
+        .option-select-label {
+            margin-right: 40px;
+            font-weight: bold;
+            padding: 5px;
+            text-transform: none;
+            display: block;
+            margin-top:0px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .options-container {
+        position: relative;
+        background-color: #fff;
+        max-height: 200px;
+        overflow: auto;
+
+        .item {
+            border-bottom: 1px solid #bfc1c3;
+        }
+
+        label {
+            font-size: 16px;
+            line-height: 1.25;
+            padding-right: 10px;
+            display: block;
+            font-weight: 400;
+            text-transform: none;
+            padding: 7px 0 7px 2px;
+            margin-left: 20px;
+        }
+
+        input {
+            margin-left: -16px;
+        }
+    }
+}
+
+.block-panel {
+    display:block;
+    min-height: 190px;
+    padding: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+
+    .govuk-heading-xl {
+        color: #fff;
+        font-size: 70px;
+        line-height: initial;
+        margin-bottom: 20px;
+    }
+
+    .govuk-body {
+        color: #fff;
+        font-size: 32px; // replace with govuk-!-font-size-36/27
+        font-weight: bold;
+    }
+}
+
+a.block-panel {
+    text-decoration: none;
+}
+
+.block-panel-blue {
+    background-color: #2e3391;
+}
+
+.block-panel-purple {
+    background-color: #8e2a8d;
+}
+
+.block-panel-pink {
+    background-color: #d03a84;
+}
+
+.govuk-panel-small {
+    padding: 10px;
+
+    .govuk-panel__title {
+        margin-bottom: 10px;
+    }
+
+    .govuk-panel__body{
+        font-size: 25px;
+    }
+}
+
+.govuk-panel--blue {
+    background-color: #005ea5;
+    color: white;
+    .govuk-heading-m, .govuk-panel__body, .govuk-panel__body p, .govuk-list {
+        color: white;
+    }
+}
+
+.govuk-panel--purple {
+    background-color: #8e2a8d;
+    color: white;
+}
+
+.btn-secondary {
+    color: #0b0c0c;
+    background-color: #dee0e2;
+}
+.govuk-button.btn-secondary:link, .govuk-button.btn-secondary:visited {
+    color: #0b0c0c;
+    background-color: #dee0e2;
+}
+.govuk-button.btn-secondary:active, .govuk-button.btn-secondary:hover {
+    background-color:#d0d3d6;
+}
+
+.form-date {    
+    .form-date-month {
+        display: inline-block;
+        margin-right: 10px;
+        .govuk-form-group {
+            width: 50px;
+        }
+    }
+
+    .form-date-year {
+        display: inline-block;
+        .govuk-form-group {
+            width: 70px;
+        }
+    }
+}
+
+.govuk-form-group--year {
+    width: 70px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.float-right {
+    float: right;
+}
+
+
+
+
+/////////////// End of Sorchas styles
+
 // Robs extra styles
 
 .clear-button {

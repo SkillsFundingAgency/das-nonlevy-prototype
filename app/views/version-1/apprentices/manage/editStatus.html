@@ -1,0 +1,55 @@
+{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="../{{apprentice.id}}" class="govuk-back-link">Back to {{ apprentice.name }}</a>
+
+        <form method="POST">
+            <h1 class="govuk-heading-xl">Change apprentice status</h1>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                            What status change do you want to make?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios">
+                        {% if apprentice.status != 'Live' %}
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="status-live" name="status" type="radio" value="Live">
+                            <label class="govuk-label govuk-radios__label" for="status-live">
+                                Resume
+                            </label>
+                        </div>
+                        {% endif %} {% if apprentice.status != 'Paused' %}
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="status-pause" name="status" type="radio" value="Paused">
+                            <label class="govuk-label govuk-radios__label" for="status-pause">
+                                Pause
+                            </label>
+                        </div>
+                        {% endif %} {% if apprentice.status != 'Stopped' %}
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="status-stop" name="status" type="radio" value="Stopped">
+                            <label class="govuk-label govuk-radios__label" for="status-stop">
+                                Stop
+                            </label>
+                        </div>
+                        {% endif %}
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="status-none" name="status" type="radio" value="-1">
+                            <label class="govuk-label govuk-radios__label" for="status-none">
+                                Don't change the status
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
