@@ -221,6 +221,24 @@ router.get('/version-1/paye/payeRemove' , function (req, res) {
         }
 })
 
+/// paye > whats next after removing a paye
+router.get('/version-1/find/chooseFATType' , function (req, res) {
+  var fatType = req.query.fatType
+       switch (true) {
+          case  (fatType == 'apprenticeship'):
+            res.redirect(`/${req.version}/find/appreticeshipsearch`)
+           break;
+
+          case  (fatType == 'provider'):
+              res.redirect(`/${req.version}/find/providersearch`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+            break;
+        }
+})
+
 
 /// registration > what you'll need
 //// Not using routes for this as has a weird behaviour on the no option, so dealt with in page.

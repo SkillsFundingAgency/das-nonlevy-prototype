@@ -239,11 +239,66 @@ a.block-panel {
 }
 
 
-
-
-/////////////// End of Sorchas styles
+/////////////////////////////////////////////////////////////////// End of Sorchas styles
 
 // Robs extra styles
+
+@media (min-width: 641px) {
+.weird-floating-button {
+	border-left-style: solid;
+    border-color: #bfc1c3;
+
+	}
+
+.weird-floating-button button {
+	width:100%; 
+	margin-top:29px
+
+	}
+}
+
+//// data lists
+
+dt {
+    display: block;
+      // font-weight: 400;
+    font-family: "nta",Arial,sans-serif;
+  
+font-size: 19px;
+    line-height: 1.3157894737;
+}
+
+.data-list dt {
+    font-weight: 700;
+    width: 30%;
+    padding-right: 7.5px;
+    clear: left;
+    margin-bottom: 1em;
+}
+
+
+.data-list dt, .data-list dd {
+    float: left;
+    box-sizing: border-box;
+    padding-bottom: 7.5px;
+}
+
+.data-list dd {
+    width: 65%;
+    margin-bottom: 1em;
+     font-weight: 400;
+    font-family: "nta",Arial,sans-serif;
+	font-size: 19px;
+    line-height: 1.3157894737;
+}
+
+.data-list dt, .data-list dd {
+    float: left;
+    box-sizing: border-box;
+    padding-bottom: 7.5px;
+}
+
+/// end of data lists
 
 .clear-button {
 	background: transparent;
@@ -680,9 +735,7 @@ nav {
 }
 .agreement header {
     font-weight: 400;
-    text-transform: none;
     font-family: "nta",Arial,sans-serif;
-    font-weight: 400;
     text-transform: none;
 font-size: 19px;
     line-height: 1.3157894737;
