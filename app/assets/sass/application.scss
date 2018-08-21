@@ -21,6 +21,8 @@ $govuk-global-styles: true;
     white-space: nowrap;
 }
 
+
+
 .clearfix:after {
     content: " "; /* Older browser do not support empty content */
     visibility: hidden;
@@ -243,6 +245,172 @@ a.block-panel {
 
 // Robs extra styles
 
+.flex-support-meta {
+  display: flex;
+}
+
+.flex-support-meta {
+  display: flex;
+}
+
+
+.feedback-block {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #ccc;
+  margin: 2px 0 10px 0;
+}
+
+.feedback-well-below-average {
+  background-color: #df3034;
+}
+
+.feedback-below-average {
+  background-color: #f47738;
+}
+
+.feedback-average {
+  background-color: #ffbf47;
+}
+
+.feedback-good {
+  background-color: #85994b;
+}
+
+.feedback-outstanding {
+  background-color: #006435;
+}
+
+.feedback-good p, .feedback-outstanding p, .feedback-well-below-average p {
+  color: #fff;
+}
+
+.accordion-controls {
+  text-align: right;
+}
+
+.accordion-expand-all {
+  display: inline;
+  background: transparent;
+  border-width: 0;
+  font-size: 16px;
+  color: #005EA5;
+  cursor: pointer;
+}
+
+.accordion .accordion-section[aria-expanded="false"] .accordion-section-body {
+  display: none;
+}
+
+.accordion.with-js {
+  border-bottom-width: 1px;
+  border-bottom-color: #bfc1c3;
+  border-bottom-style: solid;
+}
+
+.accordion.with-js .accordion-section {
+  border-top-width: 1px;
+  border-top-color: #bfc1c3;
+  border-top-style: solid;
+}
+
+.accordion.with-js h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.accordion.with-js .accordion-section-header {
+  cursor: pointer;
+  position: relative;
+  padding-top: 14px;
+  padding-bottom: 12px;
+}
+
+.accordion.with-js .accordion-section-header h2 {
+  color: #005EA5;
+}
+
+.accordion.with-js .accordion-section-header:hover {
+  background-color: #f8f8f8;
+}
+
+.accordion.with-js .icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  height: 16px;
+  width: 16px;
+  margin-top: -8px;
+  /* Note: you may have to update these URL paths */
+  /* PNG fallback for SVG */
+  background-image: url("/public/images/icon-plus-minus.png");
+  /* SVG sprite */
+  background: url("/public/images/icon-plus-minus.svg"), linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+  background-position: 0 -16px;
+}
+
+.accordion.with-js .accordion-section[aria-expanded="true"] .icon {
+  background-position: 0 0;
+}
+
+.min-width-180 {
+  min-width: 200px;
+}
+
+.min-width-270 {
+  min-width: 270px;
+}
+
+.max-width-250 {
+  max-width: 250px;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.filters {
+  display: block;
+  margin: 0 0 20px 0;
+  border: 1px solid #dee0e2;
+  overflow: hidden;
+}
+
+.filters .toggler {
+  clear: both;
+  background: #dee0e2;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 5px 30px 5px 10px;
+  margin: 0;
+  top: 0;
+  float: none;
+  position: relative;
+  cursor: default;
+}
+
+.filters .toggled-content {
+  padding: 20px;
+}
+
+.options-containera {
+  border: 1px solid #dee0e2;
+  position: relative;
+  background-color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
 @media (min-width: 641px) {
 .weird-floating-button {
 	border-left-style: solid;
@@ -255,6 +423,20 @@ a.block-panel {
 	margin-top:29px
 
 	}
+}
+
+.govuk-radios__input:before {
+    background: #fff !important;
+    color:#fff;
+}
+
+
+.margintop10 {
+	margin-top:10px;
+}
+
+.marginbottom10 {
+	margin-bottom:10px;
 }
 
 //// data lists
