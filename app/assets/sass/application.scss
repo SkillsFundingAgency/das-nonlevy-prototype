@@ -139,7 +139,8 @@ $govuk-global-styles: true;
 
 .block-panel {
     display:block;
-    min-height: 190px;
+   // min-height: 190px;
+
     padding: 20px;
     color: #fff;
     margin-bottom: 20px;
@@ -240,19 +241,156 @@ a.block-panel {
     float: right;
 }
 
+ .actions .govuk-button {
+  background: #fff;
+  color: #005ea5;
+  font-weight: bold;
+}
+
+ .actions .white-button {
+  background: #005ea5;
+  color: #fff ;
+  font-weight: bold;
+}
+
+
 
 /////////////////////////////////////////////////////////////////// End of Sorchas styles
 
 // Robs extra styles
 
-.flex-support-meta {
-  display: flex;
+.button-grey-secondary {
+  background-color: #eee !important;
+  color: #000 !important;
+  box-shadow: 0 2px 0 #666 !important;
 }
+
+.button-grey-secondary:focus,
+.button-grey-secondary:hover {
+  background-color: #e4e4e4;
+  color: #000;
+}
+
+.delete-button {
+  background-color: #b10e1e;
+  color: #fff;
+  box-shadow: 0 2px 0 #666;
+  padding-top: 10px;
+}
+
+.delete-button:focus,
+.delete-button:hover {
+  background-color: #9e0d1b;
+}
+
+
+.done h3 span a {
+  color: white;
+  font-weight: 400;
+  top: -3px;
+  position: relative;
+  left: 5px;
+  cursor: pointer;
+}
+
+.done p + span {
+  font-size: 24px;
+  font-weight: 900;
+  float: right;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+      font-family: "nta",Arial,sans-serif;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-check:before {
+  content: '\f00c';
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.todo {
+  background: #fff;
+  border: 1px solid #bfc1c3;
+  padding: 15px;
+  margin-bottom: 15px;
+  overflow: auto;
+}
+
+.todo,
+.done {
+  margin-bottom: 15px !important;
+}
+
+.goWhite {
+	color:#fff;
+}
+
+.done {
+  background: #2e358b;
+  border-color: #2e358b;
+  color: white;
+  overflow: auto;
+  margin: 0;
+  position: relative;
+}
+
+.todo,
+.done {
+  margin-bottom: 15px !important;
+}
+
+
+
+.sr-only,
+.done {
+  margin-bottom: 15px !important;
+}
+
+.inline .panel-border-narrow {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.panel-border-narrow {
+  border-left-width: 5px;
+}
+
 
 .flex-support-meta {
   display: flex;
 }
 
+.flex-support-meta {
+  display: flex;
+}
+
+@media (min-width: 641px) {
+  .table-19-font td,
+  .table-19-font th {
+    font-size: 19px !important;
+    line-height: 1.3157894737;
+  }
+}
 
 .feedback-block {
   width: 300px;

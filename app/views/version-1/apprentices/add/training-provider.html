@@ -1,24 +1,30 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  GOV.UK Prototype Kit
-{% endblock %}
+{% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
 
+{{ govukBackLink({
+  text: "Back to apprentices",
+  href: "../"
+}) }}
+{% endblock %}
 {% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <a href="/accounts/XJBMNV/apprentices/add/choose-organisation" class="govuk-back-link">Back to choose organisation</a>
+
 
         <h1 class="govuk-heading-xl">
             Add training provider details
         </h1>
-        <form action="/accounts/XJBMNV/apprentices/add/training-provider" method="POST" class="form">            
+        <form action="confirm-training-provider" method="POST" class="form">            
             <div class="govuk-form-group">
-                <label class="govuk-label" for="uk-provider-reference-number">
+                <label class="govuk-label  bold-label" for="uk-provider-reference-number">
                     UK Provider Reference Number
                 </label>                    
-                <input class="govuk-input" id="uk-provider-reference-number" name="uk-provider-reference-number" type="text" value="{{ data['uk-provider-reference-number'] }}"/>
+                <input class="govuk-input govuk-!-width-one-half" id="uk-provider-reference-number" name="uk-provider-reference-number" type="text" value="{{ data['uk-provider-reference-number'] }}"/>
             </div>
     
             <details class="govuk-details">
@@ -35,6 +41,8 @@
             <button class="govuk-button">Continue</button>    
         </form>          
     </div>
+</div>
+</main>
 </div>
 
 {% endblock %}

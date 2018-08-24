@@ -1,14 +1,20 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  GOV.UK Prototype Kit
-{% endblock %}
+{% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
 
+{{ govukBackLink({
+  text: "Back to apprentices",
+  href: "./"
+}) }}
+{% endblock %}
 {% block content %}
 
-<div class="govuk-grid-row">
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <a href="/accounts/{{ employer.id }}/apprentices" class="govuk-back-link">Back to apprentices</a>
 
         <h1 class="govuk-heading-xl">
             Add an apprentice
@@ -30,11 +36,14 @@
                 <li>make sure the PAYE scheme that each apprentice is paid through is in your account - <a href="#">view PAYE schemes in this account</a></li>
             </ul>
 
-            <a href="add/choose-organisation" role="button" class="govuk-button govuk-button--start">
-                Start now
-              </a>
+            <div style="margin-top:35px"></div>
+            <form action="add/choose-organisation">
+             <button class="govuk-button govuk-button--start">Start now</button>
+            </form> 
         </p>        
     </div>
+</div>
+</main>
 </div>
 
 {% endblock %}

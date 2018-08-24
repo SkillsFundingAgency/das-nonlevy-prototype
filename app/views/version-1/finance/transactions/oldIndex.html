@@ -1,6 +1,6 @@
-{% extends "layout.html" %} {% block beforeContent %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "./" }) }} {% endblock %} {% block content %}
+{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
 
-<!--div class="govuk-breadcrumbs">
+<div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
             <a class="govuk-breadcrumbs__link" href="../../../accounts">Your Accounts</a>
@@ -13,21 +13,42 @@
         </li>
         <li class="govuk-breadcrumbs__list-item" aria-current="page">Transactions</li>
     </ol>
-</div-->
-<div class="govuk-width-container">
-    <main class="govuk-main-wrapper govuk-main-wrapper--l">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full-width">
+</div>
+
 <h1 class="govuk-heading-xl">
     Your Transactions
-    <span class="govuk-caption-xl">May 2018</span>
+    <span class="govuk-caption-xl">A record of payments made to and from your levy balance.</span>
 </h1>
 
+<div class="table-nav-wrapper clearfix">
+    <nav class="table-nav">
+        <h2 class="govuk-heading-m">Skip to month:</h2>
+        <ul class="table-nav-list">
+            <li><a href="#May18">May 18</a></li>
+            <li><a href="#Apr18">April 18</a></li>
+            <li><a href="#Mar18">March 18</a></li>
+            <li><a href="#Feb18">February 18</a></li>
+            <li><a href="#Jan18">January 18</a></li>
+            <li><a href="#Dec17">December 17</a></li>
+            <li><a href="#Nov17">November 17</a></li>
+            <li><a href="#Oct17">October 17</a></li>
+            <li><a href="#Sep17">September 17</a></li>
+            <li><a href="#Aug17">August 17</a></li>
+            <li><a href="#Jul17">July 17</a></li>
+            <li><a href="#Jun17">June 17</a></li>
+            <li><a href="#May17">May 17</a></li>
+        </ul>
+        <h2 class="govuk-heading-m">Skip to year:</h2>
+        <ul class="table-nav-list">
+            <li><a href="#May18">2018</a></li>
+            <li><a href="#Dec17">2017</a></li>
+        </ul>
+    </nav>
 
-    <table class="govuk-table ">
+    <table class="govuk-table table-content">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-                <th class="govuk-table__header" scope="col">Payment date</th>
+                <th class="govuk-table__header" scope="col">Date</th>
                 <th class="govuk-table__header" scope="col">Description</th>
                 <th class="govuk-table__header govuk-table__header--numeric" scope="col">Amount</th>
                 <th class="govuk-table__header govuk-table__header--numeric" scope="col">Balance</th>
@@ -71,7 +92,7 @@
                     <a href="#">Details</a>
                 </td>
             </tr>
-            <!--tr class="govuk-table__row" id="Apr18">
+            <tr class="govuk-table__row" id="Apr18">
                 <td class="govuk-table__cell" scope="row">23 April 18</td>
                 <td class="govuk-table__cell" scope="row">Levy</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric">£235,062.12</td>
@@ -502,15 +523,9 @@
                 <td class="govuk-table__cell" scope="row">
                     <a href="#">Details</a>
                 </td>
-            </tr-->
-      
-
+            </tr>
         </tbody>
     </table>
 </div>
-      </div>
-  </main>
-</div>
-
 
 {% endblock %}
