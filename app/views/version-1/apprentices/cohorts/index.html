@@ -1,7 +1,7 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
 {% from "back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({ text: "Back to apprentices", href: "../" }) }} 
+{{ govukBackLink({ text: "Back to apprentices", href: "./" }) }} 
 {% endblock %} 
 {% block content %}
 
@@ -20,13 +20,13 @@
             </div>
             <div class="govuk-grid-column-one-half">
                 <a href="cohorts/provider" class="block-panel block-panel-blue">
-                    <h2 class="govuk-heading-xl">{{ providers_count }}0</h2>
+                    <h2 class="govuk-heading-xl">{{ providers_count }}1</h2>
                     <p class="govuk-body govuk-!-font-size-19">With training providers</p>
                 </a>
             </div>
             <div class="govuk-grid-column-one-half">
                 <a href="cohorts/draft" class="block-panel block-panel-blue">
-                    <h2 class="govuk-heading-xl">{{ draft_count }}0</h2>
+                    <h2 class="govuk-heading-xl">{{ draft_count }}1</h2>
                     <p class="govuk-body govuk-!-font-size-19">Draft</p>
                 </a>
             </div>

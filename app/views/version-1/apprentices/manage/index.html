@@ -1,6 +1,13 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back to apprentices", href: "./" }) }} 
+{% endblock %} 
+{% block content %}
 
-<a href="../apprentices" class="govuk-back-link">Back to Apprentices</a>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
 
 <h1 class="govuk-heading-xl">
     Manage your apprentices
@@ -143,37 +150,76 @@
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Name</th>
-                    <th class="govuk-table__header" scope="col">Unique learner number</th>
-                    <th class="govuk-table__header" scope="col">Date of birth</th>
-                    <th class="govuk-table__header" scope="col">Status</th>
-                    <th class="govuk-table__header" scope="col">Alerts</th>
-                    <th class="govuk-table__header" scope="col"></th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Unique learner <br />number</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Date of <br />birth</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Status</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Alerts</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col"></th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
 
-                {% for item in apprentices %}
+     
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__cell nowrap" scope="row">{{ item.name }}</td>
-                    <td class="govuk-table__cell" scope="row">{{ item.unique_learner_number }}</td>
-                    <td class="govuk-table__cell nowrap" scope="row">{{ item.dob | date('D MMM YYYY') }}</td>
-                    <td class="govuk-table__cell" scope="row">{{ item.status }}</td>
-                    <td class="govuk-table__cell" scope="row">{{ item.alert }}</td>
-                    <td class="govuk-table__cell" scope="row">
-                        <a href="manage/{{item.id}}">View</a>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Rob Edwards</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">9021090210</td>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">1 Jan 2000</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="manage/robEdwardsLive">View</a>
                     </td>
                 </tr>
-                {% else %}
                 <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Amy Russell</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">29475823</td>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">1 April 2000</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Cedric Daniels</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">22554923</td>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">10 May 1999</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Rhonda Pearlman</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">24948859</td>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">15 Aug 1998</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Ellis Carver</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">49965724</td>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">09 Feb 1999</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">Stopped</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="manage/ellisCarverStopped">View</a>
+                    </td>
+                </tr>
+  
+                <!--tr class="govuk-table__row">
                     <td class="govuk-table__cell nowrap" colspan="6" scope="row">
                         <i>No data</i>
                     </td>
-                </tr>
-                {% endfor %}
+                </tr-->
+
             </tbody>
         </table>
     </div>
 </div>
+</div>
+</main>
+</div>
+
 
 {% endblock %}

@@ -259,6 +259,474 @@ a.block-panel {
 
 // Robs extra styles
 
+
+//// chart styles
+
+.c3 svg {
+    font: 10px sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.c3-text.c3-empty {
+    fill: grey;
+    font-size: 2em;
+}
+
+.c3 text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.c3-axis-y-label {
+    font-size: 20px;
+}
+
+.c3-axis-y .tick {
+    display: none;
+}
+
+
+.c3 line, .c3 path {
+    fill: none;
+    stroke: #000;
+}
+
+
+//////
+
+.makeItSmaller {
+	font-size:16px;
+}
+
+
+.numeral {
+	text-align: right;
+}
+
+/// Tabs
+
+
+.tabs-menu {
+  height: 33px;
+  margin-top: 0px;
+  margin-bottom: 18px;
+  margin-left: 20px;
+  float: left;
+}
+
+.tabs-menu li {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+  color: #000;
+  background-color: #dee0e2;
+  border-top: 1px solid #d4d4d1;
+  border-right: 1px solid #d4d4d1;
+  border-left: 1px solid #d4d4d1;
+}
+
+.tabs-menu li.current {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  z-index: 5;
+}
+
+.tabs-menu li a {
+  padding: 15px;
+  margin-top: 0px;
+  color: #005ea5;
+  text-decoration: none;
+}
+
+.tabs-menu .current a {
+  color: #000;
+}
+
+.tabs-menu li a:focus {
+  background: none;
+  border: 0;
+  outline: 0;
+}
+
+.nav-tabs a:focus {
+  outline: none;
+}
+
+.nav-tabs {
+  zoom: 1;
+  background: #fff;
+  padding: 0;
+  position: relative;
+}
+
+.nav-tabs:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.nav-tabs ol,
+.nav-tabs ul,
+.nav-tabs .tabs-nav {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 640px) {
+  .nav-tabs ol,
+  .nav-tabs ul,
+  .nav-tabs .tabs-nav {
+    float: none;
+    margin: 0 -16px;
+  }
+}
+
+.nav-tabs li,
+.nav-tabs .tabs-nav li {
+  font-family: 'nta', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.14286;
+  font-weight: 400;
+  text-transform: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+@media (min-width: 641px) {
+  .nav-tabs li,
+  .nav-tabs .tabs-nav li {
+    font-size: 19px;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-tabs li,
+  .nav-tabs .tabs-nav li {
+    float: none;
+  }
+}
+
+.nav-tabs li a,
+.nav-tabs .tabs-nav li a {
+  border-bottom: solid 5px #fff;
+  border-left: solid 5px #fff;
+  border-right: solid 5px #fff;
+  float: left;
+  height: 2.5em;
+  line-height: 2.25em;
+  padding: 0.5em 1em 0 1em;
+  position: relative;
+  text-align: center;
+  top: 0;
+  background-color: #dee0e2;
+}
+
+@media (max-width: 640px) {
+  .nav-tabs li a,
+  .nav-tabs .tabs-nav li a {
+    display: block;
+    position: static;
+    float: none;
+    height: auto;
+    line-height: 3.5em;
+    padding: 0 16px;
+    text-align: left;
+    margin-bottom: 0;
+    border-bottom: 1px solid #bfc1c3;
+  }
+}
+
+.nav-tabs li a:hover,
+.nav-tabs .tabs-nav li a:hover {
+  background-color: #bfc1c3;
+}
+
+.nav-tabs li.active a,
+.nav-tabs .tabs-nav li.active a {
+  background-color: #fff;
+  border: solid 1px #bfc1c3;
+  border-bottom: solid 6px #fff;
+  color: #0b0c0c;
+  position: relative;
+  text-decoration: none;
+  z-index: 5;
+  margin-bottom: -2px;
+  height: 2.5em;
+  line-height: 2.25em;
+  padding: 0.5em 2em 0 2em;
+}
+
+@media (max-width: 640px) {
+  .nav-tabs li.active a,
+  .nav-tabs .tabs-nav li.active a {
+    border: none;
+    border-bottom: 1px solid #bfc1c3;
+  }
+}
+
+.nav-tabs li.active a:hover,
+.nav-tabs .tabs-nav li.active a:hover {
+  color: inherit;
+}
+
+.nav-tabs li:first-child a,
+.nav-tabs .tabs-nav li:first-child a {
+  margin-left: 0;
+}
+
+@media (max-width: 640px) {
+  .nav-tabs li:first-child a,
+  .nav-tabs .tabs-nav li:first-child a {
+    border-left: none;
+    border-top: 1px solid #bfc1c3;
+  }
+}
+
+@media (max-width: 640px) {
+  .tab-content {
+    margin: 0 -1em;
+  }
+}
+
+.tab-content .tab-pane {
+  padding: 1em 1em 0 0;
+  border-top: solid 1px #bfc1c3;
+  clear: both;
+  width: auto;
+}
+
+@media (max-width: 640px) {
+  .tab-content .tab-pane {
+    border-top: none;
+    padding: 0;
+  }
+}
+
+.tab-content .inner {
+  padding: 0em 2.5em 1em;
+}
+
+@media (max-width: 640px) {
+  .tab-content .inner {
+    padding: 0 1em 1em;
+    border-bottom: solid 1px #c9d0d0;
+  }
+}
+
+.tab-content h1.visuallyhidden + h2 {
+  margin-top: 2em;
+}
+
+.tab-content p {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tab-content em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.tab-content nav {
+  margin: 1em -1.375em 0;
+}
+
+.js-tab-content .programme-progression li,
+.js-tab-content .js-heading-tab {
+  border-bottom: solid 1px #bfc1c3;
+  list-style: none;
+}
+
+.js-tab-content .programme-progression li a,
+.js-tab-content .programme-progression li h1,
+.js-tab-content .js-heading-tab a,
+.js-tab-content .js-heading-tab h1 {
+  font-family: 'nta', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 2.64706;
+  font-weight: 400;
+  text-transform: none;
+  background: #fff url(https://assets.digital.cabinet-office.gov.uk/static/accordian-arrow-0753eda0cd8d71b5d9b5053abf172100c03b94b49e7f24d82e0f6551302a0aca.png) no-repeat 100% -2px;
+  display: block;
+  padding: 0 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: underline;
+  top: 0;
+}
+
+@media (min-width: 641px) {
+  .js-tab-content .programme-progression li a,
+  .js-tab-content .programme-progression li h1,
+  .js-tab-content .js-heading-tab a,
+  .js-tab-content .js-heading-tab h1 {
+    font-size: 24px;
+    line-height: 1.875;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .js-tab-content .programme-progression li a,
+  .js-tab-content .programme-progression li h1,
+  .js-tab-content .js-heading-tab a,
+  .js-tab-content .js-heading-tab h1 {
+    background-image: url(https://assets.digital.cabinet-office.gov.uk/static/accordian-arrow-2x-2b998c05ceb1dadeb373b9aff059470cd6ae4557f5d768020531e1616c0e170d.png);
+    background-size: 45px 90px;
+  }
+}
+
+.js-tab-content .programme-progression li a:hover,
+.js-tab-content .programme-progression li h1:hover,
+.js-tab-content .js-heading-tab a:hover,
+.js-tab-content .js-heading-tab h1:hover {
+  background-color: #dee0e2;
+}
+
+.js-tab-content .programme-progression li.active,
+.js-tab-content .js-heading-tab.active {
+  text-decoration: none;
+}
+
+.js-tab-content .programme-progression li.active a,
+.js-tab-content .programme-progression li.active h1,
+.js-tab-content .js-heading-tab.active a,
+.js-tab-content .js-heading-tab.active h1 {
+  background-position: 100% -48px;
+  background-color: #dee0e2;
+  color: #0b0c0c;
+  text-decoration: none;
+}
+
+.js-tab-content .js-heading-tab {
+  margin: 0;
+  clear: both;
+}
+
+.js-tab-content .js-heading-tab h1 {
+  padding: 0;
+}
+
+.js-tab-content .tab-shiftlink {
+  font-family: 'nta', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  position: absolute;
+  left: -9999em;
+}
+
+@media (min-width: 641px) {
+  .js-tab-content .tab-shiftlink {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+
+@media (max-width: 640px) {
+  .js-tab-content .tab-shiftlink {
+    position: static;
+    left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .js-tab-content .js-tab-container {
+    min-height: 0;
+  }
+  .js-tab-content .js-tab-pane {
+    border-bottom: solid 1px #bfc1c3;
+  }
+  .js-tab-content .js-tab-container:first-child {
+    border-top: solid 1px #bfc1c3;
+  }
+}
+
+.transaction .js-tab-content {
+  overflow: hidden;
+}
+
+
+
+.tabs-menu {
+  height: 33px;
+  margin-top: 0px;
+  margin-bottom: 18px;
+  margin-left: 20px;
+  float: left;
+}
+
+.tabs-menu li {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  text-align: center;
+  margin-right: 5px;
+  color: #000;
+  background-color: #dee0e2;
+  border-top: 1px solid #d4d4d1;
+  border-right: 1px solid #d4d4d1;
+  border-left: 1px solid #d4d4d1;
+}
+
+.tabs-menu li.current {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  z-index: 5;
+}
+
+.tabs-menu li a {
+  padding: 15px;
+  margin-top: 0px;
+  color: #005ea5;
+  text-decoration: none;
+}
+
+.tabs-menu .current a {
+  color: #000;
+}
+
+.tabs-menu li a:focus {
+  background: none;
+  border: 0;
+  outline: 0;
+}
+
+
+////
+
+.topBlueThing {
+	 border-top-color: #005ea5;
+    border-top-style: solid;
+    border-top-width: 10px;
+    margin-top:25px;
+}
+
+.info-highlighted {
+    max-width: 66%;
+    background: mix(white,	#2e358b,90%);
+    border: none;
+    border-left: solid 10px 	#2e358b;
+}            
+
+
+
 .button-grey-secondary {
   background-color: #eee !important;
   color: #000 !important;

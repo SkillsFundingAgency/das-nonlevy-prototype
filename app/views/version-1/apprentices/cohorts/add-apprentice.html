@@ -1,7 +1,11 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
-
-
-<a href="/accounts/{{employer.id}}/apprentices/cohorts/{{cohort.reference}}" class="govuk-back-link">Back to cohort</a>
+{% extends "layout.html" %} {% block beforeContent %}
+ {% from "back-link/macro.njk" import govukBackLink %} 
+ {{ govukBackLink({ text: "Back to cohort", href: "draft-cohort" }) }}
+  {% endblock %} 
+  {% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
 
 <h1 class="govuk-heading-xl">Add apprentice details</h1>
 
@@ -15,15 +19,15 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form method="POST">
+        <form method="get" action="./draft-cohort">
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
             <div class="govuk-form-group">
                 <label class="govuk-label" for="FirstName">First name</label>
-                <input class="govuk-input" id="firstName" name="FirstName" type="text" />
+                <input class="govuk-input" id="firstName" name="FirstName" type="text" value=""/>
             </div>
             <div class="govuk-form-group">
                 <label class="govuk-label" for="LastName">Last name</label>
-                <input class="govuk-input" id="LastName" name="LastName" type="text" />
+                <input class="govuk-input" id="LastName" name="LastName" type="text" value="" />
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
@@ -43,7 +47,7 @@
                                     Day
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="dob-day" name="dob-day" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
 
@@ -53,7 +57,7 @@
                                     Month
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="dob-month" name="dob-month" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
 
@@ -63,7 +67,7 @@
                                     Year
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="dob-year" name="dob-year" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
                     </div>
@@ -95,7 +99,7 @@
                         <option value="274">
                             Abattoir Worker, Level: 2 (Standard)
                         </option>
-                        <option value="34">
+                        <option value="34" >
                             Able seafarer (deck), Level: 2 (Standard)
                         </option>
                         <option value="272">
@@ -2671,11 +2675,11 @@
                     <div class="govuk-date-input" id="start">
                         <div class="govuk-date-input__item">
                             <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="start-month">
+                                <label class="govuk-label govuk-date-input__label" for="start-month" >
                                     Month
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="start-month" name="start-month" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
 
@@ -2685,7 +2689,7 @@
                                     Year
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="start-year" name="start-year" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
                     </div>
@@ -2706,7 +2710,7 @@
                                     Month
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="finish-month" name="finish-month" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
 
@@ -2716,7 +2720,7 @@
                                     Year
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="finish-year" name="finish-year" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="">
                             </div>
                         </div>
                     </div>
@@ -2732,7 +2736,7 @@
                 <span id="price-hint" class="govuk-hint">
                     Enter the price, including any end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500
                 </span>
-                <input class="govuk-input" id="price" name="price" type="text" aria-describedby="price-hint" placeholder="£" />
+                <input class="govuk-input govuk-input--width-10" id="price" name="price" type="text" aria-describedby="price-hint" placeholder="£" value="" />
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
@@ -2750,10 +2754,14 @@
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
 
             <button type="submit" class="govuk-button">Add</button>
-            <br />
-            <a href="../{{ cohort.reference }}">Cancel</a>
+     
+            <a  class="govuk-button clear-button" href="draft-cohort" >Cancel and return</a>
 
         </form>
     </div>
 </div>
+</div>
+</main>
+</div>
+
 {% endblock %}

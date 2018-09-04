@@ -269,6 +269,149 @@ router.get('/version-1/apprentices/add/addingApprentices' , function (req, res) 
 })
 
 /// Add apprentices > add apprentices yourself or send to provider
+router.get('/version-1/apprentices/cohorts/editFinishedApprentice' , function (req, res) {
+  var appCohortFinishedOption = req.query.appCohortFinishedOption
+       switch (true) {
+          case  (appCohortFinishedOption == 'approve'):
+            res.redirect(`/${req.version}/apprentices/cohorts/message-for-training-provider`)
+           break;
+
+          case  (appCohortFinishedOption == 'send'):
+              res.redirect(`/${req.version}/apprentices/cohorts/message-for-training-provider`)
+          break;
+
+          case  (appCohortFinishedOption == 'save'):
+              res.redirect(`/${req.version}/apprentices/cohorts`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+
+
+/// Change apprentices status > 
+router.get('/version-1/apprentices/manage/appsChangeStatusRobEdwards' , function (req, res) {
+  var status = req.query.status
+       switch (true) {
+          case  (status == 'Paused'):
+            res.redirect(`/${req.version}/apprentices/manage/confirmPaused`)
+           break;
+
+          case  (status == 'Stopped'):
+              res.redirect(`/${req.version}/apprentices/manage/confirmStopped`)
+          break;
+
+          case  (status == 'Return'):
+              res.redirect(`/${req.version}/apprentices/manage/robEdwardsLive`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+
+/// Forecast > Delete an apprenticeship you are forecasting against
+router.get('/version-1/finance/projection/deleteForecastApprenticeship' , function (req, res) {
+  var confirm = req.query.confirm
+       switch (true) {
+          case  (confirm == 'yes'):
+            res.redirect(`/${req.version}/finance/projection/appRemoved`)
+           break;
+
+          case  (confirm == 'no'):
+              res.redirect(`/${req.version}/finance/projection/canFund`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+/// Provider > Confirming an employer
+router.get('/version-1/provider/proCohorts/providerAgreedTraining' , function (req, res) {
+  var confirmEmployer = req.query.confirmEmployer
+       switch (true) {
+          case  (confirmEmployer == 'true'):
+            res.redirect(`/${req.version}/provider/proCohorts/employerConnection`)
+           break;
+
+          case  (confirmEmployer == 'false'):
+              res.redirect(`/${req.version}/finance/projection/NOTSUREYET`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+/// Provider > Connected company check
+router.get('/version-1/provider/proCohorts/employerConnectedCompany' , function (req, res) {
+  var connectedCompany = req.query.connectedCompany
+       switch (true) {
+          case  (connectedCompany == 'true'):
+            res.redirect(`/${req.version}/provider/proCohorts/cohortView`)
+           break;
+
+          case  (connectedCompany == 'false'):
+              res.redirect(`/${req.version}/finance/projection/NOTSUREYET`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+/// Provider > Delete apprentice record
+router.get('/version-1/provider/proCohorts/providerDeleteApprentice' , function (req, res) {
+  var deleteApp = req.query.deleteApp
+       switch (true) {
+          case  (deleteApp == 'true'):
+            res.redirect(`/${req.version}/provider/proCohorts/cohortView`)
+           break;
+
+          case  (deleteApp == 'false'):
+              res.redirect(`/${req.version}/provider/proCohorts//edit-apprentice`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+
+/// Provider > Finished > send to employer
+router.get('/version-1/provider/proCohorts/providerFinishedApprentice' , function (req, res) {
+  var appCohortFinishedOption = req.query.appCohortFinishedOption
+       switch (true) {
+          case  (appCohortFinishedOption == 'approve'):
+            res.redirect(`/${req.version}/provider/proCohorts/messageEmployers`)
+           break;
+
+          case  (appCohortFinishedOption == 'send'):
+              res.redirect(`/${req.version}/provider/proCohorts/messageEmployers`)
+          break;
+
+           case  (appCohortFinishedOption == 'save'):
+              res.redirect(`/${req.version}/provider/proCohorts`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+
+/// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
    //    switch (true) {

@@ -1,9 +1,11 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+{% extends "layout.html" %} 
 
-<div class="govuk-grid-row">
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-thirds">
-        <a href="/accounts/{{employer.id}}/apprentices/cohorts/{{cohort.reference}}" class="govuk-back-link">Back to cohort</a>
-
         <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
                 Cohort sent to your training provider
@@ -18,15 +20,15 @@
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
                     <th class="govuk-table__cell" scope="row">Cohort reference</th>
-                    <td class="govuk-table__cell">{{ cohort.reference }}</td>
+                    <td class="govuk-table__cell">{{ cohort.reference }}VXBRG</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <th class="govuk-table__cell" scope="row">Sent to</th>
-                    <td class="govuk-table__cell">{{ cohort.training_provider.name }}</td>
+                    <td class="govuk-table__cell">{{ cohort.training_provider.name }}AQ Training</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <th class="govuk-table__cell" scope="row">On behalf of</th>
-                    <td class="govuk-table__cell">Nice Employer</td>
+                    <td class="govuk-table__cell">; DROP TABLE "COMPANIES";-- LTD</td>
                 </tr>
                 <tr class="govuk-table__row">
                     <th class="govuk-table__cell" scope="row">Message</th>
@@ -39,8 +41,11 @@
         <p class="govuk-body">
             Your training provider will review your cohort and either confirm the information is correct or contact you to suggest changes.            
         </p>
-        <a href="/accounts/{{employer.id}}/apprentices/cohorts">Go back to view cohorts</a>
+        <a href="./">Go back to view cohorts</a>
     </div>
 </div>
+</main>
+</div>
+
 
 {% endblock %}

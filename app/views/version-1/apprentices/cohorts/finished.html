@@ -1,27 +1,32 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back to cohort", href: "draft-cohort" }) }} 
+{% endblock %} 
+{% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <a href="/accounts/{{employer.id}}/apprentices/cohorts/{{cohort.reference}}" class="govuk-back-link">Back to cohort</a>
-
         <h1 class="govuk-heading-xl">
             Choose an option
         </h1>
 
-        <form method="POST">
+        <form method="get" action="editFinishedApprentice">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="option-approve" name="option" type="radio" value="approve">
+                            <input class="govuk-radios__input" id="option-approve" name="appCohortFinishedOption" type="radio" value="approve" checked>
                             <label class="govuk-label govuk-radios__label" for="option-approve">Approve and send to training provider</label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="option-send" name="option" type="radio" value="send">
+                            <input class="govuk-radios__input" id="option-send" name="appCohortFinishedOption" type="radio" value="send">
                             <label class="govuk-label govuk-radios__label" for="option-send">Send to training provider to review or add details</label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="option-save" name="option" type="radio" value="save">
+                            <input class="govuk-radios__input" id="option-save" name="appCohortFinishedOption" type="radio" value="save">
                             <label class="govuk-label govuk-radios__label" for="option-save">Save but don't send to training provider</label>
                         </div>
                     </div>
@@ -32,6 +37,8 @@
             </button>
         </form>
     </div>
+</div>
+</main>
 </div>
 
 {% endblock %}

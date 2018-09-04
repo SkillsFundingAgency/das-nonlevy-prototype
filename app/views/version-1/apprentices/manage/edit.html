@@ -1,20 +1,27 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back to Rob Edwards", href: "robEdwardsLive" }) }} 
+{% endblock %} 
+{% block content %}
 
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <a href="../{{apprentice.id}}" class="govuk-back-link">Back to {{ apprentice.name }}</a>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
 
-        <form method="POST">
+
+        <form method="get" action="robEdwardsLive">
             <h1 class="govuk-heading-xl">Edit apprentice details</h1>
             <div class="govuk-form-group">
-                <label class="govuk-label" for="FirstName">
+                <label class="govuk-label   govuk-label--s" for="FirstName">
                     First Name
                 </label>
                 <input class="govuk-input" id="FirstName" name="FirstName" type="text" aria-describedby="FirstName-hint" value="{{ data['FirstName'] }}"
                 />
             </div>
             <div class="govuk-form-group">
-                <label class="govuk-label" for="LastName">
+                <label class="govuk-label   govuk-label--s" for="LastName">
                     Last Name
                 </label>
                 <input class="govuk-input" id="LastName" name="LastName" type="text" aria-describedby="LastName-hint" value="{{ data['LastName'] }}"
@@ -23,7 +30,7 @@
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-            <div class="govuk-form-group">
+            <div class="govuk-form-group ">
                 <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                         <h1 class="govuk-fieldset__heading">
@@ -40,7 +47,7 @@
                                 <label class="govuk-label govuk-date-input__label" for="dob-day">
                                     Day
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="dob-day" name="dob-day" type="number" pattern="[0-9]*" value="1">
                             </div>
                         </div>
 
@@ -49,7 +56,7 @@
                                 <label class="govuk-label govuk-date-input__label" for="dob-month">
                                     Month
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="dob-month" name="dob-month" type="number" pattern="[0-9]*" value="1">
                             </div>
                         </div>
 
@@ -58,7 +65,7 @@
                                 <label class="govuk-label govuk-date-input__label" for="dob-year">
                                     Year
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 " id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 " id="dob-year" name="dob-year" type="number" pattern="[0-9]*" value="2000">
                             </div>
                         </div>
                     </div>
@@ -68,16 +75,16 @@
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
             <div class="govuk-form-group">
-                <label class="govuk-label">
+                <label class="govuk-label   govuk-label--s">
                     Unique learner number
                 </label>
-                <p class="govuk-body">{{ data["unique_learner_number"] }}</p>
+                <p class="govuk-body">9021090210</p>
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
             <div class="govuk-form-group">
-                <label class="govuk-label" for="training_course">
+                <label class="govuk-label   govuk-label--s" for="training_course">
                     Apprenticeship training course
                 </label>
                 <span id="training_course_hint" class="govuk-hint">
@@ -100,7 +107,7 @@
                     <option value="204">
                         Accountancy Taxation Professional, Level: 7 (Standard)
                     </option>
-                    <option value="454-3-1">
+                    <option value="454-3-1" selected>
                         Accounting, Level: 2
                     </option>
                     <option value="454-2-1">
@@ -2671,7 +2678,7 @@
                                     Month
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="start-date-month" name="start-date-month" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="8">
                             </div>
                         </div>
 
@@ -2681,7 +2688,7 @@
                                     Year
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-4 " id="start-date-year" name="start-date-year" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="2018">
                             </div>
                         </div>
                     </div>
@@ -2704,7 +2711,7 @@
                                     Month
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="end-date-month" name="end-date-month" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="01">
                             </div>
                         </div>
 
@@ -2714,7 +2721,7 @@
                                     Year
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-4 " id="end-date-year" name="end-date-year" type="number"
-                                    pattern="[0-9]*">
+                                    pattern="[0-9]*" value="2020">
                             </div>
                         </div>
                     </div>
@@ -2724,19 +2731,19 @@
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
             <div class="govuk-form-group">
-                <label class="govuk-label" for="price">
+                <label class="govuk-label   govuk-label--s" for="price">
                     Total agreed apprenticeship price (excluding VAT)
                 </label>
                 <span id="price-hint" class="govuk-hint">
                     Enter the price, including any end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500
                 </span>
-                <input class="govuk-input" id="price" name="price" type="text" aria-describedby="price-hint" placeholder="£" />
+                <input class="govuk-input govuk-input--width-10" id="price" name="price" type="text" aria-describedby="price-hint" placeholder="£" / value="9,000">
             </div>
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
             <div class="govuk-form-group">
-                <label class="govuk-label" for="reference">
+                <label class="govuk-label   govuk-label--s" for="reference">
                     Reference (optional)
                 </label>
                 <span id="reference-hint" class="govuk-hint">
@@ -2747,11 +2754,14 @@
 
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
 
-            <button type="submit" class="govuk-button">
-                Update Details
-            </button>
+            <button type="submit" class="govuk-button"> Update Details </button>
+              <a  class="govuk-button clear-button" href="robEdwardsLive" >Cancel and return</a>
         </form>
     </div>
 </div>
+</main>
+</div>
+
+
 
 {% endblock %}

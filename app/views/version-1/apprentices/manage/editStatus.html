@@ -1,10 +1,15 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %} {% block content %}
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back to Rob Edwards", href: "robEdwardsLive" }) }} 
+{% endblock %} 
+{% block content %}
 
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <a href="../{{apprentice.id}}" class="govuk-back-link">Back to {{ apprentice.name }}</a>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
 
-        <form method="POST">
+        <form method="get" action="appsChangeStatusRobEdwards">
             <h1 class="govuk-heading-xl">Change apprentice status</h1>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
@@ -15,12 +20,12 @@
                     </legend>
                     <div class="govuk-radios">
                         {% if apprentice.status != 'Live' %}
-                        <div class="govuk-radios__item">
+                        <!--div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="status-live" name="status" type="radio" value="Live">
-                            <label class="govuk-label govuk-radios__label" for="status-live">
+                            <label class="govuk-label govuk-radios__label" for="status-live" checked>
                                 Resume
                             </label>
-                        </div>
+                        </div-->
                         {% endif %} {% if apprentice.status != 'Paused' %}
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="status-pause" name="status" type="radio" value="Paused">
@@ -37,8 +42,8 @@
                         </div>
                         {% endif %}
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="status-none" name="status" type="radio" value="-1">
-                            <label class="govuk-label govuk-radios__label" for="status-none">
+                            <input class="govuk-radios__input" id="status-none" name="status" type="radio" value="Return" checked>
+                            <label class="govuk-label govuk-radios__label" for="status-none" >
                                 Don't change the status
                             </label>
                         </div>
