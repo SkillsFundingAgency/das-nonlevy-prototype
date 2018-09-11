@@ -64,15 +64,8 @@ router.param('employer', function (req, res, next, employer) {
   next();
 });
 
-// Employer
-// router.get('/version-1/:employer', function (req, res) {
- // res.render('version-1/home/index');
-// })
-
-
 
 ///// End of employers ID stuff
-
 
 // routing the app 
 /// This is just a test version.
@@ -88,6 +81,158 @@ router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
     res.render(`${req.version}/manage-apprenticeships/branch1`)
   }
 })
+
+
+
+// Employer > Nav > Home
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/homeNav', function (req, res) {
+  res.redirect(`/${req.version}/home`)
+ })
+
+  router.get('/version-1/*/homeNav', function (req, res) {
+  res.redirect(`/${req.version}/home`)
+ })
+
+ // Employer > Nav > Finance
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/financeNav', function (req, res) {
+  res.redirect(`/${req.version}/finance`)
+ })
+
+  router.get('/version-1/*/financeNav', function (req, res) {
+  res.redirect(`/${req.version}/finance`)
+ })
+
+   // Employer > Nav > Apprentices
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/apprenticesNav', function (req, res) {
+  res.redirect(`/${req.version}/apprentices`)
+ })
+
+  router.get('/version-1/*/apprenticesNav', function (req, res) {
+  res.redirect(`/${req.version}/apprentices`)
+ })
+
+   // Employer > Nav > Team
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/teamNav', function (req, res) {
+  res.redirect(`/${req.version}/team`)
+ })
+
+  router.get('/version-1/*/teamNav', function (req, res) {
+  res.redirect(`/${req.version}/team`)
+ })
+
+// Employer > Nav > Orgs
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/orgsNav', function (req, res) {
+  res.redirect(`/${req.version}/orgs`)
+ })
+
+  router.get('/version-1/*/orgsNav', function (req, res) {
+  res.redirect(`/${req.version}/orgs`)
+ })
+
+// Employer > Nav > PAYE
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/payeNav', function (req, res) {
+  res.redirect(`/${req.version}/paye`)
+ })
+
+  router.get('/version-1/*/payeNav', function (req, res) {
+  res.redirect(`/${req.version}/paye`)
+ })
+
+  // Employer > Nav > Help
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/helpNav', function (req, res) {
+  res.redirect(`/${req.version}/help`)
+ })
+
+  router.get('/version-1/*/helpNav', function (req, res) {
+  res.redirect(`/${req.version}/help`)
+ })
+
+    // Employer > Nav > Settings
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/settingsNav', function (req, res) {
+  res.redirect(`/${req.version}/settings`)
+ })
+
+  router.get('/version-1/*/settingsNav', function (req, res) {
+  res.redirect(`/${req.version}/settings`)
+ })
+
+
+////// End employer nav routes
+
+/////Provider nav routes
+
+
+// Provider > Nav > Home
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/proHomeNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/home`)
+ })
+
+  router.get('/version-1/*/proHomeNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/home`)
+ })
+
+
+// Provider > Nav > Manage
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/proApprenticesNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/manage`)
+ })
+
+  router.get('/version-1/*/proApprenticesNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/manage`)
+ })
+
+
+
+// Provider > Nav > Cohorts
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/proCohortsNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/proCohorts`)
+ })
+
+  router.get('/version-1/*/proCohortsNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/proCohorts`)
+ })
+
+  // Provider > Nav > Agreement IDs
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/proAgreementNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/orgsAndAgree`)
+ })
+
+  router.get('/version-1/*/proAgreementNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/orgsAndAgree`)
+ })
+
+
+
+
+
+
+////End provider nav routes
+
+
+    // Employer > Nav > Sign Out
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/version-1/signoutNav', function (req, res) {
+  res.redirect(`/${req.version}/signout`)
+ })
+
+  router.get('/version-1/*/signoutNav', function (req, res) {
+  res.redirect(`/${req.version}/signout`)
+ })
+
+////// end of nav routing
+
 
 /// registration > used service before?
 router.get('/version-1/manage-apprenticeships/signin' , function (req, res) {
@@ -125,6 +270,11 @@ router.use(function(req, res, next) {
       }
     });
 
+
+// Nav home
+//router.get('/version-1/arse', function (req, res) {
+ // res.render(`/${req.version}/home/index`);
+ //})
 
 
 /// team > added new team member where to
@@ -342,7 +492,7 @@ router.get('/version-1/provider/proCohorts/providerAgreedTraining' , function (r
            break;
 
           case  (confirmEmployer == 'false'):
-              res.redirect(`/${req.version}/finance/projection/NOTSUREYET`)
+              res.redirect(`/${req.version}/provider/proCohorts/holdingPage`)
           break;
 
         default:
@@ -360,7 +510,7 @@ router.get('/version-1/provider/proCohorts/employerConnectedCompany' , function 
            break;
 
           case  (connectedCompany == 'false'):
-              res.redirect(`/${req.version}/finance/projection/NOTSUREYET`)
+              res.redirect(`/${req.version}/provider/proCohorts/holdingPage`)
           break;
 
         default:
@@ -378,7 +528,7 @@ router.get('/version-1/provider/proCohorts/providerDeleteApprentice' , function 
            break;
 
           case  (deleteApp == 'false'):
-              res.redirect(`/${req.version}/provider/proCohorts//edit-apprentice`)
+              res.redirect(`/${req.version}/provider/proCohorts/edit-apprentice`)
           break;
 
         default:
@@ -409,6 +559,27 @@ router.get('/version-1/provider/proCohorts/providerFinishedApprentice' , functio
             break;
         }
 })
+
+/// Provider > Delete cohort
+router.get('/version-1/provider/proCohorts/providerDeleteCohort' , function (req, res) {
+  var deleteCohort = req.query.deleteCohort
+       switch (true) {
+          case  (deleteCohort == 'true'):
+            res.redirect(`/${req.version}/provider/proCohorts`)
+           break;
+
+          case  (deleteCohort == 'false'):
+              res.redirect(`/${req.version}/provider/proCohorts/cohortView`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
+
+
 
 
 /// Add apprentices > add apprentices yourself or send to provider
