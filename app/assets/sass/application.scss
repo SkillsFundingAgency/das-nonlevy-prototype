@@ -951,6 +951,12 @@ ul.hidden-links li:first-child  {
 
 /////
 
+
+.task-name, .app-task-list__task-name {
+	font-size:19px !important;
+	width:66%;
+}
+
 .topBlueThing {
 	 border-top-color: #005ea5;
     border-top-style: solid;
@@ -1504,6 +1510,10 @@ nav {
 
 .teamEmail {
   color: #6f777b;
+}
+
+.reserveLevel {
+	color:#6f777b;
 }
 
 

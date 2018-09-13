@@ -579,6 +579,24 @@ router.get('/version-1/provider/proCohorts/providerDeleteCohort' , function (req
 })
 
 
+/// Employer > Reserve funding > used saved?
+router.get('/*/finance/reserve/reserveSavedApprenticeship' , function (req, res) {
+  var confirm = req.query.confirm
+       switch (true) {
+          case  (confirm == 'yes'):
+            res.redirect(`/${req.version}/finance/reserve/chooseApp`)
+           break;
+
+          case  (confirm == 'no'):
+              res.redirect(`/${req.version}/find`)
+          break;
+
+        default:
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
+})
+
 
 
 
