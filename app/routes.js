@@ -68,99 +68,99 @@ router.param('employer', function (req, res, next, employer) {
 ///// End of employers ID stuff
 
 // routing the app 
-/// This is just a test version.
-router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
-  // Get the answer from the query string (eg. ?over18=false)
-  var over18 = req.query.over18
+// /// This is just a test version.
+// router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
+//   // Get the answer from the query string (eg. ?over18=false)
+//   var over18 = req.query.over18
 
-  if (over18 === 'false') {
-    // Redirect to the relevant page
-    res.redirect(`/${req.version}/manage-apprenticeships/branch2`)
-  } else {
-    // If over18 is any other value (or is missing) render the page requested
-    res.render(`${req.version}/manage-apprenticeships/branch1`)
-  }
-})
+//   if (over18 === 'false') {
+//     // Redirect to the relevant page
+//     res.redirect(`/${req.version}/manage-apprenticeships/branch2`)
+//   } else {
+//     // If over18 is any other value (or is missing) render the page requested
+//     res.render(`${req.version}/manage-apprenticeships/branch1`)
+//   }
+// })
 
 
 
 // Employer > Nav > Home
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/homeNav', function (req, res) {
+ router.get('/*/homeNav', function (req, res) {
   res.redirect(`/${req.version}/home`)
  })
 
-  router.get('/version-1/*/homeNav', function (req, res) {
+  router.get('/*/*/homeNav', function (req, res) {
   res.redirect(`/${req.version}/home`)
  })
 
  // Employer > Nav > Finance
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/financeNav', function (req, res) {
+ router.get('/*/financeNav', function (req, res) {
   res.redirect(`/${req.version}/finance`)
  })
 
-  router.get('/version-1/*/financeNav', function (req, res) {
+  router.get('/*/*/financeNav', function (req, res) {
   res.redirect(`/${req.version}/finance`)
  })
 
    // Employer > Nav > Apprentices
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/apprenticesNav', function (req, res) {
+ router.get('/*/apprenticesNav', function (req, res) {
   res.redirect(`/${req.version}/apprentices`)
  })
 
-  router.get('/version-1/*/apprenticesNav', function (req, res) {
+  router.get('/*/*/apprenticesNav', function (req, res) {
   res.redirect(`/${req.version}/apprentices`)
  })
 
    // Employer > Nav > Team
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/teamNav', function (req, res) {
+ router.get('/*/teamNav', function (req, res) {
   res.redirect(`/${req.version}/team`)
  })
 
-  router.get('/version-1/*/teamNav', function (req, res) {
+  router.get('/*/*/teamNav', function (req, res) {
   res.redirect(`/${req.version}/team`)
  })
 
 // Employer > Nav > Orgs
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/orgsNav', function (req, res) {
+ router.get('/*/orgsNav', function (req, res) {
   res.redirect(`/${req.version}/orgs`)
  })
 
-  router.get('/version-1/*/orgsNav', function (req, res) {
+  router.get('/*/*/orgsNav', function (req, res) {
   res.redirect(`/${req.version}/orgs`)
  })
 
 // Employer > Nav > PAYE
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/payeNav', function (req, res) {
+ router.get('/*/payeNav', function (req, res) {
   res.redirect(`/${req.version}/paye`)
  })
 
-  router.get('/version-1/*/payeNav', function (req, res) {
+  router.get('/*/*/payeNav', function (req, res) {
   res.redirect(`/${req.version}/paye`)
  })
 
   // Employer > Nav > Help
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/helpNav', function (req, res) {
+ router.get('/*/helpNav', function (req, res) {
   res.redirect(`/${req.version}/help`)
  })
 
-  router.get('/version-1/*/helpNav', function (req, res) {
+  router.get('/*/*/helpNav', function (req, res) {
   res.redirect(`/${req.version}/help`)
  })
 
     // Employer > Nav > Settings
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/settingsNav', function (req, res) {
+ router.get('/*/settingsNav', function (req, res) {
   res.redirect(`/${req.version}/settings`)
  })
 
-  router.get('/version-1/*/settingsNav', function (req, res) {
+  router.get('/*/*/settingsNav', function (req, res) {
   res.redirect(`/${req.version}/settings`)
  })
 
@@ -172,22 +172,22 @@ router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
 
 // Provider > Nav > Home
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/proHomeNav', function (req, res) {
+ router.get('/*/proHomeNav', function (req, res) {
   res.redirect(`/${req.version}/provider/home`)
  })
 
-  router.get('/version-1/*/proHomeNav', function (req, res) {
+  router.get('/*/*/proHomeNav', function (req, res) {
   res.redirect(`/${req.version}/provider/home`)
  })
 
 
 // Provider > Nav > Manage
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/proApprenticesNav', function (req, res) {
+ router.get('/*/proApprenticesNav', function (req, res) {
   res.redirect(`/${req.version}/provider/manage`)
  })
 
-  router.get('/version-1/*/proApprenticesNav', function (req, res) {
+  router.get('/*/*/proApprenticesNav', function (req, res) {
   res.redirect(`/${req.version}/provider/manage`)
  })
 
@@ -195,21 +195,21 @@ router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
 
 // Provider > Nav > Cohorts
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/proCohortsNav', function (req, res) {
+ router.get('/*/proCohortsNav', function (req, res) {
   res.redirect(`/${req.version}/provider/proCohorts`)
  })
 
-  router.get('/version-1/*/proCohortsNav', function (req, res) {
+  router.get('/*/*/proCohortsNav', function (req, res) {
   res.redirect(`/${req.version}/provider/proCohorts`)
  })
 
   // Provider > Nav > Agreement IDs
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/proAgreementNav', function (req, res) {
+ router.get('/*/proAgreementNav', function (req, res) {
   res.redirect(`/${req.version}/provider/orgsAndAgree`)
  })
 
-  router.get('/version-1/*/proAgreementNav', function (req, res) {
+  router.get('/*/*/proAgreementNav', function (req, res) {
   res.redirect(`/${req.version}/provider/orgsAndAgree`)
  })
 
@@ -223,11 +223,11 @@ router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
 
     // Employer > Nav > Sign Out
 // bit hacky but works - needs two routes for top level and lower down the chain
- router.get('/version-1/signoutNav', function (req, res) {
+ router.get('/*/signoutNav', function (req, res) {
   res.redirect(`/${req.version}/signout`)
  })
 
-  router.get('/version-1/*/signoutNav', function (req, res) {
+  router.get('/*/*/signoutNav', function (req, res) {
   res.redirect(`/${req.version}/signout`)
  })
 
@@ -235,7 +235,7 @@ router.get('/version-1/manage-apprenticeships/branch1' , function (req, res) {
 
 
 /// registration > used service before?
-router.get('/version-1/manage-apprenticeships/signin' , function (req, res) {
+router.get('/*/manage-apprenticeships/signin' , function (req, res) {
   var usedService = req.query.usedService
   if (usedService === 'false') {
     res.redirect(`/${req.version}/manage-apprenticeships/whatyoullneed`)
@@ -278,7 +278,7 @@ router.use(function(req, res, next) {
 
 
 /// team > added new team member where to
-router.get('/version-1/team/whatsNextTeam' , function (req, res) {
+router.get('/*/team/whatsNextTeam' , function (req, res) {
   var teamWhatsNext = req.query.teamwhatsnext
        switch (true) {
           case  (teamWhatsNext == 'another'):
@@ -298,7 +298,7 @@ router.get('/version-1/team/whatsNextTeam' , function (req, res) {
 
 
 /// orgs > whats next after adding an org
-router.get('/version-1/orgs/whatsNextOrgs' , function (req, res) {
+router.get('/*/orgs/whatsNextOrgs' , function (req, res) {
   var orgsWhatsNext = req.query.orgswhatsnext
        switch (true) {
           case  (orgsWhatsNext == 'agreement'):
@@ -321,7 +321,7 @@ router.get('/version-1/orgs/whatsNextOrgs' , function (req, res) {
 
 
 /// paye > whats next after adding an paye
-router.get('/version-1/paye/whatsNextPaye' , function (req, res) {
+router.get('/*/paye/whatsNextPaye' , function (req, res) {
   var payeWhatsNext = req.query.payeWhatsNext
        switch (true) {
           case  (payeWhatsNext == 'paye'):
@@ -344,7 +344,7 @@ router.get('/version-1/paye/whatsNextPaye' , function (req, res) {
 
 
 /// paye > whats next after removing a paye
-router.get('/version-1/paye/payeRemove' , function (req, res) {
+router.get('/*/paye/payeRemove' , function (req, res) {
   var removePaye = req.query.removePaye
        switch (true) {
           case  (removePaye == 'true'):
@@ -362,7 +362,7 @@ router.get('/version-1/paye/payeRemove' , function (req, res) {
 })
 
 /// paye > whats next after removing a paye
-router.get('/version-1/find/chooseFATType' , function (req, res) {
+router.get('/*/find/chooseFATType' , function (req, res) {
   var fatType = req.query.fatType
        switch (true) {
           case  (fatType == 'apprenticeship'):
@@ -381,7 +381,7 @@ router.get('/version-1/find/chooseFATType' , function (req, res) {
 
 
 /// Add apprentices > confirm the training provider
-router.get('/version-1/apprentices/add/confirming-training-provider' , function (req, res) {
+router.get('/*/apprentices/add/confirming-training-provider' , function (req, res) {
   var confirmPro = req.query.confirmation
        switch (true) {
           case  (confirmPro == 'true'):
@@ -401,7 +401,7 @@ router.get('/version-1/apprentices/add/confirming-training-provider' , function 
 
 
 /// Add apprentices > add apprentices yourself or send to provider
-router.get('/version-1/apprentices/add/addingApprentices' , function (req, res) {
+router.get('/*/apprentices/add/addingApprentices' , function (req, res) {
   var confirmAddApps = req.query.addApprentices
        switch (true) {
           case  (confirmAddApps == 'true'):
@@ -419,7 +419,7 @@ router.get('/version-1/apprentices/add/addingApprentices' , function (req, res) 
 })
 
 /// Add apprentices > add apprentices yourself or send to provider
-router.get('/version-1/apprentices/cohorts/editFinishedApprentice' , function (req, res) {
+router.get('/*/apprentices/cohorts/editFinishedApprentice' , function (req, res) {
   var appCohortFinishedOption = req.query.appCohortFinishedOption
        switch (true) {
           case  (appCohortFinishedOption == 'approve'):
@@ -443,7 +443,7 @@ router.get('/version-1/apprentices/cohorts/editFinishedApprentice' , function (r
 
 
 /// Change apprentices status > 
-router.get('/version-1/apprentices/manage/appsChangeStatusRobEdwards' , function (req, res) {
+router.get('/*/apprentices/manage/appsChangeStatusRobEdwards' , function (req, res) {
   var status = req.query.status
        switch (true) {
           case  (status == 'Paused'):
@@ -466,7 +466,7 @@ router.get('/version-1/apprentices/manage/appsChangeStatusRobEdwards' , function
 
 
 /// Forecast > Delete an apprenticeship you are forecasting against
-router.get('/version-1/finance/projection/deleteForecastApprenticeship' , function (req, res) {
+router.get('/*/finance/projection/deleteForecastApprenticeship' , function (req, res) {
   var confirm = req.query.confirm
        switch (true) {
           case  (confirm == 'yes'):
@@ -484,7 +484,7 @@ router.get('/version-1/finance/projection/deleteForecastApprenticeship' , functi
 })
 
 /// Provider > Confirming an employer
-router.get('/version-1/provider/proCohorts/providerAgreedTraining' , function (req, res) {
+router.get('/*/provider/proCohorts/providerAgreedTraining' , function (req, res) {
   var confirmEmployer = req.query.confirmEmployer
        switch (true) {
           case  (confirmEmployer == 'true'):
@@ -502,7 +502,7 @@ router.get('/version-1/provider/proCohorts/providerAgreedTraining' , function (r
 })
 
 /// Provider > Connected company check
-router.get('/version-1/provider/proCohorts/employerConnectedCompany' , function (req, res) {
+router.get('/*/provider/proCohorts/employerConnectedCompany' , function (req, res) {
   var connectedCompany = req.query.connectedCompany
        switch (true) {
           case  (connectedCompany == 'true'):
@@ -520,7 +520,7 @@ router.get('/version-1/provider/proCohorts/employerConnectedCompany' , function 
 })
 
 /// Provider > Delete apprentice record
-router.get('/version-1/provider/proCohorts/providerDeleteApprentice' , function (req, res) {
+router.get('/*/provider/proCohorts/providerDeleteApprentice' , function (req, res) {
   var deleteApp = req.query.deleteApp
        switch (true) {
           case  (deleteApp == 'true'):
@@ -539,7 +539,7 @@ router.get('/version-1/provider/proCohorts/providerDeleteApprentice' , function 
 
 
 /// Provider > Finished > send to employer
-router.get('/version-1/provider/proCohorts/providerFinishedApprentice' , function (req, res) {
+router.get('/*/provider/proCohorts/providerFinishedApprentice' , function (req, res) {
   var appCohortFinishedOption = req.query.appCohortFinishedOption
        switch (true) {
           case  (appCohortFinishedOption == 'approve'):
@@ -561,7 +561,7 @@ router.get('/version-1/provider/proCohorts/providerFinishedApprentice' , functio
 })
 
 /// Provider > Delete cohort
-router.get('/version-1/provider/proCohorts/providerDeleteCohort' , function (req, res) {
+router.get('/*/provider/proCohorts/providerDeleteCohort' , function (req, res) {
   var deleteCohort = req.query.deleteCohort
        switch (true) {
           case  (deleteCohort == 'true'):
@@ -579,20 +579,35 @@ router.get('/version-1/provider/proCohorts/providerDeleteCohort' , function (req
 })
 
 
+// /// Employer > Reserve funding > used saved?
+// router.get('/*/finance/reserve/reserveSavedApprenticeship' , function (req, res) {
+//   var confirm = req.query.confirm
+//        switch (true) {
+//           case  (confirm == 'yes'):
+//             res.redirect(`/${req.version}/finance/reserve/chooseApp`)
+//            break;
+
+//           case  (confirm == 'no'):
+//               res.redirect(`/${req.version}/find`)
+//           break;
+
+//         default:
+//              console.log('gyahhhhhhhh, bork bork borka')
+//             break;
+//         }
+// })
+
 /// Employer > Reserve funding > used saved?
-router.get('/*/finance/reserve/reserveSavedApprenticeship' , function (req, res) {
-  var confirm = req.query.confirm
+router.get('/*/finance/reserve/reserveNumberOfApps' , function (req, res) {
+  var confirm = req.query.funding
        switch (true) {
-          case  (confirm == 'yes'):
-            res.redirect(`/${req.version}/finance/reserve/chooseApp`)
+          case  (confirm == 'Financial Services Administrator, Level 3'):
+          console.log("arese");
+            res.redirect(`/${req.version}/find/appreticeshipsearch`)
            break;
 
-          case  (confirm == 'no'):
-              res.redirect(`/${req.version}/find`)
-          break;
-
         default:
-             console.log('gyahhhhhhhh, bork bork borka')
+            res.redirect(`/${req.version}/finance/reserve/numberOfApps`)
             break;
         }
 })

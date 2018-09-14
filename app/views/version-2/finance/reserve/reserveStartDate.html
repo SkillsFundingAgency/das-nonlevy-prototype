@@ -6,7 +6,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "chooseApp"
+  href: "numberOfApps"
 }) }}
 {% endblock %}
 {% block content %}
@@ -45,16 +45,16 @@ EventUtil.addHandler(createButton, 'click', function(){
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="reserveStartDate" method="get" class="form">
+      <form action="confirmReserveFunding" method="get" class="form">
      <h1 class="govuk-heading-xl" style="">
-Number of apprentices
+Apprentice start
 
         </h1>
         <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
       <h1 class="govuk-fieldset__heading">
-        When would you like your apprentices to start
+        When would you like your apprentices to start?
       </h1>
     </legend>
 <!--     <span id="dob-hint" class="govuk-hint">
@@ -71,23 +71,24 @@ Number of apprentices
       </div> -->
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="dob-month">
+          <label class="govuk-label govuk-date-input__label" for="stard-month">
             Month
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="stard-month" name="stard-month" type="number" pattern="[0-9]*">
         </div>
       </div>
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="dob-year">
+          <label class="govuk-label govuk-date-input__label" for="stard-year">
             Year
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="stard-year" name="stard-year" type="number" pattern="[0-9]*">
         </div>
       </div>
     </div>
   </fieldset>
 </div>
+<p>Your funding will be available for upto 3 months after this date</p>
 
       <button class="govuk-button">Continue</button>
       </form>
