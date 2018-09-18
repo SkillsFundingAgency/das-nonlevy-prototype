@@ -603,11 +603,11 @@ router.get('/*/finance/reserve/reserveNumberOfApps' , function (req, res) {
        switch (true) {
           case  (confirm == 'Financial Services Administrator, Level 3'):
           console.log("arese");
-            res.redirect(`/${req.version}/find/appreticeshipsearch`)
+            res.redirect(`/${req.version}/finance/reserve/find/appreticeshipsearch`)
            break;
 
         default:
-            res.redirect(`/${req.version}/finance/reserve/numberOfApps`)
+            res.redirect(`/${req.version}/finance/reserve/reserveStartDate`)
             break;
         }
 })
