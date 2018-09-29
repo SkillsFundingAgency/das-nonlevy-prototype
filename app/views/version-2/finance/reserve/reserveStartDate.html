@@ -47,45 +47,78 @@ EventUtil.addHandler(createButton, 'click', function(){
     <div class="govuk-grid-column-two-thirds">
       <form action="numberOfApps" method="get" class="form">
      <h1 class="govuk-heading-xl" style="">Apprentice start</h1>
-        <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      <h1 class="govuk-fieldset__heading">
+
+
+<!-- <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
         When would you like your apprentices to start?
       </h1>
-    </legend>
-<!--     <span id="dob-hint" class="govuk-hint">
-      For example, 31 3 1980
-    </span> -->
-    <div class="govuk-date-input" id="dob">
-   <!--    <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="dob-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+        </legend>
+        <div class="govuk-date-input" id="">
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="stard-month">
+                        Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="stard-month" name="stard-month" type="number" pattern="[0-9]*">
+                </div>
+            </div>
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="stard-year">
+                        Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="stard-year" name="stard-year" type="number" pattern="[0-9]*">
+                </div>
+            </div>
         </div>
-      </div> -->
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="stard-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="stard-month" name="stard-month" type="number" pattern="[0-9]*">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="stard-year">
-            Year
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="stard-year" name="stard-year" type="number" pattern="[0-9]*">
-        </div>
-      </div>
-    </div>
-  </fieldset>
+    </fieldset>
 </div>
 <p>Your funding will be available for upto 3 months after this date</p>
+ -->
+<p>Apprenticeship funds can be reserved for use between the following dates.</p>
+                 <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                       Choose when your apprentice will start
+                      </h1>
+                    </legend>
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-1" name="acceptedRecruit" type="radio" value="january2019">
+                        <label class="govuk-label govuk-radios__label" for="app-1" style="padding-bottom:0" >
+                          Between 1 Jan 2019 and 31 March 2019
+                        </label>
+           
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-2" name="acceptedRecruit" type="radio" value="april2019" >
+                        <label class="govuk-label govuk-radios__label" for="app-2" style="padding-bottom: 0" >
+                         Between 1 April 2019 and 30 June 2019
+                        </label>
+ <!--                              <label class="govuk-label govuk-radios__label" style="display:block; padding-top:0" for="app-1" >
+                          <span class="reserveLevel"> 5 May 2000</span>
+                        </label> -->
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-4" name="acceptedRecruit" type="radio" value="july2019">
+                        <label class="govuk-label govuk-radios__label" for="app-4">
+                          Between 1 July 2019 and 30 Sept 2019
+                        </label>
+                      </div>
+                       <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-4" name="acceptedRecruit" type="radio" value="oct2019">
+                        <label class="govuk-label govuk-radios__label" for="app-4">
+                          Between 1 Oct 2019 and 31 Dec 2019
+                        </label>
+                      </div>
+                  </fieldset>
+                </div>
+
 
       <button class="govuk-button">Continue</button>
       </form>

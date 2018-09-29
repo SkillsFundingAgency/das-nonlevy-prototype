@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %} 
-{% include "includes/version1/mainNav.html" %} 
-{% include "includes/version1/homeNav.html" %} 
+{% include "includes/version2/mainNav.html" %} 
+{% include "includes/version2/homeNav.html" %} 
  {% endblock %} 
 
 {% block content %}
@@ -159,7 +159,7 @@ function goToAgreements () {
 
             <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="./finance/reserve" aria-describedby="eligibility-completed">
-               Claim additional funds
+               Reserve additional funds
               </a>
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
             </li>
@@ -236,8 +236,8 @@ function goToAgreements () {
               <!--strong class="govuk-tag app-task-list__task-completed" id="contact-details-completed">Completed</strong-->
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="">
-                View your saved training providers
+              <a class="app-task-list__task-name" href="./savedProviders">
+                View your training providers
               </a>
              <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="contact-details-completed"><span>0</span></strong>
              <!--strong class="govuk-tag app-task-list__task-completed" style="min-width:60px; text-align: center; " id="contact-details-completed">3</strong-->
@@ -267,6 +267,28 @@ function goToAgreements () {
           </ul>
        </li>
 
+             <li>
+          <h2 class="app-task-list__section">
+           Enable spending
+          </h2>
+          <p style="">Add the correct details to access your funds and authorise the spending of those funds.</p>
+          <ul class="app-task-list__items" style="padding-left:0">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="./orgs">
+                Add and view organisations and agreements
+              </a>
+                          <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">1</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name"  href="./paye">
+               Add and view PAYE schemes
+              </a>
+                          <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">1</strong>
+
+            </li>
+          </ul>
+       </li>
+
        <li>
           <h2 class="app-task-list__section">
            Manage apprentices
@@ -275,22 +297,29 @@ function goToAgreements () {
           <ul class="app-task-list__items" style="padding-left:0">
 
             <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="./apprentices/add">
+                Add a new apprentice
+              </a>
+  
+            </li>
+
+            <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="./apprentices/cohorts">
                 Review and approve new apprentices
               </a>
-           <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">2</strong>
+           <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">0</strong>
             </li>
              <li class="app-task-list__item">
               <a class="app-task-list__task-name"  href="./apprentices/manage">
                 View your current apprentices
               </a>
-             <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">0</strong>
+             <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">2</strong>
             </li>
 
           </ul>
        </li>
 
-        <li>
+<!--         <li>
           <h2 class="app-task-list__section">
            Your team
           </h2>
@@ -303,34 +332,16 @@ function goToAgreements () {
               </a>
                <strong class="govuk-tag app-task-list__task-completed" id="noTeamMembers" style="min-width:60px; text-align: center; " id="">2</strong>
             </li>
-    <!--         <li class="app-task-list__item">
+            <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="#">
                 View team members
               </a>
               <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="">1</strong>
-            </li> -->
-          </ul>
-       </li>
-
-      <li>
-          <h2 class="app-task-list__section">
-           Enable spending
-          </h2>
-          <p style="">Add the correct details to access your funds and authorise the spending of those funds.</p>
-          <ul class="app-task-list__items" style="padding-left:0">
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="./orgs">
-                Add and view organisations and agreements
-              </a>
-            </li>
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name"  href="./paye">
-               Add and view PAYE schemes
-              </a>
-
             </li>
           </ul>
-       </li>
+       </li> -->
+
+
       </ol>
     </div>
   </li>

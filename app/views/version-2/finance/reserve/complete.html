@@ -20,30 +20,64 @@
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Something</th>
-          <td class="govuk-table__cell">HDJ2123F</td>
+          <th class="govuk-table__cell" scope="row">Apprenticeship name </th>
+          <td class="govuk-table__cell">{{ data['funding'] }}</td>
         </tr>
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Something</th>
-          <td class="govuk-table__cell">NCG</td>
+          <th class="govuk-table__cell" scope="row">Number of apprentices </th>
+          <td class="govuk-table__cell">{{ data['numberApprentices'] }}</td>
         </tr>
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Something</th>
-          <td class="govuk-table__cell">    {{ data['organisation'] }}</td>
+          <th class="govuk-table__cell" scope="row">Funding reserved  </th>
+          <td class="govuk-table__cell">£8,100</td>
         </tr>
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Something</th>
-          <td class="govuk-table__cell">{{ data["provider-message"] }}</td>
+          <th class="govuk-table__cell" scope="row">Your cost</th>
+          <td class="govuk-table__cell">£900 </td>
         </tr>
       </tbody>
     </table>
   </div>
-          <h2 class="govuk-heading-m">What happens next?</h2>
-        <p class="govuk-body">
-           You can hire apprentices and do the thing.           
-        </p>
-       <p> <a href="./">Reserve more funding</a></p>
-        <p> <a href="../changeReserve">View reserved funding</a></p>
+
+<form action="finishedReserveFunding" method="get" class="form">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <label class="govuk-label  govuk-label--m" for="uk-provider-reference-number">
+                    What's next
+              </label>   
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="hire" checked="true">
+              <label class="govuk-label govuk-radios__label" for="confirmation-true">
+                Pay for an apprentice with this funding
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="reserve">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+                Reserve more funding
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="view">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+                View reserved funding
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="homepage">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+               Return to homepage
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form>
+
 </div>
 </main>
 </div>

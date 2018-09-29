@@ -15,7 +15,7 @@
 </h1>
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
+    <!-- <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m">Search for an apprentice</h2>
         <form>
             <input class="govuk-input" id="Search" name="Search" type="text" style="margin-bottom: 5px;" value="{{ data['Search'] }}" />
@@ -146,13 +146,12 @@
             <button type="submit" class="govuk-button btn-block">Filter</button>
             <a href="#" onclick="window.location.href = window.location.origin + window.location.pathname;">Reset</a>
         </form>
-    </div>
+    </div> -->
     <div class="govuk-grid-column-two-thirds">
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th class="govuk-table__header govuk-body-s" scope="col">Name</th>
-                    <th class="govuk-table__header govuk-body-s" scope="col">Unique learner <br />number</th>
                     <th class="govuk-table__header govuk-body-s" scope="col">Date of <br />birth</th>
                     <th class="govuk-table__header govuk-body-s" scope="col">Status</th>
                     <th class="govuk-table__header govuk-body-s" scope="col">Alerts</th>
@@ -164,7 +163,7 @@
      
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Rob Edwards</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">9021090210</td>
+
                     <td class="govuk-table__cell nowrap govuk-body-s" scope="row">1 Jan 2000</td>
                     <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
                     <td class="govuk-table__cell govuk-body-s" scope="row"></td>
@@ -173,41 +172,13 @@
                 </tr>
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Amy Russell</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">29475823</td>
                     <td class="govuk-table__cell nowrap govuk-body-s" scope="row">1 April 2000</td>
                     <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
                     <td class="govuk-table__cell govuk-body-s" scope="row"></td>
                     <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
                     </td>
                 </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Cedric Daniels</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">22554923</td>
-                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">10 May 1999</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Rhonda Pearlman</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">24948859</td>
-                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">15 Aug 1998</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Ellis Carver</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">49965724</td>
-                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">09 Feb 1999</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row">Stopped</td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
-                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="manage/ellisCarverStopped">View</a>
-                    </td>
-                </tr>
-  
+
                 <!--tr class="govuk-table__row">
                     <td class="govuk-table__cell nowrap" colspan="6" scope="row">
                         <i>No data</i>

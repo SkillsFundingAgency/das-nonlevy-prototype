@@ -613,7 +613,258 @@ router.get('/*/finance/reserve/reserveNumberOfApps' , function (req, res) {
 })
 
 
+//// Might not be used anymore
+/// Employer > Reserve funding > how are you recruiting
+// http://127.0.0.1:3000/version-2/finance/changeReserve/howRecruiting
+router.get('/*/finance/changeReserve/reserveHowRecruiting' , function (req, res) {
+  var recruitType = req.query.recruitType
+       switch (true) {
+          case  (recruitType == 'useService'):
+            res.redirect(`/${req.version}/finance/changeReserve/startRecruit`)
+           break;
+           case  (recruitType == 'acceptedService'):
+            res.redirect(`/${req.version}/apprentices/add/fromRecruit/alreadyAccepted`)
+           break;
+           case  (recruitType == 'alreadyDone'):
+            res.redirect(`/${req.version}/apprentices/fromRecruit/addApprentice`)
+           break;
 
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+///// end of not used
+
+
+/// Employer > Reserve funding > how are you recruiting
+// http://127.0.0.1:3000/version-2/finance/changeReserve/howRecruiting
+router.get('/*/finance/changeReserve/reserveHowRecruitingFoundYet' , function (req, res) {
+  var recruitType = req.query.recruitType
+       switch (true) {
+          case  (recruitType == 'foundThem'):
+            res.redirect(`/${req.version}/apprentices/add/fromRecruit/alreadyAccepted`)
+           break;
+          case  (recruitType == 'findThem'):
+            res.redirect(`/${req.version}/finance/changeReserve/startRecruit`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+// chooseAnApprenticeToStart
+/// Employer > Reserve funding > choose an apprentice to start
+// http://127.0.0.1:3000/version-2/apprentices/add/fromRecruit/alreadyAccepted
+router.get('/*/apprentices/add/fromRecruit/chooseAnApprenticeToStart' , function (req, res) {
+  var recruitType = req.query.acceptedRecruit
+       switch (true) {
+          case  (recruitType == 'Rob Edwards'):
+            res.redirect(`/${req.version}/apprentices/add/fromRecruit/addApprentice`)
+           break;
+           case  (recruitType == 'David Jenkins'):
+            res.redirect(`/${req.version}/apprentices/add/fromRecruit/addApprentice`)
+           break;
+           case  (recruitType == 'someoneElse'):
+            res.redirect(`/${req.version}/apprentices/add/addApprentice`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+/// apprentices/add/fromRecruit/alreadyAccepted
+
+/// Employer > Reserve funding > how are you recruiting
+// http://127.0.0.1:3000/version-2/apprentices/fromRecruit/confirm-training-provider
+router.get('/*/apprentices/fromRecruit/reserveCommitAddApprentice' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'true'):
+          console.log("raa");
+            res.redirect(`/${req.version}/apprentices/fromRecruit/addApprentice`)
+           break;
+           case  (confirmTraining == 'false'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/TBC`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > Reserve funding > how are you recruiting
+// http://127.0.0.1:3000/version-2/apprentices/fromRecruit/finish?
+router.get('/*/apprentices/fromRecruit/commitAddSingleApprenticeFinished' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'reserved'):
+          console.log("raa");
+            res.redirect(`/${req.version}/finance/changeReserve`)
+           break;
+           case  (confirmTraining == 'apprenticeships'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/apprentices/manage`)
+           break;
+                      case  (confirmTraining == 'homepage'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+
+/// Employer > Reserve funding > finished reserving
+//http://127.0.0.1:3000/version-2/finance/reserve/complete
+router.get('/*/finance/reserve/finishedReserveFunding' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'hire'):
+          console.log("raa");
+            res.redirect(`/${req.version}/finance/changeReserve/howRecruiting`)
+           break;
+
+           case  (confirmTraining == 'reserve'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/finance/reserve`)
+           break;
+
+          case  (confirmTraining == 'view'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/finance/changeReserve`)
+           break;
+
+         case  (confirmTraining == 'homepage'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+
+
+/// Employer > add apprentice > choose reserve funding
+//http://127.0.0.1:3000/version-2/apprentices/add/chooseReserve
+router.get('/*/apprentices/add/addApprenticesChooseReserve' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+          case  (confirmTraining == 'Aeronautical engineer, Level 2'):
+          console.log("raa");
+            res.redirect(`/${req.version}/apprentices/add/addApprentice`)
+           break;
+
+           case  (confirmTraining == 'Mechanical engineer, Level 3'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/apprentices/add/addApprentice`)
+           break;
+
+          case  (confirmTraining == 'Financial Services Administrator, Level 3'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/apprentices/add/find/appreticeshipsearch`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > add apprentice  > finished adding
+//http://127.0.0.1:3000/version-2/finance/reserve/complete
+router.get('/*/apprentices/add/addApprenticeAddSingleApprenticeFinished' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'reserved'):
+          console.log("raa");
+            res.redirect(`/${req.version}/apprentices/add`)
+           break;
+
+           case  (confirmTraining == 'apprenticeships'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/apprentices/manage`)
+           break;
+
+         case  (confirmTraining == 'homepage'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+/// Employer > Add apprentice > where are they from
+// http://127.0.0.1:3000/version-2/apprentices/howRecruiting
+router.get('/*/apprentices/add/addApprenticeHowRecruiting' , function (req, res) {
+  var confirmTraining = req.query.recruitType
+       switch (true) {
+          case  (confirmTraining == 'raa'):
+            res.redirect(`/${req.version}/apprentices/add/fromRecruit/alreadyAccepted`)
+           break;
+
+           case  (confirmTraining == 'alreadyDone'):
+            res.redirect(`/${req.version}/apprentices/add/chooseReserve`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > add provider (provider permissions)  > finished adding a new one
+// http://127.0.0.1:3000/version-2/savedProviders/add/finished?confirmation=true
+router.get('/*/savedProviders/add/addProviderFinished' , function (req, res) {
+  var confirmTraining = req.query.addProviderFinished
+       switch (true) {
+          case  (confirmTraining == 'QA Ltd'):
+    
+            res.redirect(`/${req.version}/savedProviders/cyberdyne`)
+           break;
+
+           case  (confirmTraining == 'providers'):
+         
+            res.redirect(`/${req.version}/savedProviders`)
+           break;
+
+         case  (confirmTraining == 'homepage'):
+       
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
