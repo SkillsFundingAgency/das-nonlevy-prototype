@@ -866,6 +866,55 @@ router.get('/*/savedProviders/add/addProviderFinished' , function (req, res) {
         }
 })
 
+
+/// Employer > add apprentice > single or bulk
+// http://127.0.0.1:3000/version-3/apprentices/add/nonLevyFull/oneOrBulk
+router.get('/*/apprentices/add/nonLevyFull/oneOrBulkQuestion' , function (req, res) {
+  var confirmTraining = req.query.oneOrBulk
+       switch (true) {
+          case  (confirmTraining == 'one'):
+            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted`)
+           break;
+
+           case  (confirmTraining == 'bulk'):
+            res.redirect(`/${req.version}/bulkUpload`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > v3 > add apprentice > choose apprentices to start
+// http://127.0.0.1:3000/version-3/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted
+router.get('/*/apprentices/add/nonLevyFull/oneAtTime/chooseAnApprenticeToStartV3Manage' , function (req, res) {
+  var confirmTraining = req.query.acceptedRecruit
+       switch (true) {
+          case  (confirmTraining == 'Rob Edwards'):
+            res.redirect(`/${req.version}/tbc`)
+           break;
+
+           case  (confirmTraining == 'David Jenkins'):
+            res.redirect(`/${req.version}/tbc`)
+           break;
+
+          case  (confirmTraining == 'someoneElse'):
+            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/chooseReserve`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
