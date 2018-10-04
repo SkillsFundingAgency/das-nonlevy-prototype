@@ -893,11 +893,25 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/chooseAnApprenticeToStartV3
   var confirmTraining = req.query.acceptedRecruit
        switch (true) {
           case  (confirmTraining == 'Rob Edwards'):
-            res.redirect(`/${req.version}/tbc`)
+          req.session.data['FirstFirstName'] = 'Rob';
+           req.session.data['FirstLastName'] = 'Edwards';
+
+            req.session.data['dob-day'] = '5';
+           req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
            break;
 
            case  (confirmTraining == 'David Jenkins'):
-            res.redirect(`/${req.version}/tbc`)
+           req.session.data['FirstFirstName'] = 'David';
+           req.session.data['FirstLastName'] = 'Jenkins';
+
+          req.session.data['dob-day'] = '5';
+           req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
            break;
 
           case  (confirmTraining == 'someoneElse'):
@@ -910,6 +924,29 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/chooseAnApprenticeToStartV3
         }
 })
 
+
+/// Employer > v3 > add apprentice > choose reserved funding
+// http://127.0.0.1:3000/version-3/apprentices/add/NonLevyFull/oneAtTime/chooseReserve
+router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticesChooseReserve' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+          case  (confirmTraining == 'Aeronautical engineer, Level 2'):
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+           case  (confirmTraining == 'Mechanical engineer, Level 3'):
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+          case  (confirmTraining == 'Financial Services Administrator, Level 3'):
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/FAT`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 
