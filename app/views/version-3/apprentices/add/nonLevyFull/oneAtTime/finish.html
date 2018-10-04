@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %}
 {% block beforeContent %}
- {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/financeNav.html" %}
+ {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
 {% endblock %} {% block content %}
 
 
@@ -77,7 +77,7 @@ Organisation employing apprentice</td>
           </legend>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="reserved" checked="true">
+              <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="addAnother" checked="true">
               <label class="govuk-label govuk-radios__label" for="confirmation-true">
                 Add another apprentice
               </label>

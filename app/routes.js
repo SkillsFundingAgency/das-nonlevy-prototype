@@ -877,7 +877,7 @@ router.get('/*/apprentices/add/nonLevyFull/oneOrBulkQuestion' , function (req, r
            break;
 
            case  (confirmTraining == 'bulk'):
-            res.redirect(`/${req.version}/bulkUpload`)
+            res.redirect(`/${req.version}//apprentices/add/nonLevyFull/bulkUpload/`)
            break;
 
         default:
@@ -893,22 +893,22 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/chooseAnApprenticeToStartV3
   var confirmTraining = req.query.acceptedRecruit
        switch (true) {
           case  (confirmTraining == 'Rob Edwards'):
-          req.session.data['FirstFirstName'] = 'Rob';
-           req.session.data['FirstLastName'] = 'Edwards';
+            req.session.data['FirstFirstName'] = 'Rob';
+            req.session.data['FirstLastName'] = 'Edwards';
 
             req.session.data['dob-day'] = '5';
-           req.session.data['dob-month'] = 'May';
+            req.session.data['dob-month'] = 'May';
             req.session.data['dob-year'] = '2000';
 
             res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
            break;
 
            case  (confirmTraining == 'David Jenkins'):
-           req.session.data['FirstFirstName'] = 'David';
-           req.session.data['FirstLastName'] = 'Jenkins';
+            req.session.data['FirstFirstName'] = 'David';
+            req.session.data['FirstLastName'] = 'Jenkins';
 
-          req.session.data['dob-day'] = '5';
-           req.session.data['dob-month'] = 'May';
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
             req.session.data['dob-year'] = '2000';
 
             res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
@@ -931,14 +931,17 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticesChooseReserve
   var confirmTraining = req.query.funding
        switch (true) {
           case  (confirmTraining == 'Aeronautical engineer, Level 2'):
+            req.session.data['funding'] = 'Aeronautical engineer, Level 2';
             res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeAdd`)
            break;
 
            case  (confirmTraining == 'Mechanical engineer, Level 3'):
+           req.session.data['funding'] = 'Mechanical engineer, Level 3';
             res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeAdd`)
            break;
 
           case  (confirmTraining == 'Financial Services Administrator, Level 3'):
+            req.session.data['funding'] = 'Financial Services Administrator, Level 3';
             res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/FAT`)
            break;
 
@@ -948,6 +951,29 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticesChooseReserve
         }
 })
 
+
+/// Employer > v3 > add apprentice > finished adding individual apprentice
+// http://127.0.0.1:3000/version-3/apprentices/add/nonLevyFull/oneAtTime/finish?
+router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticeAddSingleApprenticeFinished' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'addAnother'):
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneOrBulk`)
+           break;
+
+           case  (confirmTraining == 'apprenticeships'):
+            res.redirect(`/${req.version}/apprentices/manage`)
+           break;
+
+          case  (confirmTraining == 'homepage'):
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 
