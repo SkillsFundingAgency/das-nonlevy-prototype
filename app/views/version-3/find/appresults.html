@@ -9,7 +9,10 @@ $(document).on('click', 'input[type="radio"]', function (e) {
 
 </script-->
 <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
-<!--script>
+<script>
+$( document ).ready(function() {
+var appCount=0
+var proCount=0
  $(".shortlist.app").click(function (e) {
         e.preventDefault();
         console.log("shortlist button clicked: " + appCount);
@@ -19,7 +22,7 @@ $(document).on('click', 'input[type="radio"]', function (e) {
             console.log("isnt shortlisted");
             appCount = appCount + 1;
             console.log(appCount);
-            Cookies.set("appCount", appCount);
+        //    Cookies.set("appCount", appCount);
             $("i", this).removeClass("fa-star-o").addClass("fa-star");
             $("span", this).text("Remove");
             $("#bannerCount span").text(Number(proCount) + Number(appCount));
@@ -29,13 +32,16 @@ $(document).on('click', 'input[type="radio"]', function (e) {
             $("i", this).removeClass("fa-star").addClass("fa-star-o");
             $("span", this).text("Save");
             appCount--;
-            Cookies.set("appCount", appCount);
+        //    Cookies.set("appCount", appCount);
             console.log(appCount);
             $("#bannerCount span").text(Number(proCount) + Number(appCount));
         }
     })
+ });
 </script>
-<script>
+
+
+<!--script>
  var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
 console.log(fundingStatus)
 $(document).ready(function() {
@@ -59,9 +65,48 @@ else { };
   }
 changeStuff();
 });
-</script-->
+</script
+<!-- 
+           <script>
+$( document ).ready(function() {
+var appCount=0
+var proCount=0
+$(".shortlist.app").click(function (e) {
+    e.preventDefault();
+    console.log("shortlist button clicked: " + appCount);
+    //appCount++;
+
+    if ($(".shortlist .app i").hasClass("fa-star-o")) {
+        console.log("isnt shortlisted");
+        appCount++;
+        console.log(appCount);
+   //     Cookies.set("appCount", appCount);
+        $(".shortlist.app i").removeClass("fa-star-o").addClass("fa-star");
+        $(".shortlist.app span").text("Remove from shortlist");
+        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
+
+    } else {
+        console.log("is shortlisted");
+        $(".shortlist.app i").removeClass("fa-star").addClass("fa-star-o");
+        $(".shortlist.app span").text("Shortlist this apprenticeship");
+        appCount--;
+ //       Cookies.set("appCount", appCount);
+        console.log(appCount);
+        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
+    }
+
+    //.toggleClass(".fa-star-o").toggleClass(".fa-star");
+
+    })
+});
+</script> -->
+
+
+
+
+
 <div class="govuk-width-container">
-    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" style="padding-bottom:10px">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
                 <h1 class="govuk-heading-xl" style="margin-bottom:5px">Search results</h1>
@@ -101,16 +146,14 @@ changeStuff();
 
 <H3 class="govuk-heading-m" style="margin: 0; display:inline-block">Filter results </H3>
 
-<div class="govuk-form-group" id="resultCount" style="display:inline-block; float:right">
+<!-- <div class="govuk-form-group" id="resultCount" style="display:inline-block; float:right">
     <label class="govuk-label inline" style="display:inline-block; margin-right:10px; font-weight:700;" for="sort">Sort by</label>
     <select class="govuk-select" id="sort" name="sort" style="display:inline-block; width:200px">
         <option value="match" selected>Best match</option>
         <option value="level-desc" >Level (high to low)</option>
         <option value="level-asc">Level (low to high)</option>
     </select>
-</div>
-
-
+</div> -->
 </div>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
@@ -182,180 +225,276 @@ changeStuff();
     </div>
     
     <div class="govuk-grid-column-two-thirds">
-                <div class="column details">
+                <div class="column details" style="width:80%; float:left">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Financial Services Administrator</a> </h2>
-            
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
+                        <div>
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:85px">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:8px">Maximum cost:</span> £900</p>
                             <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
-                  
-                
-                    <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
-                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                        </div>       
+                </div>
+                 <div class="shortlist app" >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
 
+                    <hr  class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+   <div class="column details" style="width:80%; float:left">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Investment Operations Administrator</a> </h2>
-            
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
+             <div>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
                             <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                                </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
+
+
+
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 
 
 
-
+   <div class="column details" style="width:80%; float:left">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Workplace pensions consultant or administrator</a> </h2>
-            
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
+            <div>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
                             <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 
-
+   <div class="column details" style="width:80%; float:left">
                 <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Administration</a> </h2>
-            
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+            <div>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                     </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
+  <div class="column details" style="width:80%; float:left">
+    <div>
                                 <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Administration: Legal Administration</a> </h2>
             
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                                     </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
+  <div class="column details" style="width:80%; float:left">
+    <div>
                                                 <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Administration: Medical Administration</a> </h2>
             
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 3 (equivalent to A levels at grades A to E)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
-                  
+                  </div>
+                               </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                 
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 
-
+  <div class="column details" style="width:80%; float:left">
+    <div>
                         <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Administration</a> </h2>
             
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-
+  <div class="column details" style="width:80%; float:left">
                        <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Administration: Legal Administration</a> </h2>
-            
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+            <div>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                                                     </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
+  <div class="column details" style="width:80%; float:left">
+    <div>
                                        <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Administration: Medical Administration</a> </h2>
             
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 2 (equivalent to GCSEs at grades A* to C)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-
+  <div class="column details" style="width:80%; float:left">
+    <div>
                                        <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business and Professional Administration
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 4 (equivalent to certificate of higher education)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 4 (equivalent to certificate of higher education)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
+
                   
-                
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
+  <div class="column details" style="width:80%; float:left">
+    <div>
 
                         <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business, Administration and Finance
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 2 (equivalent to GCSEs at grades A* to C</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 2 (equivalent to GCSEs at grades A* to C</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
+                    <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+  <div class="column details" style="width:80%; float:left">
+    <div>
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business, Administration and Finance</a></h2>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 2 (equivalent to GCSEs at grades A* to C</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
+                  
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
+                    <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+  <div class="column details" style="width:80%; float:left">
+    <div>
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business, Administration and Finance</a></h2>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 4 (equivalent to certificate of higher education)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
+                  
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+  <div class="column details" style="width:80%; float:left">
+                    <div>
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business, Administration and Finance</a></h2>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 2 (equivalent to GCSEs at grades A* to C</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:85px">Level:</span> 5 (equivalent to foundation degree)</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:15px">Typical length:</span> 12 to 18 months</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="margin-right:8px">Maximum cost:</span> £900</p>
+                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="">Maximum cost:</span> £9,000</p>
                             <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
                   
-                
-                    <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business, Administration and Finance</a></h2>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 4 (equivalent to certificate of higher education)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
-                            <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
-                  
-                
-                    <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="appDetails_s_a">Business, Administration and Finance</a></h2>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Level:</span> 5 (equivalent to foundation degree)</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Typical length:</span> 12 to 18 months</p>
-                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:700">Maximum cost:</span> £900</p>
-                            <p style="min-width:135px; margin:0" class="rj-dont-display"><span style="font-weight:700">Maximum cost:</span> £9,000</p>
-                            <p style="min-width:135px; margin:0; font-size:16px" class="rj-dont-display"><span>Government funding for this apprenticeship is no longer available.  <a href="">Find out when funding will be available again.</a> </span></p>
-                  
-                
+                </div>
+                                         </div>
+                 <div class="shortlist app " >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div>
+                <div style="clear:both"></div>
                     <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
   
@@ -395,4 +534,6 @@ changeStuff();
 
             })
             </script>
+
+
             {% endblock %}

@@ -260,6 +260,37 @@ a.block-panel {
 // Robs extra styles
 
 
+.shortlist {
+    width: 20%;
+    float: left;
+    text-align: center;
+    color: #005ea5;
+    font-size: 2.5em;
+}
+
+.fa {
+    display: inline-block;
+
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-star-o:before {
+    content: "\f006";
+}
+
+.shortlist span {
+    width: 100%;
+      font-family: 'nta', Arial, sans-serif;
+    display: block;
+    float: left;
+    margin-top: 5px;
+    font-size:19px;
+    text-decoration: underline;
+}
+
 //// chart styles
 
 .c3 svg {

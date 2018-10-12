@@ -1,5 +1,5 @@
  {% extends "layout.html" %} {% block beforeContent %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "appresults" }) }} {% endblock %} {% block content %}
-<!--script>
+<script>
 function whereNow() {
         localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
         window.location.href='proSearch';
@@ -8,15 +8,17 @@ function whereNow() {
 </script>
 
 <script>
-
- $(".shortlist.app").click(function (e) {
+$( document ).ready(function() {
+    var appCount=0
+var proCount=0
+ $(".shortlistButton").click(function (e) {
         e.preventDefault();
         console.log("shortlist button clicked: " + appCount);
         if ($("i", this).hasClass("fa-star-o")) {
             console.log("isnt shortlisted");
             appCount = appCount + 1;
             console.log(appCount);
-            Cookies.set("appCount", appCount);
+    //        Cookies.set("appCount", appCount);
             $("i", this).removeClass("fa-star-o").addClass("fa-star");
             $("span", this).text("Remove from saved list");
            $("#bannerCount span").text(Number(proCount) + Number(appCount));
@@ -26,14 +28,15 @@ function whereNow() {
             $("i", this).removeClass("fa-star").addClass("fa-star-o");
             $("span", this).text("Save this apprenticeship");
             appCount--;
-            Cookies.set("appCount", appCount);
+      //      Cookies.set("appCount", appCount);
             console.log(appCount);
            $("#bannerCount span").text(Number(proCount) + Number(appCount));
         }
     })
+  });
 </script>
 
-<script>
+<!--script>
  var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
 console.log(fundingStatus)
 $(document).ready(function() {
@@ -80,9 +83,9 @@ changeStuff();
                 <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
                     <button type="submit" class="govuk-button" style="margin-bottom:15px">Find training providers</button>
                       
-                    <div><a href="#" class="shortlist app shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><i class="fa fa-star-o" ></i><span style="padding-left:5px">Save this apprenticeship</span></a></div>
+                    <div><a href="#" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><i class="fa fa-star-o" ></i><span style="padding-left:5px">Save this apprenticeship</span></a></div>
 
-                    <a href="../finance/reserve/numberOfApps" class=" " style="width:100%; font-size:19px;">Reserve funding</a>
+                
 
                 </div>
             </form>
@@ -104,6 +107,7 @@ changeStuff();
                             <p id="coInvestPayer" style="margin:0px 0 10px 0 ; font-weight:700">Costs to you:<span style="padding-left:158px; font-weight:700">£900 per apprentice</span></p>
       
                             <a href="https://www.gov.uk/guidance/employing-an-apprentice-technical-guide-for-employers#funding-for-your-apprenticeship" target="_blank">More information about funding</a>
+                               <div style="margin-top:10px"> <a href="../finance/reserve/numberOfApps" class=" " style="width:100%; font-size:19px;">Reserve funding for this apprenticeship</a></div>
                         </dd>
                         <div style="clear:both"></div>
                         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
