@@ -165,6 +165,18 @@ router.param('employer', function (req, res, next, employer) {
  })
 
 
+
+    // Employer > Nav > Microsite >Home
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/*/micrositeNav', function (req, res) {
+  res.redirect(`/${req.version}/microsite`)
+ })
+
+  router.get('/*/*/micrositeNav', function (req, res) {
+  res.redirect(`/${req.version}/microsite`)
+ })
+
+
 ////// End employer nav routes
 
 /////Provider nav routes

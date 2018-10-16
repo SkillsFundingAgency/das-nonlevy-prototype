@@ -254,11 +254,198 @@ a.block-panel {
 }
 
 
+.slides {
+  background-color: #005ea5;
+  color: #fff;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  // min-height: 480px;
+  padding: 30px;
+}
+
+@media (min-width: 641px) {
+  .slides {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 641px) {
+  .slides {
+    padding: 45px;
+  }
+}
+
+@media (min-width: 769px) {
+  .slides {
+    padding: 75px 70px;
+  }
+}
+
+.slides h1 {
+  font-family: 'nta', Arial, sans-serif;
+
+  line-height: 1.0416666667;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 641px) {
+  .slides h1 {
+
+    line-height: 1.1111111111;
+  }
+}
+
+@media (max-width: 640px) {
+  .slides h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.slides h2 {
+  font-family: 'nta', Arial, sans-serif;
+
+  line-height: 1.1111111111;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 641px) {
+  .slides h2 {
+
+    line-height: 1.1111111111;
+  }
+}
+
+@media (max-width: 640px) {
+  .slides h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.slides h3 {
+  font-family: 'nta', Arial, sans-serif;
+
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 641px) {
+  .slides h3 {
+
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 640px) {
+  .slides h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.slides p,
+.slides ul {
+  font-family: 'nta', Arial, sans-serif;
+
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  color:#fff;
+}
+
+@media (min-width: 641px) {
+  .slides p,
+  .slides ul {
+  
+    line-height: 1.25;
+  }
+}
+
+.slides a,
+.slides a:focus,
+.slides a:hover,
+.slides a:active {
+  color: inherit;
+}
+
+.slides .actions {
+  margin: 30px 0 15px;
+}
+
+.slides .actions .button {
+  background: #fff;
+  color: #005ea5;
+  font-weight: bold;
+}
+
+.slides figure {
+  max-width: 200px;
+}
+
+.slides figure img {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .slides figure {
+    width: 40%;
+  }
+}
+
+.slides details summary {
+  color: #fff;
+}
+
+.slides details .panel {
+  border-left-color: #fff;
+}
+
+.slides details p,
+.slides details ul {
+  font-size: 1em;
+}
+
 
 /////////////////////////////////////////////////////////////////// End of Sorchas styles
 
 // Robs extra styles
 
+.xavier {
+	 // background-image: url(https://www.getingofar.gov.uk/img/ask_apprenticeships/xbg-1.jpg.pagespeed.ic.ZJff88yPCh.webp);
+	 background-image: url(/public/images/xavier.webp);
+    background-repeat: no-repeat;
+    background-size:990px;
+    height:500px;
+    width:990px;
+}
+
+.david {
+	
+		 background-image: url(https://www.getingofar.gov.uk/img/home/bg-2.jpg);
+    background-repeat: no-repeat;
+    background-size:990px;
+    height:500px;
+    width:990px;
+}
+
+.play-btn {
+  margin-left:45%;
+  margin-top:20%;
+}
 
 .shortlist {
     width: 20%;
