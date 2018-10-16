@@ -177,6 +177,27 @@ router.param('employer', function (req, res, next, employer) {
  })
 
 
+  // Employer > Nav > Microsite > Stories
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/*/storiesNav', function (req, res) {
+  res.redirect(`/${req.version}/microsite/stories`)
+ })
+
+  router.get('/*/*/storiesNav', function (req, res) {
+  res.redirect(`/${req.version}/microsite/stories`)
+ })
+
+    // Employer > Nav > Microsite > Find out
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/*/howToNav', function (req, res) {
+  res.redirect(`/${req.version}/microsite/guide`)
+ })
+
+  router.get('/*/*/howToNav', function (req, res) {
+  res.redirect(`/${req.version}/microsite/guide`)
+ })
+
+
 ////// End employer nav routes
 
 /////Provider nav routes
@@ -988,6 +1009,45 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticeAddSingleAppre
 })
 
 
+/// Microsite > v3 > show guidance
+// http://127.0.0.1:3000/version-3/microsite/guide/business
+router.get('/*/microsite/guide/showPersonalisedGuidance' , function (req, res) {
+  var confirmTraining = req.query.confirm
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+            res.redirect(`/${req.version}/notYet`)
+           break;
+
+           case  (confirmTraining == 'no'):
+            res.redirect(`/${req.version}/microsite/guide/showall`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+/// Microsite > v3 > apprentice or business
+// http://127.0.0.1:3000/version-3/microsite/guide
+router.get('/*/microsite/apprenticeorbusiness' , function (req, res) {
+  var confirmTraining = req.query.confirm
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+            res.redirect(`/${req.version}/notYet`)
+           break;
+
+           case  (confirmTraining == 'no'):
+            res.redirect(`/${req.version}/microsite/guide/business`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 /// Add apprentices > add apprentices yourself or send to provider
