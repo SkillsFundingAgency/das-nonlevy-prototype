@@ -3,4 +3,4 @@ app/views/.DS_Store
 app/.DS_Store
 app/views/version-4/.DS_Store
 app/views/version-4/finance/.DS_Store
-*/.DS_Store
+.DS_Store
