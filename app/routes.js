@@ -677,7 +677,7 @@ router.get('/*/finance/changeReserve/reserveHowRecruitingFoundYet' , function (r
   var recruitType = req.query.recruitType
        switch (true) {
           case  (recruitType == 'foundThem'):
-            res.redirect(`/${req.version}/apprentices/add/fromRecruit/alreadyAccepted`)
+            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted`)
            break;
           case  (recruitType == 'findThem'):
             res.redirect(`/${req.version}/finance/changeReserve/startRecruit`)

@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
  {% block beforeContent %} 
 
+  {% include "includes/version1/mainNav.html" %}
+  {% include "includes/version1/homeNav.html" %}
+
  {% from "back-link/macro.njk" import govukBackLink %} 
  {{ govukBackLink({ text: "Back", href: "providersearch" }) }}
   {% endblock %} 
