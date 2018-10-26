@@ -18,9 +18,15 @@ function whereNow() {
     }
  </script>
 
+<style>
+/* REMOVES THE GOV FOOTER BECAUSE OF THE STICKY THING. NEED TO DO PROPERLY */
+.govuk-footer {display:none;}
+</style>
+
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
+     <h1 class="govuk-heading-xl">ESFA Apprenticeship Agreement for Employers</h1>
 
 <!--     <div class="info-highlighted">
     <h3 class="govuk-heading-m">What's in your updated agreement?</h3>
@@ -32,7 +38,7 @@ function whereNow() {
     <p>A previous version of this agreement was signed by Satya Sanikommu on behalf of ; DROP TABLE "COMPANIES";-- LTD on 1 December 2017</p>
     <p><a href="#">View previous version</a> (PDF)</p>
 </div> -->
-    <div class="govuk-grid-row" id="publication-banner">
+<!--     <div class="govuk-grid-row" id="publication-banner">
     <div class="govuk-grid-column-one-third" style="padding-left:0">
         <div class="sfa-logo">
             <h1 style="margin:0" class="govuk-heading-s">
@@ -46,14 +52,14 @@ function whereNow() {
     <div class="govuk-grid-column-two-thirds">
         <a href="/accounts/VYJW8B/agreements/MK77WW/agreement-pdf" target="_blank" class="download">Save this agreement as a PDF</a>
     </div>
-</div>
+</div> -->
 
 <article class="agreement">
     <header>
         <div class="headings">
             <div class="agreement-title">
 
-                <h1>ESFA Apprenticeship Agreement for Employers</h1>
+               <!--  <h1>ESFA Apprenticeship Agreement for Employers</h1> -->
                 <p class="context">For the provision of levy-funded apprenticeship training</p>
             </div>
             <p class="updated" style="color:#fff">1 May 2018</p>
@@ -426,7 +432,7 @@ function whereNow() {
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-l">Sign this agreement</h2>
+  <!--       <h2 class="govuk-heading-l">Sign this agreement</h2> -->
 
         <table class="govuk-table">
             <tbody>
@@ -449,18 +455,25 @@ function whereNow() {
         </tbody>
       </table>
 
-<div>
-         <button type="submit" class="govuk-button" onclick="whereNow()" style="" >Sign now</button>
-          <a  class="govuk-button clear-button" href="taxDetails" >Not yet, I'll sign it later</a>
-</div>
-        <div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
+<div class="govuk-warning-text" style="margin-bottom:120px">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
     <span class="govuk-warning-text__assistive">Warning</span>
     This agreement is legally binding. You must have authority from your organisation to sign it.
   </strong>
+</div>
+
+
+<div style="position:fixed; width:960px; bottom:0; height:130px;background-color: #fff; ">
+          <h2 class="govuk-heading-m" style="margin:25px 0 20px 0; float:left">Sign this agreement</h2>
+        <div style="float:right; margin:25px 0 20px 0;"> <a href="/accounts/VYJW8B/agreements/MK77WW/agreement-pdf" target="_blank" class="download">Save this agreement as a PDF</a></div>
+        <div style="clear:both"></div>
+    <button type="submit" class="govuk-button" onclick="whereNow()" style="margin-left:0px;  margin-bottom:10px;  ">Sign now</button>
+      <a  class="govuk-button clear-button" href="taxDetails" >Not yet, I'll sign it later</a>
 
 </div>
+
+
 
     </div>
 </div>
