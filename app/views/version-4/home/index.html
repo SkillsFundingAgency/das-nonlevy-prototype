@@ -11,129 +11,6 @@
 
 {% block content %}
 
-<!-- 
-<style>
-  .home-nav a {
-
-  }
-
-  .phase-banner-beta-NEW {
-
-    display:none;
-  }
-
-  @media (min-width: 641px) and (max-width: 890px){
-.rj-alert-wrapper {
-  height:135px;
-}
-}
-
-  @media (min-width: 641px) and (max-width: 700px){
-.rj-alert-wrapper {
-  height:160px;
-}
-}
-
-</style>
-
-<script>
- var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
-  var welcomeWizardStatus =JSON.parse(localStorage.getItem('nonLevy.welcomeWizardStatus'));
-
-
-
-$(document).ready(function () {
-    var changeStuff = function() {
-      if (welcomeWizardStatus=="dontShow") {
-           $(welcome).addClass("rj-dont-display");
-         $(allContentHome).removeClass("rj-dont-display");
-      }
-      // localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("yes"));
-      }
-
-// Deal with the PAYE first options
-
-
-   $('input:radio[name="add-paye-group"]').change(
-    function(){
-        if ($(this).is(':checked') && $(this).val() == '2') {
-           $(addPAYEPanel).removeClass("rj-dont-display");
-        } else {
-            $(addPAYEPanel).addClass("rj-dont-display");
-            $(payeQuestion).addClass("rj-dont-display");
-             $(payeSuccess).removeClass("rj-dont-display");
-             $(addOrg).removeClass("rj-dont-display");
-      }
-    });
-
-      $('input:radio[name="add-org-group"]').change(
-    function(){
-        if ($(this).is(':checked') && $(this).val() == '2') {
-           $(addORGPanel).removeClass("rj-dont-display");
-        } else {
-            $(addORGPanel).addClass("rj-dont-display");
-            $(orgQuestions).addClass("rj-dont-display");
-             $(orgSuccess).removeClass("rj-dont-display");
-             $(inviteUsers).removeClass("rj-dont-display");
-      }
-    });
-
-            $('input:radio[name="invite-users-group"]').change(
-    function(){
-        if ($(this).is(':checked') && $(this).val() == '2') {
-           $(addTEAMPanel).removeClass("rj-dont-display");
-        } else {
-            $(addTEAMPanel).addClass("rj-dont-display");
-            $(teamQuestions).addClass("rj-dont-display");
-             $(teamSuccess).removeClass("rj-dont-display");
-             $(signAgreement).removeClass("rj-dont-display");
-      }
-    });
-
-    $('input:radio[name="sign-org-group"]').change(
-    function(){
-        if ($(this).is(':checked') && $(this).val() == '1') {
-           $(addAGREEPanel).removeClass("rj-dont-display");
-        } else {
-            $(addAGREEPanel).addClass("rj-dont-display");
-            $(agreeQuestions).addClass("rj-dont-display");
-             $(agreeSuccess).removeClass("rj-dont-display");
-             $(wizardPending).removeClass("rj-dont-display");
-      }
-    });
-
-changeStuff();
-   });
-
-function closeWelcomeWizard () {
-         $(welcome).addClass("rj-dont-display");
-         $(allContentHome).removeClass("rj-dont-display");
-        localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("dontShow"));
-      }
-
-function loggedInHomepage () {
-           $(welcome).addClass("rj-dont-display");
-         $(allContentHome).removeClass("rj-dont-display");
-}
-
-function goToAgreements () {
-                localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("dontShow"));
-                 window.location.href = '../onboarding/organisations';
-
-}
-
-</script>
-<script src="/public/ty/assets/javascripts/js.cookie.js"></script>
-<script>
- // showApp = Cookies.get('appCount')
-///
-//  if (showPro==nan) {showApp=0}
-
- //    $("#savedApps span").text(Number(showApp));
- //  $("#savedPro span").text(Number(showPro));
-</script>
- -->
-
  <div class="govuk-width-container">
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <section id="allContentHome" class="">
@@ -146,7 +23,7 @@ function goToAgreements () {
       <ol class="app-task-list" style="margin-top:0">
         <li class="">
           <h2 class="app-task-list__section">
-            <!-- <a href="./finance"> -->Finance<!-- </a> -->
+            <!-- <a href="./finance"> -->Funding<!-- </a> -->
           </h2>
            <p style="">You can get help from the government to pay for apprenticeship training. There are a number of different ways, depending on your organisation.</p>
           <ul class="app-task-list__items"  style="padding-left:0">
@@ -159,13 +36,13 @@ function goToAgreements () {
 
             <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="./finance/reserve" aria-describedby="eligibility-completed">
-               Reserve additional funds
+               Reserve government funding to pay for apprenticeships
               </a>
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
             </li>
             <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="./finance/changeReserve" aria-describedby="eligibility-completed">
-               View reserved funds
+               View reserved funding
               </a>
               <strong class="govuk-tag app-task-list__task-completed " style="min-width:60px; text-align: center; " id="claimMyFundingComplete">3</strong>
             </li>
