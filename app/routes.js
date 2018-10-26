@@ -677,7 +677,7 @@ router.get('/*/finance/changeReserve/reserveHowRecruitingFoundYet' , function (r
   var recruitType = req.query.recruitType
        switch (true) {
           case  (recruitType == 'foundThem'):
-            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted`)
+            res.redirect(`/${req.version}/apprentices/add/fromReserve/alreadyAccepted`)
            break;
           case  (recruitType == 'findThem'):
             res.redirect(`/${req.version}/finance/changeReserve/startRecruit`)
@@ -710,6 +710,8 @@ router.get('/*/apprentices/add/fromRecruit/chooseAnApprenticeToStart' , function
             break;
         }
 })
+
+
 
 
 
@@ -957,6 +959,46 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/chooseAnApprenticeToStartV3
         }
 })
 
+/// Employer > v4 > add apprentice > choose apprentices to start
+// http://127.0.0.1:3000/version-4/apprentices/add/fromReserve/alreadyAccepted
+router.get('/*/apprentices/add/fromReserve/chooseAnApprenticeToStartV3Manage' , function (req, res) {
+  var confirmTraining = req.query.acceptedRecruit
+       switch (true) {
+          case  (confirmTraining == 'Rob Edwards'):
+            req.session.data['FirstFirstName'] = 'Rob';
+            req.session.data['FirstLastName'] = 'Edwards';
+
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
+           break;
+
+           case  (confirmTraining == 'David Jenkins'):
+            req.session.data['FirstFirstName'] = 'David';
+            req.session.data['FirstLastName'] = 'Jenkins';
+
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
+           break;
+
+          case  (confirmTraining == 'someoneElse'):
+        //  req.session.data['theTraingCourse'] = 'Aeronautical engineer, Level 2';
+            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
 
 /// Employer > v3 > add apprentice > choose reserved funding
 // http://127.0.0.1:3000/version-3/apprentices/add/NonLevyFull/oneAtTime/chooseReserve
@@ -1041,6 +1083,53 @@ router.get('/*/microsite/apprenticeorbusiness' , function (req, res) {
 
            case  (confirmTraining == 'no'):
             res.redirect(`/${req.version}/microsite/guide/business`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+/// Reserve - Register > v4 > Signing the agreement during registrations
+// http://127.0.0.1:3000/version-4/registerReserve/agreementTwoB
+router.get('/*/registerReserve/signAgreementRegisterReserve' , function (req, res) {
+  var confirmTraining = req.query.agreementSign
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+            res.redirect(`/${req.version}/registerReserve/taxDetails`)
+           break;
+
+           case  (confirmTraining == 'no'):
+            res.redirect(`/${req.version}/registerReserve/processStops`)
+           break;
+
+           case  (confirmTraining == 'notYet'):
+            res.redirect(`/${req.version}/registerReserve/taxDetails`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+/// Reserve - Register > v4 > add tax details now
+// http://127.0.0.1:3000/version-4/registerReserve/taxDetails
+router.get('/*/registerReserve/addTaxDetailsRegisterReserve' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/notYet`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/registerReserve/homeConfirmation`)
            break;
 
         default:
