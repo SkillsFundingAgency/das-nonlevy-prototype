@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} {% include "includes/version5/recruitNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ text: "Back", href: "step4" }) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+        <div class=" govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Duration, working hours and pay
+</h1>
+            <!-- <p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p> -->
+            <form method="get" action="vacancySummary">
+                <div class="govuk-form-group ">
+                    <label class="govuk-label   govuk-label--s" for="recruitAppLength">
+                        How long is the apprenticeship expected to last? </label>
+                    <span id="recruitAppLength-hint" class="govuk-hint"> This must be a minimum of 12 months</span>
+                    <input class="govuk-input govuk-input--width-3" id="recruitAppLength" name="recruitAppLength" type="text" aria-describedby="recruitAppLength-hint" value="" />
+                  <select class="govuk-select govuk-input--width-5" id="sort" name="sort">
+                    <option value="published" selected>Year(s)</option>
+                    <option value="updated" >Months</option>
+                  </select>
+             </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--s" for="more-detail">
+                    Details of working week
+                </label>
+                <span id="recruitWorkingWeek-hint" class="govuk-hint"> For example, Monday to Friday 9am to 5pm, shifts, may work evenings and weekends</span>
+                <textarea class="govuk-textarea" id="recruitWorkingWeek" name="recruitWorkingWeek" rows="6" aria-describedby="recruitWorkingWeek-hint"></textarea>
+            </div>
+
+            <div class="govuk-form-group ">
+                    <label class="govuk-label   govuk-label--s" for="recruitAppLength">How many hours will the apprentice work each week, including training?</label>
+                    <input class="govuk-input govuk-input--width-3" id="recruitAppLength" name="recruitAppLength" type="text" aria-describedby="recruitAppLength-hint" value="" />
+                <p style="display:inline-block">hours</p>
+             </div>
+
+             <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading"> What are you going to pay your apprentice?</h2>
+                    </legend>
+                    <span id="how-contacted-conditional-hint" class="govuk-hint">
+            The pay will only show as a yearly figure on your vacancy advertisement
+                </span>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="how-contacted-conditional-1" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional-1">
+                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-1">
+                                Fixed wage
+
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-1">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-email"></label>
+                                          <span id="recruitWorkingWeek-hint" class="govuk-hint">  The wage should not be less then the <a href="https://www.gov.uk/national-minimum-wage-rates" target="new">National Minimum Wage</a> for apprentices</span>
+                               <p style="display:inline-block">£</p> <input class="govuk-input govuk-!-width-one-third" id="recruitHowMuchPaying" name="recruitHowMuchPaying" type="text">  <p style="display:inline-block">yearly</p>
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                                National Minimum Wage
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="how-contacted-conditional-3" name="how-contacted" type="radio" value="text" data-aria-controls="conditional-how-contacted-conditional-3">
+                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+                                National Minimum Wage for apprentices
+                            </label>
+                        </div>
+                </div>
+             </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--s" for="recruitAdditionalPayInfo">
+                    Additional information about pay (optional)
+
+                </label>
+                <span id="recruitAdditionalPayInfo-hint" class="govuk-hint"> For example, subject to experience, bonus scheme, performance increases or non contractual benefits</span>
+                <textarea class="govuk-textarea" id="recruitAdditionalPayInfo" name="recruitAdditionalPayInfo" rows="6" aria-describedby="recruitAdditionalPayInfo-hint"></textarea>
+            </div>
+
+
+
+
+            </div>
+             </fieldset>
+             </div>
+                    <button type="submit" class="govuk-button">Save and continue </button>
+                     <a  class="govuk-button clear-button" href="../recruit" >Cancel </a>
+</form>
+</div>
+</div>
+</main>
+</div>
+{% endblock %}

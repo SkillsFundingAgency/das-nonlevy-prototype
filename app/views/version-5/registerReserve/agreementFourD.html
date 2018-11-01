@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "searchOrgResults"
+}) }}
+{% endblock %}
+{% block content %}
+<script src="/public/javascripts/accordion.js"></script>
+
+<script type="text/javascript">
+function whereNow() {
+   localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
+   window.location.href='taxDetails';
+    }
+ </script>
+
+ <script>
+
+// uncomment this to turn on the accordions
+
+if (
+    'addEventListener' in document &&
+    document.querySelectorAll
+) {
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        var accordions = document.querySelectorAll('.accordion')
+
+        for (var i = accordions.length - 1; i >= 0; i--) {
+            new Accordion(accordions[i])
+        };
+
+    })
+
+}
+</script>
+
+
+<style>
+/* REMOVES THE GOV FOOTER BECAUSE OF THE STICKY THING. NEED TO DO PROPERLY */
+.govuk-footer {display:none;}
+.agreement ol a {color:#005ea5; text-decoration: underline}
+.agreement header {color:#000;}
+.agreement .agreement-contents h2 .number {padding-left:0; font-size:36px; left:-8%; font-weight:700; background-color:#fff; width:8%; z-index:9999;}
+
+/* Fiddling about with the ordered list, to make it left aligned to see what it looks like */
+.dinosaurs {list-style-position: inside !important;}
+.dinosaurs li{ position: relative; list-style-position: inside !important;}
+.dinosaurs li a {position: absolute; left: 40px;}
+
+.sticky {}
+
+</style>
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" style="padding:0">
+      <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         <h1 class="govuk-heading-xl" style="">ESFA Apprenticeship Agreement for Employers</h1>
+            <p style="">This agreement between your organisation and the ESFA governs how you do the thing and how and when we will pay for the thing.</p>
+            <h2 class="govuk-heading-m" style="">Key facts</h2>
+            <p>Key things you should be aware of are:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Thing must be done</li>
+                <li>You should do the thing</li>
+                 <li>Don't forget to do the thing</li>
+                        <li>You will have to pay for the thing</li>
+            </ul>
+</div>
+</div>
+
+<div class="accordion">
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">ESFA Employer Agreement full text </h2>
+        </div>
+        <div class="accordion-section-body">
+        <iframe style="margin:20px 0 20px 0;width:100%; height:300px" src="justagreementTwoB"></iframe>  
+    </div>
+</main>
+</div>
+
+ <div class="govuk-grid-row" id="publication-banner">
+    <div class="govuk-grid-column-one-third" style="padding-left:0">
+<!--         <div class="sfa-logo">
+            <h1 style="margin:0" class="govuk-heading-s">
+                <span class="organisation-logo">
+                    <span>Education &amp; Skills <br>
+                        Funding Agency</span>
+                </span>
+            </h1>
+        </div> -->
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/accounts/VYJW8B/agreements/MK77WW/agreement-pdf" target="_blank" class="download">Save this agreement as a PDF</a>
+    </div>
+</div>
+<form action="signAgreementRegisterReserve" method="get" class="form">
+    <!--       <p>Apprenticeship funds can be reserved for use between the following dates.</p> -->
+    <div style="margin-top:35px"></div>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                       Do you want to do the thing?
+                      </h1>
+            </legend>
+            <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="app-1" name="agreementSign" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="app-1" style="padding-bottom:0">
+                        Yes, I will do the thing
+                    </label>
+                    <!--         <span  class="govuk-hint" style="padding-left:15px;padding-top:25px"> </span> -->
+                </div>
+<!--                 <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="app-2" name="agreementSign" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="app-2" style="padding-bottom: 0">
+                        No, I don't want to do the thing
+                    </label>
+                    <span  class="govuk-hint" style="padding-left:15px">
+                                   You will not be able to reserve funds
+                               </span>
+                </div> -->
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="app-4" name="agreementSign" type="radio" value="notYet">
+                    <label class="govuk-label govuk-radios__label" for="app-4">
+                        Not yet, I will come back to the thing later
+                    </label>
+                    <span  class="govuk-hint" style="padding-left:15px">
+                            Your funds won't be reserved until you do the thing
+                        </span>
+                </div>
+        </fieldset>
+    </div>
+    <button class="govuk-button">Continue</button>
+</form>
+
+
+  <!--       <div>
+            <button type="submit" class="govuk-button" onclick="whereNow()" style="">Sign now</button>
+            <a  class="govuk-button clear-button" href="confirm-training-provider" >Not yet, I'll sign it later</a>
+        </div> -->
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    This agreement is legally binding. You must have authority from your organisation to sign it.
+  </strong>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</fieldset>
+</div>
+</form>
+</div>
+</main>
+</div>
+
+
+<!--    <div style="float:right"> <a href="/accounts/VYJW8B/agreements/MK77WW/agreement-pdf" target="_blank" class="download">Save this agreement as a PDF</a></div>
+<div style="margin-top:25px; clear:both"></div> -->
+ 
+  
+
+
+
+
+
+
+
+{% endblock %}
