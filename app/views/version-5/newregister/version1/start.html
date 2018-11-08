@@ -1,7 +1,8 @@
 {% extends "layout.html" %} {% block beforeContent %}
 {% from "back-link/macro.njk" import govukBackLink %} 
 
- {% endblock %} {% block content %}
+{% endblock %} {% block content %}
+
 
  <style> 
 .govuk-header__content {display:none ;}
@@ -11,24 +12,20 @@
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-               <h1 class="govuk-heading-xl ">Register an account
-</h1>
+             <!--   <h1 class="govuk-heading-xl ">Register an account</h1> -->
            </div>
             <div class="govuk-grid-column-two-thirds">
-                <p>To access funds to pay for apprenticeship training you need to register on the apprenticeship service. </p>
-                <h2 class="govuk-heading-m">Before you start</h2>
-                  <p>You will need:</p>
+                <p>This is a prototype service, your actions will not be recorded, it will not register you for any services or bind you to any agreements signed.</p>
+                <p> Try to act as if this were a real-life situation your organisation has encountered. </p>
+           <!--      <h2 class="govuk-heading-m">Before you start</p> -->
+                <!--   <p>You will need:</p> -->
    
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>the legal name of your organisation for example, the name you've used to register with Companies House</li>
-                    <li>to be able to enter an agreement with the Education and Skills Funding Agency (ESFA)</a></li>
-            
-
-<!--                     <li>find training providers who offer the apprenticeship training you choose</li>
-                    <li>find a named training provider you want to use</li> -->
-                </ul>
+                
                 <div style="margin-top:35px"></div>
-            <a href="./version2/setUpUser"  class="govuk-button govuk-button--start">Start</a>
+
+<form action="begin" method="get" class="form">
+                <button  class="govuk-button">Continue</button>
+              </form>
                           <!--   <h2 class="govuk-heading-m " >Help</h2>
                 <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
                     <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>
