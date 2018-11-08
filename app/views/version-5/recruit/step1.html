@@ -12,7 +12,7 @@
                 <div class="govuk-grid-column-two-thirds">
 
 
-        <form method="get" action="step2">
+        <form method="get" action="wholeList">
             <h1 class="govuk-heading-xl">Vacancy summary
 </h1>
 
@@ -29,28 +29,24 @@
        Example summary needs to go here
     </div>
 </details> -->
-
             <div class="govuk-form-group">
-                <label class="govuk-label   govuk-label--s" for="FirstName">
+                <label class="govuk-label   govuk-label--s" for="vacancyName">
 What do you want to call this vacancy?                </label>
                 <span id="price-hint" class="govuk-hint">
                For example, Software developer apprenticeship. The vacancy title must include the word apprentice or apprenticeship.
 
                 </span>
-                <input class="govuk-input" id="vacancyName" name="vacancyName" type="text" aria-describedby="FirstName-hint" value=""/>
+                <input class="govuk-input" id="vacancyName" name="vacancyName" type="text" aria-describedby="vacancyName-hint" value="{{ data['vacancyName'] }}"/>
             </div>
             <div class="govuk-form-group">
-                <label class="govuk-label   govuk-label--s" for="LastName">
+                <label class="govuk-label   govuk-label--s" for="numberOfApprentices">
                     How many positions do you have for this apprenticeship?
-
-
                 </label>
-                <input class="govuk-input govuk-input--width-5" id="numberOfApprentices" name="numberOfApprentices" type="text" aria-describedby="LastName-hint" value=""  />
+                <input class="govuk-input govuk-input--width-5" id="numberOfApprentices" name="numberOfApprentices" type="text" aria-describedby="numberOfPostitions-hint" value="{{ data['numberOfApprentices'] }}"  />
             </div>
                     </div>
                 </fieldset>
             </div>
-
 <!--                         <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
             <div class="govuk-form-group">
@@ -109,8 +105,8 @@ What do you want to call this vacancy?                </label>
                 <input class="govuk-input" id="reference" name="reference" type="text" aria-describedby="reference-hint" />
             </div> -->
 
-            <button type="submit" class="govuk-button">Save and continue </button>
-              <a  class="govuk-button clear-button" href="../recruit" >Cancel </a>
+            <button type="submit" class="govuk-button">Save and return </button>
+              <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
         </form>
     </div>
 </div>

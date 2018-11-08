@@ -35,13 +35,13 @@ td {font-size: 16px}
                       <h2 class="govuk-heading-s">Vacancy summary</h2>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">What do you want to call this vacancy?</td>
-                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">{{ data['vacancyName'] }}</td>
+                        <td class="govuk-table__cell"> <a href="step1"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">How many positions do you have for this apprenticeship?</td>
-                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
-                       <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">{{ data['numberOfApprentices'] }}</td>
+                       <td class="govuk-table__cell"> <a href="step1"> Add</a></td>
                       </tr>
                     </tbody>
                 </table>
@@ -61,8 +61,8 @@ td {font-size: 16px}
 </h2>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell" style="">Write a few sentences to describe your vacancy</td>
-                            <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
-                           <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                            <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">{{ data['more-detail'] }}</td>
+                           <td class="govuk-table__cell"> <a href="step2"> Add</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,12 +114,12 @@ td {font-size: 16px}
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Which organisation is the vacancy for?</td>
                               <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
-                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                              <td class="govuk-table__cell"> <a href="step3"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Enter the address where the apprentice will work</td>
                               <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
-                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                              <td class="govuk-table__cell"> <a href="step3"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Contact details</td>
@@ -184,22 +184,22 @@ td {font-size: 16px}
                        <tr class="govuk-table__row">
                         <td class="govuk-table__cell">Application closing date</td>
                         <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step4"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell">When do you expect the apprentice to start?</td>
                         <td class="govuk-table__cell"  style="font-weight:700; font-size:16px"></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step4"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">Apprenticeship training</td>
                         <td class="govuk-table__cell"  style=";font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step4"> Add</a></td>
                       </tr>
                                             <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">Disability Confident (optional)</td>
                         <td class="govuk-table__cell"  style=";font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step4"> Add</a></td>
                       </tr>
                     </tbody>
                 </table>
@@ -217,27 +217,27 @@ td {font-size: 16px}
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">How long is the apprenticeship expected to last?</td>
                         <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">Details of working week</td>
                         <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">How many hours will the apprentice work<br />each week, including training?</td>
                         <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">What are you going to pay your apprentice?</td>
                         <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                        <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">Additional information about pay (optional)</td>
                         <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
-                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                     </tbody>
                 </table>
