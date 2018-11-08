@@ -1168,10 +1168,12 @@ router.get('/*/newregister/version1/addTaxDetailsRegisterReserve' , function (re
   var confirmTraining = req.query.whatsNeeded
        switch (true) {
           case  (confirmTraining == 'true'):
+             ga('send', 'event', [tax], [Agreed]);
             res.redirect(`/${req.version}/newregister/version1/homeConfirmation`)
            break;
 
            case  (confirmTraining == 'false'):
+                   ga('send', 'event', [tax], [notAgreed]);
             res.redirect(`/${req.version}/newregister/version1/homeConfirmation`)
            break;
 
@@ -1187,10 +1189,12 @@ router.get('/*/newregister/version2/addTaxDetailsRegisterReserve' , function (re
   var confirmTraining = req.query.whatsNeeded
        switch (true) {
           case  (confirmTraining == 'true'):
+              ga('send', 'event', [tax], [Agreed]);
             res.redirect(`/${req.version}/newregister/version2/homeConfirmation`)
            break;
 
            case  (confirmTraining == 'false'):
+             ga('send', 'event', [tax], [notAgreed]);
             res.redirect(`/${req.version}/newregister/version2/homeConfirmation`)
            break;
 
