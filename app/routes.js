@@ -1146,10 +1146,13 @@ router.get('/*/newregister/version1/signAgreementRegisterReserve' , function (re
   var confirmTraining = req.query.agreementSign
        switch (true) {
           case  (confirmTraining == 'yes'):
+          ga('send', 'event', [agreement], [agreed]);
+
             res.redirect(`/${req.version}/newregister/version1/taxDetails`) 
            break;
 
            case  (confirmTraining == 'notYet'):
+            ga('send', 'event', [agreement], [notAgreed]);
             res.redirect(`/${req.version}/newregister/version1/taxDetails`)
            break;
 
