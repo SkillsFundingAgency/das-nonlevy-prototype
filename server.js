@@ -96,6 +96,8 @@ app.use('/assets', express.static(path.join(__dirname, 'node_modules', 'govuk-fr
 // Serve govuk-frontend in /public
 app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
 
+
+
 // Set up documentation app
 if (useDocumentation) {
   var documentationViews = [
@@ -255,6 +257,12 @@ if (useDocumentation) {
 app.post(/^\/([^.]+)$/, function (req, res) {
   res.redirect('/' + req.params[0])
 })
+
+// For downloading the pdf version of the agreement
+// Express config
+
+ app.use(express.static(__dirname + '/public'));// <-- This right here
+
 
 console.log('\nGOV.UK Prototype Kit v' + releaseVersion)
 

@@ -1,0 +1,407 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} {% include "includes/version5/recruitNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ text: "Back", href: "index" }) }}
+{% endblock %}
+{% block content %}
+
+<style>
+td {font-size: 16px}
+
+</style>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                 <div class=" govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl" >Your Vacancy</h1>
+            <p class="">Enter all the information below to add your vacancy, you can review it before it is submitted. </p>
+                 <table class="govuk-table">
+                    <thead>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <!--tr>
+                        <td class="govuk-table__cell">Organisation</td>
+                        <td style="font-weight:700; font-size:19px">Limited company</td>
+                        <td class="looks-like-a-link-underline">Change</td>
+                      </tr-->
+                      <h2 class="govuk-heading-s">Vacancy summary</h2>
+                        <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">What do you want to call this vacancy?</td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">How many positions do you have for this apprenticeship?</td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
+                       <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                    </tbody>
+                </table>
+                 <div style="margin-top:35px"></div>
+
+
+                <table class="govuk-table">
+                    <thead>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <h2 class="govuk-heading-s">Brief overview
+</h2>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="">Write a few sentences to describe your vacancy</td>
+                            <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
+                           <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+              <div style="margin-top:35px"></div>
+                  <table class="govuk-table">
+                      <thead>
+                          <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                          <h2 class="govuk-heading-s">Training information</h2>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">What you will do in your working day?</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">The training you will be getting</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">What to expect at the end of your apprenticeship</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+
+
+
+                 <div style="margin-top:35px"></div>
+                  <table class="govuk-table">
+                      <thead>
+                          <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                          <h2 class="govuk-heading-s">Location</h2>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Which organisation is the vacancy for?</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Enter the address where the apprentice will work</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Contact details</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Website</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+<!--                           <tr class="govuk-table__row">
+                              <td  class="govuk-table__cell" style="width:445px">Number of new employees who started working for you in England between 1 April 2017 and 31 March 2018</td>
+                              <td class="govuk-table__cell" style="width:50px; font-weight:700; font-size:16px; ">1</td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr> -->
+                      </tbody>
+                  </table>
+
+                <div style="margin-top:35px"></div>
+                  <table class="govuk-table">
+                      <thead>
+                          <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                          <h2 class="govuk-heading-s">Requirements and prospects</h2>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Desired skills and personal qualities?</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Qualifications</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Things to consider (optional)</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+                <div style="margin-top:35px"></div>
+                <table class="govuk-table"> 
+                    <thead>
+                      <tr class="govuk-table__row">
+                                  <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+
+                      <h2 class="govuk-heading-s">Important dates</h2>
+                       <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Application closing date</td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">When do you expect the apprentice to start?</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px"></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">Apprenticeship training</td>
+                        <td class="govuk-table__cell"  style=";font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                                            <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">Disability Confident (optional)</td>
+                        <td class="govuk-table__cell"  style=";font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                    </tbody>
+                </table>
+                 <div style="margin-top:35px"></div>
+                <table class="govuk-table"> 
+                    <thead>
+                      <tr class="govuk-table__row">
+                             <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <h2 class="govuk-heading-s">Duration, working hours and pay</h2>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">How long is the apprenticeship expected to last?</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">Details of working week</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">How many hours will the apprentice work<br />each week, including training?</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">What are you going to pay your apprentice?</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                       <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="">Additional information about pay (optional)</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top:35px"></div>
+                  <table class="govuk-table">
+                      <thead>
+                          <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                          <h2 class="govuk-heading-s">Requirements and prospects</h2>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Desired skills and personal qualities?</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Qualifications</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Things to consider (optional)</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+                  <div style="margin-top:35px"></div>
+                  <table class="govuk-table">
+                      <thead>
+                          <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                          <h2 class="govuk-heading-s">Training provider</h2>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Training provider</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+   <!--                        <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Qualifications</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Things to consider (optional)</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr> -->
+                      </tbody>
+                  </table>
+
+                <div style="margin-top:35px"></div>
+                  <table class="govuk-table">
+                      <thead>
+                          <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                          <h2 class="govuk-heading-s">Application process</h2>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">How will the candidates apply for this vacancy?</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+   <!--                        <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Qualifications</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Things to consider (optional)</td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                          </tr> -->
+                      </tbody>
+                  </table>
+
+
+
+
+
+   <!--               <div style="margin-top:35px"></div>
+                <table class="govuk-table"> 
+                    <thead>
+                      <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <h2 class="govuk-heading-s">Reporting percentages</h2>
+                      <p>We have computed the percentages that will be reported from the figures you have given</p>
+                       <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"> Percentage of employment starts that were apprenticeships <br/>between 1 April 2017 and 31 March 2018 </td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">0.1%</td>
+                          <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                        <td class="govuk-table__cell" style="width:445px">Percentage of total headcount that were apprenticeships <br/>on 31 March 2018</td>
+                        <td class="govuk-table__cell"  style="width:64px;font-weight:700; font-size:16px; ">0.2%</td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                       <td class="govuk-table__cell" style="width:445px">Percentage of total headcount who were apprenticeship starts <br/>between 1 April 2017 and 31 March 2018 (The target)</td>
+                        <td class="govuk-table__cell"  style="width:64px;font-weight:700; font-size:19px; ">0.15%</td>
+                           <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                    </tbody>
+                </table> -->
+<!--         <div style="margin-top:35px"></div>
+
+                  <table class="govuk-table"> 
+                    <thead>
+                      <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <h2 class="govuk-heading-s">Factors that impacted your ability to meet the target</h2>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="width:135px">Outline any actions you have taken to help you progress towards meeting the public sector target</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla metus lorem, non ultrices ligula maximus ac. Donec et euismod neque. 
+                        Ut blandit justo est, ac luctus ipsum pharetra eget. Suspendisse iaculis eu libero sed dignissim. Vivamus dictum sapien in purus aliquet accumsan. Morbi porta ante in velit rhoncus, in vehicula eros dictum. Praesent rutrum magna id porttitor consequat.</td>
+                        <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="width:135px">Tell us about any challenges you have faced in meeting the target</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">Nulla tristique neque nec mi rutrum facilisis. Nam eu varius elit, finibus aliquam lectus. Duis egestas, orci nec laoreet dignissim, ligula velit varius eros, eget consectetur mauris dolor tempor leo. Fusce ut ipsum sodales, gravida mauris at, euismod mi. Fusce eget enim in nisl tempus elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla vel consectetur erat. Sed volutpat blandit quam eu posuere. Cras venenatis tincidunt libero vel aliquam.</td>
+                      <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="width:135px">What are you plans for meeting the target in future, and what impact do you expect these to have?</td>
+                        <td class=""  style="font-weight:700; font-size:16px; ">Nam at eros mauris. Vivamus nec ultricies leo. Quisque nec erat vel lectus viverra ornare. Vestibulum mi justo, dignissim vitae lacus ut, tristique facilisis enim. Ut sit amet enim nec metus cursus dignissim non a urna. Donec dictum posuere augue. Donec quis molestie risus. Sed vitae volutpat erat. Proin sit amet egestas velit. Ut quis malesuada orci. Curabitur aliquam egestas turpis, ut sagittis ante imperdiet sed. Quisque sed vestibulum dui.</td>
+                       <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                       <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="width:135px">Do you have anything else you want to tell us? <br /><br />For Local Authorities this could include commenting on how schools and fire services in your control have contributed to the target</td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">Etiam viverra arcu id nisi pellentesque, a bibendum massa gravida. Suspendisse lacinia, augue ac cursus aliquam, urna ipsum commodo est, a consequat sapien ante a sem. Etiam a erat vel mi dictum dapibus. Duis ut lorem eget mi eleifend maximus. Praesent ac nulla ac erat elementum condimentum. Mauris viverra, sem eu tristique varius, urna urna scelerisque ligula, id semper lectus tellus eu mi. Ut non sollicitudin lectus. Pellentesque facilisis tincidunt scelerisque. Quisque eu tempus nisl. Cras sed ultricies odio. Praesent eros ante, egestas sed leo vel, aliquet commodo turpis. Donec est ligula, ornare sit amet lobortis nec, aliquam eu nunc. Duis vel varius urna. Nunc at eros porttitor, interdum urna at, tincidunt elit. Nam sed congue velit.</td>
+                       <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                      </tr>
+                    </tbody>
+                </table> -->
+              <form action="sure">
+                <button type="submit" class="govuk-button">Review</button>
+                 <a  class="govuk-button clear-button" href="../recruit" >Cancel </a>
+              </form>
+          </div>
+        </div>
+</main>
+
+{% endblock %}
+

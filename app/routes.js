@@ -1139,6 +1139,64 @@ router.get('/*/registerReserve/addTaxDetailsRegisterReserve' , function (req, re
 })
 
 
+
+/// Register Test > v5 > Signing the agreement during registrations (not the reserve version)
+// http://127.0.0.1:3000/version-5/newregister/version1/agreementTwoC
+router.get('/*/newregister/version1/signAgreementRegisterReserve' , function (req, res) {
+  var confirmTraining = req.query.agreementSign
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+            res.redirect(`/${req.version}/newregister/version1/taxDetails`) 
+           break;
+
+           case  (confirmTraining == 'notYet'):
+            res.redirect(`/${req.version}/newregister/version1/taxDetails`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Regsiter Test - v5> add tax details now
+// http://127.0.0.1:3000/version-5/newregister/version1/taxDetails
+router.get('/*/newregister/version1/addTaxDetailsRegisterReserve' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/version1/homeConfirmation`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/version1/homeConfirmation`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Regsiter Test - v5> add tax details now V2
+// http://127.0.0.1:3000/version-5/newregister/version1/taxDetails
+router.get('/*/newregister/version2/addTaxDetailsRegisterReserve' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/version2/homeConfirmation`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/version2/homeConfirmation`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
