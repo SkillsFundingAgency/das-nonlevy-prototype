@@ -3,29 +3,96 @@
 
 {% endblock %} {% block content %}
 
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WF97B7V');</script>
+<!-- End Google Tag Manager -->
+
+<script>
+  function whereNow() {
+  var status = $('input[name=whatsNeeded]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='begin';
+                break;
+
+        case  (status == 'false'):
+                  $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+             $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
 
  <style> 
 .govuk-header__content {display:none ;}
 </style>
 
 <div class="govuk-width-container">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF97B7V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
              <!--   <h1 class="govuk-heading-xl ">Register an account</h1> -->
            </div>
             <div class="govuk-grid-column-two-thirds">
-                <p>This is a prototype service, your actions will not be recorded, it will not register you for any services or bind you to any agreements signed.</p>
+                <p >This is a prototype service, your actions will not be recorded, it will not register you for any services or bind you to any agreements signed.</p>
                 <p> Try to act as if this were a real-life situation your organisation has encountered. </p>
            <!--      <h2 class="govuk-heading-m">Before you start</p> -->
                 <!--   <p>You will need:</p> -->
    
-                
-                <div style="margin-top:35px"></div>
 
+                <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="">
+           Do you understand and agree?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                Please read the statement above. 
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                Yes, I understand and want to take part
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+                No, I don't understand and don't want to take part
+              </label>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" onClick="whereNow()">Continue</button>
+
+      <!--/form-->
+
+    </div>
+  </div>
+<!-- 
 <form action="begin" method="get" class="form">
                 <button  class="govuk-button">Continue</button>
-              </form>
+              </form> -->
                           <!--   <h2 class="govuk-heading-m " >Help</h2>
                 <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
                     <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>
