@@ -113,12 +113,12 @@ td {font-size: 16px}
                           <h2 class="govuk-heading-s">Location</h2>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Which organisation is the vacancy for?</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; ">{{ data['where-do-you-live'] }}</td>
                               <td class="govuk-table__cell"> <a href="step3"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Enter the address where the apprentice will work</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px">{{ data['addressOne'] }} <br />{{ data['addressTwo'] }} <br />{{ data['addressThree'] }} <br />{{ data['addressFour'] }} <br />{{ data['addressPost'] }}</td>
                               <td class="govuk-table__cell"> <a href="step3"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
@@ -216,27 +216,27 @@ td {font-size: 16px}
                       <h2 class="govuk-heading-s">Duration, working hours and pay</h2>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">How long is the apprenticeship expected to last?</td>
-                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">{{ data['recruitAppLength'] }} {{ data['apprenticeshipLength'] }} </td>
                         <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">Details of working week</td>
-                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "> {{ data['recruitWorkingWeek'] }}</td>
                         <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">How many hours will the apprentice work<br />each week, including training?</td>
-                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">{{ data['recruitAppLengthHours'] }} Hours</td>
                         <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">What are you going to pay your apprentice?</td>
-                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">{{ data['recruitHowMuchPayApp'] }}</td>
                         <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                        <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">Additional information about pay (optional)</td>
-                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; "></td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px; ">{{ data['recruitAdditionalPayInfo'] }}</td>
                         <td class="govuk-table__cell"> <a href="step5"> Add</a></td>
                       </tr>
                     </tbody>
