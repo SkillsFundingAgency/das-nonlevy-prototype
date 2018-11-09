@@ -60,7 +60,7 @@ td {font-size: 16px}
                         <h2 class="govuk-heading-s">Brief overview
 </h2>
                         <tr class="govuk-table__row">
-                            <td class="govuk-table__cell" style="">Write a few sentences to describe your vacancy</td>
+                            <td class="govuk-table__cell" style="min-width:200px">Write a few sentences to describe your vacancy</td>
                             <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">{{ data['more-detail'] }}</td>
                            <td class="govuk-table__cell"> <a href="step2"> Add</a></td>
                         </tr>
@@ -81,18 +81,18 @@ td {font-size: 16px}
                           <h2 class="govuk-heading-s">Training information</h2>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">What you will do in your working day?</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; "></td>
-                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px; ">{{ data['recruitWorkingDay'] }}</td>
+                              <td class="govuk-table__cell"> <a href="step7"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">The training you will be getting</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
-                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px">{{ data['recruitWhatTraining'] }}</td>
+                              <td class="govuk-table__cell"> <a href="step7"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">What to expect at the end of your apprenticeship</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
-                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px">{{ data['recruitWhatGetAtEnd'] }}</td>
+                              <td class="govuk-table__cell"> <a href="step7"> Add</a></td>
                           </tr>
 
                       </tbody>
@@ -162,8 +162,8 @@ td {font-size: 16px}
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Things to consider (optional)</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
-                              <td class="govuk-table__cell"> <a href="#"> Add</a></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px">{{ data['recruitThingsToConsider'] }}</td>
+                              <td class="govuk-table__cell"> <a href="step8"> Add</a></td>
                           </tr>
                       </tbody>
                   </table>
@@ -183,12 +183,12 @@ td {font-size: 16px}
                       <h2 class="govuk-heading-s">Important dates</h2>
                        <tr class="govuk-table__row">
                         <td class="govuk-table__cell">Application closing date</td>
-                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;"></td>
+                        <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">{{ data['appclosing-day'] }} {{ data['appclosing-month'] }} {{ data['appclosing-year'] }}</td>
                         <td class="govuk-table__cell"> <a href="step4"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell">When do you expect the apprentice to start?</td>
-                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px"></td>
+                        <td class="govuk-table__cell"  style="font-weight:700; font-size:16px">{{ data['recruitAppStart-day'] }} {{ data['recruitAppStart-month'] }} {{ data['recruitAppStart-year'] }} </td>
                         <td class="govuk-table__cell"> <a href="step4"> Add</a></td>
                       </tr>
                       <tr class="govuk-table__row">

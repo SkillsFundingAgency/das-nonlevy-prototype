@@ -1,15 +1,13 @@
 {% extends "layout.html" %}
 
-
 {% block beforeContent %}
 {% from "back-link/macro.njk" import govukBackLink %}
 
 {{ govukBackLink({
   text: "Back",
-  href: "begin"
+  href: "setUpUser"
 }) }}
 {% endblock %}
-
 {% block content %}
 
 <!-- Google Tag Manager -->
@@ -19,7 +17,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WF97B7V');</script>
 <!-- End Google Tag Manager -->
-
 
  <style> 
 .govuk-header__content {display:none ;}
@@ -61,80 +58,29 @@ EventUtil.addHandler(createButton, 'click', function(){
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="govuk-grid-column-two-thirds">
+      <form action="searchOrgResults" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">
+Search for your organisation
 
-      <form action="searchOrg" method="get" class="form">
-
-     <h1 class="govuk-heading-xl">
-          Get set up as a user
         </h1>
-
-
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
 
-          </legend>
           <div class="govuk-form-group">
               <label class="govuk-label govuk-!-width-three-quarters bold-label" for="firstName">
-                 First name
+Enter organisation name
+
               </label>
               <!--span id="email-hint" class="govuk-hint">
               We’ll only use this to send you a receipt
             </span-->
               <input class="govuk-input govuk-!-width-three-quarters" id="firstName" name="firstName" type="text" aria-describedby="First Name">
           </div>
-          <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="lastName">
-                 Last name
-              </label>
-              <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
-              <input class="govuk-input govuk-!-width-three-quarters" id="lastName" name="lastName" type="text" aria-describedby="Last name">
-          </div>
-
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="email">
-                 Email
-              </label>
-              <span id="email-hint" class="govuk-hint">
-<!--               We'll send you an email to confirm your identity.
-            </span> -->
-              <input class="govuk-input govuk-!-width-three-quarters" id="email" name="email" type="email" aria-describedby="email">
-          </div>
-
-
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
-                 Create new password
-              </label>
-              <span id="password-hint" class="govuk-hint">
-             Password requires upper and lowercase letters, a number and at least 8 characters.
-            </span>
-              <input class="govuk-input govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="password">
-          </div>
-
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="confirmPassword">
-                 Confirm password
-              </label>
-              <!--span id="password-hint" class="govuk-hint">
-             Password requires upper and lowercase letters, a number and at least 8 characters.
-            </span-->
-              <input class="govuk-input govuk-!-width-three-quarters" id="confirmPassword" name="confirmPassword" type="password" aria-describedby="confirmPassword">
-          </div>
-
           </fieldset>
-
-           <div class="govuk-inset-text">
-          By continuing you accept the <a href="https://beta-login.apprenticeships.sfa.bis.gov.uk/TermsAndConditions" target="_blank">terms of use</a>
         </div>
-        </div>
-
-        <button class="govuk-button">Continue</button>
-
+        <button class="govuk-button">Search</button>
       </form>
-
     </div>
+
   </div>
 {% endblock %}

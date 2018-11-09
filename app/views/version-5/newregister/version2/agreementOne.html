@@ -464,22 +464,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <table class="govuk-table">
             <tbody>
-              <tr class="govuk-table__row">
-                <th class="govuk-table__header" >Signed by:</th>
-                <td class="govuk-table__cell ">David Jenkins</td>
-            </tr>
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header" >On behalf of:</th>
-                <td class="govuk-table__cell "> Assurance Aerospace Ltd</td>
-            </tr>
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header" >Address:</th>
-                <td class="govuk-table__cell ">No 2 Lochrin Square, 96 Fountainbridge, Edinburgh, EH3 9QA</td>
-            </tr>
-            <tr class="govuk-table__row">
-                <th class="govuk-table__header" >Signed on:</th>
-                <td class="govuk-table__cell ">14/11/2018</td>
-            </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header">Signed by:</th>
+                    <td class="govuk-table__cell ">{{ data['firstName'] }} {{ data['lastName'] }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header">On behalf of:</th>
+                    <td class="govuk-table__cell ">{{ data['orgName'] }}</td>
+                </tr>
         </tbody>
       </table>
 

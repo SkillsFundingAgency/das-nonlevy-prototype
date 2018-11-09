@@ -47,7 +47,7 @@ EventUtil.addHandler(createButton, 'click', function(){
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="govuk-grid-column-two-thirds">
-        <form action="agreementOne" method="get" class="form">
+        <form action="#" method="get" class="form">
             <h1 class="govuk-heading-xl" style="">Select your organisation</h1>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
@@ -58,7 +58,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <!--span id="email-hint" class="govuk-hint">
                         We’ll only use this to send you a receipt
                         </span-->
-                        <input class="govuk-input govuk-!-width-three-quarters-half" id="firstName" name="firstName" type="text" aria-describedby="First Name">
+                       <input class="govuk-input govuk-!-width-three-quarters-half" id="orgName" name="orgName" type="text" aria-describedby="searchResults" value="{{ data['orgName'] }}">
                     </div>
                     <p style="margin-top:10px">2 results found</p>
                 </fieldset>
@@ -109,14 +109,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="govuk-grid-column-two-thirds">
         <div>
-            <h3 class="govuk-heading-s" style="margin-bottom:0"><a href="agreementOne">Assurance Aerospace Ltd</a></h3>
-            <p style="margin-bottom:0"><span style="font-weight:700; ">Address</span> First Floor, Telecom House 125-135 Preston Road, Brighton, BN1 6AF</p>
-              <p><span style="font-weight:700">Type</span> Listed on Companies House</p>
+            <h3 class="govuk-heading-s" style="margin-bottom:0"><a href="agreementone">{{ data['orgName'] }}</a></h3>
+            <p style="margin-bottom:0"><span style="font-weight:700; ">Address</span> not found</p>
+              <p><span style="font-weight:700">Type</span> Listed on Companies House or other</p>
               <hr>
         </div>
           <div>
-            <h3 class="govuk-heading-s" style="margin-bottom:0; margin-top:15px"><a href="agreementOne">Assurance Plumbing Ltd</a></h3>
-            <p style="margin-bottom:0"><span style="font-weight:700; ">Address</span> 1 Moyes Cottages Bentley Hall Road, Capel St. Mary, Ipswich, IP9 2JL</p>
+            <h3 class="govuk-heading-s" style="margin-bottom:0; margin-top:15px"><a href="agreementone">Assurance Plumbing Ltd</a></h3>
+            <p style="margin-bottom:0"><span style="font-weight:700; ">Address</span> not found</p>
               <p><span style="font-weight:700">Type</span>  Listed on Companies House</p>
               <hr>
         </div>
