@@ -95,7 +95,7 @@
                     <label class="govuk-label   govuk-label--s" for="recruitSearchApp">
                         Search for apprenticeship training </label>
                     <span id="recruitSearchApp-hint" class="govuk-hint"> Start typing the name of the course or choose an option from the list</span>
-                    <input class="govuk-input " id="recruitSearchApp" name="recruitSearchApp" type="text" aria-describedby="recruitSearchApp-hint" value="" />
+                    <input class="govuk-input " id="recruitSearchApp" name="recruitSearchApp" type="text" aria-describedby="recruitSearchApp-hint" value="{{ data['recruitSearchApp'] }}" />
                 </div>
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -107,7 +107,7 @@
 
                         <div class="govuk-checkboxes">
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="recruitDisabilityConfident" name="recruitDisabilityConfident" type="checkbox" value="recruitDisabilityConfident">
+                                <input class="govuk-checkboxes__input" id="recruitDisabilityConfident" name="recruitDisabilityConfident" type="checkbox"  value="{{ data['recruitDisabilityConfident'] }}">
                                 <label class="govuk-label govuk-checkboxes__label" for="recruitDisabilityConfident">This vacancy is <a href="https://www.gov.uk/government/collections/disability-confident-campaign" target="new">Disability Confident.  </a> </label>
                             </div>
                         </div>
