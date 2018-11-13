@@ -1158,6 +1158,7 @@ router.get('/*/newregister/version1/signAgreementRegisterReserve' , function (re
 
         default:
             console.log("bork bork bork");
+             res.redirect(`/${req.version}/newregister/version1/taxDetails`)
             break;
         }
 })
@@ -1179,6 +1180,7 @@ router.get('/*/newregister/version1/addTaxDetailsRegisterReserve' , function (re
 
         default:
             console.log("bork bork bork");
+             res.redirect(`/${req.version}/newregister/version1/homeConfirmation`)
             break;
         }
 })
@@ -1200,6 +1202,7 @@ router.get('/*/newregister/version2/addTaxDetailsRegisterReserve' , function (re
 
         default:
             console.log("bork bork bork");
+            res.redirect(`/${req.version}/newregister/version2/homeConfirmation`)
             break;
         }
 })
