@@ -2,7 +2,7 @@
 {% block beforeContent %} 
 {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
 {% from "back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({ text: "Back", href: "../recruit" }) }} 
+{{ govukBackLink({ text: "Back", href: "wholeList" }) }} 
 {% endblock %} 
 {% block content %}
 
@@ -97,7 +97,7 @@ else {  };
             </div>
 
             <div class="govuk-form-group">
-                      <label class="govuk-label   govuk-label--s" for="recruitSubject">
+                      <label class="govuk-label   govuk-label--s" for="recruitEssDes">
                     Is this qualification essential?
                 </label>
      

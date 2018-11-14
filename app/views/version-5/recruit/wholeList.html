@@ -41,7 +41,7 @@ td {font-size: 16px}
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="">How many positions do you have for this apprenticeship?</td>
                         <td class="govuk-table__cell" style="font-weight:700; font-size:16px;">{{ data['numberOfApprentices'] }}</td>
-                       <td class="govuk-table__cell"> <a href="step1"> Add</a></td>
+                       <td class="govuk-table__cell"> <a href="step1">Add</a></td>
                       </tr>
                     </tbody>
                 </table>
@@ -157,7 +157,7 @@ td {font-size: 16px}
                           </tr>
                           <tr class="govuk-table__row">
                               <td class="govuk-table__cell">Qualifications</td>
-                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px"></td>
+                              <td class="govuk-table__cell" style="font-weight:700; font-size:16px">{{ data['recruitQual'] }}  {{ data['recruitSubject'] }}  {{ data['recruitEssDes'] }}</td>
                               <td class="govuk-table__cell"> <a href="step10"> Add</a></td>
                           </tr>
                           <tr class="govuk-table__row">
@@ -284,7 +284,7 @@ td {font-size: 16px}
                       </tbody>
                   </table>
 
-              <form action="sure">
+              <form action="vacancySummary">
                 <button type="submit" class="govuk-button">Review</button>
                  <a  class="govuk-button clear-button" href="../recruit" >Cancel </a>
               </form>

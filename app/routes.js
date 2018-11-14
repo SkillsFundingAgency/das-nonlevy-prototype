@@ -1207,6 +1207,53 @@ router.get('/*/newregister/version2/addTaxDetailsRegisterReserve' , function (re
         }
 })
 
+/// Recruit - submit vacancy from the review page
+// http://127.0.0.1:3000/version-5/recruit/vacancySummary?
+router.get('/*/recruit/recruitSubmitVacancyFromReview' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+           //   ga('send', 'event', [tax], [Agreed]);
+            res.redirect(`/${req.version}/recruit/finish`)
+           break;
+
+           case  (confirmTraining == 'false'):
+          //   ga('send', 'event', [tax], [notAgreed]);
+            res.redirect(`/${req.version}/recruit/wholeList`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Recruit - vacancy submitted - whats next options
+// http://127.0.0.1:3000/version-5/recruit/finish
+router.get('/*/recruit/recruitVacancySubmittedWhatsNext' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'another'):
+           //   ga('send', 'event', [tax], [Agreed]);
+            res.redirect(`/${req.version}/recruit/step0`)
+           break;
+
+           case  (confirmTraining == 'recruitHome'):
+          //   ga('send', 'event', [tax], [notAgreed]);
+            res.redirect(`/${req.version}/recruit/`)
+           break;
+
+           case  (confirmTraining == 'home'):
+          //   ga('send', 'event', [tax], [notAgreed]);
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
