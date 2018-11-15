@@ -247,6 +247,27 @@ router.param('employer', function (req, res, next, employer) {
  })
 
 
+  // Provider > Nav > Agreement IDs
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/*/proAgreementNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/orgsAndAgree`)
+ })
+
+  router.get('/*/*/proAgreementNav', function (req, res) {
+  res.redirect(`/${req.version}/provider/orgsAndAgree`)
+ })
+
+
+  // Provider > Nav > Agreement IDs
+// bit hacky but works - needs two routes for top level and lower down the chain
+ router.get('/*/recruitNav', function (req, res) {
+  res.redirect(`/${req.version}/recruit`)
+ })
+
+  router.get('/*/*/recruitNav', function (req, res) {
+  res.redirect(`/${req.version}/recruit`)
+ })
+
 
 
 
@@ -680,7 +701,7 @@ router.get('/*/finance/changeReserve/reserveHowRecruitingFoundYet' , function (r
             res.redirect(`/${req.version}/apprentices/add/fromReserve/alreadyAccepted`)
            break;
           case  (recruitType == 'findThem'):
-            res.redirect(`/${req.version}/finance/changeReserve/startRecruit`)
+            res.redirect(`/${req.version}/recruit/fromReserve`)
            break;
         default:
             console.log("bork bork bork");
@@ -1235,7 +1256,7 @@ router.get('/*/recruit/recruitVacancySubmittedWhatsNext' , function (req, res) {
        switch (true) {
           case  (confirmTraining == 'another'):
            //   ga('send', 'event', [tax], [Agreed]);
-            res.redirect(`/${req.version}/recruit/step0`)
+            res.redirect(`/${req.version}/recruit/step-1`)
            break;
 
            case  (confirmTraining == 'recruitHome'):
@@ -1252,6 +1273,83 @@ router.get('/*/recruit/recruitVacancySubmittedWhatsNext' , function (req, res) {
             console.log("bork bork bork");
             break;
         }
+})
+
+/// Recruit - use reserved funding
+// http://127.0.0.1:3000/version-6/apprentices/add/NonLevyFull/oneAtTime/chooseReserve
+router.get('/*/recruit/recruitReserveFundingUse' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+          case  (confirmTraining == 'Aeronautical engineer, Level 2'):
+          req.session.data['vacancyName'] = 'Aeronautical engineer apprenticeship'; 
+           req.session.data['recruitSearchApp'] = 'Aeronautical engineer'; 
+           req.session.data['recruitProviderName'] = 'QA Limited';
+           req.session.data['recruitAppStart-day'] = '10';
+           req.session.data['recruitAppStart-month'] = 'Sept';
+           req.session.data['recruitAppStart-year'] = '2019';
+            res.redirect(`/${req.version}/recruit/wholeList`)
+           break;
+
+           case  (confirmTraining == 'Mechanical engineer, Level 3'):
+             req.session.data['vacancyName'] = 'Mechanical engineer apprenticeship'; 
+           req.session.data['recruitSearchApp'] = 'Mechancial engineer'; 
+           req.session.data['recruitProviderName'] = 'QA Limited';
+           req.session.data['recruitAppStart-day'] = '10';
+           req.session.data['recruitAppStart-month'] = 'Sept';
+           req.session.data['recruitAppStart-year'] = '2019';
+          //   ga('send', 'event', [tax], [notAgreed]);
+            res.redirect(`/${req.version}/recruit/wholeList`)
+           break;
+
+           case  (confirmTraining == 'Financial Services Administrator, Level 3'):
+               req.session.data['vacancyName'] = 'Financial Services Administrator apprenticeship'; 
+           req.session.data['recruitSearchApp'] = 'Financial Services Administrator'; 
+           req.session.data['recruitProviderName'] = 'QA Limited';
+           req.session.data['recruitAppStart-day'] = '10';
+           req.session.data['recruitAppStart-month'] = 'Sept';
+           req.session.data['recruitAppStart-year'] = '2019';
+          //   ga('send', 'event', [tax], [notAgreed]);
+            res.redirect(`/${req.version}/recruit/NOTBUILTYET`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+/// Recruit - use reserved funding
+// http://127.0.0.1:3000/version-6/apprentices/add/NonLevyFull/oneAtTime/chooseReserve
+router.get('/*/recruit/fromReserveToRecruit' , function (req, res) {
+
+    
+          req.session.data['vacancyName'] = 'Aeronautical engineer apprenticeship'; 
+           req.session.data['recruitSearchApp'] = 'Aeronautical engineer'; 
+           req.session.data['recruitProviderName'] = 'QA Limited';
+           req.session.data['recruitAppStart-day'] = '10';
+           req.session.data['recruitAppStart-month'] = 'Aug';
+           req.session.data['recruitAppStart-year'] = '2019';
+            res.redirect(`/${req.version}/recruit/wholeList`)
+
+        
+})
+
+/// Recruit - use make a commitment from an application
+// http://127.0.0.1:3000/version-6/recruit/applications/susanApan
+router.get('/*/recruit/applications/fromRecruitDoACommitment' , function (req, res) {
+          req.session.data['FirstFirstName'] = 'Susan'; 
+          req.session.data['FirstLastName'] = 'Apan'; 
+
+              req.session.data['dob-day'] = '10';
+              req.session.data['dob-month'] = 'June';
+              req.session.data['dob-year'] = '2001';
+          
+
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeConfirm`)
+
+        
 })
 
 /// Add apprentices > add apprentices yourself or send to provider

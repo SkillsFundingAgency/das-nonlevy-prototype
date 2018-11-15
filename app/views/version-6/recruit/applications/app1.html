@@ -1,0 +1,132 @@
+{% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %}    {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "./" }) }} {% endblock %} {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+                 <div class="govuk-grid-column-two-thirds">
+      
+                <h1 class="govuk-heading-xl ">Aeronautical Engineer Apprenticeship <span class="govuk-caption-l">VAC1000000652</span>  </h1>
+          
+
+   
+
+<!--                 <form action="step-1" method="get" class="form">
+                    <button class="govuk-button">Create Vacancy</button>
+                </form> 
+            -->
+
+ <div class="notShown" id="notShown">
+    <table class="govuk-table ">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+<!--                 <th class="govuk-table__header" scope="col" style="">Status</th> -->
+                <th class="govuk-table__header " scope="col" style="">Status</th>
+                <th class="govuk-table__header " scope="col" style="">Name</th>
+                <th class="govuk-table__header" scope="col" style="">Date of application</th>
+                <th class="govuk-table__header" scope="col" style=""></th>
+<!--                               <th class="govuk-table__header" scope="col" style="width:100px">Number of offers</th> -->
+  <!--               <th class="govuk-table__header" scope="col">Action</th> -->
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row" id="May18">
+<!--                 <td class="govuk-table__cell" scope="row">Draft</td> -->
+                <td class="govuk-table__cell ">New application</td>
+                <td class="govuk-table__cell ">Rob Edwards</td>
+                <td class="govuk-table__cell ">8 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">9</td>
+                              <td class="govuk-table__cell ">1</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="robEdwards">View</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Shortlisted</td>
+                <td class="govuk-table__cell ">David Jenkins</td>
+                <td class="govuk-table__cell ">7 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="davidJenkins">View</a>
+                </td>
+            </tr>
+             <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Offered</td>
+                <td class="govuk-table__cell ">Susan Apan</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="susanApan">View</a>
+                </td>
+            </tr>
+                         <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Made an apprentice</td>
+                <td class="govuk-table__cell ">Mel England</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">View</a>
+                </td>
+            </tr>
+                         <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Rejected</td>
+                <td class="govuk-table__cell ">Vanessa Childs</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">View</a>
+                </td>
+            </tr>
+                         <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Rejected</td>
+                <td class="govuk-table__cell ">Lisa Rogers</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">View</a>
+                </td>
+            </tr>
+                         <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Rejected</td>
+                <td class="govuk-table__cell ">Sam Eton</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">View</a>
+                </td>
+            </tr>
+                         <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Rejected</td>
+                <td class="govuk-table__cell ">Helen May</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">View</a>
+                </td>
+            </tr>
+                         <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell ">Rejected</td>
+                <td class="govuk-table__cell ">Jake Mitchell</td>
+                <td class="govuk-table__cell ">6 Dec 2018</td>
+<!--                 <td class="govuk-table__cell ">4</td>
+                 <td class="govuk-table__cell ">2</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">View</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div></div>
+
+
+
+ 
+        </div>
+    </main>
+    {% endblock %}

@@ -1,0 +1,140 @@
+{% extends "layout.html" %} {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+
+{% endblock %} {% block content %}
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WF97B7V');</script>
+<!-- End Google Tag Manager -->
+
+<script>
+  function whereNow() {
+  var status = $('input[name=whatsNeeded]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='begin';
+                break;
+
+        case  (status == 'false'):
+                  $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+             $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<div class="govuk-width-container">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF97B7V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">Prototype </h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p style="" >This is a prototype, your actions will not:</p>
+
+             <ul class="govuk-list govuk-list--bullet">
+                    <li>be recorded </li>
+                    <li>register you for any services</li>
+                
+                    <li>bind you to any agreements signed whilst taking part in this session </li>
+
+
+<!--                     <li>find training providers who offer the apprenticeship training you choose</li>
+                    <li>find a named training provider you want to use</li> -->
+                </ul>
+
+            
+                <p> Try to complete the following journey as if you were doing it on behalf of your organisation. </p>
+           <!--      <h2 class="govuk-heading-m">Before you start</p> -->
+                <!--   <p>You will need:</p> -->
+   
+
+                <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="">
+           Are you happy to take part?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                This is a test for user research purposes. If you change your mind choose yes, to continue.
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                Yes, I understand and want to take part
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+                No, I don't want to take part
+              </label>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" onClick="whereNow()">Continue</button>
+
+      <!--/form-->
+
+    </div>
+  </div>
+<!-- 
+<form action="begin" method="get" class="form">
+                <button  class="govuk-button">Continue</button>
+              </form> -->
+                          <!--   <h2 class="govuk-heading-m " >Help</h2>
+                <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
+                    <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>
+                <p> Telephone: 0800 015 0600 <a href="#"> Find out about call charges</a></p> -->
+            </div>
+  <!--           <div class="govuk-grid-column-one-third">
+
+                                 <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; " >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Funds reserved</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 5px 15px"><span style="">£</span>8,100</h2>  
+                        
+                              <p style="margin:0"><a href="./changeReserve" style="font-size:16px; margin: 0px 0 0 15px">View details</a></p>   
+                        </div>
+                    </div>
+
+                    <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; margin-top:25px" >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Available to reserve</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 0px 15px"><span style="">£</span>15,900</h2>  
+                                <p style="margin:0 0 0 15px; font-size:16px">This is the amount you have left to reserve.</p>
+
+                                    
+                        </div>
+                    </div>
+
+   
+            </div> -->
+
+        </div>
+    </main>
+    {% endblock %}

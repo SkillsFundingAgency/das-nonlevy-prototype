@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "searchOrgResults"
+}) }}
+{% endblock %}
+{% block content %}
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WF97B7V');</script>
+<!-- End Google Tag Manager -->
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<script type="text/javascript">
+function whereNow() {
+   localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
+   window.location.href='../orgs';
+    }
+ </script>
+
+
+<div class="govuk-width-container">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF97B7V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+      <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         <h1 class="govuk-heading-xl" style="">Agreement between you and the ESFA</h1>
+            <p style="">This legal agreement sets out how apprenticeship funding will work between you, the ESFA and your training provider.</p>
+            <h2 class="govuk-heading-m" style="">What is in the agreement’</h2>
+            <p>You must read and understand the agreement and be aware of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+<!--                 <li>you have to pay the training provider directly for any training and assessment costs you have agreed to</li> -->
+           <!--      <li>if you don’t follow the terms of this agreement you may have to pay back funding</li> -->
+           <li>you agree to pay co-investment costs for your apprenticeship training </li>
+           <li>you must have a contract with your training provider</li>
+           <li>if you don’t follow the rules of this agreement, you might be asked to pay the funding back and to pay for the rest of the training</li>
+           <li>if the ESFA suspects that the agreement or funding rules are not being followed, you must help with the investigation</li>
+           <p style="margin-top:15px; margin-bottom:10px" class="govuk-heading-s">If you pay the apprenticeship levy:</p>
+           <li>you can only use your levy funds to pay for apprenticeship training and assessment</li>
+
+            </ul>
+</div>
+</div>
+
+
+<iframe style="margin:20px 0 20px 0;width:100%; height:300px" src="justagreementTwoB"></iframe>
+    <div class="govuk-grid-row" id="publication-banner">
+    <div class="govuk-grid-column-one-third" style="padding-left:0">
+<!--         <div class="sfa-logo">
+            <h1 style="margin:0" class="govuk-heading-s">
+                <span class="organisation-logo">
+                    <span>Education &amp; Skills <br>
+                        Funding Agency</span>
+                </span>
+            </h1>
+        </div> -->
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/public/agreement1.pdf" target="_blank" class="download" >Save this agreement as a PDF</a>
+    </div>
+</div>
+<form action="signAgreementRegisterReserve" method="get" class="form">
+    <!--       <p>Apprenticeship funds can be reserved for use between the following dates.</p> -->
+    <div style="margin-top:35px"></div>
+    <div class="govuk-form-group" style="margin-bottom:15px">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                       Do you want to sign this now?
+                      </h1>
+            </legend>
+            <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="app-1" name="agreementSign" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="app-1" style="padding-bottom:0">
+                        Yes, I agree to sign this agreement
+                    </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="app-4" name="agreementSign" type="radio" value="notYet">
+                    <label class="govuk-label govuk-radios__label" for="app-4">
+                        Not yet, I will come back to it 
+                    </label>
+                    <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                            You won't be able to use government funding to pay for your apprenticeships until you sign this agreement
+                        </span>
+                </div>
+        </fieldset>
+    </div>
+    <button class="govuk-button" style="margin-bottom:15px">Continue</button>
+</form>
+
+
+  <!--       <div>
+            <button type="submit" class="govuk-button" onclick="whereNow()" style="">Sign now</button>
+            <a  class="govuk-button clear-button" href="confirm-training-provider" >Not yet, I'll sign it later</a>
+        </div> -->
+        <div class="govuk-warning-text" style="width:66%">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    This agreement is legally binding. You must have authority from your organisation to sign it.
+  </strong>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
