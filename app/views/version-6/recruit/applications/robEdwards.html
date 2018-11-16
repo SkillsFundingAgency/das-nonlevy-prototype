@@ -1,6 +1,6 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
- {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/financeNav.html" %}
+ {% include "includes/version1/mainNav.html" %}   {% include "includes/version5/recruitNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %} 
 {{ govukBackLink({ text: "Back", href: "app1" }) }} 
 {% endblock %} 
@@ -42,7 +42,8 @@
                 </tr>
             </tbody>
         </table> -->
-  <a class="govuk-button" style="margin-bottom:0" <a href="#">Shortlist applicant</a>
+  <a class="govuk-button" style="margin-bottom:0" <a href="shortListApplication">Shortlist application</a>
+   <a  class="govuk-button clear-button" href="rejectApplication" >Reject application </a>
         <table class="govuk-table details-list" >
 
 <div style="margin-top:55px"

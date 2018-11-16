@@ -178,6 +178,17 @@
                     <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
                     </td>
                 </tr>
+{% if data['susanApanManageApps'] == 'true' %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">Susan Apan</td>
+                    <td class="govuk-table__cell nowrap govuk-body-s" scope="row">10 June 2001</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row">Live</td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"></td>
+                    <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a>
+                    </td>
+                </tr>
+            {% else %}
+{% endif %}
 
                 <!--tr class="govuk-table__row">
                     <td class="govuk-table__cell nowrap" colspan="6" scope="row">
