@@ -977,8 +977,30 @@ router.get('/*/reserveMVS/reserveMVSAppOrNot' , function (req, res) {
            break;
 
            case  (confirmTraining == 'false'):
-   
-            res.redirect(`/${req.version}/recruit/applications/robEdwards`)
+                 req.session.data['recruitSearchApp'] = 'Not c'; 
+           req.session.data['recruitProviderName'] = 'QA Limited';
+            res.redirect(`/${req.version}/finance/reserveMVS/reserveStartDate`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+// RESERVE MVS
+/// Reserve MVS > Confirm reserved funding period 
+// http://127.0.0.1:3000/version-6/finance/reserveMVS/confirm3monthwidow
+router.get('/*/reserveMVS/reserveMVSCOnfirmReservedPeriod' , function (req, res) {
+  var confirmTraining = req.query.confirmation
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/finance/reserveMVS/confirmReserveFunding`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/finance/reserveMVS/reserveStartDate`)
            break;
 
         default:
@@ -993,14 +1015,10 @@ router.get('/*/reserveMVS/reserveMVSAppOrNot' , function (req, res) {
 // http://127.0.0.1:3000/version-6/finance/reserveMVS/find/findsummary
 router.get('/*/recruit/fromReserveToRecruit' , function (req, res) {
 
-    
-          req.session.data['vacancyName'] = 'Aeronautical engineer apprenticeship'; 
-           req.session.data['recruitSearchApp'] = 'Aeronautical engineer'; 
+            req.session.data['organisation'] = 'Assurance Aerospace Ltd';
+           req.session.data['recruitSearchApp'] = 'Financial services administrator'; 
            req.session.data['recruitProviderName'] = 'QA Limited';
-           req.session.data['recruitAppStart-day'] = '10';
-           req.session.data['recruitAppStart-month'] = 'Aug';
-           req.session.data['recruitAppStart-year'] = '2019';
-            res.redirect(`/${req.version}/recruit/wholeList`)    
+            res.redirect(`/${req.version}/finance/reserveMVS/reserveStartDate`)    
 })
 
 
@@ -1028,8 +1046,6 @@ router.get('/*/finance/changeReserve/reserveHowRecruiting' , function (req, res)
 })
 
 ///// end of not used
-
-
 /// Employer > Reserve funding > how are you recruiting
 // http://127.0.0.1:3000/version-2/finance/changeReserve/howRecruiting
 router.get('/*/finance/changeReserve/reserveHowRecruitingFoundYet' , function (req, res) {
@@ -1461,6 +1477,48 @@ router.get('/*/recruit/applications/recruitRejectVacancyRobEdwards' , function (
 // --------------------------- END OF RECRUIT --------------------------
 // =====================================================================
 
+
+// =====================================================================
+// --------------------------- START OF PROVIDER --------------------------
+// =====================================================================
+
+
+/// Recruit > Applications > Rob Edwards > Reject
+// http://127.0.0.1:3000/version-6/recruit/applications/shortListApplication
+router.get('/*/provider/employerAccount/providerAddEmployerFinished' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'another'):
+            // req.session.data['robEdwardsReject'] = 'true';
+            // req.session.data['robEdwardsAlertReject'] = 'true';
+            res.redirect(`/${req.version}/provider/employerAccount`)
+           break;
+
+           case  (confirmTraining == 'view'):
+            res.redirect(`/${req.version}/provider/employerAccount/manage`)
+           break;
+
+          case  (confirmTraining == 'homepage'):
+            res.redirect(`/${req.version}/provider/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+
+
+
+// =====================================================================
+// --------------------------- END OF PROVIDER STUFF --------------------------
+// =====================================================================
+
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
@@ -1486,8 +1544,5 @@ router.get('/*/recruit/applications/recruitRejectVacancyRobEdwards' , function (
 /// manage-apprenticeships/whatyoullneed
 
 /// registration > 
-
-
-
 
 module.exports = router

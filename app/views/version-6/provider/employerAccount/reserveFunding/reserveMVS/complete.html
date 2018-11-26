@@ -1,7 +1,11 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK Prototype Kit {% endblock %}
+{% extends "layout.html" %}
 {% block beforeContent %}
- {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/financeNav.html" %}
-{% endblock %} {% block content %}
+ {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}
+ 
+
+{% endblock %}
+{% block content %}
 
 
 <div class="govuk-width-container">
@@ -39,7 +43,7 @@
     </table> -->
   </div>
 
-<form action="finishedReserveFunding" method="get" class="form">
+<form action="TBC" method="get" class="form">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -51,7 +55,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="hire" checked="true">
               <label class="govuk-label govuk-radios__label" for="confirmation-true">
-                Pay for an apprentice with this reservation
+                Add an apprentice with this reservation
               </label>
             </div>
             <div class="govuk-radios__item">

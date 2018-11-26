@@ -1,19 +1,11 @@
 {% extends "layout.html" %}
-
-{% block pageTitle %}
-  Check your answers
-{% endblock %}
-
 {% block beforeContent %}
- {% include "includes/version1/mainNav.html" %}  {% include "includes/version1/financeNav.html" %}
-{% from "back-link/macro.njk" import govukBackLink %}
+ {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}
+  {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({
-  text: "Back",
-  href: "reserveStartDate"
-}) }}
+{{ govukBackLink({ text: "Back", href: "../manage/assuranceAero" }) }}
 {% endblock %}
-
 {% block content %}
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
