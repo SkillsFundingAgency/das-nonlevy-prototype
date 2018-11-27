@@ -862,6 +862,33 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticesChooseReserve
 })
 
 
+/// Employer > v6 > add apprentice > choose reserved funding
+// http://127.0.0.1:3000/version-6/apprentices/add/NonLevyFull/oneAtTime/chooseReserve
+router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticesChooseReserveNEW' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+          case  (confirmTraining == 'Aeronautical engineer, Level 2'):
+            req.session.data['funding'] = 'Aeronautical engineer, Level 2';
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+           case  (confirmTraining == 'Mechanical engineer, Level 3'):
+           req.session.data['funding'] = 'Mechanical engineer, Level 3';
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+          case  (confirmTraining == 'Financial Services Administrator, Level 3'):
+            req.session.data['funding'] = 'Financial Services Administrator, Level 3';
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneAtTime/reserveStartDate`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 /// Employer > v3 > add apprentice > finished adding individual apprentice
 // http://127.0.0.1:3000/version-3/apprentices/add/nonLevyFull/oneAtTime/finish?
 router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticeAddSingleApprenticeFinished' , function (req, res) {
