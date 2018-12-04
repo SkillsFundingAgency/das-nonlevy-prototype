@@ -912,6 +912,29 @@ router.get('/*/apprentices/add/nonLevyFull/oneAtTime/addApprenticeAddSingleAppre
         }
 })
 
+/// Employer > v6 > confirm apprenticeship sent over from Provider
+// http://127.0.0.1:3000/version-6/apprentices/reviewApprove/finish?
+router.get('/*/apprentices/reviewApprove/addApprenticeProviderSentToEmployerFinished' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'addAnother'):
+            res.redirect(`/${req.version}/apprentices/add/nonLevyFull/oneOrBulk`)
+           break;
+
+           case  (confirmTraining == 'apprenticeships'):
+            res.redirect(`/${req.version}/apprentices/manage`)
+           break;
+
+          case  (confirmTraining == 'homepage'):
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
 
 /// Microsite > v3 > show guidance
 // http://127.0.0.1:3000/version-3/microsite/guide/business
@@ -982,6 +1005,21 @@ router.get('/*/finance/reserve/reserveNumberOfApps' , function (req, res) {
 
         default:
             res.redirect(`/${req.version}/finance/reserve/reserveStartDate`)
+            break;
+        }
+})
+
+/// Provider > Reserve funding > used saved?
+router.get('/*/provider/employerAccount/reserveFunding/reserve/reserveNumberOfApps' , function (req, res) {
+  var confirm = req.query.funding
+       switch (true) {
+          case  (confirm == 'Financial Services Administrator, Level 3'):
+          console.log("a");
+            res.redirect(`/${req.version}/provider/employerAccount/reserveFunding/reserve/reserveStartDate`)
+           break;
+
+        default:
+            res.redirect(`/${req.version}/provider/employerAccount/reserveFunding/reserve/reserveStartDate`)
             break;
         }
 })
