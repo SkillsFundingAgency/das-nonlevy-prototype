@@ -1548,6 +1548,32 @@ router.get('/*/recruit/applications/recruitRejectVacancyRobEdwards' , function (
 // =====================================================================
 
 
+/// Provider > Employer > Provider started reg > employer finished it
+// http://127.0.0.1:3000/version-6/newregister/providerStarted/finish?
+router.get('/*/newregister/providerStarted/providerAddEmployerFinishedEmployer' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'another'):
+            // req.session.data['robEdwardsReject'] = 'true';
+            // req.session.data['robEdwardsAlertReject'] = 'true';
+            res.redirect(`/${req.version}/finance/reserve`)
+           break;
+
+           case  (confirmTraining == 'view'):
+            res.redirect(`/${req.version}/find`)
+           break;
+
+          case  (confirmTraining == 'homepage'):
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 /// Recruit > Applications > Rob Edwards > Reject
 // http://127.0.0.1:3000/version-6/recruit/applications/shortListApplication
 router.get('/*/provider/employerAccount/providerAddEmployerFinished' , function (req, res) {
@@ -1574,7 +1600,175 @@ router.get('/*/provider/employerAccount/providerAddEmployerFinished' , function 
 })
 
 
+/// Provider > Reserve funding > finished reserving
+// http://127.0.0.1:3000/version-6/provider/employerAccount/reserveFunding/reserve/complete
+router.get('/*/provider/employerAccount/reserveFunding/reserveMVS/finishedReserveFundingProvider' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'hire'):
+          console.log("raa");
+            res.redirect(`/${req.version}/provider/employerAccount/reserveFunding/changeReserveMVS/howRecruiting`)
+           break;
 
+           case  (confirmTraining == 'reserve'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/provider/employerAccount/reserveFunding/reserveMVS`)
+           break;
+
+          case  (confirmTraining == 'view'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/provider/employerAccount/reserveFunding/changeReserveMVS`)
+           break;
+
+         case  (confirmTraining == 'homepage'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/provider/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+/// Provider > Reserve funding > how are you recruiting
+// http://127.0.0.1:3000/version-6/provider/employerAccount/reserveFunding/changeReserveMVS/howRecruiting
+router.get('/*/provider/employerAccount/reserveFunding/changeReserveMVS/reserveHowRecruitingFoundYetProvider' , function (req, res) {
+  var recruitType = req.query.recruitType
+       switch (true) {
+          case  (recruitType == 'foundThem'):
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/fromReserve/alreadyAccepted`)
+           break;
+          case  (recruitType == 'findThem'):
+            res.redirect(`/${req.version}/recruit/fromReserve`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+/// Provider >  > add apprentice > choose apprentices to start
+// http://127.0.0.1:3000/version-6/provider/employerAccount/addApprentices/fromReserve/alreadyAccepted
+router.get('/*/provider/employerAccount/addApprentices/fromReserve/chooseAnApprenticeToStartV3ManageProvider' , function (req, res) {
+  var confirmTraining = req.query.acceptedRecruit
+       switch (true) {
+          case  (confirmTraining == 'Rob Edwards'):
+            req.session.data['FirstFirstName'] = 'Rob';
+            req.session.data['FirstLastName'] = 'Edwards';
+
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/apprenticeConfirm`)
+           break;
+
+           case  (confirmTraining == 'David Jenkins'):
+            req.session.data['FirstFirstName'] = 'David';
+            req.session.data['FirstLastName'] = 'Jenkins';
+
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/apprenticeConfirm`)
+           break;
+
+          case  (confirmTraining == 'someoneElse'):
+        //  req.session.data['theTraingCourse'] = 'Aeronautical engineer, Level 2';
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Provider >  > add apprentice > choose apprentices to start
+// http://127.0.0.1:3000/version-6/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/alreadyAccepted
+router.get('/*/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/chooseAnApprenticeToStartV6ManageProvider' , function (req, res) {
+  var confirmTraining = req.query.acceptedRecruit
+       switch (true) {
+          case  (confirmTraining == 'Rob Edwards'):
+            req.session.data['FirstFirstName'] = 'Rob';
+            req.session.data['FirstLastName'] = 'Edwards';
+
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/apprenticeConfirm`)
+           break;
+
+           case  (confirmTraining == 'David Jenkins'):
+            req.session.data['FirstFirstName'] = 'David';
+            req.session.data['FirstLastName'] = 'Jenkins';
+
+            req.session.data['dob-day'] = '5';
+            req.session.data['dob-month'] = 'May';
+            req.session.data['dob-year'] = '2000';
+
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/apprenticeConfirm`)
+           break;
+
+          case  (confirmTraining == 'someoneElse'):
+        //  req.session.data['theTraingCourse'] = 'Aeronautical engineer, Level 2';
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/apprenticeAdd`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Provider > add apprentice > finished adding individual apprentice
+// http://127.0.0.1:3000/version-3/apprentices/add/nonLevyFull/oneAtTime/finish?
+router.get('/*/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/addApprenticeAddSingleApprenticeFinishedProvider' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'addAnother'):
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneOrBulk`)
+           break;
+
+           case  (confirmTraining == 'apprenticeships'):
+            res.redirect(`/${req.version}/provider/manage`)
+           break;
+
+          case  (confirmTraining == 'homepage'):
+            res.redirect(`/${req.version}/provider/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Provider > add apprentice > single or bulk
+// http://127.0.0.1:3000/version-6/provider/employerAccount/addApprentices/nonLevyFull/oneOrBulk
+router.get('/*/provider/employerAccount/addApprentices/nonLevyFull/oneOrBulkQuestionProvider' , function (req, res) {
+  var confirmTraining = req.query.oneOrBulk
+       switch (true) {
+          case  (confirmTraining == 'one'):
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/oneAtTime/alreadyAccepted`)
+           break;
+
+           case  (confirmTraining == 'bulk'):
+            res.redirect(`/${req.version}/provider/employerAccount/addApprentices/nonLevyFull/bulkUpload/`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 
@@ -1582,6 +1776,29 @@ router.get('/*/provider/employerAccount/providerAddEmployerFinished' , function 
 // =====================================================================
 // --------------------------- END OF PROVIDER STUFF --------------------------
 // =====================================================================
+
+
+
+/// Employer > Provider Started Registration Finish > Add tax details or postpone
+// http://127.0.0.1:3000/version-6/newregister/providerStarted/taxDetails
+router.get('/*/newregister/providerStarted/providerStartedEmployerTaxDetails' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/providerStarted/govtgateway`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/providerStarted/changePermissions`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 
 
 /// Add apprentices > add apprentices yourself or send to provider

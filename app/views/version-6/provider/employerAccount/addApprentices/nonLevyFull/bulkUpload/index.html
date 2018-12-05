@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
- {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
+{% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %} 
 {% from "back-link/macro.njk" import govukBackLink %}
 
 {{ govukBackLink({
