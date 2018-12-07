@@ -1574,6 +1574,30 @@ router.get('/*/newregister/providerStarted/providerAddEmployerFinishedEmployer' 
 })
 
 
+
+/// Provider >  Provider started reg > permission from employer
+// http://127.0.0.1:3000/version-6/provider/employerAccount/confirmPermission?
+router.get('/*/provider/employerAccount/employerApprovalOrNot' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+
+           case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/provider/employerAccount/searchOrg`)
+           break;
+
+          case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/bork`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
 /// Recruit > Applications > Rob Edwards > Reject
 // http://127.0.0.1:3000/version-6/recruit/applications/shortListApplication
 router.get('/*/provider/employerAccount/providerAddEmployerFinished' , function (req, res) {
