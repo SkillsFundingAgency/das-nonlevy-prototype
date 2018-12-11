@@ -1822,6 +1822,63 @@ router.get('/*/newregister/providerStarted/providerStartedEmployerTaxDetails' , 
         }
 })
 
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
+router.get('/*/newregister/employerStarted/employerStartedEmployerTaxDetails' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/govtgateway`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/haveProvider`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
+router.get('/*/newregister/employerStarted/employerStartedEmployerHaveProvider' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/chooseProvider`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/reserveStart`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > Employer Started Registration  > Reserve, Add, Manage provider permissions
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/changePermissions?
+router.get('/*/newregister/employerStarted/reserveAddManageProviderPermissionReg' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/permissionTwo`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/permissionTwo`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
 
 
 
