@@ -1880,6 +1880,29 @@ router.get('/*/newregister/employerStarted/reserveAddManageProviderPermissionReg
 })
 
 
+/// Employer > Employer Started Registration  > do the reserve thing
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/knowDates?whatsNeeded=true
+router.get('/*/newregister/employerStarted/whenApprenticeshipWillStartEmployerRegister' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/whenStart/exactDates`)
+           break;
+
+           case  (confirmTraining == 'truerough'):
+            res.redirect(`/${req.version}/newregister/employerStarted/whenStart/roughDates`)
+           break;
+
+            case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/whenStart/finishNoProvider`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
 
 
 /// Add apprentices > add apprentices yourself or send to provider
