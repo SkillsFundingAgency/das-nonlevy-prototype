@@ -1120,6 +1120,10 @@ router.get('/*/finance/changeReserve/reserveHowRecruitingFoundYet' , function (r
             res.redirect(`/${req.version}/apprentices/add/fromReserve/alreadyAccepted`)
            break;
           case  (recruitType == 'findThem'):
+             req.session.data['recruitProviderName'] = 'QA Limited';
+           req.session.data['recruitAppStart-day'] = '10';
+           req.session.data['recruitAppStart-month'] = 'Sept';
+           req.session.data['recruitAppStart-year'] = '2019';
             res.redirect(`/${req.version}/recruit/fromReserve`)
            break;
         default:
@@ -1903,6 +1907,180 @@ router.get('/*/newregister/employerStarted/whenApprenticeshipWillStartEmployerRe
         }
 })
 
+
+// =====================================================================
+// --------------------------- FROM MICROSITE JOURNEY --------------------------
+// =====================================================================
+
+
+
+/// Employer > From Microsite > provider manage or not
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/changePermissions
+router.get('/*/newregister/fromMicro/fromMicroProviderAccess' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowApprenticeship`)
+           break;
+
+            case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowApprenticeship`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > From Microsite > know the apprenticeship or not
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/knowApprenticeship
+router.get('/*/newregister/fromMicro/fromMicroKnowApprentices' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/fromMicro/chooseApp`)
+           break;
+
+            case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowProvider`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > From Microsite > know the apprenticeship or not
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/knowApprenticeship
+router.get('/*/newregister/fromMicro/fromMicroChooseApps' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+          case  (confirmTraining == 'Aeronautical engineer, Level 2'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowProvider`)
+           break;
+
+            case  (confirmTraining == 'Mechanical engineer, Level 3'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowProvider`)
+           break;
+
+            case  (confirmTraining == 'Financial Services Administrator, Level 3'):
+            res.redirect(`/${req.version}/newregister/fromMicro/WILLGOTOFAT`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > From Microsite > know the provider or not
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/knowProvider
+router.get('/*/newregister/fromMicro/fromMicroKnowProvider' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/fromMicro/choosePro`)
+           break;
+
+            case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowDates`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+/// Employer > From Microsite > know the provider or not
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/choosePro
+router.get('/*/newregister/fromMicro/fromMicroChoosePro' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+         case  (confirmTraining == 'providerOne'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowDates`)
+           break;
+
+            case  (confirmTraining == 'providerTwo'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowDates`)
+           break;
+
+           case  (confirmTraining == 'anotherProvider'):
+            res.redirect(`/${req.version}/newregister/fromMicro/WILLGOTOFATPROVIDER`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > From Microsite > know the dates or not
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/knowDates
+router.get('/*/newregister/fromMicro/fromMicroChooseDates' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+         case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/fromMicro/whenStart/exactDates`)
+           break;
+
+            case  (confirmTraining == 'trueRough'):
+            res.redirect(`/${req.version}/newregister/fromMicro/whenStart/roughDates`)
+           break;
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/fromMicro/whenStart/noDates`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > From Microsite > tax details
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/taxDetails
+router.get('/*/newregister/fromMicro/fromMicroTaxDetails' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/fromMicro/govtgateway`)
+           break;
+
+            case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/fromMicro/knowApprentice`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > From Microsite > know apprentice
+// http://127.0.0.1:3000/version-6/newregister/fromMicro/knowApprentice?
+router.get('/*/newregister/fromMicro/fromMicroKnowApprentice' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/fromMicro/apprenticeAdd`)
+           break;
+
+            case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 /// Add apprentices > add apprentices yourself or send to provider
