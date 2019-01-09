@@ -8,6 +8,20 @@
 .govuk-header__content {display:none ;}
 </style>
 
+<script type="text/javascript">
+function whereNow() {
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("yes"));
+       window.location.href='./employerStarted/contactDetails';
+
+
+
+   // localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
+   // var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
+
+    }
+ </script>
+
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
@@ -29,7 +43,9 @@
                     <li>find a named training provider you want to use</li> -->
                 </ul>
                 <div style="margin-top:35px"></div>
-            <a href="providerStarted/confirmDetails"  class="govuk-button govuk-button--start">Start</a>
+<!--             <a href="providerStarted/confirmDetails"  class="govuk-button govuk-button--start">Start</a>
+ -->
+             <button type="submit" class="govuk-button govuk-button--start" onclick="whereNow()" >Start</button>
                           <!--   <h2 class="govuk-heading-m " >Help</h2>
                 <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
                     <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>

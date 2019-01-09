@@ -1,0 +1,193 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version1/mainNav.html" %}
+  {% include "includes/version1/homeNav.html" %} 
+  {% from "back-link/macro.njk" import govukBackLink %} 
+  {{ govukBackLink({ text: "Back", href: "changePermissions" }) }}
+   {% endblock %}
+    {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl" style="" id="company-Name">Allow QA Ltd to recruit apprentices</h1>
+                <p class="">You can give QA Ltd permission to recruit apprentices on your behalf. Even if you give this permission, you'll still have the final say on any things.</p>
+ 
+               
+
+<form action="../../../home" method="get" class="form">
+
+<!--                           <table class="govuk-table">
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th class="govuk-table__header" scope="col"style="padding-top:0">Do you want your provider to be able to Reserve, Add and Manage apprenticeships?</th>
+                              <th class="govuk-table__header" scope="col" class="" style="padding-top:0; "></th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell " >Reserve apprenticeships</td>
+                                <td class="govuk-table__cell ">   
+                                    <div class="govuk-form-group" style="margin-bottom:0">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+               
+                                        </legend>
+                                   <div class="govuk-radios govuk-radios--inline">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-1" name="things-1" type="radio" value="yes" >
+                                    <label class="govuk-label govuk-radios__label" for="things-1">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-2" name="things-1" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="things-2">
+                                      No
+                                    </label>
+                                  </div>
+                                </div>
+                            </td>
+                            </tr> -->
+          
+                          <!--   <tr class="govuk-table__row">
+                              <td class="govuk-table__cell ">Add apprenticeships<br /</td>
+                                <td class="govuk-table__cell ">   
+                                    <div class="govuk-form-group" style="margin-bottom:0">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                   
+                                        </legend>
+                                   <div class="govuk-radios govuk-radios--inline">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-5" name="things-5" type="radio" value="yes" >
+                                    <label class="govuk-label govuk-radios__label" for="things-5">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-6" name="things-5" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="things-6">
+                                      No
+                                    </label>
+                                  </div>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell " style="max-width:200px">Manage apprenticeships  </td>
+                                <td class="govuk-table__cell ">   
+                                    <div class="govuk-form-group" style="margin-bottom:0">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                
+                                        </legend>
+                                   <div class="govuk-radios govuk-radios--inline">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-7" name="things-7" type="radio" value="yes" >
+                                    <label class="govuk-label govuk-radios__label" for="things-7">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-7" name="things-8" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="things-8">
+                                      No
+                                    </label>
+                                  </div>
+                                </div>
+                            </td>
+                            </tr> -->
+<!--                              <tr class="govuk-table__row">
+                              <td class="govuk-table__cell " style="max-width:200px">Start and manage apprenticeship recruitment </td>
+                                <td class="govuk-table__cell ">   
+                                    <div class="govuk-form-group" style="margin-bottom:0">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                        </legend>
+                                   <div class="govuk-radios govuk-radios--inline">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-7" name="things-7" type="radio" value="yes" >
+                                    <label class="govuk-label govuk-radios__label" for="things-7">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="things-7" name="things-8" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="things-8">
+                                      No
+                                    </label>
+                                  </div>
+                                </div>
+                            </td> -->
+                            <!-- </tr> -->
+   <!--                         <tr class="govuk-table__row">
+                           
+                              <td class="govuk-table__cell ">Create candidate shortlists  </td>
+                                <td class="govuk-table__cell ">   
+                                    <div class="govuk-form-group" style="margin-bottom:0">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+                                        </legend>
+                                   <div class="govuk-radios govuk-radios--inline">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes" >
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-1">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no" >
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                      No
+                                    </label>
+                                  </div>
+                                </div>
+                            </td>
+                            </tr> -->
+<!--                           </tbody>
+                      </table>
+        </fieldset> -->
+
+                <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           Do you want to allow QA Ltd to recruit apprentices on your behalf?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+               Do you want to do this now?
+
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="providerPermissionsRecruit" type="radio" value="providerPermissionsRecruitTrue">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="providerPermissionsRecruit" type="radio" value="providerPermissionsRecruitFalse">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+                No
+              </label>
+<!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+            </div>
+          </div>
+          </fieldset>
+        </div>
+ 
+    <button class="govuk-button">Continue</button>  <!-- <a  class="govuk-button clear-button" href="./cyberdyne" >Cancel and return</a> -->
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -2,7 +2,12 @@
 
 
 {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
 
+{{ govukBackLink({
+  text: "Back",
+  href: "taxDetails"
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -39,7 +44,7 @@
 
                    <!--  <a href="https://www.gov.uk/log-in-register-hmrc-online-services/problems-signing-in" target='_blank' class="link-copy-normal" style="">Can't find your Government Gateway details?</a> -->
 
-   <form action="employerStartedEmployerTaxDetails" method="get" class="form">
+   <form action="employerStartedGovGatewayorPensionsReg" method="get" class="form">
         <div id="addTheError" class="govuk-form-group">
           <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -57,23 +62,18 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
               <label class="govuk-label govuk-radios__label" for="needed-1">
-                Yes, I have this stuff
+                I want to use Government Gateway
               </label>
             </div>
-  <!--                       <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="needed-3" name="whatsNeeded" type="radio" value="truthy">
-              <label class="govuk-label govuk-radios__label" for="needed-3">
-                Yes, I want to do the other thing
-              </label>
-            </div> -->
+  
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
               <label class="govuk-label govuk-radios__label" for="needed-2">
-                No, I'll do it later
+                I want to use Pensions Regulator
               </label>
-              <span  class="govuk-hint" style="padding-left:15px; width:66%">
+   <!--            <span  class="govuk-hint" style="padding-left:15px; width:66%">
                     You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
-              </span>
+              </span> -->
             </div>
           </div>
           </fieldset>

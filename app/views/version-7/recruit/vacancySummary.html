@@ -8,19 +8,26 @@
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <h1 class="govuk-heading-xl">Your vacancy summary</h1>
-        <p>Here is the vacancy summary, review and either approve or amend.</p>
+        <p>This is how your vacancy will appear to candidates on <a href="#">Find an apprenticeship</a></p>
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h2 class="govuk-heading-l" style="margin-bottom:0">{{ data['vacancyName'] }}</h2>
                 <h3 class="govuk-heading-m" style="margin:0px 0 35px 0; color: #6f777b  ; ">{{ data['where-do-you-live'] }}</h3>
+            </div>
+             <div class="govuk-grid-column-two-thirds">
+                 <h3 class="govuk-heading-s">Brief overview</h3>
                 <p style=" ">{{ data['more-detail'] }}</p>
             </div>
+
+
             <div class="govuk-grid-column-one-third">
-              <p>Closing date: {{ data['appclosing-day'] }} {{ data['appclosing-month'] }} {{ data['appclosing-year'] }}</p>
+              <h3 class="govuk-heading-s">Closing date</h3>
+              <p> {{ data['appclosing-day'] }} {{ data['appclosing-month'] }} {{ data['appclosing-year'] }}</p>
             </div>
         </div>
 
+  <h2 class="govuk-heading-l">Apprentieship summary</h2>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
 <!--          <p id="coInvestPayer" style="margin:20px 0 0px 0 ; font-weight:400">Closing date:<span style="padding-left:103px; font-weight:700">10 Oct 2019</span></p> -->

@@ -1832,13 +1832,33 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerTaxDetails' , 
   var confirmTraining = req.query.whatsNeeded
        switch (true) {
           case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/taxDetailsTwo`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/searchOrg`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
+router.get('/*/newregister/employerStarted/employerStartedGovGatewayorPensionsReg' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
             res.redirect(`/${req.version}/newregister/employerStarted/govtgateway`)
            break;
 
-           case  (confirmTraining == 'false'):
-            res.redirect(`/${req.version}/newregister/employerStarted/haveProvider`)
-           break;
+  
 
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/pensionsReg`)
+           break;
         default:
             console.log("bork bork bork");
             break;

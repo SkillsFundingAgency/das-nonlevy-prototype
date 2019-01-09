@@ -13,10 +13,24 @@
 
 <script type="text/javascript">
 function whereNow() {
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
    localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
-   window.location.href='taxDetails';
+
+   var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
+
+   if (providerStartedJourney=='yes') {
+     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
+     window.location.href='./providerStarted/changePermissions';
+    } 
+    else {
+        window.location.href='../../home';
+    }
     }
  </script>
+
+ <script>
+ localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+</script>
 
 <style>
 /* REMOVES THE GOV FOOTER BECAUSE OF THE STICKY THING. NEED TO DO PROPERLY */
@@ -472,7 +486,7 @@ function whereNow() {
             </tr>
             <tr class="govuk-table__row">
                 <th class="govuk-table__header" >On behalf of:</th>
-                <td class="govuk-table__cell ">; DROP TABLE "COMPANIES";-- LTD</td>
+                <td class="govuk-table__cell ">Assurance Aerospace Ltd</td>
             </tr>
             <tr class="govuk-table__row">
                 <th class="govuk-table__header" >Address:</th>
@@ -511,7 +525,7 @@ function whereNow() {
         <div style="float:right; margin:25px 0 20px 0;"> <a href="/accounts/VYJW8B/agreements/MK77WW/agreement-pdf" target="_blank" class="download">Save this agreement as a PDF</a></div>
         <div style="clear:both"></div>
     <button type="submit" class="govuk-button" onclick="whereNow()" style="margin-left:0px;  margin-bottom:10px;  ">Sign now</button>
-      <a  class="govuk-button clear-button" href="taxDetails" >Not yet, I'll sign it later</a>
+      <a  class="govuk-button clear-button" onclick="whereNow()" >Not yet, I'll sign it later</a>
 
 </div>
 
