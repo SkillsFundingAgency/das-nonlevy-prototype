@@ -101,13 +101,14 @@
                     <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                             <h1 class="govuk-fieldset__heading">
-                                Disability Confident (optional)
+                               Disability Confident (optional)
                             </h1>
                         </legend>
 
                         <div class="govuk-checkboxes">
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="recruitDisabilityConfident" name="recruitDisabilityConfident" type="checkbox"  value="{{ data['recruitDisabilityConfident'] }}">
+                                <input class="govuk-checkboxes__input" id="recruitDisabilityConfident" name="recruitDisabilityConfident" type="checkbox"  value="Disability Confident" {{ checked('recruitDisabilityConfident', 'Disability Confident') }}>
+
                                 <label class="govuk-label govuk-checkboxes__label" for="recruitDisabilityConfident">This vacancy is <a href="https://www.gov.uk/government/collections/disability-confident-campaign" target="new">Disability Confident.  </a> </label>
                             </div>
                         </div>

@@ -11,13 +11,13 @@
     <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
                       <h2 class="govuk-heading-m">Here is where the Apprenticeship headline goes</h2>
-                           <p style="margin:0px 0 0 0 ">Assurance Aerospace Ltd</p>
-                            <p style="margin:0px 0 20px 0; font-size:16px; ">1 position available</p>
+                           <p style="margin:0px 0 0 0 ">{{ data['where-do-you-live'] }}</p>
+                            <p style="margin:0px 0 20px 0; font-size:16px; ">{{ data['numberOfApprentices'] }} position available</p>
                             <p>Here is where the long description of the vacancy will go when it is all tied together.</p>
-                            <p id="coInvestPayer" style="margin:20px 0 0px 0 ; font-weight:400">Closing date:<span style="padding-left:103px; font-weight:700">10 Oct 2019</span></p>
-                            <p id="coInvestPayer" style="margin:10px 0 0px 0 ; font-weight:400">Possible start date: <span style="padding-left:50px; font-weight:700">10 Oct 2020</span></p>
-                            <p id="coInvestPayer" style="margin:10px 0 0px 0 ; font-weight:400">Apprenticeship level: <span style="padding-left:37px; font-weight:700">Advanced</span></p>
-                            <p id="coInvestPayer" style="margin:10px 0 30px 0 ; font-weight:400">Wage: <span style="padding-left:158px; font-weight:700">£7,696 yearly</span></p>
+                            <p id="coInvestPayer" style="margin:20px 0 0px 0 ; font-weight:400">Closing date:<span style="padding-left:103px; font-weight:700">{{ data['appclosing-day'] }}.{{ data['appclosing-month'] }}.{{ data['appclosing-year'] }}</span></p>
+                            <p id="coInvestPayer" style="margin:10px 0 0px 0 ; font-weight:400">Possible start date: <span style="padding-left:50px; font-weight:700">{{data['recruitAppStart-day'] }}.{{ data['recruitAppStart-month'] }}.{{ data['recruitAppStart-year'] }}</span></p>
+                            <p id="coInvestPayer" style="margin:10px 0 0px 0 ; font-weight:400">Apprenticeship level: <span style="padding-left:37px; font-weight:700">Intermediate Level Apprenticeship</span></p>
+                            <p id="coInvestPayer" style="margin:10px 0 30px 0 ; font-weight:400">Wage: <span style="padding-left:158px; font-weight:700">{{ data['recruitHowMuchPayApp'] }} {{ data['recruitHowMuchPayAppYearly'] }}</span></p>
                             <img style="width:200px; margin:0px 0 35px 0" src="https://recruit.test-eas.apprenticeships.sfa.bis.gov.uk/img/disability-confident_545x172.png">
                             <details class="govuk-details" style="margin:10px 0 35px 0 ">
                                   <summary class="govuk-details__summary">

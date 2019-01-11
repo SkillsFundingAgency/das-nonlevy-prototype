@@ -14,7 +14,11 @@ $govuk-global-styles: true;
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-//// Sorchas styles
+.recruitSideAddThing {
+  border-left: 5px solid #2e358b;
+  min-height:80px;
+  padding-left:15px;
+}
 
 // Utilities
 .nowrap {
