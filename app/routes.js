@@ -1389,10 +1389,11 @@ router.get('/*/recruit/recruitSubmitVacancyFromReview' , function (req, res) {
 
            case  (confirmTraining == 'false'):
           //   ga('send', 'event', [tax], [notAgreed]);
-            res.redirect(`/${req.version}/recruit/wholeList`)
+            res.redirect(`/${req.version}/recruit/finish`)
            break;
 
         default:
+         res.redirect(`/${req.version}/recruit/finish`)
             console.log("bork bork bork");
             break;
         }

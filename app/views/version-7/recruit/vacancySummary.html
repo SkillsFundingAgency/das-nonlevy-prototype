@@ -14,6 +14,25 @@ var recruitSummaryGetAtEnd = "{{ data['recruitWhatGetAtEnd'] }}"
 
 var recruitSkills = "{{ data['recruitSkills'] }}"
 
+var recruitQual = "{{ data['recruitQual'] }}"
+var recruitSubject = "{{ data['recruitSubject'] }}"
+var recruitEssDes = "{{ data['recruitEssDes'] }}"
+
+ var recruitThingsToConsider = "{{ data['recruitThingsToConsider'] }}"  
+
+var recruitTellOrg = "{{ data['recruitTellOrg'] }}"
+
+var recruitContactName = "{{ data['recruitContactName'] }} "
+var recruitContactEmail = "{{ data['recruitContactEmail'] }}"
+var recruitContactNumber = "{{ data['recruitContactNumber'] }}"
+
+var recruitAppExternal  = "{{ data['recruitHow'] }}"
+var recruitAppFAA       = "{{ data['recruitHowFAA'] }}"
+
+console.log("arse", recruitAppExternal, recruitAppFAA )
+
+
+
 // console.log(recruitSummaryWork, recruitSummaryTraining, recruitSummaryGetAtEnd )
 
 $(document).ready(function() {
@@ -32,14 +51,62 @@ $(document).ready(function() {
 
 // Desired Skills and Prospects
  if ((recruitSkills.length >= 1) ) {
-    console.log("arse")
+  
     // $(firstTimeRegMessage).removeClass("rj-dont-display")
     // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
     $(step9Button).addClass("rj-dont-display")
     $(step9Edit).removeClass("rj-dont-display")
      $(step9Block).removeClass("recruitSideAddThing");
     $(step9Block).addClass("recruitSideEditThing")
-    } else { console.log("balls") };
+    } else { };
+
+// Qualifications
+   if ((recruitQual.length >= 1)  || (recruitSubject.length >= 1) || (recruitEssDes.length >= 1) ) {
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(step10Button).addClass("rj-dont-display")
+    $(step10Edit).removeClass("rj-dont-display")
+     $(step10Block).removeClass("recruitSideAddThing");
+    $(step10Block).addClass("recruitSideEditThing")
+    } else { };
+
+
+// Things to consider
+   if ((recruitThingsToConsider.length >= 1)) {
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(step8Button).addClass("rj-dont-display")
+    $(step8Edit).removeClass("rj-dont-display")
+     $(step8Block).removeClass("recruitSideAddThing");
+    $(step8Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Description
+   if ((recruitTellOrg.length >= 1)) {
+    $(step13Button).addClass("rj-dont-display")
+    $(step13Edit).removeClass("rj-dont-display")
+     $(step13Block).removeClass("recruitSideAddThing");
+    $(step13Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Contact Details
+    if ((recruitContactName.length >= 1)  || (recruitContactEmail.length >= 1) || (recruitContactNumber.length >= 1) ) {
+    $(step12Button).addClass("rj-dont-display")
+    $(step12Edit).removeClass("rj-dont-display")
+     $(step12Block).removeClass("recruitSideAddThing");
+    $(step12Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Application process
+      if ((recruitAppExternal.length >= 1)  || (recruitAppFAA.length >=1) ) {
+    $(step16Button).addClass("rj-dont-display")
+    $(step16Edit).removeClass("rj-dont-display")
+     $(step16Block).removeClass("recruitSideAddThing");
+    $(step16Block).addClass("recruitSideEditThing")
+     $(step16Message).removeClass("rj-dont-display")
+
+  
+    } else { };
 
 
 
@@ -258,16 +325,12 @@ changeStuff();
 <h2 class="govuk-heading-l" style="">Application process</h2>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-          <div id="step126lock" style=""  class="recruitSummaryHolder recruitSideAddThing">
+          <div id="step16Block" style=""  class="recruitSummaryHolder recruitSideAddThing">
          <p style="font-weight:700; margin-bottom:0">How will the candidates apply for this vacancy?</p>
-         <p style="">Needs to be added</p>
-              <a id="step16Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step16">Add</a>
-           <a id="step16Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step16">Edit</a>
+         <p id ="step16Message" class="rj-dont-display">The applicant will apply on {{ data['recruitHow'] }}</p>
+          <a id="step16Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step16">Add</a>
+          <a id="step16Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step16">Edit</a>
       </div>
-
-
-
   </div>
 </div>
 
@@ -283,7 +346,7 @@ changeStuff();
 </div> -->
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-<div class="govuk-grid-row">
+<!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 <form action="recruitSubmitVacancyFromReview" method="get" class="form">
     <div id="addTheError" class="govuk-form-group">
@@ -308,9 +371,7 @@ changeStuff();
                     <label class="govuk-label govuk-radios__label" for="needed-2">
                         Not yet, I want to revise or review it later
                     </label>
-<!--                     <span  class="govuk-hint" style="padding-left:15px">
-                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
-              </span> -->
+
                 </div>
             </div>
         </fieldset>
@@ -318,7 +379,13 @@ changeStuff();
     <button class="govuk-button">Continue</button>
 </form>
 </div>
-</div>
+</div> -->
+
+<form action="recruitSubmitVacancyFromReview" method="get" class="form">
+      <button type="submit" class="govuk-button">Submit vacancy </button>
+             <a  class="govuk-button clear-button" href="./vacancies" >Return to dashboard </a>
+    </form>
+       
 
 <!-- <form method="get" action="step6">
     Put a radio decision here
