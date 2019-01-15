@@ -12,32 +12,42 @@
 {% block content %}
 
 <script>
-var firstTimeReg = JSON.parse(localStorage.getItem('registration.firstTimeReg'));
+
+    var firstTimeReg = JSON.parse(localStorage.getItem('registration.firstTimeReg'));
+    var completeAgreement = JSON.parse(localStorage.getItem('registration.completeAgreement')); // "no" means not done the agreement
+    var completeTax = JSON.parse(localStorage.getItem('registration.completeTax')); //"no" means not done any of the tax stuff. 
+
+console.log(firstTimeReg, completeAgreement, completeTax )
 
 $(document).ready(function() {
-  var changeStuff = function() {
-  if (firstTimeReg=='yes') {
+  var changeStuff = function() {  
+       switch (true) {
+          case  (firstTimeReg == 'yes') && (completeAgreement != 'no') && (completeTax != 'no'):
+              $(firstTimeRegMessage).removeClass("rj-dont-display");
+              localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+           break;
 
-    $(firstTimeRegMessage).removeClass("rj-dont-display")
-    localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
-
-   //  $(addDate).addClass("rj-dont-display")
-    }
-else {  
-  //  $(notesStuff).removeClass("rj-dont-display");
-  //  $(addReference).removeClass("rj-dont-display");
-  //  $(commitmentStatus).removeClass("rj-dont-display");
-  //  $(addDate).removeClass("rj-dont-display")
-        };
-  }
+           default:
+             $(firstTimeRegMessageIncomplete).removeClass("rj-dont-display")
+            localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+            console.log("bork bork bork what");
+            break;
+        } 
+      }
 changeStuff();
 });
+
 </script>
+
 
  <div class="govuk-width-container">
                 <div style= "" id="firstTimeRegMessage" class="success-summary rj-dont-display"> 
-                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Account set up</h1>
-                   <p>You can now do the thing</p>
+                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Account setup complete</h1>
+                  <!--  <p>You can now do the thing</p> -->
+               </div>
+                <div style= "" id="firstTimeRegMessageIncomplete" class="success-summary rj-dont-display"> 
+                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Account setup incomplete</h1>
+                   <p>You must add your tax details and sign your ESFA agreement before you can start using this account.</p>
                </div>
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <section id="allContentHome" class="">
@@ -87,19 +97,19 @@ changeStuff();
         </li> -->
 
         <li class="">
-          <h2 class="app-task-list__section">Reserve an apprenticeship</h2>
+          <h2 class="app-task-list__section">Reserve funding for apprenticeship training</h2>
            <p style="">You can get help from the government to pay for apprenticeship training.<br /> You will need to reserve your funding in advance.</p>
           <ul class="app-task-list__items"  style="padding-left:0">
 
-            <li class="app-task-list__item " id="claimMyFunding">
+          <!--   <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
                How reserve an apprenticeship works
               </a>
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
-            </li>
+            </li> -->
 
             <li class="app-task-list__item " id="claimMyFunding">
-              <a class="app-task-list__task-name" href="./finance/reserve" aria-describedby="eligibility-completed">
+              <a class="app-task-list__task-name" href="./finance/reserve/new" aria-describedby="eligibility-completed">
                Reserve an apprenticeship 
               </a>
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>

@@ -14,7 +14,7 @@
      <h1 class="govuk-heading-xl">
           Enter your tax details
         </h1>
-        <p>Please do the thing</p>
+        <p>Enter your PAYE scheme and your accounts office reference number (AORN). These details will be checked against the Pensions Regulator.</p>
 <!--         <div class="govuk-inset-text">You must have permission from your employer to add this information</div>
  -->
         <div class="govuk-form-group">
@@ -27,20 +27,20 @@
                  PAYE number
               </label>
               <span id="email-hint" class="govuk-hint">
-              We’ll use this to do the thing
+             Ask your accountant if you don’t have access to this information
             </span>
-              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterFirstName" name="employerRegisterPAYE" type="text" aria-describedby="PAYE number">
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterFirstName" name="employerRegisterPAYE" type="text" aria-describedby="PAYE number" value=" {{ data['employerRegisterPAYE'] }}">
           </div>
 
 
             <div class="govuk-form-group">
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
-                 AORN (?)
+                  Accounts Office Reference Number (AORN)
               </label>
               <span id="email-hint" class="govuk-hint">
-              This is a thing you need to enter.
+              You can find this on  the letter HMRC sent you when you first registered as an employer
             </span>
-              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="employerRegisterAORN" type="providerRegisterEmail" aria-describedby="email">
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="employerRegisterAORN" type="providerRegisterEmail" aria-describedby="email" value="  {{ data['employerRegisterAORN'] }}">
           </div>
 
         </div>

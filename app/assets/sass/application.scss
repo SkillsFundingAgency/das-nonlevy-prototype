@@ -261,30 +261,30 @@ a.block-panel {
 .slides {
   background-color: #005ea5;
   color: #fff;
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 15px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   // min-height: 480px;
-  padding: 30px;
+  padding: 20px;
 }
 
 @media (min-width: 641px) {
   .slides {
-    margin-top: 30px;
+    margin-top: 15px;
   }
 }
 
 @media (min-width: 641px) {
   .slides {
-    padding: 45px;
+    padding: 20px;
   }
 }
 
 @media (min-width: 769px) {
   .slides {
-    padding: 75px 70px;
+    padding: 35px 35px;
   }
 }
 

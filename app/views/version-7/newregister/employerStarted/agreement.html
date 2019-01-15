@@ -14,7 +14,7 @@
 <script type="text/javascript">
 function whereNow() {
     localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
-   localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
+         localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
 
    var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
 
@@ -23,6 +23,25 @@ function whereNow() {
      window.location.href='./providerStarted/changePermissions';
     } 
     else {
+    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
+        window.location.href='../../home';
+    }
+    }
+ </script>
+
+ <script type="text/javascript">
+function whereNowUnsigned() {
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+       localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
+
+   var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
+
+   if (providerStartedJourney=='yes') {
+     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
+     window.location.href='./providerStarted/changePermissions';
+    } 
+    else {
+        localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
         window.location.href='../../home';
     }
     }
@@ -525,7 +544,7 @@ function whereNow() {
         <div style="float:right; margin:25px 0 20px 0;"> <a href="/accounts/VYJW8B/agreements/MK77WW/agreement-pdf" target="_blank" class="download">Save this agreement as a PDF</a></div>
         <div style="clear:both"></div>
     <button type="submit" class="govuk-button" onclick="whereNow()" style="margin-left:0px;  margin-bottom:10px;  ">Sign now</button>
-      <a  class="govuk-button clear-button" onclick="whereNow()" >Not yet, I'll sign it later</a>
+      <a  class="govuk-button clear-button" onclick="whereNowUnsigned()" >Not yet, I'll sign it later</a>
 
 </div>
 

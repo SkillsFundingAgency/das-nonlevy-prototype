@@ -1241,7 +1241,36 @@ router.get('/*/finance/reserve/finishedReserveFunding' , function (req, res) {
         }
 })
 
+/// Employer > Reserve funding > finished reserving Dans new version
+// http://127.0.0.1:3000/version-7/finance/reserve/new/complete
+router.get('/*/finance/reserve/new/finishedReserveFundingDan' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'hire'):
+          console.log("raa");
+            res.redirect(`/${req.version}/finance/changeReserve/howRecruiting`)
+           break;
 
+           case  (confirmTraining == 'reserve'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/finance/reserve`)
+           break;
+
+          case  (confirmTraining == 'view'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/finance/changeReserve`)
+           break;
+
+         case  (confirmTraining == 'homepage'):
+          console.log("alreadyDone");
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 /// Reserve - Register > v4 > Signing the agreement during registrations
@@ -2103,6 +2132,25 @@ router.get('/*/newregister/fromMicro/fromMicroKnowApprentice' , function (req, r
         }
 })
 
+
+/// Employer > Dans REserve Journey > know course or not
+// http://127.0.0.1:3000/version-7/finance/reserve/new/courseKnown?acceptedRecruit=January+2019
+router.get('/*/finance/reserve/new/reserveCourseKnownCheck' , function (req, res) {
+  var confirmTraining = req.query.funding
+       switch (true) {
+          case  (confirmTraining == 'Yes'):
+            res.redirect(`/${req.version}/finance/reserve/new/find/appreticeshipsearch`)
+           break;
+
+         case  (confirmTraining == 'No'):
+            res.redirect(`/${req.version}/finance/reserve/new/confirmReserveFunding`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
