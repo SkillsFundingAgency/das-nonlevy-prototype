@@ -2,7 +2,7 @@
 {% block beforeContent %} 
  {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({ text: "Back", href: "confirm-training-provider" }) }} 
+{{ govukBackLink({ text: "Back", href: "chooseReserve" }) }} 
 {% endblock %} 
 {% block content %}
 
@@ -111,7 +111,7 @@
                                     Month
                                 </label>
                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="start-date-month" name="start-date-month" type="number"
-                                    pattern="[0-9]*" value="8">
+                                    pattern="[0-9]*" value="6">
                             </div>
                         </div>
 
