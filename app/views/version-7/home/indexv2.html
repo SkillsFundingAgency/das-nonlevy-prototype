@@ -5,71 +5,14 @@
 {% endblock %}
 
 {% block beforeContent %} 
-{% include "includes/version7/mainNav.html" %} 
-{% include "includes/version7/homeNav.html" %} 
+ 
  {% endblock %} 
 
 {% block content %}
 
-
 <style>
-
-//new task list stuff goes here
-
-.task-list-item:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.task-list {
-  margin-top: 30px;
-  list-style-type: none;
+.app-task-list__items {
   padding-left:0;
-}
-
-@media (min-width: 641px) {
-  .task-list {
- 
-  }
-}
-
-.find-list {
-  font-weight: 700;
-
-}
-
-.results-header a {
-  text-decoration: none;
-}
-
-
-.task-list-section-number {
-  display: table-cell;
-  padding-right: 5px;
-}
-
-@media (min-width: 641px) {
-  .task-list-section-number {
-    min-width: 35px;
-    padding-right: 0;
-  }
-}
-
-.task-list-items {
-  margin-bottom: 30px;
-}
-
-@media (min-width: 641px) {
-  .task-list-items {
-    margin-bottom: 60px;
-  }
-}
-
-@media (min-width: 641px) {
-  .task-list-items {
-    padding-left: 35px;
-  }
 }
 
 </style>
@@ -150,47 +93,42 @@ changeStuff();
     <div class="govuk-grid-column-two-thirds column-minimum">
       <ol class="app-task-list" style="margin-top:0">
  
-   
-           <p class="" style="margin-bottom:35px" >Use this step by step list to help you employ an apprentice:</p>
-
-
-
-        <ol class="task-list">
+        <ol class="" style="list-style: none; padding-left:0">
 
         <li class="">
-          <h2 class="app-task-list__section"><span class="task-list-section-number">1. </span>
-         Get funding</h2>
-          <p style="padding-left:35px">You can get help from the government to pay for apprenticeship training.<br /> You will need to claim your funding in advance.</p>
+          <h2 class="app-task-list__section">
+         Start an apprenticeship</h2>
+          <p style="">Follow our step by step process to take on an apprentice</p>
           <ul class="app-task-list__items"  style="">
 
             <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="./finance/reserve/new" aria-describedby="eligibility-completed">
-               How much does an apprenticeship cost?
+               Start taking on a new apprentice
               </a>
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
             </li>
 
             <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="./finance/reserve/new" aria-describedby="eligibility-completed">
-               Claim your funding
+               Resume taking on an apprentice
               </a>
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
             </li>
-            <li class="app-task-list__item " id="claimMyFunding">
+<!--             <li class="app-task-list__item " id="claimMyFunding">
               <a class="app-task-list__task-name" href="./finance/changeReserve" aria-describedby="eligibility-completed">
                View and manage your claimed funds
               </a>
 
-            </li>
+            </li> -->
           </ul>
         </li>
 
 
         <li>
-          <h2 class="app-task-list__section"><span class="task-list-section-number">2. </span>
+          <h2 class="app-task-list__section">
             Find apprenticeships
           </h2>
-                 <p style="padding-left:35px">Find the right apprenticeship for your business and find a training provider to deliver the training. You can save your searches.</p>
+                 <p style="">Find the right apprenticeship for your business and find a training provider to deliver the training. You can save your searches.</p>
           <ul class="app-task-list__items" >
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="./find" aria-describedby="company-information-completed">
@@ -208,10 +146,10 @@ changeStuff();
         </li>
 
       <li>
-          <h2 class="app-task-list__section"><span class="task-list-section-number">3. </span>
+          <h2 class="app-task-list__section">
             Find training providers
           </h2>
-         <p style="padding-left:35px">Find training providers to deliver training and save them to a list. You can give saved training providers permission to carry out tasks on your behalf.</p>
+         <p style="">Find training providers to deliver training and save them to a list. You can give saved training providers permission to carry out tasks on your behalf.</p>
           <ul class="app-task-list__items" style="">
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="./find/findaprovider" aria-describedby="contact-details-completed">
@@ -228,64 +166,28 @@ changeStuff();
           </ul>
        </li>
 
+
+
        <li>
-          <h2 class="app-task-list__section"><span class="task-list-section-number">4. </span>
-             Recruit apprentices
+          <h2 class="app-task-list__section">
+          Manage existing apprentices
           </h2>
-          <p style="padding-left:35px">Advertise your apprenticeships and view current applications you have been sent.</p>
+          <p style="">Manage apprentices in your account.</p>
           <ul class="app-task-list__items" style="">
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="recruit/step-1">
-                Advertise an apprenticeship
-              </a>
-            </li>
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="recruit/vacancies">
-                Manage current vacancies
-              </a>
-   
-            </li>
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="recruit/applications">
-                View current applications
-              </a>
 
-            </li>
-          </ul>
-       </li>
-
-       <li>
-          <h2 class="app-task-list__section"><span class="task-list-section-number">5. </span>
-          Add and Manage apprentices
-          </h2>
-          <p style="padding-left:35px">Manage apprentices in your account.</p>
-          <ul class="app-task-list__items" style="padding-left:35px">
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="./apprentices/add">
-                Add a new apprentice
-              </a>
-            </li>
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="./apprentices/reviewApprove">
-                Review and approve new apprentices
-              </a>
-
-            </li>
              <li class="app-task-list__item">
               <a class="app-task-list__task-name"  href="./apprentices/manage">
                 View your current apprentices
               </a>
-
             </li>
-
           </ul>
        </li>
 
       <li>
-          <h2 class="app-task-list__section"><span class="task-list-section-number">6. </span>
+          <h2 class="app-task-list__section">
            Manage account
           </h2>
-          <p style="padding-left:35px">Add the correct details to access your funds and authorise the spending of those funds.</p>
+          <p style="">Add the correct details to access your funds and authorise the spending of those funds.</p>
           <ul class="app-task-list__items" style="">
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="./orgs">
