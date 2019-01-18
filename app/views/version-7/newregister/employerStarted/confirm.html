@@ -34,19 +34,20 @@ EventUtil.addHandler(createButton, 'click', function(){
 */
 </script>
 <div class="govuk-width-container">
-    <!-- <main class="govuk-main-wrapper govuk-main-wrapper--l"> -->
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" style="padding-top:0">
+      <div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
  
     
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-heading-l" style="color:#fff; margin-bottom:5px">
+        <div class="success-summary">
+          <h1 class="govuk-heading-l" style="color:#000; margin-bottom:5px">
             We've sent you an email
           </h1>
-          <div class="govuk-body" style="color:#fff">
-            To confirm your identity, we've sent a code to test@test.com
+          <div class="govuk-body" style="color:#000">
+            To confirm your identity, we've sent a code to {{ data['providerRegisterEmail'] }}
           </div>
         </div>
-         <div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
+
 
       <form action="taxDetails" method="get" class="form">
      <h1 class="govuk-heading-xl" style="margin-top:1.25em; margin-bottom:0.625em">

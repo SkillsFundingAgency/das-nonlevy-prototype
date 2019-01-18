@@ -3,7 +3,10 @@
 
   {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({ text: "Back", href: "./" }) }}
+{{ govukBackLink({ text: "Back", 
+href: "javascript:history.back()" 
+    }) 
+}}
 {% endblock %}
 {% block content %}
 
@@ -16,6 +19,7 @@
         </h1>
 <!--         <div class="govuk-inset-text">You must have permission from your employer to add this information</div>
  -->
+  <p><span class=" "">If you already have an account <a href="#">sign in</a></span></p>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
