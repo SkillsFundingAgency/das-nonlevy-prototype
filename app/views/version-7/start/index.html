@@ -1,30 +1,28 @@
-{% extends "layout.html" %} {% block beforeContent %} {% include "includes/version1/mainNav.html" %} 
-
-{% include "includes/version1/financeNav.html" %} 
+{% extends "layout.html" %} {% block beforeContent %} 
 {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({ text: "Back", href: "../../home" }) }} {% endblock %} {% block content %}
+{{ govukBackLink({ text: "Back", href: "javascript:history.back()"  }) }} {% endblock %} {% block content %}
 
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-               <h1 class="govuk-heading-xl ">Secure funding for taking on an apprentice</h1>
+               <h1 class="govuk-heading-xl ">Start an apprentice</h1>
            </div>
             <div class="govuk-grid-column-two-thirds">
-                <p>Use this service to secure government funding for training an apprentice. Government funding will pay for 95% of the cost of training an apprentice. You need to pay 5%. </p>
+                <p>Use this service to take on a new apprentice. </p>
                 <h2 class="govuk-heading-m">You will need:</p>
    
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>an estimate of which month the apprentice will start</li>
-                    <li>an estimate of what training course the apprentice may take, which can be changed later</li>
+                    <li>some things</li>
+                    <li>some more things</li>
        <!--              <li>you can reserve a maximum of £24,000 of funding at one time. --> 
 <!--                     <li>find training providers who offer the apprenticeship training you choose</li>
                     <li>find a named training provider you want to use</li> -->
                 </ul>
-                <p>You can only secure funding up to 6 months before an apprenticeship is about to start.</p>
+                <p>You can only do the thing if the thing is ready to be done.</p>
                 <div style="margin-top:35px"></div>
-            <a href="new/reserveStartDate"  class="govuk-button govuk-button--start">Start</a>
+            <a href="start/gotReserve"  class="govuk-button govuk-button--start">Start</a>
                           <!--   <h2 class="govuk-heading-m " >Help</h2>
                 <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
                     <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>

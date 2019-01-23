@@ -2154,6 +2154,94 @@ router.get('/*/finance/reserve/new/reserveCourseKnownCheck' , function (req, res
         }
 })
 
+
+/// Employer > start and apprentices, secured funding or not
+// http://127.0.0.1:3000/version-7/start/gotReserve
+router.get('/*/start/startApprenticeSecureFunding' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/start/chooseReserve`)
+           break;
+
+         case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/start/reserve`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+/// Employer > start and apprentices, choose funding you want
+// http://127.0.0.1:3000/version-7/start/chooseReserve
+router.get('/*/start/startApprenticeshipWhichFunding' , function (req, res) {
+  var confirmTraining = req.query.funding
+  console.log(confirmTraining)
+       switch (true) {
+          case  (confirmTraining == 'one'):
+          req.session.data['startApp'] = 'An apprenticeship';
+          req.session.data['startAppDate'] = '1 May 2019 and 30 July 2019';
+            res.redirect(`/${req.version}/start/arse`)
+           break;
+
+         case  (confirmTraining == 'two'):
+          req.session.data['startApp'] = 'Mechanical engineer,Level 3 ';
+          req.session.data['startAppDate'] = '1 June 2019 and 31 August 2019';
+            res.redirect(`/${req.version}/start/reserve/apprenticeshipCorrect`)
+           break;
+
+          case  (confirmTraining == 'other'):
+            res.redirect(`/${req.version}/start/arse`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > start and apprentices > Have you found a provider yet?
+// http://127.0.0.1:3000/version-7/start/haveProvider
+router.get('/*/start/startApprenticeshipHaveProvider' , function (req, res) {
+  var confirmTraining = req.query.usedService
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/start/chooseProvider`)
+           break;
+
+         case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/start/haveApprentice`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > start and apprentices > Have you found the apprentice yet?
+// http://127.0.0.1:3000/version-7/start/haveApprentice
+router.get('/*/start/startApprenticeshipHaveApprentice' , function (req, res) {
+  var confirmTraining = req.query.recruitType
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+            res.redirect(`/${req.version}/start/thing`)
+           break;
+
+         case  (confirmTraining == 'no'):
+            res.redirect(`/${req.version}/start/otherthing`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
