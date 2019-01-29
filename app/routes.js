@@ -2181,19 +2181,19 @@ router.get('/*/start/startApprenticeshipWhichFunding' , function (req, res) {
   console.log(confirmTraining)
        switch (true) {
           case  (confirmTraining == 'one'):
-          req.session.data['startApp'] = 'An apprenticeship';
+       //   req.session.data['startApprenticesApprenticeshipName'] = 'An apprenticeship';
           req.session.data['startAppDate'] = '1 May 2019 and 30 July 2019';
-            res.redirect(`/${req.version}/start/arse`)
+            res.redirect(`/${req.version}/start/haveApprenticeship`)
            break;
 
          case  (confirmTraining == 'two'):
-          req.session.data['startApp'] = 'Mechanical engineer,Level 3 ';
+          req.session.data['startApprenticesApprenticeshipName'] = 'Mechanical engineer,Level 3 ';
           req.session.data['startAppDate'] = '1 June 2019 and 31 August 2019';
-            res.redirect(`/${req.version}/start/reserve/apprenticeshipCorrect`)
+            res.redirect(`/${req.version}/start/reserve/existingReserveCorrect`)
            break;
 
           case  (confirmTraining == 'other'):
-            res.redirect(`/${req.version}/start/arse`)
+            res.redirect(`/${req.version}/start/reserve/`)
            break;
 
         default:
@@ -2213,7 +2213,7 @@ router.get('/*/start/startApprenticeshipHaveProvider' , function (req, res) {
            break;
 
          case  (confirmTraining == 'false'):
-            res.redirect(`/${req.version}/start/haveApprentice`)
+            res.redirect(`/${req.version}/start/gotReserve`)
            break;
 
         default:
@@ -2223,21 +2223,166 @@ router.get('/*/start/startApprenticeshipHaveProvider' , function (req, res) {
 })
 
 
-/// Employer > start and apprentices > Have you found the apprentice yet?
+/// Employer > start apprentices > Have you found the apprentice yet?
 // http://127.0.0.1:3000/version-7/start/haveApprentice
 router.get('/*/start/startApprenticeshipHaveApprentice' , function (req, res) {
   var confirmTraining = req.query.recruitType
        switch (true) {
           case  (confirmTraining == 'yes'):
-            res.redirect(`/${req.version}/start/thing`)
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeAdd`)
            break;
 
          case  (confirmTraining == 'no'):
-            res.redirect(`/${req.version}/start/otherthing`)
+            res.redirect(`/${req.version}/start/wantRecruit`)
            break;
 
         default:
             console.log("bork bork bork bork");
+            break;
+        }
+})
+
+
+
+/// Employer > start apprentices > Finished
+// http://127.0.0.1:3000/version-7/start/addApprentice/finish?
+router.get('/*/start/addApprentice/addApprenticeAddSingleApprenticeFinished' , function (req, res) {
+  var confirmTraining = req.query.confirmTraining
+       switch (true) {
+          case  (confirmTraining == 'addAnother'):
+            res.redirect(`/${req.version}/start`)
+           break;
+
+           case  (confirmTraining == 'apprenticeships'):
+            res.redirect(`/${req.version}/apprentices/manage`)
+           break;
+
+          case  (confirmTraining == 'homepage'):
+            res.redirect(`/${req.version}/home`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+/// Employer > start apprentices > Use RAA to recruit
+// http://127.0.0.1:3000/version-7/start/wantRecruit
+router.get('/*/start/startApprenticeshipUseRecruit' , function (req, res) {
+  var confirmTraining = req.query.recruitType
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+            res.redirect(`/${req.version}/recruit/step-1`)
+           break;
+
+         case  (confirmTraining == 'no'):
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+/// Employer > start apprentices > have apprenticeship?
+// http://127.0.0.1:3000/version-7/start/haveApprenticeship
+router.get('/*/start/startApprenticeshipHaveApprenticeshipTraining' , function (req, res) {
+  var confirmTraining = req.query.usedService
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/start/chooseApp`)
+           break;
+
+         case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/start/haveApprentice`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+/// Employer > start apprentices > one or bulk
+// http://127.0.0.1:3000/version-7/start/oneOrBulk
+router.get('/*/start/startApprenticeshiponeOrBulkQuestion' , function (req, res) {
+  var confirmTraining = req.query.oneOrBulk
+       switch (true) {
+          case  (confirmTraining == 'one'):
+            res.redirect(`/${req.version}/start/haveProvider`)
+           break;
+
+         case  (confirmTraining == 'bulk'):
+            res.redirect(`/${req.version}/start/BORKborkBork`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+//Hacky rewrite of numbers to months, don't judge, it works.
+// http://127.0.0.1:3000/version-7/start/addApprentice/apprenticeAdd
+router.get('/*/start/addApprentice/startApprenticeshipFiddleAndRedirect' , function (req, res) {
+  var confirmTraining =  req.session.data['start-date-month'] 
+       switch (true) {
+        case  (confirmTraining == '1'):
+          req.session.data['start-date-month'] = "January"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '2'):
+          req.session.data['start-date-month'] = "February"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '3'):
+          req.session.data['start-date-month'] = "March"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '4'):
+          req.session.data['start-date-month'] = "April"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '5'):
+          req.session.data['start-date-month'] = "May"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '6'):
+          req.session.data['start-date-month'] = "June"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '7'):
+          req.session.data['start-date-month'] = "July"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+       case  (confirmTraining == '8'):
+          req.session.data['start-date-month'] = "August"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+       case  (confirmTraining == '9'):
+          req.session.data['start-date-month'] = "September"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '10'):
+          req.session.data['start-date-month'] = "October"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '11'):
+          req.session.data['start-date-month'] = "November"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '12'):
+          req.session.data['start-date-month'] = "December"
+            res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            req.session.data['start-date-month'] = ""
+             res.redirect(`/${req.version}/start/addApprentice/apprenticeConfirm`)
             break;
         }
 })
