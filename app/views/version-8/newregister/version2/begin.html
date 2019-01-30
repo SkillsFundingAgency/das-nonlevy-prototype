@@ -1,0 +1,73 @@
+{% extends "layout.html" %} {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+
+{% endblock %} {% block content %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WF97B7V');</script>
+<!-- End Google Tag Manager -->
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<div class="govuk-width-container">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF97B7V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">Register an account</h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p>To access funds to pay for apprenticeship training you need to register on the apprenticeship service. </p>
+                <h2 class="govuk-heading-m">Before you start</p>
+                  <p>You will need:</p>
+   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>the legal name of your organisation for example, the name you've used to register with Companies House </li>
+                    <li>to be able to enter an agreement with the Education and Skills Funding Agency (ESFA)</li>
+
+
+<!--                     <li>find training providers who offer the apprenticeship training you choose</li>
+                    <li>find a named training provider you want to use</li> -->
+                </ul>
+                <div style="margin-top:35px"></div>
+            <a href="setUpUser"  class="govuk-button govuk-button--start">Start</a>
+                          <!--   <h2 class="govuk-heading-m " >Help</h2>
+                <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
+                    <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>
+                <p> Telephone: 0800 015 0600 <a href="#"> Find out about call charges</a></p> -->
+            </div>
+  <!--           <div class="govuk-grid-column-one-third">
+
+                                 <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; " >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Funds reserved</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 5px 15px"><span style="">£</span>8,100</h2>  
+                        
+                              <p style="margin:0"><a href="./changeReserve" style="font-size:16px; margin: 0px 0 0 15px">View details</a></p>   
+                        </div>
+                    </div>
+
+                    <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; margin-top:25px" >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Available to reserve</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 0px 15px"><span style="">£</span>15,900</h2>  
+                                <p style="margin:0 0 0 15px; font-size:16px">This is the amount you have left to reserve.</p>
+
+                                    
+                        </div>
+                    </div>
+
+   
+            </div> -->
+
+        </div>
+    </main>
+    {% endblock %}

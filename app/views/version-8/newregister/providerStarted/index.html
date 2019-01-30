@@ -1,0 +1,95 @@
+{% extends "layout.html" %} {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+
+{% endblock %} {% block content %}
+
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<script type="text/javascript">
+function whereNow() {
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("yes"));
+       window.location.href='./employerStarted/contactDetails';
+
+
+
+   // localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
+   // var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
+
+    }
+
+</script>
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">Manage apprenticeships</h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+              <p class="govuk-body-l">This service is for organisations that want to take on apprentices.</p>
+
+              <p>Use this service to:</p>
+   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>set up and manage apprenticeship training</li>
+                    <li>pay for apprenticeship training</li>
+                  </ul>
+       
+
+                <p>To access funds to pay for apprenticeship training you need to register on the apprenticeship service. <span class=" govuk-!-font-size-19 govuk-!-font-weight-bold">If you already have an account <a href="./employerStarted/signin/signin">sign in</a></span></p>
+                
+                <div style="margin-top:35px"></div>
+            <a onclick="whereNow()"  class="govuk-button govuk-button--start">Start now</a>
+
+           
+            <h2 class="govuk-heading-m">Before you start</h2>
+                  <p>You will need:</p>
+   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>the legal name of your organisation for example, the name you've used to register with Companies House </li>
+                    <li>your Government Gateway login details or your accounts office reference number (AORN) and at least one PAYE scheme</li>
+       
+               
+                    <li>the authority to enter an agreement with the Education and  Skills Funding Agency (ESFA)</li>
+
+
+<!--                     <li>find training providers who offer the apprenticeship training you choose</li>
+                    <li>find a named training provider you want to use</li> -->
+                </ul>
+                 </div>
+  <!--           <div class="govuk-grid-column-one-third">
+
+                                 <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; " >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Funds reserved</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 5px 15px"><span style="">£</span>8,100</h2>  
+                        
+                              <p style="margin:0"><a href="./changeReserve" style="font-size:16px; margin: 0px 0 0 15px">View details</a></p>   
+                        </div>
+                    </div>
+
+                    <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; margin-top:25px" >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Available to reserve</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 0px 15px"><span style="">£</span>15,900</h2>  
+                                <p style="margin:0 0 0 15px; font-size:16px">This is the amount you have left to reserve.</p>
+
+                                    
+                        </div>
+                    </div>
+
+   
+            </div> -->
+
+        </div>
+    </main>
+    {% endblock %}

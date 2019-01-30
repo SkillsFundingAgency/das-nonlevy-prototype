@@ -2387,6 +2387,32 @@ router.get('/*/start/addApprentice/startApprenticeshipFiddleAndRedirect' , funct
         }
 })
 
+
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
+router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+            res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+            res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
+
+
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps

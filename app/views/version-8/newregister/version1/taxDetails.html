@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "searchOrgResults"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WF97B7V');</script>
+<!-- End Google Tag Manager -->
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+
+  <div class="govuk-grid-row">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF97B7V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="govuk-grid-column-two-thirds">
+
+      <!--form  method="get" class="form"-->
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+          Add your organisation's tax details
+        </h1>
+        <p class="govuk-body">To pay for your apprenticeships using government funds you will need to add your organisation's tax details. </p>
+         <p class="govuk-body">To do this you will need:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>at least one PAYE scheme</li>
+                <li>the Government Gateway login details for your PAYE scheme(s) - ask your accountant if you don't have access to this information</li>
+              </ul>
+
+<!--         <a href="https://www.gov.uk/log-in-register-hmrc-online-services/problems-signing-in" target='_blank' class="link-copy-normal" style="">Can't find your Government Gateway details?</a> -->
+
+
+<form action="addTaxDetailsRegisterReserve" method="get" class="form">
+    <div id="addTheError" class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           Do you want to do this now?
+            </h2>
+            </legend>
+            <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                Do you want to this now?
+          </span>
+            <div class="govuk-radios ">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                        Yes, I have everything I need
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                        No, I'll do it later
+                    </label>
+                    <span  class="govuk-hint" style="padding-left:15px">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <button class="govuk-button">Continue</button>
+</form>
+
+    </div>
+  </div>
+{% endblock %}
