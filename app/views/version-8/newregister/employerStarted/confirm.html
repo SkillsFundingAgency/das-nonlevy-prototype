@@ -1,44 +1,33 @@
 {% extends "layout.html" %}
-
-
 {% block content %}
 
 <script>
-/*
-// putting this here so i don't forget it.
 
-  //store details entered into the form in local storage
-var createButton = document.getElementById('createAccountButton');
-EventUtil.addHandler(createButton, 'click', function(){
-              // save the form info to local storage by first putting the data into an object
-              var userDetails = {
-                email: document.getElementById('email-address').value,
-                password: document.getElementById('password').value
-            };
+  function whereNow() {
+ var addingPAYE = "{{ data['addingPAYE'] }}"
+       switch (true) {
+          case  (addingPAYE == 'true'):
+          localStorage.setItem("registration.completeTax", JSON.stringify("yes"));
+                 window.location.href='taxDetailsTwo';
+                break;
 
-            //store the object in local storage using json stringify
-              localStorage.setItem("login", JSON.stringify(userDetails));
+        case  (addingPAYE == 'false'):
+            localStorage.setItem("registration.completeTax", JSON.stringify("no"));
+             window.location.href='searchOrg';
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+            break;
+        }
+    }
+ </script>
 
-            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
-            document.cookie =  "emailAddress="  + userDetails.email 
-            // shows the cookie in the console log to check it is working
-            console.log (document.cookie)
 
-        // not needed at the moment
-
-              //hide the login form
-              //$('#login').addClass('hidden');
-              //show the quiz
-           // $('#wrapper').removeClass('hidden')
-    });
-*/
-</script>
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l" style="padding-top:0">
       <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
  
-    
         <div class="success-summary">
           <h1 class="govuk-heading-l" style="color:#000; margin-bottom:5px">
             We've sent you an email
@@ -49,7 +38,7 @@ EventUtil.addHandler(createButton, 'click', function(){
         </div>
 
 
-      <form action="taxDetails" method="get" class="form">
+    <!--   <form action="taxDetails" method="get" class="form"> -->
      <h1 class="govuk-heading-xl" style="margin-top:1.25em; margin-bottom:0.625em">
 Confirm your identity
         </h1>
@@ -68,9 +57,9 @@ Confirm your identity
           </fieldset>
         </div>
 
-        <button class="govuk-button">Confirm</button>
+        <button class="govuk-button" onClick="whereNow()">Confirm</button>
 
-      </form>
+<!--       </form> -->
     <h3 class="govuk-heading-s">Not received an email? </h3>
     <a href="#">You can request another email</a>
     </div>
