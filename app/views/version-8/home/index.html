@@ -30,26 +30,33 @@ $(document).ready(function() {
        switch (true) {
         // Coming from registration and agreement and tax are both done
           case  (firstTimeReg == 'yes') && (completeAgreement != 'no') && (completeTax != 'no'):
-              $(firstTimeRegMessage).removeClass("rj-dont-display");
+               $(firstTimeRegMessage).removeClass("rj-dont-display");
               localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
            break;
         // Coming from registration and agreement and tax are both NOT done
             case  (firstTimeReg == 'yes') && ((completeAgreement == 'no') && (completeTax == 'no')):
-              $(firstTimeRegMessageIncomplete).removeClass("rj-dont-display")
+              $(paneTasksTax).removeClass("rj-dont-display")
+               $(paneTasksAgreement).removeClass("rj-dont-display")
+                 $(paneNoTasks).addClass("rj-dont-display")
             localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
            break;
 
         // Coming from registration and agreement is not done but tax is done
              case  (firstTimeReg == 'yes') && ((completeAgreement == 'no') || (completeTax == 'yes')):
              console.log("agreement is not done but tax IS Done")
-              $(firstTimeRegMessageIncompleteAgreementOnly).removeClass("rj-dont-display")
+           //    $(firstTimeRegMessageIncompleteAgreementOnly).removeClass("rj-dont-display")
+             $(paneTasksAgreement).removeClass("rj-dont-display")
+              $(paneNoTasks).addClass("rj-dont-display")
+
             localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
            break;
 
          // Coming from registration and agreement is done but TAX is NOT done
            case  (firstTimeReg == 'yes') && ((completeAgreement == 'yes') || (completeTax == 'no')):
                console.log("agreement is  done but tax is NOT one")
-              $(firstTimeRegMessageIncompleteTaxOnly).removeClass("rj-dont-display")
+          //    $(firstTimeRegMessageIncompleteTaxOnly).removeClass("rj-dont-display")
+            $(paneTasksTax).removeClass("rj-dont-display")
+              $(paneNoTasks).addClass("rj-dont-display")
             localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
            break;
 
@@ -63,7 +70,6 @@ changeStuff();
 });
 
 </script>
-
 
  <div class="govuk-width-container">
                 <div style= "" id="firstTimeRegMessage" class="success-summary rj-dont-display"> 
@@ -87,8 +93,6 @@ changeStuff();
    <h1 class="govuk-heading-xl rj-headings-border" style="" id="company-Name">Assurance Aerospace Engineering
       <span class="govuk-caption-l">Account ID: XJBMNV</span></h1>
     
-       
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds column-minimum">
       <ol class="app-task-list" style="margin-top:0">
@@ -265,16 +269,16 @@ changeStuff();
                                 </ul>
                             </nav>
                             <div class="panes">
-                                <div class="js-tab-pane" id="pane-tasks" role="tabpanel"  style="">
+                                <div class="js-tab-pane" id="paneNoTasks" role="tabpanel"  style="">
                                     <p>You do not have any tasks</p>
                                 </div>
-                                  <div class="js-tab-pane rj-dont-display " id="pane-tasks-tax" role="tabpanel"  style=";">
+                                  <div class="js-tab-pane rj-dont-display " id="paneTasksTax" role="tabpanel"  style=";">
                                     <h3 class="govuk-heading-s " style="margin-bottom:0"><a href="./paye">Add tax details</a></h3>
-                                    <p>You need to add your tax details to use this service</p>
+                                    <p>You need to add your tax details to use govenment funds.</p>
                                 </div>
-                                    <div class="js-tab-pane rj-dont-display" id="pane-tasks-agreement" role="tabpanel"  style="">
+                                    <div class="js-tab-pane rj-dont-display" id="paneTasksAgreement" role="tabpanel"  style="">
                                     <h3 class="govuk-heading-s " style="margin-bottom:0"><a href="./orgs">Sign your agreement</a></h3>
-                                    <p>You need to sign the agreement between you and the ESFA to use this service</p>
+                                    <p>You need to sign the agreement between you and the ESFA to use government funds.</p>
                                 </div>
                             </div>
                         </section>

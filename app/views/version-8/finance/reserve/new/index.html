@@ -3,7 +3,8 @@
 {% include "includes/version1/financeNav.html" %} 
 {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({ text: "Back", href: "../../home" }) }} {% endblock %} {% block content %}
+{{ govukBackLink({   href: "javascript:history.back()" }) }} 
+{% endblock %} {% block content %}
 
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
@@ -24,7 +25,7 @@
                 </ul>
                 <p>You can only get funding up to 6 months before an apprenticeship is about to start.</p>
                 <div style="margin-top:35px"></div>
-            <a href="new/reserveStartDate"  class="govuk-button govuk-button--start">Start</a>
+            <a href="new/whatyoullneed"  class="govuk-button govuk-button--start">Start</a>
                           <!--   <h2 class="govuk-heading-m " >Help</h2>
                 <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
                     <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>

@@ -14,7 +14,7 @@
      <h1 class="govuk-heading-xl">
           Enter your PAYE scheme details
         </h1>
-        <p>Enter your PAYE scheme and your accounts office reference number (AORN). These details will be checked against the Pensions Regulator.</p>
+        <p>Enter your accounts office reference number (AORN) and employer PAYE reference number. These details will be checked against the Pensions Regulator.</p>
 <!--         <div class="govuk-inset-text">You must have permission from your employer to add this information</div>
  -->
         <div class="govuk-form-group">
@@ -22,26 +22,28 @@
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
 
           </legend>
-          <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-width-three-quarters bold-label" for="providerRegisterFirstName">
-                 PAYE scheme number
+                      <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
+                  Accounts office reference number (AORN)
               </label>
               <span id="email-hint" class="govuk-hint">
-             Ask your accountant if you don’t have access to this information
+               For example, 123PA12345678
+            </span>
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="employerRegisterAORN" type="providerRegisterEmail" aria-describedby="email" value="  {{ data['employerRegisterAORN'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-width-three-quarters bold-label" for="providerRegisterFirstName">
+                 Employer PAYE reference number
+              </label>
+              <span id="email-hint" class="govuk-hint">
+             For example, 123/AB12345
             </span>
               <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterFirstName" name="employerRegisterPAYE" type="text" aria-describedby="PAYE number" value=" {{ data['employerRegisterPAYE'] }}">
           </div>
 
 
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
-                  Accounts office reference number (AORN)
-              </label>
-              <span id="email-hint" class="govuk-hint">
-              You can find this on  the letter HMRC sent you when you first registered as an employer
-            </span>
-              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="employerRegisterAORN" type="providerRegisterEmail" aria-describedby="email" value="  {{ data['employerRegisterAORN'] }}">
-          </div>
+
 
         </div>
 

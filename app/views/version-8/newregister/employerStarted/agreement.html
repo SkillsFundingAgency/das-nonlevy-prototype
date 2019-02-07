@@ -17,12 +17,19 @@ function whereNow() {
          localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
 
    var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
+   var taxDoneorNot = JSON.parse(localStorage.getItem('registration.completeTax'));
 
    if (providerStartedJourney=='yes') {
      localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
      window.location.href='./providerStarted/changePermissions';
     } 
-    else {
+
+    else if (taxDoneorNot == 'no') {
+    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
+        window.location.href='doneWithoutTaxorAgree';
+    }
+
+        else  {
     localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
         window.location.href='../../home';
     }
@@ -42,7 +49,7 @@ function whereNowUnsigned() {
     } 
     else {
         localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-        window.location.href='../../home';
+        window.location.href='doneWithoutTaxorAgree';
     }
     }
  </script>
@@ -133,7 +140,7 @@ function whereNowUnsigned() {
             <div class="agreement-title">
 
                <!--  <h1>ESFA Apprenticeship Agreement for Employers</h1> -->
-                <p class="context" style="color:#000">For the provision of levy-funded apprenticeship training</p>
+                <p class="context" style="color:#000">For the provision of apprenticeship training</p>
             </div>
             <p class="updated" style="color:#000">1 May 2018</p>
         </div>

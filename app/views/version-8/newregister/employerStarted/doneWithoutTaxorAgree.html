@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+{% endblock %}
+{% block content %}
+
+<script>
+
+    var firstTimeReg = JSON.parse(localStorage.getItem('registration.firstTimeReg'));
+    var completeAgreement = JSON.parse(localStorage.getItem('registration.completeAgreement')); // "no" means not done the agreement
+    var completeTax = JSON.parse(localStorage.getItem('registration.completeTax')); //"no" means not done any of the tax stuff. 
+
+console.log(firstTimeReg, completeAgreement, completeTax )
+
+$(document).ready(function() {
+  var changeStuff = function() {  
+       switch (true) {
+        // Coming from registration and agreement and tax are both NOT done
+            case   ((completeAgreement == 'no') && (completeTax == 'no')):
+             // $(paneTasksTax).removeClass("rj-dont-display")
+             //  $(paneTasksAgreement).removeClass("rj-dont-display")
+              //   $(paneNoTasks).addClass("rj-dont-display")
+           break;
+
+        // Coming from registration and agreement is not done but tax is done
+             case  ((completeAgreement == 'no') || (completeTax == 'yes')):
+             console.log("agreement is not done but tax IS Done")
+           //    $(firstTimeRegMessageIncompleteAgreementOnly).removeClass("rj-dont-display")
+           $(paneTasksTax).addClass("rj-dont-display")
+            
+             // $(paneNoTasks).addClass("rj-dont-display")
+           break;
+
+         // Coming from registration and agreement is done but TAX is NOT done
+           case   ((completeAgreement == 'yes') || (completeTax == 'no')):
+               console.log("agreement is  done but tax is NOT one")
+          //    $(firstTimeRegMessageIncompleteTaxOnly).removeClass("rj-dont-display")
+             $(paneTasksAgreement).addClass("rj-dont-display")
+              //$(paneNoTasks).addClass("rj-dont-display")
+
+           break;
+
+           default:
+            console.log("bork bork bork");
+            break;
+        } 
+      }
+changeStuff();
+});
+</script>
+
+<div class="govuk-width-container">
+    
+                    <div class="govuk-panel govuk-panel--confirmation" style= "width:66%" id="firstTimeRegMessageIncomplete" >
+                   <h1 class="govuk-heading-l" style="margin-bottom:10px; color:#fff">Account setup complete</h1>
+          
+               </div>
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>You can now use your account to to search and save apprenticeships and training providers.</p><p> To get and spend government funds you still need to:</p>
+                   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li id="paneTasksTax">confirm who you are using a PAYE scheme</li>
+                    <li id="paneTasksAgreement">sign the agreement between you and the ESFA</li>
+                </ul>
+              <p>You can do this at any time by signing into your account and following the instructions</p>
+<!--       <a class="govuk-button" href="../../home" role="button">Continue to your account</a> -->
+      <a href="../../home" style="font-size:19px" >Continue to your account</a>
+
+
+    </div>
+  </div>
+</main>
+</div>
+
+{% endblock %}
