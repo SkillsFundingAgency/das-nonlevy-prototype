@@ -1878,12 +1878,12 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerTaxDetails' , 
 })
 
 /// Employer > Employer Started Registration  > Add tax details or postpone
-// http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
+// http://127.0.0.1:3000/version-8/newregister/employerStarted/taxDetails
 router.get('/*/newregister/employerStarted/employerStartedGovGatewayorPensionsReg' , function (req, res) {
   var confirmTraining = req.query.whatsNeeded
        switch (true) {
           case  (confirmTraining == 'true'):
-            res.redirect(`/${req.version}/newregister/employerStarted/govtgateway`)
+            res.redirect(`/${req.version}/newregister/employerStarted/allowtaxdetails`)
            break;
 
   
