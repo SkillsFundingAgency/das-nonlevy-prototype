@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+ {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}
+  
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">You cannot set up an account for this employer</h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p>Need to talk about what happen to set up an account without permission</p>
+                <p class="govuk-body">You must have agreement from <span style="font-weight:700">{{ data['providerRegisterFirstName'] }} {{ data['providerRegisterLastName'] }}</span> at <span style="font-weight:700">{{ data['providerRegisterEmail'] }}</span> to set up an account and contact them. </p>
+                <a href="../../provider/home" style="font-size:19px" >Return to the homepage</a>
+            </div>
+               
+        </div>
+    </main>
+    {% endblock %}

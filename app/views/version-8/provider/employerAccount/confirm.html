@@ -4,7 +4,7 @@
   {% include "includes/version6/provider/homeNav.html" %}
   {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({ text: "Back", href: "searchOrgResults" }) }}
+{{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }}
 {% endblock %}
 {% block content %}
 <div class="govuk-width-container">
@@ -67,7 +67,7 @@
         </div>
       </dl>
 
-       <h2 class="govuk-heading-s" style="margin-top:35px">
+      <!--  <h2 class="govuk-heading-s" style="margin-top:35px">
         Company details
       </h2>
 
@@ -99,7 +99,7 @@
               Change<span class="govuk-visually-hidden"></span>
             </a>
           </dd>
-        </div>
+        </div> -->
 <!--                 <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; font-size:16px">
             Company address
@@ -155,7 +155,7 @@
       </p> -->
 
       <a class="govuk-button" href="finish" role="button">
-        Continue
+        Register employer
       </a>
 
     </div>

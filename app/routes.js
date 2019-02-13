@@ -1618,11 +1618,11 @@ router.get('/*/provider/employerAccount/employerApprovalOrNot' , function (req, 
        switch (true) {
 
            case  (confirmTraining == 'true'):
-            res.redirect(`/${req.version}/provider/employerAccount/searchOrg`)
+            res.redirect(`/${req.version}/provider/employerAccount/confirm`)
            break;
 
           case  (confirmTraining == 'false'):
-            res.redirect(`/${req.version}/bork`)
+            res.redirect(`/${req.version}/provider/employerAccount/stop`)
            break;
 
         default:

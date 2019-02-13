@@ -4,7 +4,7 @@
   {% include "includes/version6/provider/homeNav.html" %}
   {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({ text: "Back", href: "./" }) }}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
 {% block content %}
 
@@ -72,9 +72,9 @@
 
           </fieldset>
 
-        <div class="govuk-inset-text">
+ <!--        <div class="govuk-inset-text">
           By continuing you accept the <a href="#" target="_blank">terms of use</a>
-        </div>
+        </div> -->
         </div>
 
         <button class="govuk-button">Continue</button>
