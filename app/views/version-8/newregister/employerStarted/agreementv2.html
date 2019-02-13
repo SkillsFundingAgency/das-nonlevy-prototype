@@ -60,49 +60,6 @@
 
 
 
-
-
-
-
-<!-- <script type="text/javascript">
-function whereNow() {
-
-
-   if (providerStartedJourney=='yes') {
-     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-     window.location.href='./providerStarted/changePermissions';
-    } 
-
-    else if (taxDoneorNot == 'no') {
-    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-        window.location.href='doneWithoutTaxorAgree';
-    }
-
-        else  {
-    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-        window.location.href='../../home';
-    }
-    }
- </script> -->
-
-<!--  <script type="text/javascript">
-function whereNowUnsigned() {
-    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
-       localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-
-   var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
-
-   if (providerStartedJourney=='yes') {
-     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-     window.location.href='./providerStarted/changePermissions';
-    } 
-    else {
-        localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-        window.location.href='doneWithoutTaxorAgree';
-    }
-    }
- </script> -->
-
  <script>
  localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
 </script>
@@ -131,8 +88,8 @@ if (
 
 <style>
 /* REMOVES THE GOV FOOTER BECAUSE OF THE STICKY THING. NEED TO DO PROPERLY */
-.govuk-footer {display:none;}
-.govuk-template {background-color: #fff}
+/*.govuk-footer {display:none;}*/
+/*.govuk-template {background-color: #fff}*/
 .accordion-section .accordion-section-header h2{position: -webkit-sticky; position: sticky; top: -1px; background-color:#fff}
 .agreement .agreement-contents h3 {position: relative;margin-left:0;padding-top:0;margin-bottom:10px;}
 </style>
