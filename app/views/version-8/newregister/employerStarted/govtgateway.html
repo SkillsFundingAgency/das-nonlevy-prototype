@@ -10,12 +10,11 @@
       <form action="checkPAYE" method="get" class="form">
 
      <h1 class="govuk-heading-xl">
-          Sign in
+         Sign in using Government Gateway
+
         </h1>
 
-        <p>
-          Enter your Government Gateway credentials to sign in. You received these when you created your HMRC online account.
-        </p>
+    
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -24,11 +23,13 @@
           </legend>
           <div class="govuk-form-group">
               <label class="govuk-label govuk-!-width-three-quarters bold-label" for="email">
-                  User ID
+                  Government Gateway user ID
+
               </label>
-              <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
+              <span id="email-hint" class="govuk-hint">
+              This could be up to 12 characters.
+
+            </span>
               <input class="govuk-input govuk-!-width-three-quarters" id="email" name="email" type="text" aria-describedby="">
           </div>
           <div class="govuk-form-group">

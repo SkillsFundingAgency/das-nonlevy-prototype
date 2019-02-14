@@ -1897,6 +1897,29 @@ router.get('/*/newregister/employerStarted/employerStartedGovGatewayorPensionsRe
         }
 })
 
+
+
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-8/newregister/employerStarted/april/taxDetailsTwo
+router.get('/*/newregister/employerStarted/april/employerStartedGovGatewayorPensionsReg' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/april/allowtaxdetails`)
+           break;
+
+  
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/april/pensionsReg`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
 router.get('/*/newregister/employerStarted/employerStartedEmployerHaveProvider' , function (req, res) {
@@ -2410,6 +2433,26 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
 })
 
 
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-6/newregister/employerStarted/april/whatyoullneed
+router.get('/*/newregister/employerStarted/april/employerStartedEmployerWhatYoullNeed' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+            res.redirect(`/${req.version}/newregister/employerStarted/april/contactDetails`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+            res.redirect(`/${req.version}/newregister/employerStarted/april/contactDetails`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 
