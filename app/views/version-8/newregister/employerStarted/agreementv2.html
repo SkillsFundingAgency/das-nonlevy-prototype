@@ -40,10 +40,9 @@
 
         case  (status == 'notYet'):
                 localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-
                if (providerStartedJourney=='yes') {
-                 localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-                 window.location.href='./providerStarted/changePermissions';
+                     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
+                     window.location.href='./providerStarted/changePermissions';
                 } 
                 else {
                     localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
@@ -59,30 +58,22 @@
  </script>
 
 
-
  <script>
  localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
 </script>
 
  <script>
-
 // uncomment this to turn on the accordions
-
 if (
     'addEventListener' in document &&
     document.querySelectorAll
 ) {
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-        var accordions = document.querySelectorAll('.accordion')
-
+  document.addEventListener('DOMContentLoaded', function() {
+ var accordions = document.querySelectorAll('.accordion')
         for (var i = accordions.length - 1; i >= 0; i--) {
             new Accordion(accordions[i])
         };
-
     })
-
 }
 </script>
 
