@@ -10,7 +10,7 @@
     <div class="govuk-grid-column-two-thirds">
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-    Apprenticeship funds reserved
+   Funding secured for this apprenticeship
       </h1>
       <div class="govuk-panel__body">
         
@@ -19,11 +19,11 @@
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Organisation </th>
+          <th class="govuk-table__cell" scope="row">Employer </th>
           <td class="govuk-table__cell">Assurance Aerospace Ltd</td>
         </tr>
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Apprenticeship </th>
+          <th class="govuk-table__cell" scope="row">Apprenticeship training </th>
           <td class="govuk-table__cell">   {{ data['funding'] }}</td>
         </tr>
 <!--         <tr class="govuk-table__row">
@@ -31,7 +31,7 @@
           <td class="govuk-table__cell">£8,100</td>
         </tr> -->
         <tr class="govuk-table__row">
-          <th class="govuk-table__cell" scope="row">Apprenticeship start date </th>
+          <th class="govuk-table__cell" scope="row">Apprenticeship training start date </th>
           <td class="govuk-table__cell"> {{ data['acceptedRecruit'] }}</td>
         </tr>
       </tbody>
@@ -40,14 +40,20 @@
 
 
     <div class="govuk-grid-column-two-thirds">
-          <h2 class="govuk-heading-l">What you need to do now</h2>
-<p>Once you have finalised the details of the apprenticeship with your chosen training provider, you will need to add this information to your reservation.</p>
-<p>You can add these now if you already know them.</p>
-<p>Both you and the training provider will need to check and approve this information before the apprenticeship starts so that the correct funding can be paid to your training provider.</p>
- <h2 class="govuk-heading-m">If you haven't chosen a Training provider</h2>
- <p>If you don’t know which training provider you want to use then you can use the Find Apprenticeship Training service to search for a provider who offers the apprenticeship you would like to offer.</p>
-  <h2 class="govuk-heading-m">If you haven't found an apprentice</h2>
-  <p>You can also use our recruitment service to help you find the right apprentice for your business.</p>
+      <p>You can <a href="">print this confirmation</a> screen to show your training provider that you have secured funding.</p>
+          <h2 class="govuk-heading-l">Making changes</h2>
+<p>You can change the apprenticeship training course when you add an apprentice’s details.</p>
+<p>You cannot change the apprenticeship start date, outside of the 3 month window you selected. To select a different apprenticeship start date, you will need to start again and secure new funding.</p>
+
+ <h2 class="govuk-heading-m">What you need to do now</h2>
+ <p>If you know who your apprentice and training provider will be, you can add the apprentice’s details.</p>
+<p>If you do not know who the apprentice or training provider will be, follow these steps:</p>
+
+PUT A LIST IN BELOW
+
+<p>Find an apprentice. You can use our recruitment service to find an apprentice
+Find a training provider. Use the find apprenticeship training service to find a training provider who offers the course you would like.
+Add your apprentice’s details</p>
 
 
 
@@ -56,23 +62,24 @@
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <label class="govuk-label  govuk-label--m" for="uk-provider-reference-number">
-                    What's next
+                   Do you want to add an apprentice now?
+
               </label>   
           </legend>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="hire" checked="true">
               <label class="govuk-label govuk-radios__label" for="confirmation-true">
-                Pay for an apprentice with this funding
+                Yes
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="reserve">
               <label class="govuk-label govuk-radios__label" for="confirmation-false">
-                Reserve more funding
+              No, not right now
               </label>
             </div>
-            <div class="govuk-radios__item">
+<!--             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="view">
               <label class="govuk-label govuk-radios__label" for="confirmation-false">
                 View reserved funding
@@ -83,7 +90,7 @@
               <label class="govuk-label govuk-radios__label" for="confirmation-false">
                Return to homepage
               </label>
-            </div>
+            </div> -->
           </div>
         </fieldset>
       </div>

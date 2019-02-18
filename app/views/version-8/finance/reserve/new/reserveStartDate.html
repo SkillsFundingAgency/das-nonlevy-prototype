@@ -45,19 +45,18 @@ EventUtil.addHandler(createButton, 'click', function(){
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="courseKnown" method="get" class="form">
-     <h1 class="govuk-heading-xl" style="">When do you expect your apprenticeship training to start?</h1>
+      <form action="confirmReserveFunding" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">When will the apprentice start their apprenticeship training?</h1>
 
 
-<p>Funding will be guaranteed for a 3 month period, one month either side of your chosen start month. </p>
-<p>Your funding will no longer be guaranteed if the apprenticeship does not start within this 3 month period.</p>
+<p>The apprentice can start their apprenticeship training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their training anytime from January to March.</p>
                  <div class="govuk-form-group">
                   <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+<!--                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                       <h1 class="govuk-fieldset__heading">
                        Choose when your apprentice will start:
                       </h1>
-                    </legend>
+                    </legend> -->
                     <div class="govuk-radios">
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="app-1" name="acceptedRecruit" type="radio" value="January 2019">
@@ -102,6 +101,17 @@ EventUtil.addHandler(createButton, 'click', function(){
                       </div>
                   </fieldset>
                 </div>
+
+                <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+     I want a later start date
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can secure funding no more than 6 months in advance of the apprenticeship training start date. If you want to secure funding for a later date, come back later.
+  </div>
+</details>
 
 
       <button class="govuk-button">Continue</button>

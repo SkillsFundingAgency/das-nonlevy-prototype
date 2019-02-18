@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+ {% include "includes/version1/mainNav.html" %}  {% include "includes/version1/financeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "chooseApp"
+}) }}
+{% endblock %}
+{% block content %}
+
+<!-- {% block pageScripts %}
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var el = $('#reserve-count-info')
+    var s = el.find('.reserve-count-plural')
+
+    el.hide()
+
+    $('#number-of-apprentices').on('keyup',function(){
+      var n = $(this).val()
+
+      if(n > 1){
+        el.find('.reserve-count-number').html(n)
+        el.show()
+
+        if(n > 1){
+          s.show()
+        } else {
+          s.hide()
+        }
+      } else {
+        el.hide()
+      }
+    })
+  })
+</script>
+{% endblock %} -->
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="reserveStartDate" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">
+Which apprenticeship training will your apprentice take? (optional)
+
+
+        </h1>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+          <div class="govuk-form-group">
+              <label class="govuk-label bold-label" for="numberApprentices">
+Search for a course:
+
+
+              </label>
+
+              <input class="govuk-input " id="numberApprentices" name="numberApprentices" type="text" aria-describedby="numberApprentices" >
+          </div>
+              <span id="email-hint" class="govuk-hint" style="margin-top:10px">
+              This information can be changed later
+
+            </span>
+          </fieldset>
+        </div>
+        <button class="govuk-button">Save and continue</button>
+          <a class="govuk-button clear-button" href="reserveStartDate">Skip this question</a>
+      </form>
+    </div>
+</div>
+</main>
+</div>
+  </div>
+{% endblock %}
+
