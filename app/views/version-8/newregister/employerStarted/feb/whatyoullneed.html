@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ text: "Back",
+href: "javascript:history.back()"
+})
+}}
+{% endblock %}
+{% block content %}
+<script>
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+</script>
+<style>
+    .govuk-header__content {display:none ;}
+</style>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <!--form  method="get" class="form"-->
+                <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+                  Do the thing with your levy
+                </h1>
+                <p class="govuk-body">To pay for your apprenticeships using government funding and to have full access to your apprenticeship account you will need to confirm who you are. </p>
+                <p>To do this you will need to add your organisation’s PAYE scheme.</p>
+                <p class="govuk-body">You can do this by doing something with the Government Gateway login for your PAYE scheme</p>
+                <details class="govuk-details" style="margin-bottom:10px">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                         Where do I find my Government Gateway login?
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Your payroll or finance department should have your organisation’s Government Gateway information if you don’t already know it. If your organisation has a payroll agent, don’t use the agent’s login details.
+                        You will need to <a href="">set up a Government Gateway account</a> if you do not already have one.
+                    </div>
+                </details>
+                <p>If you don’t have this information to hand, you can still register an account and you'll be able to do the thing later</p>
+                <form action="employerStartedEmployerWhatYoullNeedFEB" method="get" class="form">
+                    <div id="addTheError" class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading" style="">
+                                    Do you want to do the thing with Govt Gateway to claim your levy?
+                                </h2>
+                            </legend>
+                            <span id="gatewayError" class="govuk-error-message rj-dont-display">Do you want to do this now? </span>
+                            <div class="govuk-radios ">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+                                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                                        Yes, I want to do the thing with Govt Gateway now
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+                                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                                        No, I’ll do the thing with Govt Gateway later
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

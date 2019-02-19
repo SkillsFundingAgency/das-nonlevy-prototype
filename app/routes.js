@@ -298,6 +298,17 @@ router.get('/*/manage-apprenticeships/signin' , function (req, res) {
   }
 })
 
+/// registration > used service before? Feb version
+/// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
+router.get('/*/manage-apprenticeships/signinFEB' , function (req, res) {
+  var usedService = req.query.usedService
+  if (usedService === 'false') {
+    res.redirect(`/${req.version}/newregister/employerStarted/feb/whatyoullneed`)
+  } else {
+    res.render(`${req.version}/manage-apprenticeships/signin`)
+  }
+})
+
 /*
 /// team > added new team member where to
 router.get('/version-1/team/whatsNextTeam' , function (req, res) {
@@ -2432,7 +2443,8 @@ router.get('/*/start/addApprentice/startApprenticeshipFiddleAndRedirect' , funct
         }
 })
 
-
+ 
+//// AUGUST VERSION
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
 router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed' , function (req, res) {
@@ -2455,6 +2467,7 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
 })
 
 
+//// APRIL VERSION
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-6/newregister/employerStarted/april/whatyoullneed
 router.get('/*/newregister/employerStarted/april/employerStartedEmployerWhatYoullNeed' , function (req, res) {
@@ -2476,7 +2489,27 @@ router.get('/*/newregister/employerStarted/april/employerStartedEmployerWhatYoul
         }
 })
 
+/// FEB VERSION
+/// Employer > Employer Started Registration  > Add tax details or postpone - FEB VERSION
+// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/whatyoullneed
+router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullNeedFEB' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+            res.redirect(`/${req.version}/newregister/employerStarted/feb/contactDetails`)
+           break;
 
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+            res.redirect(`/${req.version}/newregister/employerStarted/feb/contactDetails`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
