@@ -269,11 +269,7 @@ router.param('employer', function (req, res, next, employer) {
  })
 
 
-
-
-
 ////End provider nav routes
-
 
     // Employer > Nav > Sign Out
 // bit hacky but works - needs two routes for top level and lower down the chain
