@@ -11,7 +11,7 @@
 {% endblock %}
 {% block content %}
 
-{% block pageScripts %}
+
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
 <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
 <script>
@@ -39,70 +39,62 @@
     })
   })
 </script>
-{% endblock %}
 
 
-<script>
-/*
-// putting this here so i don't forget it.
 
-  //store details entered into the form in local storage
-var createButton = document.getElementById('createAccountButton');
-EventUtil.addHandler(createButton, 'click', function(){
-              // save the form info to local storage by first putting the data into an object
-              var userDetails = {
-                email: document.getElementById('email-address').value,
-                password: document.getElementById('password').value
-            };
-
-            //store the object in local storage using json stringify
-              localStorage.setItem("login", JSON.stringify(userDetails));
-
-            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
-            document.cookie =  "emailAddress="  + userDetails.email 
-            // shows the cookie in the console log to check it is working
-            console.log (document.cookie)
-
-        // not needed at the moment
-
-              //hide the login form
-              //$('#login').addClass('hidden');
-              //show the quiz
-           // $('#wrapper').removeClass('hidden')
-    });
-*/
-</script>
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="courseComplete" method="get" class="form">
-     <h1 class="govuk-heading-xl" style="">
-How many apprentices is this for?
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="courseComplete">
+      {% call govukFieldset({
+        legend:
+        {
+          text: "How many apprentices is this for?",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
 
+      {{ govukInput({
+        label:
+        {
+          text: "Number of apprentices"
+        },
+        id: "number-of-apprentices",
+        name: "number-of-apprentices",
+        type: "number",
+        attributes:
+        {
+          min: 1
+        },
+        classes: "govuk-input--width-4"
+      }) }}
 
-        </h1>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
+      {% endcall %}
 
-          <div class="govuk-form-group">
-              <label class="govuk-label bold-label" for="numberApprentices">
-Number of apprentices
+      {% set warningHtml %}
+      You must secure funding for each apprentice individually. To secure funding for <span class="reserve-count-number">4</span> apprentice<span class="reserve-count-plural">s</span>, you will need to do <span class="reserve-count-number">4</span> application<span class="reserve-count-plural">s</span>.
+      {% endset %}
 
-              </label>
-              <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
-              <input class="govuk-input govuk-input--width-3" id="numberApprentices" name="numberApprentices" type="text" aria-describedby="numberApprentices">
-          </div>
-          </fieldset>
-        </div>
-        <button class="govuk-button">Save and continue</button>
-      </form>
-    </div>
+      {{ govukWarningText({
+        html: warningHtml,
+        iconFallbackText: "Warning",
+        attributes:
+        {
+          id: "reserve-count-info"
+        }
+      }) }}
+
+      <p>
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+    </form>
+  </div>
 </div>
 </main>
 </div>
-  </div>
 {% endblock %}
 

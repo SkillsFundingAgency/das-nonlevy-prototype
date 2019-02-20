@@ -11,72 +11,246 @@
 {% endblock %}
 {% block content %}
 
-<!-- {% block pageScripts %}
+<style>
+.autocomplete__wrapper {
+  position: relative;
+  font-size: 16px;
+}
+
+.autocomplete__hint,
+.autocomplete__input {
+  -webkit-appearance: none;
+  border: 2px solid;
+  border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  height: 40px;
+  width: 100%;
+}
+
+.autocomplete__input {
+  background-color: transparent;
+  position: relative;
+}
+
+.autocomplete__hint {
+  color: $govuk-border-colour;
+  position: absolute;
+}
+
+.autocomplete__input--default {
+  padding: 5px;
+}
+
+.autocomplete__input--focused {
+  outline-offset: 0;
+  outline: 3px solid $govuk-focus-colour;
+}
+
+.autocomplete__input--show-all-values {
+  padding: 5px 35px 5px 5px;
+  cursor: pointer;
+}
+
+.autocomplete__dropdown-arrow-down {
+  z-index: -1;
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+}
+
+.autocomplete__menu {
+  background-color: govuk-colour("white");
+  border: 2px solid govuk-colour("black");
+  border-top: 0;
+  color: $govuk-text-colour;
+  margin: 0;
+  max-height: 332px;
+  overflow-y: scroll;
+  padding: 0;
+  width: 100%;
+  width: calc(100% - 4px);
+}
+
+.autocomplete__menu--visible {
+  display: block;
+}
+
+.autocomplete__menu--hidden {
+  display: none;
+}
+
+.autocomplete__menu--overlay {
+  box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.autocomplete__menu--inline {
+  position: relative;
+}
+
+.autocomplete__option {
+  border-bottom: solid $govuk-border-colour;
+  border-width: 1px 0;
+  cursor: pointer;
+  display: block;
+  line-height: 26px;
+  position: relative;
+
+  // option 1 - truncated
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // height: 26px;
+
+  // option 2 - full text dynamic height
+  min-height: 26px
+}
+
+.autocomplete__option > * {
+  pointer-events: none;
+}
+
+.autocomplete__option:first-of-type {
+  border-top-width: 0;
+}
+
+.autocomplete__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.autocomplete__option--odd {
+  background-color: govuk-colour("grey-4");
+}
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+  background-color: $govuk-link-colour;
+  border-color: $govuk-link-colour;
+  color: white;
+  outline: none;
+}
+
+.autocomplete__option--no-results {
+  background-color: govuk-colour("grey-4");
+  color: govuk-colour("grey-1");
+  cursor: not-allowed;
+}
+
+.autocomplete__hint,
+.autocomplete__option {
+  padding: 5px;
+}
+
+.autocomplete__wrapper input,
+.autocomplete__wrapper li {
+  font-family: 'nta', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@include govuk-media-query($from: tablet) {
+  .autocomplete__hint,
+  .autocomplete__input,
+  .autocomplete__option {
+    font-size: 19px;
+  }
+
+  .autocomplete__hint,
+  .autocomplete__input {
+    line-height: 25px;
+  }
+
+  .autocomplete__wrapper input,
+  .autocomplete__wrapper li {
+    font-size: 19px;
+  }
+}
+
+
+</style>
+
+
+
 <script src="/public/javascripts/jquery-1.11.3.js"></script>
 <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
 <script>
   $(document).ready(function() {
-    var el = $('#reserve-count-info')
-    var s = el.find('.reserve-count-plural')
-
-    el.hide()
-
-    $('#number-of-apprentices').on('keyup',function(){
-      var n = $(this).val()
-
-      if(n > 1){
-        el.find('.reserve-count-number').html(n)
-        el.show()
-
-        if(n > 1){
-          s.show()
-        } else {
-          s.hide()
-        }
-      } else {
-        el.hide()
-      }
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search apprenticeships',
+        showAllValues: false
+      })
     })
   })
+
+
 </script>
-{% endblock %} -->
 
 
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="reserveStartDate" method="get" class="form">
-     <h1 class="govuk-heading-xl" style="">
-Which apprenticeship training will your apprentice take? (optional)
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" action="reserveStartDate">
+      {% call govukFieldset({
+        legend:
+        {
+          text: "Which apprenticeship training will your apprentice take? (optional)",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
 
-
-        </h1>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-
-          <div class="govuk-form-group">
-              <label class="govuk-label bold-label" for="numberApprentices">
-Search for a course:
-
-
-              </label>
-
-              <input class="govuk-input " id="numberApprentices" name="numberApprentices" type="text" aria-describedby="numberApprentices" >
-          </div>
-              <span id="email-hint" class="govuk-hint" style="margin-top:10px">
-              This information can be changed later
-
-            </span>
-          </fieldset>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="choose-apprenticeship">
+          Search for a course:
+        </label>
+        <div class="autocomplete-wrapper">
+          <select class="autocomplete-element" id="course-name" name="course-name">
+            <option value="">Select one</option>
+            {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+            {% endfor %}
+          </select>
         </div>
-        <button class="govuk-button">Save and continue</button>
-          <a class="govuk-button clear-button" href="reserveStartDate">Skip this question</a>
-      </form>
-    </div>
+
+        <span id="choose-apprenticeship-hint" class="govuk-hint govuk-!-margin-top-3">
+          This information can be changed later.
+        </span>
+      </div>
+      {% endcall %}
+
+     
+      <p class="govuk-!-margin-bottom-0">
+        {{ govukButton ({
+          text: "Save and continue"
+        })}}
+      </p>
+
+      <p>
+        <a href="reserveStartDate">Skip this question</a>
+      </p>
+    </form>
+  </div>
 </div>
 </main>
 </div>
-  </div>
 {% endblock %}
 
