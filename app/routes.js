@@ -299,7 +299,7 @@ router.get('/*/manage-apprenticeships/signin' , function (req, res) {
 router.get('/*/manage-apprenticeships/signinFEB' , function (req, res) {
   var usedService = req.query.usedService
   if (usedService === 'false') {
-    res.redirect(`/${req.version}/newregister/employerStarted/feb/whatyoullneed`)
+    res.redirect(`/${req.version}/newregister/employerStarted/feb/need`)
   } else {
     res.render(`${req.version}/manage-apprenticeships/signin`)
   }
@@ -2493,13 +2493,13 @@ router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullN
        switch (true) {
           case  (confirmTraining == 'true'):
               req.session.data['addingPAYE'] = 'true';
-            res.redirect(`/${req.version}/newregister/employerStarted/feb/contactDetails`)
+            res.redirect(`/${req.version}/newregister/employerStarted/feb/searchOrg`)
            break;
 
    
            case  (confirmTraining == 'false'):
             req.session.data['addingPAYE'] = 'false';
-            res.redirect(`/${req.version}/newregister/employerStarted/feb/contactDetails`)
+            res.redirect(`/${req.version}/newregister/employerStarted/feb/searchOrg`)
            break;
         default:
             console.log("bork bork bork");
