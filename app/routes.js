@@ -2493,7 +2493,7 @@ router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullN
        switch (true) {
           case  (confirmTraining == 'true'):
               req.session.data['addingPAYE'] = 'true';
-            res.redirect(`/${req.version}/newregister/employerStarted/feb/searchOrg`)
+            res.redirect(`/${req.version}/newregister/employerStarted/feb/allowtaxdetails`)
            break;
 
    
