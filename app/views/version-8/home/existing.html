@@ -113,7 +113,7 @@ function goToAgreements() {
                     <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                             <h3 class="govuk-heading-m" style="margin:0">Step 1 of 4</h3>
-                            <h5 class=" govuk-heading-s" style="margin:0">Add more PAYE schemes now?</h5>
+                            <h5 class=" govuk-heading-s" style="margin:0">Add PAYE scheme now?</h5>
                             <p style="margin:15px 0 0 0 ">This allows your schemes' levy funds to be paid into your account.</p>
                         </legend>
                         <div class="govuk-radios govuk-radios--inline">
@@ -372,13 +372,13 @@ function goToAgreements() {
                                 </div>
                                 <div class="govuk-grid-column-one-half ">
                                     <h3 class="govuk-heading-m rj-top-border" style="margin-top:0; padding-top:35px"><a href="./paye">PAYE schemes</a></h3>
-                                    <p class="rj-home-spacer">Add apprentices, update details of existing apprentices and authorise payments to training providers.</p>
+                                    <p class="rj-home-spacer">Add or remove PAYE schemes.</p>
                                 </div>
                             </div>
                             <div class="govuk-grid-row">
                                 <div class="govuk-grid-column-one-half">
                                     <h3 class="govuk-heading-m rj-top-border" style="margin-top:0;padding-top:35px  "><a href="./apprentices">Apprentices</a></h3>
-                                    <p class="rj-home-spacer rj-bottom-border-mobile ">Add or remove PAYE schemes.</p>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile ">Add apprentices, update details of existing apprentices and authorise payments to training providers.</p>
                                 </div>
                                 <div class="govuk-grid-column-one-half ">
                                     <h3 class="govuk-heading-m rj-top-border" style="margin-top:0; padding-top:35px"><a href="./find">Find apprenticeship training</a></h3>
@@ -404,8 +404,16 @@ function goToAgreements() {
                                 </ul>
                             </nav>
                             <div class="panes">
-                                <div class="js-tab-pane" id="pane-tasks" role="tabpanel" aria-hidden="false" style="display: block;">
+                                <div class="js-tab-pane" id="paneNoTasks" role="tabpanel"  style="padding-bottom: 0">
                                     <p>You do not have any tasks</p>
+                                </div>
+                                  <div class="js-tab-pane  " id="paneTasksTax" role="tabpanel"  style=";">
+                                    <h3 class="govuk-heading-s " style="margin-bottom:0"><a href="./paye">Add a PAYE scheme</a></h3>
+                                 <!--    <p>You need to add your tax details to use govenment funds.</p> -->
+                                </div>
+                                    <div class="js-tab-pane rj-dont-display" id="paneTasksAgreement" role="tabpanel"  style="">
+                                    <h3 class="govuk-heading-s " style="margin-bottom:0"><a href="./orgs">Sign your agreement</a></h3>
+                                    <p>You need to sign the agreement between you and the ESFA to use government funds.</p>
                                 </div>
                             </div>
                         </section>

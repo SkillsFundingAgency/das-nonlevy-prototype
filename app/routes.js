@@ -2503,6 +2503,8 @@ router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullN
            break;
         default:
             console.log("bork bork bork");
+            req.session.data['errorPAYE'] = 'true';
+               res.redirect(`/${req.version}/newregister/employerStarted/feb/whatyoullneed`)
             break;
         }
 })

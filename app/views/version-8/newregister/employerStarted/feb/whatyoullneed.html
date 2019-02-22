@@ -6,6 +6,35 @@
 <script>
     localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
 </script>
+
+
+<script>
+    $(document).ready(function() {
+         var errorPAYE = "{{ data['errorPAYE'] }}"
+  var changeStuff = function() {  
+       switch (true) {
+        // Coming from registration and agreement and tax are both done
+          case  (errorPAYE == 'true'):
+               $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+
+           break;
+        
+
+           default:
+            console.log("nowt");
+            break;
+        } 
+      }
+changeStuff();
+});
+
+</script>
+
+
+
+
+
 <style>
     .govuk-header__content {display:none ;}
 </style>
@@ -44,7 +73,7 @@
                                    Do you want to add your PAYE details now?
                                 </h2>
                             </legend>
-                            <span id="gatewayError" class="govuk-error-message rj-dont-display">Do you want to do this now? </span>
+                            <span id="gatewayError" class="govuk-error-message rj-dont-display">Select whether to add your PAYE details now or later </span>
                             <div class="govuk-radios ">
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
@@ -61,7 +90,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <button class="govuk-button">Continue</button>
+                    <button class="govuk-button" >Continue</button>
                 </form>
             </div>
         </div>
