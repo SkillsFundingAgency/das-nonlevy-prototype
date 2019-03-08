@@ -2462,6 +2462,28 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
         }
 })
 
+//// VERSION 2 - THAT ASKS WHAT YOU WANT TO DO WITH THE ACCOUNT - AUGUST VERSION
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-9/newregister/employerStarted/v2/accountType
+router.get('/*/newregister/employerStarted/v2/whatTypeOfAccount' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+            res.redirect(`/${req.version}/newregister/employerStarted/v2/whatyoullneed`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+            res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
 
 //// APRIL VERSION
 /// Employer > Employer Started Registration  > Add tax details or postpone

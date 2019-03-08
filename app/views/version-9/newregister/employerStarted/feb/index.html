@@ -1,0 +1,34 @@
+{% extends "layout.html" %} {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{% endblock %} {% block content %}
+<style>
+.govuk-header__content {
+    display: none;
+    }
+</style>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl ">Manage apprenticeships</h1>
+            </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-body-l">This service is for organisations that want to take on apprentices.</p>
+                <p>Use this service to:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>set up and manage apprenticeship training</li>
+                    <li>pay for apprenticeship training</li>
+                </ul>
+                <div style=""></div>
+                     <a href="./feb/usedServiceBefore"  class="govuk-button govuk-button--start">Start</a>
+                <h2 class="govuk-heading-m" style="margin-top:35px">Before you start</h1>
+                 <ul class="govuk-list govuk-list--bullet">
+                    <li>Find out more about <a href="https://www.gov.uk/take-on-an-apprentice">employing apprentices</a></li>
+                    <li>Find out <a href="https://www.gov.uk/guidance/manage-apprenticeship-funds">how you can use</a> your apprenticeship account</li>
+                    <li>Find out about the <a href="https://www.gov.uk/government/publications/apprenticeship-levy-how-it-will-work/apprenticeship-levy-how-it-will-work">apprenticeship levy</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+{% endblock %}
