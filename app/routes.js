@@ -2451,11 +2451,17 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
             res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
            break;
 
+            case  (confirmTraining == 'truthy'):
+              req.session.data['addingPAYE'] = 'truthy';
+            res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
+           break;
+
    
            case  (confirmTraining == 'false'):
             req.session.data['addingPAYE'] = 'false';
             res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
            break;
+
         default:
             console.log("bork bork bork");
             break;
@@ -2468,9 +2474,19 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
 router.get('/*/newregister/employerStarted/v2/whatTypeOfAccount' , function (req, res) {
   var confirmTraining = req.query.whatsNeeded
        switch (true) {
-          case  (confirmTraining == 'true'):
+          // case  (confirmTraining == 'true'):
+          //     req.session.data['addingPAYE'] = 'needToChoose';
+          //   res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
+          //  break;
+
+           case  (confirmTraining == 'true'):
               req.session.data['addingPAYE'] = 'true';
-            res.redirect(`/${req.version}/newregister/employerStarted/v2/whatyoullneed`)
+            res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
+           break;
+
+            case  (confirmTraining == 'truthy'):
+              req.session.data['addingPAYE'] = 'truthy';
+            res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
            break;
 
    

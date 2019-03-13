@@ -3,11 +3,12 @@
 
   {% from "back-link/macro.njk" import govukBackLink %} 
 
-{{ govukBackLink({ text: "Back",  href: "javascript:history.back()"}) }}
+
 {% endblock %}
 {% block content %}
 
-
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <form action="pensionsRegConfirm" method="get" class="form">
@@ -53,5 +54,7 @@
       </form>
 
     </div>
+  </fieldset>
+</div>
   </div>
 {% endblock %}

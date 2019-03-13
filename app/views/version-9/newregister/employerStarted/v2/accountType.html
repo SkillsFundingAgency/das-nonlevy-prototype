@@ -19,91 +19,102 @@ href: "javascript:history.back()"
             <div class="govuk-grid-column-two-thirds">
                 <!--form  method="get" class="form"-->
                 <h1 class="govuk-heading-xl" style="margin-bottom:30px">
-                  Using your account
+                 Register for a manage apprenticeships account
                 </h1>
-                <p>An account lets you do the thing.</p>
-                <H3 class="govuk-heading-s">Searching and saving</H3>
-                 <p>You can register an account to:</p>
+                <p>There are 2 types of manage apprenticeships account. </p>
+         <!--        <H3 class="govuk-heading-s">Searching and saving</H3> -->
+                 <p>Full access allows you to: </p>
                  <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
-                    <li>search and save apprenticeships</li>
-                    <li>save your chosen training providers</li>
+                    <li>get government funding for training your apprentices</li>
+                    <li>find and save apprenticeship training courses and providers</li>
                 </ul>
-                <p>with a few bits of information. If you want to do more with your account you can do the thing later.</p>
+                <p>Partial access allows you to: </p>
+                  <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
+                    <li>find and save apprenticeship training courses and providers</li>
+                </ul>
 
-                <H3 class="govuk-heading-s">Accessing government funding</H3>
-                <p class="govuk-body">To pay for your apprenticeships using government funding and to have full access to your apprenticeship account you will need to confirm who you are. </p>
+                <H3 class="govuk-heading-s">Setting up a full access account</H3>
+                <p class="govuk-body">You will need your organisation’s PAYE scheme details to set up the account.  </p>
                 <p>To do this you will need to add your organisation’s PAYE scheme.</p>
-                <p class="govuk-body">You can do this using either of the following:</p>
+                <p class="govuk-body">You can do this by:</p>
                 <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
-                    <li>the Government Gateway login for your PAYE scheme</li>
-                    <li>your accounts office reference number and employer PAYE scheme reference</li>
+                    <li>granting us authority to use your tax details through HMRC’s Government Gateway</li>
+                   <p style="margin:10px 0">Or</p>
+                    <li>giving us your accounts office reference number and employer PAYE scheme reference</li>
                 </ul>
+
+                <p>You will also need to enter your name, email address and a password. </p>
+
                 <details class="govuk-details" style="margin-bottom:10px">
                       <summary class="govuk-details__summary">
                         <span class="govuk-details__summary-text">
-                        What’s an employer PAYE scheme reference?
+                        How to find your Government Gateway login
                         </span>
                       </summary>
                       <div class="govuk-details__text">
-                      The employer PAYE scheme reference is in two parts. The first part is 3 digits, which identifies the HMRC office number that deals with the organisation’s PAYE. The second part of the reference (which follows a forward slash) is the tax office's reference for the organisation.
+                      <p>Ask your payroll or finance department if you do not know your organisation's login details. </p>
+                      <p>If you have a payroll agent, you must set up your own account rather than use their details.</p>
                       </div>
                 </details>
                  <details class="govuk-details" style="margin-bottom:10px">
                       <summary class="govuk-details__summary">
                         <span class="govuk-details__summary-text">
-                         Where do I find my Government Gateway login?
+                         How to find your accounts office reference number
                         </span>
                       </summary>
                       <div class="govuk-details__text">
-                        Your payroll or finance department should have your organisation’s Government Gateway information if you don’t already know it. If your organisation has a payroll agent, don’t use the agent’s login details.
-
-                        You will need to <a href="">set up a Government Gateway account</a> if you do not already have one.
+                       You can find this number on the letter HMRC sent when you first registered as an employer. It is 13 characters. For example, 123PA00045678
                       </div>
                 </details>
                 <details class="govuk-details" style="margin-bottom:30px">
                       <summary class="govuk-details__summary">
                         <span class="govuk-details__summary-text">
-                         What’s an accounts office reference number?
+                        How to find your employer reference number
                         </span>
                       </summary>
                       <div class="govuk-details__text">
-                       This is your 13-character accounts office reference number and is used as a payment reference. You will need this number if you contact HRMC to discuss anything relating to your PAYE account. 
-
-                        You can find your accounts office reference number on the letter HMRC sent you when you first registered as an employer.
+                       <p>You can find your employer’s reference number on any payslip, P45, P60 or P11D issued to employees, or any letters from HMRC about PAYE. </p>
+                       <p>The number is in two parts:</p>
+                 <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
+                    <li>3 digits to identify the HMRC office number that deals with your PAYE</li>
+                    <li>a forward slash followed by the tax office's reference for your organisation</li>
+                </ul>
                       </div>
                 </details>
-   
-       
+
+            <H3 class="govuk-heading-s">Setting up a partial access account</H3>
+                <p class="govuk-body">You just need to enter your name, email address and a password.</p>
+
                 <!--  <a href="https://www.gov.uk/log-in-register-hmrc-online-services/problems-signing-in" target='_blank' class="link-copy-normal" style="">Can't find your Government Gateway details?</a> -->
-                <form action="whatTypeOfAccount" method="get" class="form">
+                <form action="whatTypeOfAccount" method="get" class="form" style="margin-top:35px">
                     <div id="addTheError" class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                                 <h2 class="govuk-fieldset__heading" style="">
-                                    What do you want to use your account for?
+                                    What type of account do you need?
                                 </h2>
                             </legend>
                             <span id="gatewayError" class="govuk-error-message rj-dont-display">What do you want to use your account for? </span>
                             <div class="govuk-radios ">
                                 <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="false">
+                                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
                                     <label class="govuk-label govuk-radios__label" for="needed-1">
-                                      Search and save apprenticeships and training providers
+                                  Full access. I will add my PAYE scheme details through HMRC’s Government Gateway
                                     </label>
          <!--                                  <span  class="govuk-hint" style="padding-left:15px; width:66%">
                                          You can upgrade your account to access government funds at any time
                                     </span>  -->
                                 </div>
-                                <!--      <div class="govuk-radios__item">
+                                     <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="needed-3" name="whatsNeeded" type="radio" value="truthy">
               <label class="govuk-label govuk-radios__label" for="needed-3">
-                Yes, I want to do the other thing
+               Full access. I will add my PAYE scheme by giving you my accounts office reference number and employer PAYE scheme reference
               </label>
-            </div> -->
+            </div>
                                 <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="true">
+                                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
                                     <label class="govuk-label govuk-radios__label" for="needed-2">
-                                       Access government funding
+                                       Partial access. I will add my PAYE scheme details later. I do not need to get government funding now
                                     </label>
     <!--                                 <span  class="govuk-hint" style="padding-left:15px; width:66%">
                                          You will need to add PAYE scheme to access apprenticeship funding
