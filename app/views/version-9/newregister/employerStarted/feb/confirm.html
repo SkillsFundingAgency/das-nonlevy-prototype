@@ -8,12 +8,12 @@
        switch (true) {
           case  (addingPAYE == 'true'):
           localStorage.setItem("registration.completeTax", JSON.stringify("yes"));
-                 window.location.href='whatyoullneed';
+                 window.location.href='allowtaxdetails';
                 break;
 
         case  (addingPAYE == 'false'):
             localStorage.setItem("registration.completeTax", JSON.stringify("no"));
-             window.location.href='whatyoullneed';
+             window.location.href='allowtaxdetails';
             break
         default:
              console.log('gyahhhhhhhh, bork bork bork')
