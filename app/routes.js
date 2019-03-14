@@ -1927,6 +1927,28 @@ router.get('/*/newregister/employerStarted/employerStartedGovGatewayorPensionsRe
 })
 
 
+///// V3 Version
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-9/newregister/employerStarted/v3/taxDetailsTwo
+router.get('/*/newregister/employerStarted/v3/employerStartedGovGatewayorPensionsReg' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/v3/allowtaxdetails`)
+           break;
+
+  
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/v3/pensionsReg`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-8/newregister/employerStarted/april/taxDetailsTwo
@@ -2516,6 +2538,28 @@ router.get('/*/newregister/employerStarted/april/employerStartedEmployerWhatYoul
            case  (confirmTraining == 'false'):
             req.session.data['addingPAYE'] = 'false';
             res.redirect(`/${req.version}/newregister/employerStarted/april/contactDetails`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+//// v3 VERSION
+/// Employer > Employer Started Registration  > Add tax details or postpone
+//http://127.0.0.1:3000/version-9/newregister/employerStarted/v3/whatyoullneed
+router.get('/*/newregister/employerStarted/v3/employerStartedEmployerWhatYoullNeed' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+            res.redirect(`/${req.version}/newregister/employerStarted/v3/contactDetails`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+            res.redirect(`/${req.version}/newregister/employerStarted/v3/contactDetails`)
            break;
         default:
             console.log("bork bork bork");
