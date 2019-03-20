@@ -2491,20 +2491,12 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
 })
 
 
-
-
 //// VERSION 2 - THAT ASKS WHAT YOU WANT TO DO WITH THE ACCOUNT - AUGUST VERSION
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-9/newregister/employerStarted/v2/accountType
 router.get('/*/newregister/employerStarted/v4/redirectRoutes' , function (req, res) {
-
-
- 
               req.session.data['addingPAYE'] = 'false';
             res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
-
-      
-     
 })
 
 
