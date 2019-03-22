@@ -305,6 +305,30 @@ router.get('/*/manage-apprenticeships/signinFEB' , function (req, res) {
   }
 })
 
+/// registration > used service before? Feb version
+/// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
+router.get('/*/manage-apprenticeships/signinAPR' , function (req, res) {
+  var usedService = req.query.usedService
+  if (usedService === 'false') {
+    res.redirect(`/${req.version}/newregister/employerStarted/april/need`)
+  } else {
+    res.render(`${req.version}/manage-apprenticeships/signin`)
+  }
+})
+
+
+/// APRIL - Multi ORgs 
+/// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
+router.get('/*/newregister/employerStarted/april/multiOrgsChoice' , function (req, res) {
+  var orgChoose = req.query.orgChoose
+  if (orgChoose === 'FiverOrg') {
+    res.redirect(`/${req.version}/newregister/employerStarted/april/searchOrg`)
+  } else {
+    res.render(`${req.version}/newregister/employerStarted/april/checkPAYE`)
+  }
+})
+
+
 /*
 /// team > added new team member where to
 router.get('/version-1/team/whatsNextTeam' , function (req, res) {
@@ -1949,6 +1973,40 @@ router.get('/*/newregister/employerStarted/v3/employerStartedGovGatewayorPension
 })
 
 
+///// V3 Version
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-9/newregister/employerStarted/v3/taxDetailsTwo
+router.get('/*/newregister/employerStarted/v3/startTheEmployerJourneyV3' , function (req, res) {
+  
+            res.redirect(`/${req.version}/newregister/employerStarted/v3/`)
+          
+})
+
+
+
+
+///// V3 Version
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-9/newregister/employerStarted/v3/taxDetailsTwo
+router.get('/*/newregister/employerStarted/v3employer/employerStartedGovGatewayorPensionsReg' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/v3employer/allowtaxdetails`)
+           break;
+
+  
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/v3employer/pensionsReg`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-8/newregister/employerStarted/april/taxDetailsTwo
@@ -2491,6 +2549,7 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
 })
 
 
+
 //// VERSION 2 - THAT ASKS WHAT YOU WANT TO DO WITH THE ACCOUNT - AUGUST VERSION
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-9/newregister/employerStarted/v2/accountType
@@ -2498,6 +2557,7 @@ router.get('/*/newregister/employerStarted/v4/redirectRoutes' , function (req, r
               req.session.data['addingPAYE'] = 'false';
             res.redirect(`/${req.version}/newregister/employerStarted/contactDetails`)
 })
+
 
 
 //// VERSION 2 - THAT ASKS WHAT YOU WANT TO DO WITH THE ACCOUNT - AUGUST VERSION
@@ -2570,6 +2630,28 @@ router.get('/*/newregister/employerStarted/v3/employerStartedEmployerWhatYoullNe
            case  (confirmTraining == 'false'):
             req.session.data['addingPAYE'] = 'false';
             res.redirect(`/${req.version}/newregister/employerStarted/v3/contactDetails`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+//// v3 VERSION
+/// Employer > Employer Started Registration  > Add tax details or postpone
+//http://127.0.0.1:3000/version-9/newregister/employerStarted/v3/whatyoullneed
+router.get('/*/newregister/employerStarted/v3employer/employerStartedEmployerWhatYoullNeed' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+            res.redirect(`/${req.version}/newregister/employerStarted/v3employer/contactDetails`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+            res.redirect(`/${req.version}/newregister/employerStarted/v3employer/contactDetails`)
            break;
         default:
             console.log("bork bork bork");

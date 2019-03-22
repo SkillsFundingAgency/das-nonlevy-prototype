@@ -1,0 +1,77 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+
+  {% from "back-link/macro.njk" import govukBackLink %} 
+  {{ govukBackLink({ text: "Back", href: "changePermissions" }) }}
+   {% endblock %}
+    {% block content %}
+
+
+    <script>
+function whereNow() {
+var taxDoneorNot = JSON.parse(localStorage.getItem('registration.completeTax'));
+var agreementDoneOrNot = JSON.parse(localStorage.getItem('registration.completeAgreement'));
+
+      if (taxDoneorNot=='yes' && agreementDoneOrNot=='yes' ) {
+          localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
+           window.location.href='../../../home';
+      }
+
+      else {
+            localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
+            window.location.href='../doneWithoutTaxorAgree';
+      }
+    }
+ </script>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl" style="" id="company-Name">Allow ABC Training Ltd to recruit apprentices</h1>
+                <p class="">You can give ABC Training Ltd permission to recruit apprentices on your behalf. Even if you give this permission, you'll still have the final say on any things.</p>
+ 
+               
+
+<form action="../../../home" method="get" class="form">
+
+                <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+                    Give ABC Training Ltd permission to recruit apprentices?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+               Do you want to do this now?
+
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="providerPermissionsRecruit" type="radio" value="providerPermissionsRecruitTrue">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                  Yes, I give them permission
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="providerPermissionsRecruit" type="radio" value="providerPermissionsRecruitFalse">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+                No, I’ll manage them myself
+              </label>
+<!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+            </div>
+          </div>
+          </fieldset>
+        </div>
+ 
+     <!-- <a  class="govuk-button clear-button" href="./cyberdyne" >Cancel and return</a> -->
+</form>
+ <button class="govuk-button" onclick="whereNow()">Save and continue</button>
+</div>
+</div>
+</div>
+{% endblock %}
