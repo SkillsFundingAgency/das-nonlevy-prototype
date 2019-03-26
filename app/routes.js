@@ -305,6 +305,8 @@ router.get('/*/manage-apprenticeships/signinFEB' , function (req, res) {
   }
 })
 
+
+
 /// registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
 router.get('/*/manage-apprenticeships/signinAPR' , function (req, res) {
@@ -325,6 +327,18 @@ router.get('/*/newregister/employerStarted/april/multiOrgsChoice' , function (re
     res.redirect(`/${req.version}/newregister/employerStarted/april/searchOrg`)
   } else {
     res.render(`${req.version}/newregister/employerStarted/april/checkPAYE`)
+  }
+})
+
+
+/// APRIL THREE _ registration > used service before? Feb version
+/// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
+router.get('/*/manage-apprenticeships/signinAPRThree' , function (req, res) {
+  var usedService = req.query.usedService
+  if (usedService === 'false') {
+    res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/whatyoullneed`)
+  } else {
+    res.render(`${req.version}/manage-apprenticeships/signin`)
   }
 })
 
@@ -2029,6 +2043,27 @@ router.get('/*/newregister/employerStarted/april/employerStartedGovGatewayorPens
 })
 
 
+/// V$ Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-9/newregister/employerStarted/v4/insideAccount/getFunds/taxDetailsTwo
+router.get('/*/newregister/employerStarted/v4/insideAccount/getFunds/employerStartedGovGatewayorPensionsReg' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+            res.redirect(`/${req.version}/newregister/employerStarted/v4/insideAccount/getFunds/allowtaxdetails`)
+           break;
+
+  
+
+           case  (confirmTraining == 'false'):
+            res.redirect(`/${req.version}/newregister/employerStarted/v4/insideAccount/getFunds/pensionsReg`)
+           break;
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 /// Employer > Employer Started Registration  > Add tax details or postpone
 // http://127.0.0.1:3000/version-6/newregister/employerStarted/taxDetails
 router.get('/*/newregister/employerStarted/employerStartedEmployerHaveProvider' , function (req, res) {
@@ -2548,6 +2583,37 @@ router.get('/*/newregister/employerStarted/employerStartedEmployerWhatYoullNeed'
         }
 })
 
+
+//// APRIL Three VERSION
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-9/newregister/employerStarted/aprilThree/whatyoullneed
+router.get('/*/newregister/employerStarted/aprilThree/employerStartedEmployerWhatYoullNeed' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+              req.session.data['showOrgContact'] = false;
+            res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+           break;
+
+            case  (confirmTraining == 'truthy'):
+              req.session.data['addingPAYE'] = 'truthy';
+                   req.session.data['showOrgContact'] = false;
+            res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+                 req.session.data['showOrgContact'] = true;
+            res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
 
 
 //// VERSION 2 - THAT ASKS WHAT YOU WANT TO DO WITH THE ACCOUNT - AUGUST VERSION

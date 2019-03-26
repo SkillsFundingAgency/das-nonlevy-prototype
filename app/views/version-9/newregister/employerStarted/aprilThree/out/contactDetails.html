@@ -10,20 +10,22 @@ href: "javascript:history.back()"
 {% endblock %}
 {% block content %}
 
-
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <form action="confirm" method="get" class="form">
         <h1 class="govuk-heading-xl">
-          Add your details
+         Set up as a user
+
         </h1>
-        <p>You will need to add your own details so that you can sign in to your account.  Once you’ve created your account you can add other users should you want to.   </p>
+      <!--   <p>You will need to add your own details so that you can sign in to your account.  Once you’ve created your account you can add other users should you want to.   </p> -->
 
 
 
 <!--         <div class="govuk-inset-text">You must have permission from your employer to add this information</div>
  -->
-<!--   <p><span class=" "">If you already have an account <a href="./signin/signin">sign in</a></span></p> -->
+  <p><span class=" "">If you already have an account <a href="./signin/signin">sign in</a></span></p>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -47,11 +49,6 @@ href: "javascript:history.back()"
             </span-->
               <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterLastName" name="providerRegisterLastName" type="text" aria-describedby="Last name">
           </div>
-
-
-
-
-
 
             <div class="govuk-form-group">
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
@@ -85,7 +82,7 @@ href: "javascript:history.back()"
           </fieldset>
 
         <div class="govuk-inset-text">
-          By continuing you accept the <a href="#" target="_blank">terms of use</a>
+          By continuing you accept the <a href="#" target="_blank">terms and conditions</a>.
         </div>
         </div>
 
@@ -95,4 +92,6 @@ href: "javascript:history.back()"
 
     </div>
   </div>
+</main>
+</div>
 {% endblock %}

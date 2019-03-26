@@ -10,14 +10,16 @@ href: "javascript:history.back()"
 {% endblock %}
 {% block content %}
 
-
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <form action="confirm" method="get" class="form">
         <h1 class="govuk-heading-xl">
-          Add your details
+         Get set up as a user
+
         </h1>
-        <p>You will need to add your own details so that you can sign in to your account.  Once you’ve created your account you can add other users should you want to.   </p>
+      <!--   <p>You will need to add your own details so that you can sign in to your account.  Once you’ve created your account you can add other users should you want to.   </p> -->
 
 
 
@@ -48,8 +50,23 @@ href: "javascript:history.back()"
               <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterLastName" name="providerRegisterLastName" type="text" aria-describedby="Last name">
           </div>
 
+        
+{% if  data.showOrgContact %}
+      <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
+                Organisation name
+              </label>
+              <!--span id="email-hint" class="govuk-hint">
+              We’ll only use this to send you a receipt
+            </span-->
+              <input class="govuk-input govuk-!-width-three-quarters" id="companyName" name="companyName" type="text" aria-describedby="companyName">
+          </div>
+
+{% endif %}
 
 
+
+     
 
 
 
@@ -85,7 +102,7 @@ href: "javascript:history.back()"
           </fieldset>
 
         <div class="govuk-inset-text">
-          By continuing you accept the <a href="#" target="_blank">terms of use</a>
+          By continuing you accept the <a href="#" target="_blank">terms and conditions</a>.
         </div>
         </div>
 
@@ -95,4 +112,6 @@ href: "javascript:history.back()"
 
     </div>
   </div>
+</main>
+</div>
 {% endblock %}

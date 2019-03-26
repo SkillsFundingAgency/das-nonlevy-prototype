@@ -15,42 +15,18 @@
 <script>
   function whereNow() {
 
-   var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
-   var taxDoneorNot = JSON.parse(localStorage.getItem('registration.completeTax'));
-
   var status = $('input[name=agreementSign]:checked').val();
        switch (true) {
           case  (status == 'yes'):
                    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-                   if (providerStartedJourney=='yes') {
-                         localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-                         window.location.href='./providerStarted/changePermissions';
-                        } 
-
-                        else if (taxDoneorNot == 'no') {
-                        localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-                            window.location.href='doneWithoutTaxorAgree';
-                        }
-
-                            else  {
-                        localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-                            // window.location.href='../../../home';
-                          window.location.href='https://marvelapp.com/b5f29ba/screen/54498417';
-
-                        }
+                    window.location.href='numberOfApps';
+       
         break;
 
         case  (status == 'notYet'):
                 localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-
-               if (providerStartedJourney=='yes') {
-                 localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-                 window.location.href='./providerStarted/changePermissions';
-                } 
-                else {
-                    localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-                    window.location.href='doneWithoutTaxorAgree';
-                }
+                window.location.href='doneWithoutTaxorAgree';
+                
          break
         default:
              console.log('gyahhhhhhhh, bork bork bork')
@@ -59,44 +35,7 @@
         }
     }
  </script>
-<!-- <script type="text/javascript">
-function whereNow() {
 
-
-   if (providerStartedJourney=='yes') {
-     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-     window.location.href='./providerStarted/changePermissions';
-    } 
-
-    else if (taxDoneorNot == 'no') {
-    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-        window.location.href='doneWithoutTaxorAgree';
-    }
-
-        else  {
-    localStorage.setItem("registration.completeAgreement", JSON.stringify("yes"));
-        window.location.href='../../home';
-    }
-    }
- </script> -->
-
-<!--  <script type="text/javascript">
-function whereNowUnsigned() {
-    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
-       localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-
-   var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
-
-   if (providerStartedJourney=='yes') {
-     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("no"));
-     window.location.href='./providerStarted/changePermissions';
-    } 
-    else {
-        localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
-        window.location.href='doneWithoutTaxorAgree';
-    }
-    }
- </script> -->
 
  <script>
  localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
@@ -645,7 +584,7 @@ if (
                         Not yet, I'll sign it later
                     </label>
                     <span  class="govuk-hint" style="padding-left:15px">
-                            Your won't be able to use government funding until you sign the agreement
+                            Your won't be able to get government funding until you sign the agreement
                    </span>
                 </div>
         </fieldset>
