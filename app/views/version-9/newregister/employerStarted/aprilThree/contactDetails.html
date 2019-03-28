@@ -10,6 +10,25 @@ href: "javascript:history.back()"
 {% endblock %}
 {% block content %}
 
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search organisations',
+        showAllValues: false
+      })
+    })
+  })
+
+</script>
+
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <div class="govuk-grid-row">
@@ -53,20 +72,29 @@ href: "javascript:history.back()"
         
 {% if  data.showOrgContact %}
       <div class="govuk-form-group">
+<!--               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
+                Organisation name
+              </label>
+
+              <input class="govuk-input govuk-!-width-three-quarters" id="companyName" name="companyName" type="text" aria-describedby="companyName">
+          </div> -->
+
+          <div class="autocomplete-wrapper" style="margin-bottom:30px; width:75%"  >
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
                 Organisation name
               </label>
-              <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
-              <input class="govuk-input govuk-!-width-three-quarters" id="companyName" name="companyName" type="text" aria-describedby="companyName">
-          </div>
+          <select class="autocomplete-element" id="course-name" name="course-name" style="width:75%">
+
+            <option value="">Select one</option>
+            {% import 'includes/orgs-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
 
 {% endif %}
 
-
-
-     
 
 
 
