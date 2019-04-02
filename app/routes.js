@@ -344,12 +344,12 @@ router.get('/*/manage-apprenticeships/signinAPRThree' , function (req, res) {
 
 /// APRIL FOUR _ registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
-router.get('/*/manage-apprenticeships/aprilFour/signinAPRFour' , function (req, res) {
+router.get('/*/newregister/employerStarted/aprilFour/signinAPRFour' , function (req, res) {
   var usedService = req.query.usedService
   if (usedService === 'false') {
     res.redirect(`/${req.version}/newregister/employerStarted/aprilFour/whatyoullneed`)
   } else {
-    res.render(`${req.version}/newregister/employerStarted/aprilFour/signin`)
+    res.redirect(`/${req.version}/newregister/employerStarted/aprilFour/signin`)
   }
 })
 
