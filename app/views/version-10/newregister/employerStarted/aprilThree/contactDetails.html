@@ -29,6 +29,59 @@ href: "javascript:history.back()"
 
 </script>
 
+
+
+<script>
+var showSearchResults = JSON.parse(localStorage.getItem('support.searchQuery')); //this is the search query from the previous page that has been put in local storage. Holding it in LS as need it in the next results page.
+console.log("Search query was:" + showSearchResults) //just showing the search query in the console
+
+    $(document).ready(function() {
+        $('input[name=searchResults]').val(showSearchResults); //changes the value in the search box to whatever the user entered in the previous screen
+              $.ajax({
+                type: "GET",
+               // url: "http://localhost:3004/posts?q=" + showSearchResults,
+                   url: "https://apprenticeship-api.herokuapp.com/posts?tags_like=" + showSearchResults,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success:
+                function(result) {
+                        //     var html = '';
+                        //     $.each(result, function(key, value){
+                        //         html += '<div class="column details">';
+                        //         html += '<h2 class="heading-medium results-header" style="margin:0 0 5px 0"><a href="'+value.url+'?id='+value.id+'" class="proName">' +value.headline+ '</a></h2>';
+                        //          html += '<p class="truncate">' +value.snippet+ '</p>';
+
+                        //          html += '<div class="flex-support-meta">';
+                        //             html += '<div class="meta-one" style="padding:0 40px 0 0; font-weight:700; " >Type:</div>';
+                        //             html += '<div class="meta-two"><span>' +value.type+ '</span></div>';
+                        //          html += '</div>';
+
+                        //          html += '<div class="flex-support-meta">';
+                        //             html += '<div class="meta-one" style="padding:0 42px 0 0; font-weight:700; ">Tags:</div>';
+                        //             html += '<div class="meta-two"><span>' +value.tags+ '</span></div>';
+                        //          html += '</div>';
+
+                        //         html += '</div>';
+                        //          html += '<div style="margin-bottom:2.705em"></div>';
+                        //     });
+                        // $('#resultsContainer').html(html);
+
+                        // takes the first result and shows the snippet at the top of the page. A bit crude but shows the general idea
+
+
+                        
+                        // var headerContent ='';
+                        //     headerContent += '<h2 class="heading-medium">'+result[0].headline+'</h2>';
+                        //     headerContent += '<p>'+result[0].snippet+'</p>';
+
+                        // $('#quick-results').html(headerContent);
+
+                }
+            })
+      //  localStorage.setItem("support.searchQuery", JSON.stringify(null));
+    });
+</script>
+
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <div class="govuk-grid-row">
@@ -38,13 +91,10 @@ href: "javascript:history.back()"
          Get set up as a user
 
         </h1>
-      <!--   <p>You will need to add your own details so that you can sign in to your account.  Once you’ve created your account you can add other users should you want to.   </p> -->
   <p><span class=" "">If you already have an account <a href="./signin/signin">sign in</a></span></p>
 
 
-<!--         <div class="govuk-inset-text">You must have permission from your employer to add this information</div>
- -->
-<!--   <p><span class=" "">If you already have an account <a href="./signin/signin">sign in</a></span></p> -->
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -54,30 +104,18 @@ href: "javascript:history.back()"
               <label class="govuk-label govuk-!-width-three-quarters bold-label" for="providerRegisterFirstName">
                  First name
               </label>
-              <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
               <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterFirstName" name="providerRegisterFirstName" type="text" aria-describedby="First Name">
           </div>
           <div class="govuk-form-group">
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterLastName">
                  Last name
               </label>
-              <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
               <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterLastName" name="providerRegisterLastName" type="text" aria-describedby="Last name">
           </div>
 
         
 {% if  data.showOrgContact %}
       <div class="govuk-form-group">
-<!--               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
-                Organisation name
-              </label>
-
-              <input class="govuk-input govuk-!-width-three-quarters" id="companyName" name="companyName" type="text" aria-describedby="companyName">
-          </div> -->
 
           <div class="autocomplete-wrapper" style="margin-bottom:30px; width:75%"  >
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
@@ -97,49 +135,39 @@ href: "javascript:history.back()"
 
 
 
-
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
-                 Email
-              </label>
-              <span id="email-hint" class="govuk-hint">
-              We'll send you an email to confirm your identity.
-            </span>
-              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="providerRegisterEmail" type="providerRegisterEmail" aria-describedby="email">
-          </div>
-
-
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
-                 Create a password
-              </label>
-              <span id="password-hint" class="govuk-hint">
-             Password requires upper and lowercase letters, a number and at least 8 characters.
-            </span>
-              <input class="govuk-input govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="password">
-          </div>
-
-            <div class="govuk-form-group">
-              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="confirmPassword">
-                 Confirm password
-              </label>
- 
-              <input class="govuk-input govuk-!-width-three-quarters" id="confirmPassword" name="confirmPassword" type="password" aria-describedby="confirmPassword">
-          </div>
-
-          </fieldset>
-
-        <div class="govuk-inset-text">
-          By continuing you accept the <a href="#" target="_blank">terms and conditions</a>.
-        </div>
-        </div>
-
-        <button class="govuk-button">Continue</button>
-
-      </form>
-
-    </div>
-  </div>
+<div class="govuk-form-group">
+    <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
+        Email
+    </label>
+    <span id="email-hint" class="govuk-hint">
+        We'll send you an email to confirm your identity.
+    </span>
+    <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="providerRegisterEmail" type="providerRegisterEmail" aria-describedby="email">
+</div>
+<div class="govuk-form-group">
+    <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
+        Create a password
+    </label>
+    <span id="password-hint" class="govuk-hint">
+        Password requires upper and lowercase letters, a number and at least 8 characters.
+    </span>
+    <input class="govuk-input govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="password">
+</div>
+<div class="govuk-form-group">
+    <label class="govuk-label bold-label govuk-!-width-three-quarters" for="confirmPassword">
+        Confirm password
+    </label>
+    <input class="govuk-input govuk-!-width-three-quarters" id="confirmPassword" name="confirmPassword" type="password" aria-describedby="confirmPassword">
+</div>
+</fieldset>
+<div class="govuk-inset-text">
+    By continuing you accept the <a href="#" target="_blank">terms and conditions</a>.
+</div>
+</div>
+<button class="govuk-button">Continue</button>
+</form>
+</div>
+</div>
 </main>
 </div>
 {% endblock %}
