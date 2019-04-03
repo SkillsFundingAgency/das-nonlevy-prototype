@@ -34,21 +34,18 @@ href: "javascript:history.back()"
 <script>
 
 var showSearchResults = "ass"
- console.log("arseOne")
 //JSON.parse(localStorage.getItem('support.searchQuery')); //this is the search query from the previous page that has been put in local storage. Holding it in LS as need it in the next results page.
-console.log("Search query was:" + showSearchResults) //just showing the search query in the console
+console.log("Search query was: " + showSearchResults) //just showing the search query in the console
 
     $(document).ready(function() {
       //  $('input[name=searchResults]').val(showSearchResults); //changes the value in the search box to whatever the user entered in the previous screen
               $.ajax({
                 type: "GET",
                // url: "http://localhost:3004/posts?q=" + showSearchResults,
-             
-               // authorization: basic ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ,
 
                  beforeSend: function(xhr) { 
                     xhr.withCredentials = true;
-                    xhr.setRequestHeader("Authorization", "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ"); 
+                    xhr.setRequestHeader("Authorization", "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ:"); 
                   },
                 //    headers: {"Authorization": "Basic " + "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ:"}
                 contentType: "application/json; charset=utf-8",
@@ -57,7 +54,9 @@ console.log("Search query was:" + showSearchResults) //just showing the search q
                     async: true,
                     cache: false,
                 processData: false,
-                url: "https://api.companieshouse.gov.uk/search/companies?q=" + showSearchResults,
+                // url: "https://api.companieshouse.gov.uk/search/companies?q=" + showSearchResults,
+                url: "https://api.companieshouse.gov.uk/company/05961102",
+
                 success:
                 function(result) {
 
