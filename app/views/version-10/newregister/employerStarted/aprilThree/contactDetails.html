@@ -45,7 +45,7 @@ console.log("Search query was: " + showSearchResults) //just showing the search 
 
                  beforeSend: function(xhr) { 
                     xhr.withCredentials = true;
-                    xhr.setRequestHeader("Authorization", "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ:"); 
+                    xhr.setRequestHeader("Authorization", "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ"); 
                   },
                 //    headers: {"Authorization": "Basic " + "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ:"}
                 contentType: "application/json; charset=utf-8",
@@ -54,8 +54,8 @@ console.log("Search query was: " + showSearchResults) //just showing the search 
                     async: true,
                     cache: false,
                 processData: false,
-                // url: "https://api.companieshouse.gov.uk/search/companies?q=" + showSearchResults,
-                url: "https://api.companieshouse.gov.uk/company/05961102",
+                 url: "https://api.companieshouse.gov.uk/search/companies?q=" + showSearchResults,
+               // url: "https://api.companieshouse.gov.uk/company/05961102",
 
                 success:
                 function(result) {
