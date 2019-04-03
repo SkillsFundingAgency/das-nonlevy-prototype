@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block beforeContent %} {% include "includes/version1/mainNav.html" %} 
+
+{% include "includes/version1/financeNav.html" %} 
+{% from "back-link/macro.njk" import govukBackLink %} 
+
+{{ govukBackLink({   href: "javascript:history.back()" }) }} 
+{% endblock %} {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">Get funding for taking on an apprentice</h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p>Use this service to secure government funding for training an apprentice.</p>
+                <p>Government funding will pay for part, or all of the cast of training an apprentice. Go to apprenticeship funding to find out how much you are allowed.</p>
+                <h2 class="govuk-heading-m">Before you start you will need:</p>
+   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>an estimate of which month the apprentice will start their apprenticeship training, which can be flexible up to 3 months</li>
+                    <li>an idea of the apprenticeship training the apprentice will take (optional)</li>
+                </ul>
+                <p>You can only get funding up to 6 months before an apprenticeship is about to start.</p>
+                <div style="margin-top:35px"></div>
+            <a href="getFunds/whatyoullneed"  class="govuk-button govuk-button--start">Start</a>
+        </div>
+    </main>
+    {% endblock %}

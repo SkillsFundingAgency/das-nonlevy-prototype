@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+<script>
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+</script>
+
+
+<script>
+    $(document).ready(function() {
+         var errorPAYE = "{{ data['errorPAYE'] }}"
+  var changeStuff = function() {  
+       switch (true) {
+        // Coming from registration and agreement and tax are both done
+          case  (errorPAYE == 'true'):
+               $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+
+           break;
+        
+
+           default:
+            console.log("nowt");
+            break;
+        } 
+      }
+changeStuff();
+});
+
+</script>
+
+
+
+
+
+<style>
+    .govuk-header__content {display:none ;}
+</style>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <!--form  method="get" class="form"-->
+                <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+                Accessing your levy funds
+                </h1>
+ <!--                <p class="govuk-body">To pay for your apprenticeships using government funding and to fully access your apprenticeship account you will need to verify your organisation.</p> -->
+                <p>To access your organisation's levy funds, you will need:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                      <li>at least one PAYE scheme</li>
+                      <li>the Government Gateway login details for your PAYE scheme(s)</li>
+                </ul>
+
+                <details class="govuk-details" style="margin-bottom:10px">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                         Where do I find my Government Gateway login?
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Your payroll or finance department should have your organisation’s Government Gateway information if you don’t already know it. If your organisation has a payroll agent, don’t use the agent’s login details.
+                        You will need to <a href="">set up a Government Gateway account</a> if you do not already have one.
+                    </div>
+                </details>
+                <p>If you don’t have this information, you can still register an account and add your PAYE details later.</p>
+                <form action="employerStartedEmployerWhatYoullNeedFEB" method="get" class="form">
+                    <div id="addTheError" class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading" style="">
+                                   Do you want to add your PAYE details now?
+                                </h2>
+                            </legend>
+                            <span id="gatewayError" class="govuk-error-message rj-dont-display">Select whether to add your PAYE details now or later </span>
+                            <div class="govuk-radios ">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+                                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                                        Yes, I’ll add them now
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+                                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                                       No, I'll add them later
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button" >Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
