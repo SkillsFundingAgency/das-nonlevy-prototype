@@ -32,19 +32,39 @@ href: "javascript:history.back()"
 
 
 <script>
-var showSearchResults = JSON.parse(localStorage.getItem('support.searchQuery')); //this is the search query from the previous page that has been put in local storage. Holding it in LS as need it in the next results page.
+
+var showSearchResults = "ass"
+//JSON.parse(localStorage.getItem('support.searchQuery')); //this is the search query from the previous page that has been put in local storage. Holding it in LS as need it in the next results page.
 console.log("Search query was:" + showSearchResults) //just showing the search query in the console
 
     $(document).ready(function() {
-        $('input[name=searchResults]').val(showSearchResults); //changes the value in the search box to whatever the user entered in the previous screen
+      //  $('input[name=searchResults]').val(showSearchResults); //changes the value in the search box to whatever the user entered in the previous screen
               $.ajax({
                 type: "GET",
                // url: "http://localhost:3004/posts?q=" + showSearchResults,
-                   url: "https://apprenticeship-api.herokuapp.com/posts?tags_like=" + showSearchResults,
+             
+               // authorization: basic ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ,
+
+                 beforeSend: function(xhr) { 
+                    xhr.withCredentials = true;
+                    xhr.setRequestHeader("Authorization", "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ"); 
+                  },
+                //    headers: {"Authorization": "Basic " + "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ:"}
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
+                    crossDomain: true,
+                    async: true,
+                    cache: false,
+                processData: false,
+                url: "https://api.companieshouse.gov.uk/search/companies?q=" + showSearchResults,
                 success:
                 function(result) {
+
+                  // companies house pwd: Jok-K4Q-mJo-TtH
+                  // companies house username: rob@digi2al.co.uk
+                  // API Key: ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ
+
+
                         //     var html = '';
                         //     $.each(result, function(key, value){
                         //         html += '<div class="column details">';
@@ -69,14 +89,23 @@ console.log("Search query was:" + showSearchResults) //just showing the search q
                         // takes the first result and shows the snippet at the top of the page. A bit crude but shows the general idea
 
 
-                        
+
                         // var headerContent ='';
                         //     headerContent += '<h2 class="heading-medium">'+result[0].headline+'</h2>';
                         //     headerContent += '<p>'+result[0].snippet+'</p>';
 
                         // $('#quick-results').html(headerContent);
 
-                }
+                        
+                      console.log(JSON.stringify(result));
+                    
+
+                },
+                  error: function(){
+                    console.log("bork bork bork bork");
+                    }
+
+
             })
       //  localStorage.setItem("support.searchQuery", JSON.stringify(null));
     });
