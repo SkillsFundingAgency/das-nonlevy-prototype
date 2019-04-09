@@ -136,21 +136,26 @@ console.log("Search query was: " + showSearchResults) //just showing the search 
 
         
 {% if  data.showOrgContact %}
-      <div class="govuk-form-group">
-
+<!--       <div class="govuk-form-group">
           <div class="autocomplete-wrapper" style="margin-bottom:30px; width:75%"  >
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
                 Organisation name
               </label>
           <select class="autocomplete-element" id="course-name" name="course-name" style="width:75%">
-
             <option value="">Select one</option>
             {% import 'includes/orgs-list.html' as apprenticeshipsData %}
             {% for apprenticeship in apprenticeshipsData.apprenticeships %}
             <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}</option>
             {% endfor %}
           </select>
-        </div>
+        </div> -->
+
+             <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="organisationName">
+                 Organisation name
+              </label>
+              <input class="govuk-input govuk-!-width-three-quarters" id="organisationName" name="organisationName" type="text" aria-describedby="organisationName">
+          </div>
 
 {% endif %}
 
