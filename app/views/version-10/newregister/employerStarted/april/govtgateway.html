@@ -1,10 +1,7 @@
 {% extends "layout.html" %}
-
 {% block content %}
-
 <script>
-
-  function whereNow() {
+    function whereNow() {
  var govtGateway = $('input[name=gatewayLogin]').val();
        switch (true) {
           case  (govtGateway == '1234abcd'):
@@ -17,16 +14,15 @@
         default:
              console.log('gyahhhhhhhh, bork bork bork' + govtGateway)
              //   window.location.href='allowtaxdetails';
-             window.location.href='multiOrgsChoice';
+             window.location.href='checkPAYE';
             break;
         }
     }
  </script>
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <!--   <form action="multiOrgs" method="get" class="form"> -->
-              <form method="get" class="form">
+        <!--   <form action="multiOrgs" method="get" class="form"> -->
+        <form method="get" class="form">
             <h1 class="govuk-heading-xl"> Sign in using Government Gateway </h1>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
@@ -37,7 +33,7 @@
                             Government Gateway user ID
                         </label>
                         <span id="gatewayLogin-hint" class="govuk-hint">
-                          This could be up to 12 characters.
+                            This could be up to 12 characters.
                         </span>
                         <input class="govuk-input govuk-!-width-three-quarters" id="gatewayLogin" name="gatewayLogin" type="text" aria-describedby="">
                     </div>
@@ -52,12 +48,10 @@
                     </div>
                 </fieldset>
             </div>
-             
         </form>
-         <button class="govuk-button" onClick="whereNow()">Sign in</button>
+        <button class="govuk-button" onClick="whereNow()">Sign in</button>
         <p style="padding-top:20px">
         </p>
     </div>
 </div>
-
 {% endblock %}
