@@ -1,59 +1,63 @@
 {% extends "layout.html" %}
 
-
-
 {% block content %}
+
+<script>
+
+  function whereNow() {
+ var govtGateway = $('input[name=gatewayLogin]').val();
+       switch (true) {
+          case  (govtGateway == '1234abcd'):
+                 window.location.href='multiOrgs';
+                break;
+
+        case  (govtGateway == 'abcd1234'):
+             window.location.href='multiOrgsChoice';
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork' + govtGateway)
+             //   window.location.href='allowtaxdetails';
+             window.location.href='multiOrgsChoice';
+            break;
+        }
+    }
+ </script>
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form action="multiOrgs" method="get" class="form">
-            <h1 class="govuk-heading-xl">
-         Sign in using Government Gateway
-        </h1>
+      <!--   <form action="multiOrgs" method="get" class="form"> -->
+              <form method="get" class="form">
+            <h1 class="govuk-heading-xl"> Sign in using Government Gateway </h1>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                     </legend>
                     <div class="govuk-form-group">
-                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="email">
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="gatewayLogin">
                             Government Gateway user ID
                         </label>
-                        <span id="email-hint" class="govuk-hint">
+                        <span id="gatewayLogin-hint" class="govuk-hint">
                           This could be up to 12 characters.
                         </span>
-                        <input class="govuk-input govuk-!-width-three-quarters" id="email" name="email" type="text" aria-describedby="">
+                        <input class="govuk-input govuk-!-width-three-quarters" id="gatewayLogin" name="gatewayLogin" type="text" aria-describedby="">
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
                             Password
                         </label>
                         <!--span id="email-hint" class="govuk-hint">
-              We’ll only use this to send you a receipt
-            </span-->
+                           We’ll only use this to send you a receipt
+                      </span-->
                         <input class="govuk-input govuk-!-width-three-quarters" id="password" name="password" type="text" aria-describedby="">
                     </div>
-                    
                 </fieldset>
             </div>
-            <button class="govuk-button">Sign in</button>
+             
         </form>
+         <button class="govuk-button" onClick="whereNow()">Sign in</button>
         <p style="padding-top:20px">
         </p>
     </div>
 </div>
-<script>
-//store details entered into the form in local storage
-var createButton = document.getElementById('createAccountButton');
-EventUtil.addHandler(createButton, 'click', function() {
-    // save the form info to local storage by first putting the data into an object
-    var userDetails = {
-        email: document.getElementById('email-address').value,
-        password: document.getElementById('password').value
-    };
 
-    //store the object in local storage using json stringify
-    localStorage.setItem("login", JSON.stringify(userDetails));
-
-});
-</script>
 {% endblock %}
