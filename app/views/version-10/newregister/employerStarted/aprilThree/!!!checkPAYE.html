@@ -10,9 +10,6 @@ href: "javascript:history.back()"
 <script>
     // localStorage.setItem("registration.completeTax", JSON.stringify("yes"));
 </script>
-<script>
-    localStorage.setItem("registration.completeTax", JSON.stringify("yes"));
-</script>
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
@@ -32,15 +29,9 @@ href: "javascript:history.back()"
                         <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; font-size:16px">
                             Organisation
                         </dt>
-             {% if  data.orgChoose %}
                         <dd class="app-check-your-answers__answer" style="font-weight:700; font-size:16px">
-                        {{ data['orgChoose'] }}
+                            Assurance Aerospace Ltd
                         </dd>
-            {% else %}
-                         <dd class="app-check-your-answers__answer" style="font-weight:700; font-size:16px">
-                        Assurance Aerospace Ltd
-                        </dd>
-            {% endif %}
                     </div>
 
                     <div class="app-check-your-answers__contents">
@@ -69,17 +60,11 @@ href: "javascript:history.back()"
                     </div>
                 </dl>
                 <div style="margin-top:35px"></div>
-                 <!-- <form style="display:inline-block;" action="https://marvelapp.com/b5f29ba/screen/54498417"> -->
-                <!--  <form style="display:inline-block;" action="doneWithoutTaxorAgree.html">
+       <!--          <form style="display:inline-block;" action="https://marvelapp.com/b5f29ba/screen/54498417"> -->
+                                    <form style="display:inline-block;" action="doneWithoutTaxorAgree.html">
                     <button type="haveProvider" class="govuk-button">These details are correct</button>
                 </form>
-                <a class="govuk-button clear-button" href="allowtaxdetails">Change details</a> -->
-            
-           <!--   <form style="display:inline-block;" action="../../../home/existing"> -->
-              <form style="display:inline-block;" action="https://marvelapp.com/b5f29ba/screen/54498543">
-                    <button type="haveProvider" class="govuk-button">These details are correct</button>
-                </form>
-                <a class="govuk-button clear-button" href="allowtaxdetails">Change PAYE scheme details</a>
+                <a class="govuk-button clear-button" href="allowtaxdetails">Change details</a>
             </div>
         </div>
 </div>

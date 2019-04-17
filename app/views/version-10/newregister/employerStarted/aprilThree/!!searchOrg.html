@@ -1,13 +1,5 @@
-{% extends "layout.html" %} 
-{% block beforeContent %} 
-
-  {% from "back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({
-text: "Back",
-href: "javascript:history.back()"
-}) }}
-   {% endblock %}
-    {% block content %}
+{% extends "layout.html" %}
+{% block content %}
 
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
@@ -17,6 +9,9 @@ href: "javascript:history.back()"
       <form action="searchOrgResults" method="get" class="form">
      <h1 class="govuk-heading-xl" style="">
 Search for your organisation
+
+
+
 
         </h1>
       <!--   <p>We need to know the name of your charity, company or public sector body so that we can confirm your identity.</p> -->
@@ -33,7 +28,7 @@ Enter organisation name
 
               </label>
 
-              <input class="govuk-input"  id="orgChoose" name="orgChoose" type="text" aria-describedby="orgChoose">
+              <input class="govuk-input  id="orgName" name="orgName" type="text" aria-describedby="orgName">
           </div>
           </fieldset>
         </div>

@@ -330,6 +330,17 @@ router.get('/*/newregister/employerStarted/april/multiOrgsChoice' , function (re
   }
 })
 
+/// APRIL THREE - Multi ORgs 
+/// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
+router.get('/*/newregister/employerStarted/aprilThree/multiOrgsChoice' , function (req, res) {
+  var orgChoose = req.query.orgChoose
+  if (orgChoose === 'FiverOrg') {
+    res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/searchOrg`)
+  } else {
+    res.render(`${req.version}/newregister/employerStarted/aprilThree/checkPAYE`)
+  }
+})
+
 
 /// APRIL THREE _ registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore

@@ -22,11 +22,10 @@ localStorage.setItem("registration.completeTax", JSON.stringify("no"));
 
         case  (addingPAYE == 'false'):
             localStorage.setItem("registration.completeTax", JSON.stringify("no"));
-             window.location.href='checkPAYE';
+             window.location.href='checkOrg';
             break
         default:
              console.log('gyahhhhhhhh, bork bork bork')
-                 window.location.href='checkPAYE';
             break;
         }
     }
@@ -90,7 +89,7 @@ localStorage.setItem("registration.completeTax", JSON.stringify("no"));
                Public sector
               </label>
             </div>
-              <div class="govuk-radios__item">
+                          <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="needed-4" name="org" type="radio" value="false" checked="checked"  >
               <label class="govuk-label govuk-radios__label" for="needed-4">
                Show all
@@ -102,7 +101,7 @@ localStorage.setItem("registration.completeTax", JSON.stringify("no"));
     </div>
     <div class="govuk-grid-column-two-thirds">
         <div>
-            <h3 class="govuk-heading-s" style="margin-bottom:0; cursor: pointer; color:#005ea5; text-decoration:underline;  "><a onclick="whereNow()">{{ data['orgChoose'] }}</a></h3>
+            <h3 class="govuk-heading-s" style="margin-bottom:0; cursor: pointer; color:#005ea5; text-decoration:underline;  "><a onclick="whereNow()">{{ data['orgName'] }}</a></h3>
             <p style="margin-bottom:0"><span style="font-weight:700; ">Address</span>   No 2 Lochrin Square, 96 Fountainbridge, Edinburgh, EH3 9QA</p>
               <p><span style="font-weight:700">Type</span> Listed on Companies House</p>
               <hr>
