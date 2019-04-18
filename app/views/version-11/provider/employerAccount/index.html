@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+ {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}
+  {% from "back-link/macro.njk" import govukBackLink %} 
+
+{{ govukBackLink({ href: "javascript:history.back()" }) }}   
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">Invite an employer to set up an account </h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p>Use this service to start the process of setting up an apprenticeship service account for you employer. </p>
+                <h2 class="govuk-heading-m">Before you start</p>
+   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>you’ll need to have agreement from the employer to use their details</li>
+                    <li>you’ll need to know the name and email address of the person you’re setting up the account for </li>
+       
+
+<!--                     <li>find training providers who offer the apprenticeship training you choose</li>
+                    <li>find a named training provider you want to use</li> -->
+                </ul>
+                <div style="margin-top:35px"></div>
+            <a href="./employerAccount/contactDetails"  class="govuk-button govuk-button--start">Start</a>
+                          <!--   <h2 class="govuk-heading-m " >Help</h2>
+                <p> You can contact the National Apprenticeship Service for advice or help using the service.</p>
+                    <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2>
+                <p> Telephone: 0800 015 0600 <a href="#"> Find out about call charges</a></p> -->
+            </div>
+
+
+        </div>
+    </main>
+    {% endblock %}

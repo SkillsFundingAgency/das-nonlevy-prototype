@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+     
+     <form action="govtgateway" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">
+Using your Government Gateway details
+        </h1>
+        <p>You’ll now be taken to the HMRC Government Gateway site where you’ll be asked to sign in on using your Government Gateway credentials. </p>
+        <p>When you sign in to your Government Gateway account you’ll be asked to ‘grant authority’ to allow your 
+tax details to be used.</p>
+
+        <div class="govuk-form-group" style="margin-top:35px">
+        <button class="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}

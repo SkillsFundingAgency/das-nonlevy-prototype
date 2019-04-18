@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script>
+
+  function whereNow() {
+ var addingPAYE = "{{ data['addingPAYE'] }}"
+       switch (true) {
+          case  (addingPAYE == 'true'):
+          localStorage.setItem("registration.completeTax", JSON.stringify("yes"));
+                 window.location.href='taxDetailsTwo';
+                break;
+
+        case  (addingPAYE == 'false'):
+            localStorage.setItem("registration.completeTax", JSON.stringify("no"));
+            localStorage.setItem("registration.completeAgreement", JSON.stringify("no"));
+             window.location.href='doneWithoutTaxorAgree.html';
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+            break;
+        }
+    }
+ </script>
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l" style="padding-top:0">
+      <div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+ 
+        <div class="success-summary">
+          <h1 class="govuk-heading-l" style="color:#000; margin-bottom:5px">
+            We've sent you an email
+          </h1>
+          <div class="govuk-body" style="color:#000">
+            To confirm your email address, we've sent a code to {{ data['providerRegisterEmail'] }}
+          </div>
+        </div>
+
+
+    <!--   <form action="taxDetails" method="get" class="form"> -->
+<!--      <h1 class="govuk-heading-xl" style="margin-top:1.25em; margin-bottom:0.625em">
+Enter the code
+        </h1> -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-width-three-quarters bold-label" for="firstName">
+                 Enter the code
+              </label>
+              <!--span id="email-hint" class="govuk-hint">
+              We’ll only use this to send you a receipt
+            </span-->
+              <input class="govuk-input govuk-!-width-three-quarters" id="firstName" name="firstName" type="text" aria-describedby="First Name">
+          </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" onClick="whereNow()">Confirm</button>
+
+<!--       </form> -->
+    <h3 class="govuk-heading-s" style="margin-top:27px; margin-bottom:5px">Not received an email? </h3>
+    <a href="#"style="font-size:19px">You can request another email</a>
+    </div>
+  </div>
+
+  </div>
+{% endblock %}

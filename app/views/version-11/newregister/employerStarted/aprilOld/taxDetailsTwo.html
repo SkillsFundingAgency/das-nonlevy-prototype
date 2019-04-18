@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+ localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+</script>
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+<div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!--form  method="get" class="form"-->
+        <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+          Ways to add your PAYE scheme
+        </h1>
+        <p class="govuk-body">You can add a PAYE scheme using either your:</p>
+
+                  <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
+                    <li>Government Gateway login for your PAYE scheme</li>
+                    <li>accounts office reference number and employer PAYE scheme reference</li>
+                </ul>
+
+
+
+            <h2 class="govuk-heading-m">By continuing you agree to the following:</h2>
+            <div class="govuk-inset-text">
+                <p>I have the authority to add PAYE schemes to this account that are used by my organisation.</p>
+             <!--    <p>I understand that all account users will be able to see funds from any PAYE schemes I add.</p> -->
+     <!--            <p>I'll only add PAYE schemes that are used by my organisation or used by a <a href="">connected organisation.</a></p> -->
+            </div>
+
+   <form action="employerStartedGovGatewayorPensionsReg" method="get" class="form">
+        <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           How do you want to add your PAYE scheme?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+               Do you want to do this now?
+
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                I want to use Government Gateway
+              </label>
+            </div>
+  
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+               I want to use my accounts office reference number and employer PAYE scheme reference  
+              </label>
+   <!--            <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+            </div>
+          </div>
+          </fieldset>
+        </div>
+
+    <button class="govuk-button">Continue</button>
+
+</form>
+
+    </div></div></main>
+  </div>
+{% endblock %}

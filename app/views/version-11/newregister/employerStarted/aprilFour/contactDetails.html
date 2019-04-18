@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+  {% from "back-link/macro.njk" import govukBackLink %} 
+
+{{ govukBackLink({ text: "Back", 
+href: "javascript:history.back()" 
+    }) 
+}}
+{% endblock %}
+{% block content %}
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search organisations',
+        showAllValues: false
+      })
+    })
+  })
+
+</script>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+  <form action="confirm" method="get" class="form">
+        <h1 class="govuk-heading-xl">
+         Get set up as a user
+
+        </h1>
+      <!--   <p>You will need to add your own details so that you can sign in to your account.  Once you’ve created your account you can add other users should you want to.   </p> -->
+  <p><span class=" "">If you already have an account <a href="./signin/signin">sign in</a></span></p>
+
+
+<!--         <div class="govuk-inset-text">You must have permission from your employer to add this information</div>
+ -->
+<!--   <p><span class=" "">If you already have an account <a href="./signin/signin">sign in</a></span></p> -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+          </legend>
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-width-three-quarters bold-label" for="providerRegisterFirstName">
+                 First name
+              </label>
+              <!--span id="email-hint" class="govuk-hint">
+              We’ll only use this to send you a receipt
+            </span-->
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterFirstName" name="providerRegisterFirstName" type="text" aria-describedby="First Name">
+          </div>
+          <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterLastName">
+                 Last name
+              </label>
+              <!--span id="email-hint" class="govuk-hint">
+              We’ll only use this to send you a receipt
+            </span-->
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterLastName" name="providerRegisterLastName" type="text" aria-describedby="Last name">
+          </div>
+
+        
+{% if  data.showOrgContact %}
+      <div class="govuk-form-group">
+<!--               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
+                Organisation name
+              </label>
+
+              <input class="govuk-input govuk-!-width-three-quarters" id="companyName" name="companyName" type="text" aria-describedby="companyName">
+          </div> -->
+
+          <div class="autocomplete-wrapper" style="margin-bottom:30px; width:75%"  >
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
+                Organisation name
+              </label>
+          <select class="autocomplete-element" id="course-name" name="course-name" style="width:75%">
+
+            <option value="">Select one</option>
+            {% import 'includes/orgs-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+{% endif %}
+
+
+
+
+            <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
+                 Email
+              </label>
+              <span id="email-hint" class="govuk-hint">
+              We'll send you an email to confirm your identity.
+            </span>
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="providerRegisterEmail" type="providerRegisterEmail" aria-describedby="email">
+          </div>
+
+
+            <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
+                 Create a password
+              </label>
+              <span id="password-hint" class="govuk-hint">
+             Password requires upper and lowercase letters, a number and at least 8 characters.
+            </span>
+              <input class="govuk-input govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="password">
+          </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="confirmPassword">
+                 Confirm password
+              </label>
+ 
+              <input class="govuk-input govuk-!-width-three-quarters" id="confirmPassword" name="confirmPassword" type="password" aria-describedby="confirmPassword">
+          </div>
+
+          </fieldset>
+
+        <div class="govuk-inset-text">
+          By continuing you accept the <a href="#" target="_blank">terms and conditions</a>.
+        </div>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+</div>
+{% endblock %}

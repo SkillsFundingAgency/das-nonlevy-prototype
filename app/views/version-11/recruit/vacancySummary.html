@@ -1,0 +1,417 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
+{% endblock %}
+{% block content %}
+
+<script>
+// var firstTimeReg = JSON.parse(localStorage.getItem('registration.firstTimeReg'));
+
+// These are the stuff in at the top in brief summary - step7.html
+var recruitSummaryWork = "{{ data['recruitWorkingDay'] }}"
+var recruitSummaryTraining =  "{{ data['recruitWhatTraining'] }}"
+var recruitSummaryGetAtEnd = "{{ data['recruitWhatGetAtEnd'] }}"
+
+var recruitSkills = "{{ data['recruitSkills'] }}"
+
+var recruitQual = "{{ data['recruitQual'] }}"
+var recruitSubject = "{{ data['recruitSubject'] }}"
+var recruitEssDes = "{{ data['recruitEssDes'] }}"
+
+ var recruitThingsToConsider = "{{ data['recruitThingsToConsider'] }}"  
+
+var recruitTellOrg = "{{ data['recruitTellOrg'] }}"
+
+var recruitContactName = "{{ data['recruitContactName'] }} "
+var recruitContactEmail = "{{ data['recruitContactEmail'] }}"
+var recruitContactNumber = "{{ data['recruitContactNumber'] }}"
+
+var recruitAppExternal  = "{{ data['recruitHow'] }}"
+var recruitAppFAA       = "{{ data['recruitHowFAA'] }}"
+
+console.log("arse", recruitAppExternal, recruitAppFAA )
+
+
+
+// console.log(recruitSummaryWork, recruitSummaryTraining, recruitSummaryGetAtEnd )
+
+$(document).ready(function() {
+  var changeStuff = function() {
+
+// For the Apprenticeship summary section
+  if ((recruitSummaryWork.length >= 1)  || (recruitSummaryTraining.length >= 1) || (recruitSummaryGetAtEnd.length >= 1) ) {
+   // console.log("arse")
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(step7Button).addClass("rj-dont-display")
+    $(step7Edit).removeClass("rj-dont-display")
+     $(step7Block).removeClass("recruitSideAddThing");
+    $(step7Block).addClass("recruitSideEditThing")
+    } else {  };
+
+// Desired Skills and Prospects
+ if ((recruitSkills.length >= 1) ) {
+  
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(step9Button).addClass("rj-dont-display")
+    $(step9Edit).removeClass("rj-dont-display")
+     $(step9Block).removeClass("recruitSideAddThing");
+    $(step9Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Qualifications
+   if ((recruitQual.length >= 1)  || (recruitSubject.length >= 1) || (recruitEssDes.length >= 1) ) {
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(step10Button).addClass("rj-dont-display")
+    $(step10Edit).removeClass("rj-dont-display")
+     $(step10Block).removeClass("recruitSideAddThing");
+    $(step10Block).addClass("recruitSideEditThing")
+    } else { };
+
+
+// Things to consider
+   if ((recruitThingsToConsider.length >= 1)) {
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(step8Button).addClass("rj-dont-display")
+    $(step8Edit).removeClass("rj-dont-display")
+     $(step8Block).removeClass("recruitSideAddThing");
+    $(step8Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Description
+   if ((recruitTellOrg.length >= 1)) {
+    $(step13Button).addClass("rj-dont-display")
+    $(step13Edit).removeClass("rj-dont-display")
+     $(step13Block).removeClass("recruitSideAddThing");
+    $(step13Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Contact Details
+    if ((recruitContactName.length >= 1)  || (recruitContactEmail.length >= 1) || (recruitContactNumber.length >= 1) ) {
+    $(step12Button).addClass("rj-dont-display")
+    $(step12Edit).removeClass("rj-dont-display")
+     $(step12Block).removeClass("recruitSideAddThing");
+    $(step12Block).addClass("recruitSideEditThing")
+    } else { };
+
+// Application process
+      if ((recruitAppExternal.length >= 1)  || (recruitAppFAA.length >=1) ) {
+    $(step16Button).addClass("rj-dont-display")
+    $(step16Edit).removeClass("rj-dont-display")
+     $(step16Block).removeClass("recruitSideAddThing");
+    $(step16Block).addClass("recruitSideEditThing")
+     $(step16Message).removeClass("rj-dont-display")
+
+  
+    } else { };
+
+
+
+  }
+changeStuff();
+});
+</script>
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <h1 class="govuk-heading-xl">Complete your vacancy</h1>
+        <p>This is how your vacancy will appear to candidates on <a href="#">Find an apprenticeship</a></p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-xl" style="margin-bottom:0">{{ data['vacancyName'] }}</h2>
+                <h3 class="govuk-heading-l" style="margin:0px 0 35px 0; color: #6f777b  ;font-weight:400; ">{{ data['where-do-you-live'] }}</h3>
+            </div>
+             <div class="govuk-grid-column-two-thirds">
+                 <h3 class="govuk-heading-s">Brief overview</h3>
+                <p style=" ">{{ data['more-detail'] }}</p>
+            </div>
+
+
+            <div class="govuk-grid-column-one-third">
+              <h3 class="govuk-heading-s">Closing date</h3>
+              <p> {{ data['appclosing-day'] }} {{ data['appclosing-month'] }} {{ data['appclosing-year'] }}</p>
+            </div>
+        </div>
+
+  <h2 class="govuk-heading-l">Apprentieship summary</h2>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+<!--          <p id="coInvestPayer" style="margin:20px 0 0px 0 ; font-weight:400">Closing date:<span style="padding-left:103px; font-weight:700">10 Oct 2019</span></p> -->
+
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Working week</p>
+         <p style="">{{ data['recruitWorkingWeek'] }} <br> {{ data['recruitAppLengthHours'] }} Hours per week</p>
+      </div>
+
+
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Yearly wage</p>
+         <p style="">{{ data['recruitHowMuchPayApp'] }}</p>
+      </div>
+
+
+
+          <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Expected duration</p>
+         <p style="">{{ data['recruitAppLength'] }} {{ data['apprenticeshipLength'] }} </p>
+      </div>
+
+        <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Possible start date</p>
+         <p style="">{{data['recruitAppStart-day'] }}  {{ data['recruitAppStart-month'] }}  {{ data['recruitAppStart-year'] }}</p>
+      </div>
+
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Apprenticeship level</p>
+         <p style="">Intermediate Level Apprenticeship</p>
+      </div>
+
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Positions</p>
+         <p style="">{{ data['numberOfApprentices'] }} available</p>
+      </div>
+
+<!-- 
+
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Date posted</p>
+         <p style="">Not yet posted</p>
+      </div>
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Distance</p>
+         <p style="">tbc</p>
+      </div>
+
+        <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Reference number</p>
+         <p style="">VAC001471637</p>
+      </div> -->
+
+
+    </div>
+    <div id="step7Block" class="govuk-grid-column-two-thirds recruitSideAddThing">
+        <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">What you will do in your working day</p>
+         <p style="">{{ data['recruitWorkingDay'] }}</p>
+      </div>
+        <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">The training you will be getting</p>
+         <p style="">{{ data['recruitWhatTraining'] }}</p>
+      </div>
+        <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">What to expect at the end of your apprenticeship</p>
+         <p style="">{{ data['recruitWhatGetAtEnd'] }}</p>
+      </div>
+          <a id="step7Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step7">Add</a>
+           <a id="step7Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step7">Edit</a>
+    </div>
+</div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<h2 class="govuk-heading-l" style="">Requirements and prospects</h2>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <div id="step9Block" class="recruitSummaryHolder recruitSideAddThing" style="margin-bottom:30px">
+         <p style="font-weight:700; margin-bottom:0">Desired skills and personal qualities</p>
+         <p style="">{{ data['recruitSkills'] }}</p>
+              <a id="step9Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step9">Add</a>
+           <a id="step9Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step9">Edit</a>
+      </div>
+<!--       <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Personal qualities</p>
+         <p style="">Where is this being pulled from???</p>
+      </div> -->
+      <div id="step10Block" class="recruitSummaryHolder recruitSideAddThing">
+         <p style="font-weight:700; margin-bottom:0">Qualifications</p>
+         <p style="">{{ data['recruitQual'] }}  {{ data['recruitSubject'] }}  {{ data['recruitEssDes'] }}</p>
+              <a id="step10Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step10">Add</a>
+           <a id="step10Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step10">Edit</a>
+      </div>
+    </div>
+
+
+    <div class="govuk-grid-column-one-half">
+<!--       <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Future prospects</p>
+         <p style="">{{ data['recruitWhatGetAtEnd'] }}</p>
+      </div> -->
+            <div id="step8Block" class="recruitSummaryHolder recruitSideAddThing">
+         <p style="font-weight:700; margin-bottom:0">Things to consider (optional)</p>
+         <p style="">{{ data['recruitThingsToConsider'] }}</p>
+                 <a id="step8Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step8">Add</a>
+           <a id="step8Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step8">Edit</a>
+      </div>
+    </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<h2 class="govuk-heading-l" style="">About the employer</h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div id="step13Block" style="margin-bottom:30px" class="recruitSummaryHolder recruitSideAddThing">
+         <p style="font-weight:700; margin-bottom:0">Description</p>
+         <p style="">{{ data['recruitTellOrg'] }}</p>
+        <a id="step13Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step13">Add</a>
+           <a id="step13Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step13">Edit</a>
+    </div>
+      <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Employer</p>
+         <p style="">{{ data['where-do-you-live'] }}</p>
+      </div>
+           <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Website (optional)</p>
+         <p style="">{{ data['recruitWebsiteName'] }}</p>
+      </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+        <div id="step12Block" style=""  class="recruitSummaryHolder recruitSideAddThing">
+         <p style="font-weight:700; margin-bottom:0">Contact details</p>
+         <p style="">{{ data['recruitContactName'] }} </br>{{ data['recruitContactEmail'] }}</br>{{ data['recruitContactNumber'] }}</p>
+           <a id="step12Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step12">Add</a>
+           <a id="step12Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step12">Edit</a>
+    </div> 
+
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    
+            <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Location</p>
+         <p style="">{{ data['addressOne'] }} <br />{{ data['addressTwo'] }} <br />{{ data['addressThree'] }} <br />{{ data['addressFour'] }} <br />{{ data['addressPost'] }}</p>
+      </div>
+  </div>
+  <div class="govuk-grid-column-one-half">
+   <img  id="static-map" src="https://maps.googleapis.com/maps/api/staticmap?markers=51.730437,-1.205&amp;size=465x256&amp;zoom=12&amp;client=gme-skillsfundingagency&amp;signature=YS8snW6mis50slQ9eosV2Dx9GY0=" alt="Location map">
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<h2 class="govuk-heading-l" style="">Training provider</h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Apprenticeship framework</p>
+         <p style="">{{ data['recruitSearchApp'] }}</p>
+      </div>
+
+
+          <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Training provider</p>
+         <p style="">{{ data['recruitProviderName'] }}</p>
+          <p>Applications for this apprenticeship are being processed by {{ data['recruitProviderName'] }}</p>
+      </div>
+            <div class="recruitSummaryHolder">
+         <p style="font-weight:700; margin-bottom:0">Contact</p>
+         <p style="margin-bottom:0">Celia Powell </p>
+          <p style="">cv@qalimited.co.uk</p>
+      </div>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<h2 class="govuk-heading-l" style="">Application process</h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+          <div id="step16Block" style=""  class="recruitSummaryHolder recruitSideAddThing">
+         <p style="font-weight:700; margin-bottom:0">How will the candidates apply for this vacancy?</p>
+         <p id ="step16Message" class="rj-dont-display">The applicant will apply on {{ data['recruitHow'] }}</p>
+          <a id="step16Button" class="govuk-button button-grey-secondary" style="margin-bottom:10px; margin-left:0px" <a href="step16">Add</a>
+          <a id="step16Edit" class="rj-dont-display" style="margin-bottom:10px; margin-left:0px; font-size:19px" <a href="step16">Edit</a>
+      </div>
+  </div>
+</div>
+
+
+
+
+<!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<h2 class="govuk-heading-l" style="">Before you apply</h2>
+<p>Before you apply for an apprenticeship you must first create an account. If you already have an account you'll need to sign in.</p>
+</div>
+</div> -->
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+<!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form action="recruitSubmitVacancyFromReview" method="get" class="form">
+    <div id="addTheError" class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           Do you want to submit this vacancy?
+            </h2>
+            </legend>
+            <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                 Do you want to submit this vacancy?
+          </span>
+            <div class="govuk-radios ">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                        Yes, I want to submit the vacancy
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                        Not yet, I want to revise or review it later
+                    </label>
+
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <button class="govuk-button">Continue</button>
+</form>
+</div>
+</div> -->
+
+<form action="recruitSubmitVacancyFromReview" method="get" class="form">
+      <button type="submit" class="govuk-button">Submit vacancy </button>
+             <a  class="govuk-button clear-button" href="./vacancies" >Return to dashboard </a>
+    </form>
+       
+
+<!-- <form method="get" action="step6">
+    Put a radio decision here
+    <button type="submit" class="govuk-button">Save and continue </button>
+    <a  class="govuk-button clear-button" href="#" >make changes </a>
+</form> -->
+</div>  
+</div>
+</div>
+</main>
+</div>
+
+
+
+<!-- <img style="width:200px; margin:0px 0 35px 0" src="https://recruit.test-eas.apprenticeships.sfa.bis.gov.uk/img/disability-confident_545x172.png">
+<details class="govuk-details" style="margin:10px 0 35px 0 ">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+                                      About disability confident
+                                    </span>
+    </summary>
+    <div class="govuk-details__text">
+        <p> Disabled candidates are generally guaranteed an interview if you meet the minimum requirements for this vacancy. Contact the employer for full details.</p>
+        <p> Employers may need to limit the number of interviews offered to both disabled and non-disabled people if they receive high numbers of applications.</p>
+        <p>The disability confident scheme supports employers to make the most of the talents disabled people can bring to your workplace.</p>
+    </div>
+</details>
+
+{% endblock %} -->
