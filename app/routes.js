@@ -286,7 +286,7 @@ router.param('employer', function (req, res, next, employer) {
 
 /// registration > used service before?
 router.get('/*/manage-apprenticeships/signin' , function (req, res) {
-  var usedService = req.query.usedService
+  var usedService = req.query.usedService 
   if (usedService === 'false') {
     res.redirect(`/${req.version}/manage-apprenticeships/whatyoullneed`)
   } else {
