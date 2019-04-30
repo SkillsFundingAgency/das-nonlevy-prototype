@@ -2711,13 +2711,13 @@ router.get('/*/newregister/employerStarted/v3/employerStartedEmployerWhatYoullNe
        switch (true) {
           case  (confirmTraining == 'true'):
               req.session.data['addingPAYE'] = 'true';
-            res.redirect(`/${req.version}/newregister/employerStarted/v3/contactDetails`)
+            res.redirect(`/${req.version}/newregister/employerStarted/v3/taxDetailsTwo`)
            break;
 
    
            case  (confirmTraining == 'false'):
             req.session.data['addingPAYE'] = 'false';
-            res.redirect(`/${req.version}/newregister/employerStarted/v3/contactDetails`)
+            res.redirect("https://marvelapp.com/4gae4fh/screen/54485859")
            break;
         default:
             console.log("bork bork bork");
