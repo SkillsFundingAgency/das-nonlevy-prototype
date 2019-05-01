@@ -366,14 +366,37 @@ router.get('/*/manage-apprenticeships/signinAPRThree' , function (req, res) {
 
 /// APRIL THREE v11 _ registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-11/newregister/employerStarted/aprilThree/usedServiceBefore
+// router.get('/*/manage-apprenticeships/signinAPRThreev11' , function (req, res) {
+//   var usedService = req.query.usedService
+//   if (usedService === 'false') {
+//     res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+//   } else {
+//     res.redirect(`${req.version}/newregister/employerStarted/aprilThree/signin`)
+//   }
+// })
+
+
+
+
+/// APRIL THREE v11 _ registration > used service before? Feb version
+/// http://127.0.0.1:3000/version-11/newregister/employerStarted/aprilThree/usedServiceBefore
 router.get('/*/manage-apprenticeships/signinAPRThreev11' , function (req, res) {
-  var usedService = req.query.usedService
-  if (usedService === 'false') {
-    res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
-  } else {
-    res.render(`${req.version}/manage-apprenticeships/signin`)
-  }
+   var usedService = req.query.usedService
+       switch (true) {
+          case  (usedService == 'false'):
+           res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+           break;
+
+        default:
+          res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/signin`)
+             console.log('gyahhhhhhhh, bork bork borka')
+            break;
+        }
 })
+
+
+
+
 
 /// APRIL FOUR _ registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
