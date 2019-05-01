@@ -1,11 +1,5 @@
 {% extends "layout.html" %}
-{% block beforeContent %}
-{% from "back-link/macro.njk" import govukBackLink %}
-{{ govukBackLink({ text: "Back",
-href: "javascript:history.back()"
-})
-}}
-{% endblock %}
+
 {% block content %}
 <script>
     localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
@@ -19,9 +13,9 @@ href: "javascript:history.back()"
             <div class="govuk-grid-column-two-thirds">
                 <!--form  method="get" class="form"-->
                 <h1 class="govuk-heading-xl" style="margin-bottom:30px">
-                  Confirm who you are
+                    Get government funding
                 </h1>
-                <p class="govuk-body">To pay for your apprenticeships using government funding you will need to confirm who you are using your organisation’s PAYE scheme.</p>
+                <p class="govuk-body">If you’re ready to pay for your apprenticeships using government funding, you can do this now by adding the PAYE scheme for your organisation.</p>
                 <p> If you do not need to get government funding yet, you can still register an account to:</p>
                      <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
                     <li>search and save apprenticeships</li>
@@ -70,7 +64,7 @@ href: "javascript:history.back()"
 
                  <a href="https://www.gov.uk/log-in-register-hmrc-online-services/problems-signing-in" target='_blank' class="link-copy-normal" style="">Can't find your Government Gateway details?</a>
                  <div style=margin-top:35px>
-                <form action="employerStartedEmployerWhatYoullNeed" method="get" class="form">
+                <form action="employerStartedEmployerWhatYoullNeedv11" method="get" class="form">
                     <div id="addTheError" class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">

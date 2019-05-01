@@ -353,6 +353,17 @@ router.get('/*/manage-apprenticeships/signinAPRThree' , function (req, res) {
   }
 })
 
+/// APRIL THREE v11 _ registration > used service before? Feb version
+/// http://127.0.0.1:3000/version-11/newregister/employerStarted/aprilThree/usedServiceBefore
+router.get('/*/manage-apprenticeships/signinAPRThreev11' , function (req, res) {
+  var usedService = req.query.usedService
+  if (usedService === 'false') {
+    res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+  } else {
+    res.render(`${req.version}/manage-apprenticeships/signin`)
+  }
+})
+
 /// APRIL FOUR _ registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
 router.get('/*/newregister/employerStarted/aprilFour/signinAPRFour' , function (req, res) {
@@ -2636,6 +2647,39 @@ router.get('/*/newregister/employerStarted/aprilThree/employerStartedEmployerWha
             break;
         }
 })
+
+//// APRIL Three VERSION v11
+/// Employer > Employer Started Registration  > Add tax details or postpone
+// http://127.0.0.1:3000/version-11/newregister/employerStarted/aprilThree/whatyoullneed
+router.get('/*/newregister/employerStarted/aprilThree/employerStartedEmployerWhatYoullNeedv11' , function (req, res) {
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+              req.session.data['addingPAYE'] = 'true';
+              req.session.data['showOrgContact'] = false;
+            res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/allowtaxdetails`)
+           break;
+
+            case  (confirmTraining == 'truthy'):
+              req.session.data['addingPAYE'] = 'truthy';
+                   req.session.data['showOrgContact'] = false;
+            res.redirect(`/${req.version}/newregister/employerStarted/aprilThree/contactDetails`)
+           break;
+
+   
+           case  (confirmTraining == 'false'):
+            req.session.data['addingPAYE'] = 'false';
+                 req.session.data['showOrgContact'] = true;
+            res.redirect("https://marvelapp.com/4gae4fh/screen/54485859")
+           break;
+
+        default:
+            console.log("bork bork bork");
+            break;
+        }
+})
+
+
 
 
 //// VERSION 2 - THAT ASKS WHAT YOU WANT TO DO WITH THE ACCOUNT - AUGUST VERSION
