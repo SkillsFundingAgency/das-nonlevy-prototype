@@ -341,6 +341,17 @@ router.get('/*/newregister/employerStarted/aprilThree/multiOrgsChoice' , functio
   }
 })
 
+/// v3- Multi ORgs 
+/// http://127.0.0.1:3000/version-11/newregister/employerStarted/v3/multiOrgs
+router.get('/*/newregister/employerStarted/v3/multiOrgsChoice' , function (req, res) {
+  var orgChoose = req.query.orgChoose
+  if (orgChoose === 'FiverOrg') {
+    res.redirect(`/${req.version}/newregister/employerStarted/v3/searchOrg`)
+  } else {
+    res.render(`${req.version}/newregister/employerStarted/v3/checkPAYE`)
+  }
+})
+
 
 /// APRIL THREE _ registration > used service before? Feb version
 /// http://127.0.0.1:3000/version-8/newregister/employerStarted/feb/usedServiceBefore
