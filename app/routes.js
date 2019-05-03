@@ -2795,7 +2795,9 @@ router.get('/*/newregister/employerStarted/v3/employerStartedEmployerWhatYoullNe
    
            case  (confirmTraining == 'false'):
             req.session.data['addingPAYE'] = 'false';
-            res.redirect("https://marvelapp.com/4gae4fh/screen/54485859")
+            // res.redirect("https://marvelapp.com/4gae4fh/screen/54485859")
+            res.redirect("https://marvelapp.com/4gae4fh")
+
            break;
         default:
             console.log("bork bork bork");
