@@ -1,4 +1,17 @@
 {% extends "layout.html" %} {% block pageStyles %}
+
+{% endblock %} 
+
+{% block beforeContent %} 
+
+    {% from "back-link/macro.njk" import govukBackLink %} 
+
+    {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} 
+
+{% endblock %} 
+
+{% block content %}
+
 <style>
     .contents li {
         padding-top: 7.5px;
@@ -52,17 +65,6 @@
     }
 
 </style>
-{% endblock %} 
-
-{% block beforeContent %} 
-
-    {% from "back-link/macro.njk" import govukBackLink %} 
-
-    {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} 
-
-{% endblock %} 
-
-{% block content %}
 
 <script>
     function whereNow() {
@@ -110,6 +112,23 @@
         }
     }
     localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(window).bind('scroll', function() {
+            if($(window).scrollTop() >= $('.contents').offset().top + $('.contents').outerHeight() + 20) {
+                // contents list has gone out of view
+                // show jump to contents link
+                $('.app-back-to-top').removeClass("app-back-to-top--hidden")
+            } else {
+                // contents list is in view
+                // hide jump to contents link
+                $('.app-back-to-top').addClass("app-back-to-top--hidden")
+            }
+        });
+
+    });
 </script>
 
 <div class="govuk-grid-row">
@@ -671,21 +690,3 @@
 
 {% endblock %} 
 
-{% block pageScripts %}
-<script>
-    $(document).ready(function() {
-        $(window).bind('scroll', function() {
-            if($(window).scrollTop() >= $('.contents').offset().top + $('.contents').outerHeight() + 20) {
-                // contents list has gone out of view
-                // show jump to contents link
-                $('.app-back-to-top').removeClass("app-back-to-top--hidden")
-            } else {
-                // contents list is in view
-                // hide jump to contents link
-                $('.app-back-to-top').addClass("app-back-to-top--hidden")
-            }
-        });
-
-    });
-</script>
-{% endblock %}
