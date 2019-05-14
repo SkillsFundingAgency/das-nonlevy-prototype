@@ -1,0 +1,85 @@
+{% extends "layout.html" %} {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+
+{% endblock %} {% block content %}
+
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<script type="text/javascript">
+function whereNow() {
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+     localStorage.setItem("registration.providerStartedJourney", JSON.stringify("yes"));
+       window.location.href='./employerStarted/whatyoullneed';
+
+
+
+   // localStorage.setItem("orgs.updatedAgreement", JSON.stringify("done"));
+   // var providerStartedJourney = JSON.parse(localStorage.getItem('registration.providerStartedJourney'));
+
+    }
+
+</script>
+
+ <style> 
+.govuk-header__content {display:none ;}
+</style>
+
+<div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+               <h1 class="govuk-heading-xl ">Create or sign in to your apprenticeship service account</h1>
+           </div>
+            <div class="govuk-grid-column-two-thirds">
+              <p class="">You need to create or <a href="">sign in</a> to your apprenticeship service account so that you can get government funding to take on apprenticeships.</p>
+
+              <p>You'll use your account to:</p>
+   
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>get government funding</li>
+                    <li>find and save apprenticeships</li>
+                    <li>find, save and manage training providers</li>
+                    <li>recruit apprentices</li>
+                    <li>add and manage apprenticeships</li>
+                  </ul>
+       
+
+        
+                
+                <div style="margin-top:35px"></div>
+            <a onclick="whereNow()"  class="govuk-button govuk-button--start">Start</a>
+
+           
+
+                 </div>
+  <!--           <div class="govuk-grid-column-one-third">
+
+                                 <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; " >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Funds reserved</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 5px 15px"><span style="">£</span>8,100</h2>  
+                        
+                              <p style="margin:0"><a href="./changeReserve" style="font-size:16px; margin: 0px 0 0 15px">View details</a></p>   
+                        </div>
+                    </div>
+
+                    <div class="" style="padding-left:0; width:100%;  border: 4px solid #6f777b; margin-top:25px" >
+                         <div style="background-color:#fff; min-height:120px" >
+                            <h2 class="govuk-heading-s" style="color: #000; margin: 15px 0 0px 15px; font-size:19px">Available to reserve</h2>
+                                <h2 id="numberOfApprentices" class="govuk-heading-l" style="  margin: 5px 0 0px 15px"><span style="">£</span>15,900</h2>  
+                                <p style="margin:0 0 0 15px; font-size:16px">This is the amount you have left to reserve.</p>
+
+                                    
+                        </div>
+                    </div>
+
+   
+            </div> -->
+
+        </div>
+    </main>
+    {% endblock %}

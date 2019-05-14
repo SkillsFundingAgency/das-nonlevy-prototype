@@ -1,0 +1,53 @@
+{% extends "layout.html" %} {% block beforeContent %}   {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}   {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Home", href: "./home" }) }} {% endblock %} {% block content %}
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+<!-- <div class="govuk-grid-row">
+ -->    <h1 class="govuk-heading-xl rj-headings-border">
+ Recruit an apprentice
+</h1>
+<div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <div style="">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half ">
+                            <h3 class="govuk-heading-m" style="margin-top:0 "><a href="recruit/vacancies">Manage vacancies</a></h3>
+                            <p class="rj-home-spacer">Add a new or manage an existing vacancies</p>
+                        </div>
+                        <div class="govuk-grid-column-one-half">
+                            <h3 class="govuk-heading-m rj-top-border-mobile" style="margin-top:0;"><a href="recruit/applications">Manage applications</a></h3>
+                            <p>Review or approve applications for your vacancies.</p>
+                        </div>
+                    </div>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                            <h3 class="govuk-heading-m rj-top-border" style="margin-top:0;padding-top:35px  "><a href="recruit/offers"><!-- Offers --></a></h3>
+                            <p><!-- View offers madOfferse and convert into an apprenticeship. --></p>
+                        </div>
+                        <div class="govuk-grid-column-one-half ">
+                            <h3 class="govuk-heading-m rj-top-border" style="margin-top:0; padding-top:35px"><a href="apprentices/paymentOrder"><!-- Offers --></a></h3>
+                            <p class="rj-home-spacer"><!-- View offers made and convert into an apprenticeship. --></p>
+                        </div>
+                    </div>
+                </div>
+        
+  <!--       <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <div style="padding-top:25px; margin-top:45px; border-top: 5px solid #bfc1c3;"></div>
+                     <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half ">
+                            <h3 class="govuk-heading-m" style="margin-top:0 "><a href="apprentices/publicSector">Report public sector apprenticeship target</a></h3>
+                            <p class="rj-home-spacer">Submit data on your progress towards the public sector apprenticeship target.</p>
+                        </div>
+                    </div>
+            </div>
+        </div> -->
+
+</main>
+</div>
+</div>
+</div>
+    </main>
+    {% endblock %}

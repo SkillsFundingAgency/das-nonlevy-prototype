@@ -1,0 +1,56 @@
+{% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %}    {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "./" }) }} {% endblock %} {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+      
+                <h1 class="govuk-heading-xl ">Your vacancies</h1>
+                <p>
+                    You must be a levy-paying employer to post a vacancy.</p>
+                <p>You can clone vacancies once they've been submitted. Vacancies will be approved or rejected within 24 hours</p>
+
+                <form action="step-1" method="get" class="form">
+                    <button class="govuk-button">Create Vacancy</button>
+                </form>
+
+ <div class="notShown" id="notShown">
+    <table class="govuk-table ">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col" style="">Status</th>
+                <th class="govuk-table__header " scope="col" style="">Vacancy Title</th>
+                <th class="govuk-table__header " scope="col" style="">Vacancy ref</th>
+                <th class="govuk-table__header" scope="col" style="">Closing date</th>
+                <th class="govuk-table__header" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell" scope="row">Live</td>
+                <td class="govuk-table__cell ">Mechatronics Engineer Apprenticeship</td>
+                <td class="govuk-table__cell ">VAC1000000652</td>
+                <td class="govuk-table__cell ">10 Dec 2018</td>
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">Edit</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell" scope="row">Live</td>
+                <td class="govuk-table__cell ">Financial Administrator Apprenticeship </td>
+                <td class="govuk-table__cell ">VAC1000000999</td>
+                <td class="govuk-table__cell ">10 Dec 2018</td>
+                <td class="govuk-table__cell" scope="row">
+                    <a href="#">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+ 
+        </div>
+    </main>
+    {% endblock %}
