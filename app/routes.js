@@ -857,7 +857,7 @@ router.get('/*/apprentices/add/nonLevyFull/oneOrBulkQuestion' , function (req, r
           case  (confirmTraining == 'one'):
            // We removed the stuff coming in from recruit and jumped straight to reserve
            // res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted`)
-           res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/choosereserve`)
+           res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/choosereserve`) 
            break;
 
            case  (confirmTraining == 'bulk'):
