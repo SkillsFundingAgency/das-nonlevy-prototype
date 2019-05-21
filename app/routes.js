@@ -82,7 +82,17 @@ router.param('employer', function (req, res, next, employer) {
 //   }
 // })
 
+// Redirects for Vanessas end to end
+// Employer started
+ router.get('/directEmployer', function (req, res) {
+   res.redirect(`/version-12/newregister/employerStarted/v3/`)
+ })
 
+
+// Provider started, employer finishes
+ router.get('/directProvider', function (req, res) {
+  res.redirect("/version-12/newregister/employerStarted/v3/email")
+ })
 
 // Employer > Nav > Home
 // bit hacky but works - needs two routes for top level and lower down the chain
@@ -857,7 +867,7 @@ router.get('/*/apprentices/add/nonLevyFull/oneOrBulkQuestion' , function (req, r
           case  (confirmTraining == 'one'):
            // We removed the stuff coming in from recruit and jumped straight to reserve
            // res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted`)
-         
+
            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/choosereserve/`) 
            break;
 
