@@ -2862,6 +2862,85 @@ router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullN
         }
 })
 
+
+// More cowboyed stuff for the EPAO!
+
+// WHen the user adds an apprentice, this rewrites the dates and adds up the costs
+//Hacky rewrite of numbers to months, don't judge, it works.
+// http://127.0.0.1:3000/version-13/EPAO/epaoandcost/apprenticeDetails/add-apprentice
+router.get('/*/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice' , function (req, res) {
+  var confirmTraining =  req.session.data['start-month'] 
+  var trainingCost =  parseInt(req.session.data['price'], 10) 
+   var epaoCost =  parseInt(req.session.data['agreedEPAOPrice'], 10)
+
+   var epaoTotalCost = trainingCost + epaoCost;
+
+   req.session.data['epaoTotalCost'] = epaoTotalCost
+
+
+       switch (true) {
+        case  (confirmTraining == '1' || confirmTraining == '01'):
+          req.session.data['start-month'] = "January"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '2' || confirmTraining == '02'):
+          req.session.data['start-month'] = "February"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '3' || confirmTraining == '03'):
+          req.session.data['start-month'] = "March"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '4' || confirmTraining == '04'):
+          req.session.data['start-month'] = "April"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '5' || confirmTraining == '05'):
+          req.session.data['start-month'] = "May"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '6' || confirmTraining == '06'):
+          req.session.data['start-month'] = "June"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '7' || confirmTraining == '07'):
+          req.session.data['start-month'] = "July"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+       case  (confirmTraining == '8' || confirmTraining == '08'):
+          req.session.data['start-month'] = "August"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+       case  (confirmTraining == '9' || confirmTraining == '09'):
+          req.session.data['start-month'] = "September"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '10' || confirmTraining == '10'):
+          req.session.data['start-month'] = "October"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '11' || confirmTraining == '11'):
+          req.session.data['start-month'] = "November"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '12' || confirmTraining == '12'):
+          req.session.data['start-month'] = "December"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            req.session.data['start-month'] = ""
+             res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+            break;
+        }
+})
+
+
+
+
+
+
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
  // var optionFinishApps = req.query.optionFinishApps
