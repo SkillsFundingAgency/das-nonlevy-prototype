@@ -2863,12 +2863,17 @@ router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullN
 })
 
 
+// =====================================================================
+// --------------------------- EPAO End Point Assessor -----------------
+// =====================================================================
+
+
 // More cowboyed stuff for the EPAO!
 
 // WHen the user adds an apprentice, this rewrites the dates and adds up the costs
 //Hacky rewrite of numbers to months, don't judge, it works.
 // http://127.0.0.1:3000/version-13/EPAO/epaoandcost/apprenticeDetails/add-apprentice
-router.get('/*/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice' , function (req, res) {
+router.get('/*/EPAO/*/apprenticeDetails/addEPAOapprentice' , function (req, res) {
   var confirmTraining =  req.session.data['start-month'] 
   var trainingCost =  parseInt(req.session.data['price'], 10) 
    var epaoCost =  parseInt(req.session.data['agreedEPAOPrice'], 10)
@@ -2938,6 +2943,22 @@ router.get('/*/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice' , function 
 
 
 
+//// For the version that only shows cots and not the the choice of EPAO - just sets a parameter to not show the EPAO confirm fields
+/// EPAO > Enter costs only  > confirm page
+//
+router.get('/*/EPAO/*/apprenticeDetails/dontShowEPAOConfirmation' , function (req, res) {
+    req.session.data['showEPAOConfirm'] = false;
+   res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice`)
+})
+
+
+//// For the version that shows both the choice of EPAO and cost
+/// EPAO > Enter EPAO and costs  > confirm page
+
+router.get('/*/EPAO/*/apprenticeDetails/showEPAOConfirmation' , function (req, res) {
+    req.session.data['showEPAOConfirm'] = true;
+   res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice`)
+})
 
 
 

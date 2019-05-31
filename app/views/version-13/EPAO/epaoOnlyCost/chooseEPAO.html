@@ -14,36 +14,44 @@ href: "javascript:history.back()"
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                                <h1 class="govuk-heading-xl">Choose organisation </h1>
-                <form action="confirm-training-provider" method="POST" class="form">
+                                <h1 class="govuk-heading-xl">End Point Assessment Organisation </h1>
+                <form action="apprenticeDetails/add-apprentice" method="POST" class="form">
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+                              <!--   <p>Choose the End Point Assessment Organisation for   {{ data['course-name'] }}</p> -->
        
 
                                 <label class="govuk-label  bold-label" for="firstName">
-  Which organisation is named on the contract with the training provider for the apprentices you'd like to add?
+  Choose an EPAO to assess your apprenticeship
 
               </label>
 
                             </legend>
                             <div class="govuk-radios">
                                 <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="organisation-nice-employer" name="organisation" type="radio" value="Nice Employer" {{ checked( "organisation", "Nice Employer") }}>
-                                    <label class="govuk-label govuk-radios__label" for="organisation-nice-employer">
-                                        Assurance Aerospace Engineering
+                                    <input class="govuk-radios__input" id="epaoName-city-guilds" name="epao-name" type="radio" value="City and Guilds" {{ checked( "epao-name", "City and Guilds") }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                       City and Guilds
                                     </label>
                                 </div>
                                 <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="organisation-good-employer" name="organisation" type="radio" value="Good Employer" {{ checked( "organisation", "Good Employer") }}>
-                                    <label class="govuk-label govuk-radios__label" for="organisation-good-employer">
-                                       ; DROP TABLE "COMPANIES";-- LTD
+                                    <input class="govuk-radios__input" id="epaoName-cumbria" name="epao-name" type="radio" value="Cumbria University" {{ checked( "epao-name", "Cumbria University") }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                       Cumbria University
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="epaoName-coventry" name="epao-name" type="radio" value="Coventry University" {{ checked( "epao-name", "Coventry University") }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                       Coventry University
                                     </label>
                                 </div>
                             </div>
                         </fieldset>
                     </div>
-                    <details class="govuk-details">
+<!--                     <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
       What is a contract for services?
@@ -56,8 +64,9 @@ href: "javascript:history.back()"
 
 <p>If you're an employer-provider, for example, you won't need a contract for services as your organisation is both the buyer and the supplier.</p>
   </div>
-</details>
+</details> -->
                     <button class="govuk-button">Save and continue</button>
+                     <a  class="govuk-button clear-button" href="apprenticeDetails/add-apprentice" >Skip and continue</a>
                 </form>
             </div>
         </div>
