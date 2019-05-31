@@ -94,6 +94,23 @@ router.param('employer', function (req, res, next, employer) {
   res.redirect("/version-12/newregister/employerStarted/v3/email")
  })
 
+// EPAO Commitment - Choose EPAO and Cost
+ router.get('/EPAOandCost', function (req, res) {
+  res.redirect("/version-13/EPAO/epaoandcost")
+ })
+
+ // EPAO Commitment - Choose EPAO and Cost v2
+ router.get('/EPAOandCostv2', function (req, res) {
+  res.redirect("/version-13/EPAO/epaoandcostv2")
+ })
+
+  // EPAO Commitment - Choose cost only
+ router.get('/EPAOCostOnly', function (req, res) {
+  res.redirect("/version-13/EPAO/epaoOnlyCost")
+ })
+
+
+
 // Employer > Nav > Home
 // bit hacky but works - needs two routes for top level and lower down the chain
  router.get('/*/homeNav', function (req, res) {
