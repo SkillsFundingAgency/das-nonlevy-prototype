@@ -2978,6 +2978,30 @@ router.get('/*/EPAO/*/apprenticeDetails/showEPAOConfirmation' , function (req, r
 })
 
 
+/// Employer > EPAO commitment > choose to add an epao or not
+// http://127.0.0.1:3000/version-13/epao/epaoChoice/epaoOrNot?confirmation=true
+router.get('/*/epao/epaoChoice/chooseEPAOorNot' , function (req, res) {
+  console.log(req.query.confirmation)
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+             req.session.data['showApprenticeBox'] = false;
+              req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/epao/epaoChoice/courseComplete`)
+           break;
+
+           case  (confirmTraining == 'false'):
+             req.session.data['showEPAOConfirm'] = false;
+             req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/epao/epaoChoice/apprenticeDetails/add-apprentice`)
+           break;
+           
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
