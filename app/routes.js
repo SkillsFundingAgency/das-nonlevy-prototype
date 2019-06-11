@@ -94,6 +94,20 @@ router.param('employer', function (req, res, next, employer) {
   res.redirect("/version-12/newregister/employerStarted/v3/email")
  })
 
+
+// v11 Homepage back to Vanessas version
+ router.get('/version-11/home', function (req, res) {
+  res.redirect("https://das-registration-prototype.herokuapp.com/interimHomepage")
+ })
+
+// v11 Recruit back to Vanessas version
+ router.get('/version-11/recruit', function (req, res) {
+  res.redirect("https://das-recruit-prototype.herokuapp.com/raa-v2/0-1-9/recruitment/dashboard-multiple?user=employer&journey=existing&NumberOfEntities=0")
+ })
+
+
+
+
 // EPAO Commitment - Choose EPAO and Cost
  router.get('/EPAOandCost', function (req, res) {
   res.redirect("/version-13/EPAO/epaoandcost")
