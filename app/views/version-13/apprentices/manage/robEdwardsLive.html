@@ -2,7 +2,7 @@
 {% block beforeContent %} 
  {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({ text: "Back to manage your apprentices", href: "./" }) }} 
+{{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} 
 {% endblock %} 
 {% block content %}
 
@@ -82,10 +82,10 @@
                     <td class="govuk-table__header" scope="row">Training end date</td>
                         <td class="govuk-table__cell" scope="row">1 Jan 2020</td>
                 </tr>
-                <tr class="govuk-table__row">
+<!--                 <tr class="govuk-table__row">
                     <td class="govuk-table__header" scope="row">Total cost of training</td>
                         <td class="govuk-table__cell" scope="row">£9,000</td>
-                </tr>
+                </tr> -->
                 <tr class="govuk-table__row">
                     <td class="govuk-table__header" scope="row">Reference</td>
                         <td class="govuk-table__cell" scope="row"></td>
@@ -94,25 +94,46 @@
         </table>
 
         <table class="govuk-table details-list">
-           <caption class="govuk-heading-m" style="text-align:left; margin-top:45px">End Point Assessor</caption>
+            <div style="margin-top:75px">
+            <tr style="">
+                <th class="govuk-heading-m" style="text-align:left; border-top:none;  ">End point assessment organisation</th>
+        <!--         <th style=" border-top:none; font-weight:400; text-align:right;"> <a href='edit'>Edit EPAO</a></th> -->
+                <th style=" border-top:none "></th>
+            </tr>
+       
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                    <td class="govuk-table__header" scope="row">End point Assessor</td>
-                        <td class="govuk-table__cell" scope="row"></td>
+                    <td class="govuk-table__header" scope="row">End point assessment organisation</td>
+                        <td class="govuk-table__cell" scope="row">ABC EPA Ltd</td>
+                        <td class="govuk-table__cell" scope="row"><a href='#' style="float:right">Edit EPAO</a></td>
                 </tr>
             </tbody>
         </table>
 
-        <div>
-
-            <textarea class="govuk-textarea" rows="5">The end point assessor has not been declared
-
-            </textarea>
-        </div>
-
+                <table class="govuk-table details-list">
+              <div style="margin-top:75px">
+            <tr style="">
+                <th class="govuk-heading-m" style="text-align:left; border-top:none;  ">Cost</th>
+                <th style=" border-top:none; font-weight:400; text-align:right;"> <a href='#'>Edit Cost</a></th>
+                <th style=" border-top:none "></th>
+            </tr>
+            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                    <td class="govuk-table__header" scope="row">Training cost</td>
+                        <td class="govuk-table__cell" scope="row">£8,000</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header" scope="row">Assessment cost</td>
+                        <td class="govuk-table__cell" scope="row">£1,000</td>
+                </tr>
+                                <tr class="govuk-table__row">
+                    <td class="govuk-table__header" scope="row">Total cost</td>
+                        <td class="govuk-table__cell" scope="row">£9,000</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
 </div>
 </div>
 </div>
