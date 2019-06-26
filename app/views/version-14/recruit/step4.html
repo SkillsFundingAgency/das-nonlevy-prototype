@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} {% include "includes/version5/recruitNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ text: "Back", href: "wholeList" }) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class=" govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Important dates
+</h1>
+            <!-- <p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p> -->
+            <form method="get" action="step5">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s" style="margin-bottom:0">
+                            <h1 class="govuk-fieldset__heading">
+       Application closing date
+      </h1>
+                        </legend>
+                        <span id="appclosing-hint" class="govuk-hint hintMB5" >
+     For example, 10 11 2019
+
+    </span>
+                        <div class="govuk-date-input" id="recruitAppClosingDate">
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="appclosing-day">
+                                        Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="appclosing-day" name="appclosing-day" type="number" pattern="[0-9]*" value="{{ data['appclosing-day'] }}">
+                                </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="appclosing-month">
+                                        Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="appclosing-month" name="appclosing-month" type="number" pattern="[0-9]*" value="{{ data['appclosing-month'] }}">
+                                </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="appclosing-year">
+                                        Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="appclosing-year" name="appclosing-year" type="number" pattern="[0-9]*" value="{{ data['appclosing-year'] }}">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s" style="margin-bottom:0">
+                            <h1 class="govuk-fieldset__heading">
+      When do you expect the apprentice to start?
+      </h1>
+                        </legend>
+                        <span id="recruitAppStart-hint" class="govuk-hint hintMB5">
+     For example, 10 11 2019
+
+    </span>
+                        <div class="govuk-date-input" id="dob">
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="recruitAppStart-day">
+                                        Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="recruitAppStart-day" name="recruitAppStart-day" type="number" pattern="[0-9]*" value="{{ data['recruitAppStart-day'] }}">
+                                </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="recruitAppStart-month">
+                                        Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="recruitAppStart-month" name="recruitAppStart-month" type="number" pattern="[0-9]*" value="{{ data['recruitAppStart-month'] }}">
+                                </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="recruitAppStart-year">
+                                        Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="recruitAppStart-year" name="recruitAppStart-year" type="number" pattern="[0-9]*" value="{{ data['recruitAppStart-year'] }}">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="govuk-form-group ">
+                    <label class="govuk-label   govuk-label--s" for="recruitSearchApp">
+                        Search for apprenticeship training </label>
+                    <span id="recruitSearchApp-hint" class="govuk-hint"> Start typing the name of the course or choose an option from the list</span>
+                    <input class="govuk-input " id="recruitSearchApp" name="recruitSearchApp" type="text" aria-describedby="recruitSearchApp-hint" value="{{ data['recruitSearchApp'] }}" />
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                               Disability Confident (optional)
+                            </h1>
+                        </legend>
+
+                        <div class="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitDisabilityConfident" name="recruitDisabilityConfident" type="checkbox"  value="Disability Confident" {{ checked('recruitDisabilityConfident', 'Disability Confident') }}>
+
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitDisabilityConfident">This vacancy is <a href="https://www.gov.uk/government/collections/disability-confident-campaign" target="new">Disability Confident.  </a> </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+        </div>
+        </fieldset>
+</div>
+                <button type="submit" class="govuk-button">Save and continue </button>
+                <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
+</form>
+</div>
+</div>
+</main>
+</div>
+{% endblock %}

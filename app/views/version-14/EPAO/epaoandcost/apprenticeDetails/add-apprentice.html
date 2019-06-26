@@ -1,0 +1,282 @@
+
+{% extends "layout.html" %}
+{% block beforeContent %}
+ {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search apprenticeships',
+        showAllValues: false
+      })
+    })
+  })
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element-EPAO').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search EPAO',
+        showAllValues: false
+      })
+    })
+  })
+</script>
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-xl">Add apprentice details</h1>
+
+<div class="govuk-inset-text">
+    <p>You must add the apprentice’s first and last names - fill in as many other fields as you can. You'll be able to return
+        later to make changes or add more information.</p>
+    <p>
+        You'll only be able to authorise payments for this apprentice once all the fields have been completed - either by yourself
+        or your training provider.</p>
+</div>
+
+
+        <form method="get" action="showEPAOConfirmation">
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-width-three-quarters bold-label" for="FirstFirstName">First name</label>
+
+                <input class="govuk-input" id="FirstFirstName" name="FirstFirstName" type="text" value=""/>
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-width-three-quarters bold-label" for="FirstLastName">Last name</label>
+                <input class="govuk-input" id="FirstLastName" name="FirstLastName" type="text" value="" />
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+   
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="dateofbirth">
+                             Date of birth
+                        </label>
+                    <span id="dob-hint" class="govuk-hint">
+                        For example, 31 3 1980
+                    </span>
+                    <div class="govuk-date-input" id="dob">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="dob-day">
+                                    Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="dob-day" name="dob-day" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="dob-month">
+                                    Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="dob-month" name="dob-month" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group govuk-form-group--year">
+                                <label class="govuk-label govuk-date-input__label" for="dob-year">
+                                    Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="dob-year" name="dob-year" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+<!-- 
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+            <div class="govuk-form-group">
+                <label class="govuk-label">
+                    Unique learner number
+                </label>
+                <span class="govuk-hint">
+                    This will be added by your training provider.
+                </span>
+            </div> -->
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+            <!-- <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="courseName">
+                            Apprenticeship training course
+                        </label>
+                        <div class="autocomplete-wrapper">
+                         <select class="autocomplete-element" id="course-name" name="course-name">
+                            <option value="">Select one</option>
+                                {% import 'includes/apprenticeships-list.html' as apprenticeshipsData %}
+                                    {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+                             <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+                                     {% endfor %}
+          </select>
+        </div>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+ -->
+<!--                         <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="epaoName">
+                           End Point Assessment Organisation
+                        </label>
+                        <div class="autocomplete-wrapper">
+                         <select class="autocomplete-element-EPAO" id="epao-name" name="epao-name">
+                            <option value="">Select one</option>
+                                {% import 'includes/EPAO-list.html' as apprenticeshipsData %}
+                                    {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+                             <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{" (Standard)" if apprenticeship.standard === true}}</option>
+                                     {% endfor %}
+          </select>
+        </div>
+            </div> -->
+
+         <!--    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" /> -->
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                            Planned training start date
+                        </label>
+
+                    <span id="start-hint" class="govuk-hint">
+                        For example, 09 2018
+                    </span>
+                    <div class="govuk-date-input" id="start">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="start-month" >
+                                    Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="start-month" name="start-month" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group govuk-form-group--year">
+                                <label class="govuk-label govuk-date-input__label" for="start-year">
+                                    Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="start-year" name="start-year" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="finish-hint" role="group">
+
+                       <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingFinishDate">
+                            Planned training finish date
+                        </label>
+
+                    <span id="finish-hint" class="govuk-hint">
+                        For example, 02 2019
+                    </span>
+                    <div class="govuk-date-input" id="finish">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="finish-month">
+                                    Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 undefined" id="finish-month" name="finish-month" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group govuk-form-group--year">
+                                <label class="govuk-label govuk-date-input__label" for="finish-year">
+                                    Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="finish-year" name="finish-year" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-width-three-quarters bold-label" for="agreedApprenticeshipPrice">
+                    Total agreed apprenticeship training price (excluding VAT)
+                </label>
+                <span id="price-hint" class="govuk-hint">
+                    Enter the price, excluding any end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500
+                </span>
+                <input class="govuk-input govuk-input--width-10" id="price" name="price" type="text" aria-describedby="price-hint" placeholder="£" value="" />
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-width-three-quarters bold-label" for="agreedEPAOPrice">
+                    Total agreed endpoint assessment price (excluding VAT)
+                </label>
+                <span id="price-hint" class="govuk-hint">
+                    Enter the price for end-point assessment costs, in whole pounds. For example, for £1,500 enter 1500
+                </span>
+                <input class="govuk-input govuk-input--width-10" id="agreedEPAOPrice" name="agreedEPAOPrice" type="text" aria-describedby="price-hint" placeholder="£" value="" />
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+
+            <div class="govuk-form-group">
+                     <label class="govuk-label govuk-!-width-three-quarters bold-label" for="reference">
+                                Reference (optional)
+                        </label>
+                <span id="reference-hint" class="govuk-hint">
+                    Add a reference, such as employee number or location - this won't be seen by the training provider
+                </span>
+                <input class="govuk-input" id="reference" name="reference" type="text" aria-describedby="reference-hint" />
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+            <button type="submit" class="govuk-button">Save and continue</button>
+     
+           <!--  <a  class="govuk-button clear-button" href="draft-cohort" >Cancel</a> -->
+
+        </form>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
