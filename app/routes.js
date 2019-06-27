@@ -3016,6 +3016,30 @@ router.get('/*/epao/epaoChoice/chooseEPAOorNot' , function (req, res) {
         }
 })
 
+// For the full version that uses the cohort screen. Just adds up the total for that screen
+// http://127.0.0.1:3000/version-14/EPAO/fullCommit/apprenticeDetails/add-apprentice?addApprentices=true
+router.get('/*/EPAO/*/apprenticeDetails/draftCohortRedirect' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+     function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                              }
+
+  var trainingCost =  parseInt(req.session.data['price'], 10) 
+   var epaoCost =  parseInt(req.session.data['agreedEPAOPrice'], 10)
+   var epaoTotalCost = trainingCost + epaoCost;
+// run the function that adds commas to the cost
+    epaoTotalCost = numberWithCommas(epaoTotalCost)
+// add the final cost so we can pull it into the interface
+   req.session.data['epaoTotalCost'] = epaoTotalCost
+
+       switch (true) {
+        default:
+             res.redirect(`/${req.version}/EPAO/fullCommit/apprenticeDetails/draft-cohort`)
+            break;
+        }
+})
+
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
