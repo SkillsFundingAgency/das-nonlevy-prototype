@@ -1,5 +1,9 @@
  {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
-  {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "appresults" }) }} {% endblock %} {% block content %}
+  {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+
+  <script src="/public/javascripts/accordion.js"></script>
+
+
 <script>
 function whereNow() {
         localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
@@ -7,63 +11,27 @@ function whereNow() {
     }
 
 </script>
+ <script>
 
-<script>
-$( document ).ready(function() {
-    var appCount=0
-var proCount=0
- $(".shortlistButton").click(function (e) {
-        e.preventDefault();
-        console.log("shortlist button clicked: " + appCount);
-        if ($("i", this).hasClass("fa-star-o")) {
-            console.log("isnt shortlisted");
-            appCount = appCount + 1;
-            console.log(appCount);
-    //        Cookies.set("appCount", appCount);
-            $("i", this).removeClass("fa-star-o").addClass("fa-star");
-            $("span", this).text("Remove from saved list");
-           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+// uncomment this to turn on the accordions
 
-        } else {
-            console.log("is shortlisted");
-            $("i", this).removeClass("fa-star").addClass("fa-star-o");
-            $("span", this).text("Save this apprenticeship");
-            appCount--;
-      //      Cookies.set("appCount", appCount);
-            console.log(appCount);
-           $("#bannerCount span").text(Number(proCount) + Number(appCount));
-        }
+if (
+    'addEventListener' in document &&
+    document.querySelectorAll
+) {
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        var accordions = document.querySelectorAll('.accordion')
+
+        for (var i = accordions.length - 1; i >= 0; i--) {
+            new Accordion(accordions[i])
+        };
+
     })
-  });
+
+}
 </script>
-
-<!--script>
- var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
-console.log(fundingStatus)
-$(document).ready(function() {
-  var changeStuff = function() {
-  if (fundingStatus=='yes') {
-    $(coInvestPayer).addClass("rj-dont-display")
-   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
-   // document.getElementById("providerName").textContent = "Provider:" ;
-   // $(commitmentStatus).addClass("rj-dont-display");
-   //  $(addDate).addClass("rj-dont-display")
-    }
-else {};
-
-if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
-       //  $(addDate).addClass("rj-dont-display")
-    }
-else { };
-
-//if (fundingStatus=='transferFunding') {
-  // $(eligibilityTransfer).removeClass("rj-dont-display")
-    //}
-//else { };
-  }
-changeStuff();
-});
-</script-->
 
 <style>
 .data-list dd, .data-list dt  {margin-bottom:0;}
@@ -74,80 +42,84 @@ changeStuff();
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <div class="">
-                    <h1 class="govuk-heading-xl" style="">Financial services administrator</h1>
-                    <!--<h3 class="heading-small">Role</h3>-->
+                    <h1 class="govuk-heading-xl" style="margin-bottom:15px">Financial services administrator</h1>
+   <!--                  <h3 class="govuk-heading-l" style="color:#6f777b">Level 3 (equivalent to A levels at grades A to E) </h3> -->
+                    <span class="govuk-caption-l" style="margin-bottom:25px">Level 3 (equivalent to A levels at grades A to E)</span>
                     <p class="">This information is taken from an apprenticeship framework. It sets out what qualifications the apprentice can achieve.
                     </p>
                 </div>
             </div>
-            <form action="providersearch">
+<!--             <form action="providersearch">
                 <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
                     <button type="submit" class="govuk-button" style="margin-bottom:15px">Find training providers</button>
                       
-                    <div><a href="#" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><i class="fa fa-star-o" ></i><span style="padding-left:5px">Save this apprenticeship</span></a></div>
+                    <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div>
 
                 
 
                 </div>
-            </form>
+            </form> -->
         </div>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-full">
-                     <h1 class="govuk-heading-l" style="margin-top:25px">Summary of this apprenticeship framework</h1>
-                    <dl class="data-list">
-                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-                        <dt>Level</dt>
-                        <dd id="level">3 (equivalent to A levels at grades A to E)</dd>
-                    <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-                        <dt>Current funding band</dt>
-                        <dd id="funding-cap">
-                           <p style="margin:0px 0 0 0 ">Maximum cost of training:<span style="padding-left:140px; font">£8,000 per apprentice </span></p>
+
+<div class="accordion">
+something about 12 months as typical length
+    <div class="accordion-section">
+    <div class="accordion-section-header">
+        <h2 class="govuk-heading-m">Current funding band</h2>
+    </div>
+    <div class="accordion-section-body">
+               <p style="margin:0px 0 0 0 ">Maximum cost of training:<span style="padding-left:140px; font">£8,000 per apprentice </span></p>
                             <p id="coInvestPayer" style="margin:0">Maximum cost of end point assessment: <span style="padding-left:20px">£1,000 per apprentice</span></p>
                             <p id="coInvestPayer" style="margin:0px 0 10px 0 ; font-weight:700">Maximum total cost:<span style="padding-left:173px; font-weight:700">£9,000 per apprentice</span></p>
       
                             <a href="https://www.gov.uk/guidance/employing-an-apprentice-technical-guide-for-employers#funding-for-your-apprenticeship" target="_blank">More information about funding</a>
-       <!--                         <div style="margin-top:10px"> <a href="../finance/reserve/reserveStartDate" class=" " style="width:100%; font-size:19px;">Reserve funding for this apprenticeship</a></div> -->
-                        </dd>
-                        <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-                        <dt>Typical length</dt>
-                        <dd id="length">12 months</dd>
-                        <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+</div>
 
 
 
-                        <dt>Entry requirements</dt>
-                        <dd class="entry-requirements">
-                            <div>Your chosen training provider can advise you about entry requirements for apprentices.</div>
-                        </dd>
-                        <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<div class="accordion-section">
+    <div class="accordion-section-header">
+        <h2 class="govuk-heading-m">Entry requirements </h2>
+    </div>
+    <div class="accordion-section-body">
+        <p> Your chosen training provider can advise you about entry requirements for apprentices.</p>
+    </div>
+</div>
 
 
-                        <dt>Suitable roles for apprentices</dt>
-                        <dd class="job-roles">
-                            <ul class="govuk-list govuk-list--bullet" style="margin-top:0">
-                                <li>Assistant Copywriter</li>
-                                <li>Desktop Publishing Assistant</li>
-                                <li>Junior Graphic Designer</li>
-                                <li>Junior Product Designer</li>
-                                <li>Technical Illustrator</li>
-                            </ul>
-                            <div>
-                                Your chosen training provider can advise you about the kinds of skills apprentices will learn.
-                            </div>
-                        </dd>
-                        <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Suitable roles for apprentices </h2>
+        </div>
+        <div class="accordion-section-body">
+    
+                <ul class="govuk-list govuk-list--bullet" style="margin-top:0">
+                    <li>Assistant Copywriter</li>
+                    <li>Desktop Publishing Assistant</li>
+                    <li>Junior Graphic Designer</li>
+                    <li>Junior Product Designer</li>
+                    <li>Technical Illustrator</li>
+                </ul>
+                <div>
+                   <p> Your chosen training provider can advise you about the kinds of skills apprentices will learn.</p>
+                </div>
+          
+            <div style="clear:both"></div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        </div>
+    </div>
 
 
-                        <dt>Qualifications</dt>
-                        <dd>
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Qualifications </h2>
+        </div>
+        <div class="accordion-section-body">
+       
                             <div class="qualifications">
                                 <div class="competencyQualifications">
                                     <p>Apprentices will achieve a practical (or 'competence') qualification:</p>
@@ -169,31 +141,60 @@ changeStuff();
                                 </div>
                             </div>
                             <p class="qualificationsStatic">Your chosen training provider can advise you about the qualifications open to apprentices as they can change depending on individual and other circumstances.</p>
-                        </dd>
-                    
-                    <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-                        <dt>End Point Assessment Organisations</dt>
-               
-                        <dd>End point assesment is a thing, the assessor will help you do the thing. Below is a list of assessors that will help you do the thing.
-                            <div style="margin:15px 0 10px 0"> <a href="epaDetails">ABC EPA Ltd</a></div>
-                             <div> <a href="">Cyberdyne University</a></div>
-                        </dd>
-                   
+                  
+        </div>
+    </div>
 
-                <div style="clear:both"></div>
-                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-                        <dt>Professional registration</dt>
-                        <dd>None specified.</dd>
+        <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Professional registration </h2>
+        </div>
+        <div class="accordion-section-body">
+                    <p>None specified.</p>
+        </div>
+    </div>
 
-                    </dl>
-                </div>
 
-             <form action="providersearch">
-                <div class="govuk-grid-column-one-third" style="margin-top:35px">
-                    <button type="submit" class="govuk-button" style="">Find training providers</button>
-                </div>
-            </form>
+</div>
+<form action="changePermissionsRecruit" method="get" class="form">
+                <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           Do you want to find a delivery partner?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+               Do you want to do this now?
+
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="providerManageApprenticeships" type="radio" value="providerManageApprenticeshipsTrue">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+              Yes, find training providers
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="providerManageApprenticeships" type="radio" value="providerManageApprenticeshipsFalse">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+              Yes, find end-point assessment organisations
+              </label>
+<!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+            </div>
+          </div>
+          </fieldset>
+        </div>
+ 
+    <button class="govuk-button">Continue</button>  <!-- <a  class="govuk-button clear-button" href="./cyberdyne" >Cancel and return</a> -->
+</form>
+ </div>
+
+
  
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
