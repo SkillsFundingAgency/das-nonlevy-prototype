@@ -573,8 +573,14 @@ router.get('/*/find/chooseFATType' , function (req, res) {
   var fatType = req.query.fatType
        switch (true) {
           case  (fatType == 'apprenticeship'):
+          req.session.data['justFindEPAO'] = false;
             res.redirect(`/${req.version}/find/appreticeshipsearch`)
            break;
+
+          case  (fatType == 'epao'):
+                 req.session.data['justFindEPAO'] = true;
+              res.redirect(`/${req.version}/find/appreticeshipsearch`)
+          break;
 
           case  (fatType == 'provider'):
               res.redirect(`/${req.version}/find/findaprovider`)

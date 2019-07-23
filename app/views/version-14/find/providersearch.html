@@ -6,7 +6,7 @@
 
  {% from "back-link/macro.njk" import govukBackLink %} 
  {{ govukBackLink(
-    { text: "Back", href: "findsummary" }) 
+    { text: "Back", href: "javascript:history.back()" }) 
 }}
   {% endblock %} 
   {% block content %}

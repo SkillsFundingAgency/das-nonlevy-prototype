@@ -7,8 +7,6 @@ function whereNow() {
     }
 
 </script>
-
-
 <!-- 
 <script>
 $( document ).ready(function() {
@@ -82,32 +80,16 @@ changeStuff();
                     </p>
                 </div>
             </div>
-
-
-            {% if  data.justFindEPAO %}
-            <form action="EPA/epaosearch">
-                <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Find end-point assessor</button>
-                      
-                </div>
-            </form>
-
-              {% else %}
-                          <form action="providersearch">
-                <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Find training providers</button>
-                      
-                    <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div>
-                </div>
-            </form>
-                
-            {% endif %}
-
-
-
-
-
         </div>
+         <form action="providersearch">
+                <div class="" style="height:80px">
+             
+                    <div style="margin:10px 0"><a href="providersearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px; ">Find training providers</span></a></div>
+                      
+                    <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find end-point assessors</span></a></div>
+   
+                </div>
+            </form>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-full">
                      <h1 class="govuk-heading-l" style="margin-top:25px">Summary of this apprenticeship framework</h1>

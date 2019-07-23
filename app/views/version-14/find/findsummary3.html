@@ -1,71 +1,27 @@
  {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
   {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+
+
 <script>
-function whereNow() {
-        localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
-        window.location.href='proSearch';
-    }
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='providersearch';
+                break;
 
-</script>
+        case  (status == 'false'):
+       window.location.href='epa/epaosearch';
+            break
 
-
-<!-- 
-<script>
-$( document ).ready(function() {
-    var appCount=0
-var proCount=0
- $(".shortlistButton").click(function (e) {
-        e.preventDefault();
-        console.log("shortlist button clicked: " + appCount);
-        if ($("i", this).hasClass("fa-star-o")) {
-            console.log("isnt shortlisted");
-            appCount = appCount + 1;
-            console.log(appCount);
-    //        Cookies.set("appCount", appCount);
-            $("i", this).removeClass("fa-star-o").addClass("fa-star");
-            $("span", this).text("Remove from saved list");
-           $("#bannerCount span").text(Number(proCount) + Number(appCount));
-
-        } else {
-            console.log("is shortlisted");
-            $("i", this).removeClass("fa-star").addClass("fa-star-o");
-            $("span", this).text("Save this apprenticeship");
-            appCount--;
-      //      Cookies.set("appCount", appCount);
-            console.log(appCount);
-           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+             $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break;
         }
-    })
-  });
-</script>
- -->
-<!--script>
- var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
-console.log(fundingStatus)
-$(document).ready(function() {
-  var changeStuff = function() {
-  if (fundingStatus=='yes') {
-    $(coInvestPayer).addClass("rj-dont-display")
-   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
-   // document.getElementById("providerName").textContent = "Provider:" ;
-   // $(commitmentStatus).addClass("rj-dont-display");
-   //  $(addDate).addClass("rj-dont-display")
     }
-else {};
-
-if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
-       //  $(addDate).addClass("rj-dont-display")
-    }
-else { };
-
-//if (fundingStatus=='transferFunding') {
-  // $(eligibilityTransfer).removeClass("rj-dont-display")
-    //}
-//else { };
-  }
-changeStuff();
-});
-</script-->
+ </script>
 
 <style>
 .data-list dd, .data-list dt  {margin-bottom:0;}
@@ -82,30 +38,6 @@ changeStuff();
                     </p>
                 </div>
             </div>
-
-
-            {% if  data.justFindEPAO %}
-            <form action="EPA/epaosearch">
-                <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Find end-point assessor</button>
-                      
-                </div>
-            </form>
-
-              {% else %}
-                          <form action="providersearch">
-                <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Find training providers</button>
-                      
-                    <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div>
-                </div>
-            </form>
-                
-            {% endif %}
-
-
-
-
 
         </div>
             <div class="govuk-grid-row">
@@ -213,8 +145,45 @@ changeStuff();
                         <dd>None specified.</dd>
 
                     </dl>
+                          <p style="color:white">.</p> <!-- this is weird. have to have this here to make the HR line below show up, no idea why -->
+                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
                 </div>
 
+            </div>
+
+
+<form action="changePermissionsRecruit" method="get" class="form">
+    <div id="addTheError" class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+                    Do you want to find a delivery partner?
+                </h2>
+            </legend>
+            <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                Do you want to do this now?
+            </span>
+            <div class="govuk-radios ">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-1" name="choosePartner" type="radio" value="true">
+                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                        Yes, find training providers
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-2" name="choosePartner" type="radio" value="false">
+                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                        Yes, find end-point assessment organisations
+                    </label>
+                    <!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</form>
+<button class="govuk-button" onClick="whereNow()">Continue</button> <!-- <a  class="govuk-button clear-button" href="./cyberdyne" >Cancel and return</a> -->
  
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-two-thirds">
