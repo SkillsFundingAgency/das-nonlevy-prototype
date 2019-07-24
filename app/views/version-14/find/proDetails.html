@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
-  {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "proResults" }) }} {% endblock %} {% block content %}
+  {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
 <!-- <script src="/public/javascripts/accordion.js"></script>
  --><script>
 function whereNow() {
@@ -103,12 +103,12 @@ $(document).ready(function() {
                 <!--<h3 class="heading-small">Role</h3>-->
             </div>
         </div>
-        <form action="providersearch">
+<!--         <form action="providersearch">
             <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
                 <button type="submit" class="govuk-button" style="margin-bottom:15px">Do a thing</button>
                 <div class="shortlisty appy"><a href="#" class="shortlistButton " name="funding" value="Financial services administrator" style="font-size:19px; "><i class="fa fa-star-o" ></i><span style="padding-left:5px">Save this provider</span></a></div>
             </div>
-        </form>
+        </form> -->
     </div>
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
