@@ -1,5 +1,7 @@
  {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
   {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+
+
 <script>
 function whereNow() {
         localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
@@ -69,8 +71,9 @@ changeStuff();
 
 <style>
 .data-list dd, .data-list dt  {margin-bottom:0;}
-
 </style>
+
+
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
@@ -84,7 +87,7 @@ changeStuff();
             </div>
 
 
-            {% if  data.justFindEPAO %}
+    {% if  data.justFindEPAO %}
             <form action="EPA/epaosearch">
                 <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
                     <button type="submit" class="govuk-button" style="margin-bottom:15px">Find end-point assessor</button>
@@ -92,20 +95,15 @@ changeStuff();
                 </div>
             </form>
 
-              {% else %}
-                          <form action="providersearch">
+    {% else %}
+                          <form action="EPA/proResultsTabbed">
                 <div class="govuk-grid-column-one-third weird-floating-button" style="text-align:center">
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Find training providers</button>
+                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Find training providers <br />and EPAOs</button>
                       
-                    <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div>
+<!--                     <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div> -->
                 </div>
-            </form>
-                
-            {% endif %}
-
-
-
-
+            </form>  
+    {% endif %}
 
         </div>
             <div class="govuk-grid-row">
