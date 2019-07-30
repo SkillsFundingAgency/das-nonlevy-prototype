@@ -18,9 +18,6 @@
             </div>
         </div>
 
-
-
-
 <div class="js-tabs nav-tabs" style="margin-top:35px">
     <ul class="tabs-nav" id="tabs-nav" role="tablist">
         <li class="active">
@@ -37,7 +34,6 @@
 
 
 <H3 class="govuk-heading-m" style="margin: 25px 0 25px 0; display:inline-block">Filter results </H3>
-
 <div class="govuk-form-group" id="resultCount" style="display:inline-block; float:right">
     <!--label class="govuk-label inline" style="display:inline-block; margin-right:10px; font-weight:700;" for="sort">Sort by</label>
     <select class="govuk-select" id="sort" name="sort" style="display:inline-block; width:200px">
@@ -78,7 +74,6 @@
                                             at your location (2)
                                         </label>
                                     </div>
-
                                 </div>
                         </div>
                         </fieldset>
@@ -241,11 +236,8 @@ WILTSHIRE COLLEGE</a> </h2>
 
 <script>
 //jquery that runs the tabs. Uses the jquery.tabs.js from gov.uk
-
 $(document).ready(function() {
-
     // change the tabs themselves to active - should be in the above but isn't working because it's looking for a not li so I added this as a quick fix.
-
     $("ul#tabs-nav li").click(function(e) {
         if (!$(this).hasClass("active")) {
             var tabNum = $(this).index();
@@ -262,7 +254,6 @@ $('ul.tabs-nav').each(function() {
     // For each set of tabs, we want to keep track of
     // which tab is active and its associated content
     var $active, $content, $links = $(this).find('a');
-
     // If the location.hash matches one of the links, use that as the active tab.
     // If no match is found, use the first link as the initial active tab.
     $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
