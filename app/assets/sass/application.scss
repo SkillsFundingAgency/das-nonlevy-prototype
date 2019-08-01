@@ -16,6 +16,41 @@ $govuk-global-styles: true;
 
 //// Things for the autocomplete
 
+.das-user-panel {
+    margin-top: -10px;
+    padding: 25px 0 15px;
+    background-color: #005ea5;
+  }
+
+.das-user-panel__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+.das-user-panel__item {
+    color: #fff;
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+.govuk-link--white:link, .govuk-link--white:visited {
+    color: #fff;
+}
+
+.das-no-wrap {
+    white-space: nowrap;
+}
+
+.das-user-panel__item--grow {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
 .autocomplete__wrapper {
   position: relative;
   font-size: 16px;
