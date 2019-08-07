@@ -21,34 +21,17 @@
     </ol>
 </div-->
 
-<script>
-var wizzyThing = JSON.parse(localStorage.getItem('epao.wizzyThing'));
-
-$(document).ready(function() {
- 
-    var changeStuff = function() {
-        if (wizzyThing == "yes") {
-            $(rejectedapp).addClass("rj-dont-display");
-            $(deletedUserAlertMessage).removeClass("rj-dont-display");
-             localStorage.setItem("epao.wizzyThing", JSON.stringify("no"));
-        }
-        // localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("yes"));
-    }
-    changeStuff();
-});
-</script>
-
 
 <script>
   function whereNow() {
   var status = $('input[name=choosePartner]:checked').val();
        switch (true) {
           case  (status == 'true'):
-                 window.location.href='providersearch';
+                 window.location.href='ticks/apprenticeTickConfirm';
                 break;
 
         case  (status == 'false'):
-       window.location.href='epa/epaosearch';
+       window.location.href='ticks/reject/apprenticeTickReject';
             break
 
         default:
@@ -59,18 +42,15 @@ $(document).ready(function() {
         }
     }
  </script>
-                  <div style= "width:66%" id="deletedUserAlertMessage" class="success-summary rj-dont-display"> 
-                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Apprentice rejected</h1>
-                   <p>The apprentice <span style="font-weight:700">Alex Swordy</span> was rejected</p>
-               </div>
+
 
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full">
+            <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl">
-                    Cyberdyne Inc
-                    <span class="govuk-caption-xl">Financial Services Administrator: Level 3</span>
+                    Tyrell Corp 
+                    <span class="govuk-caption-xl">Mechatronics Engineer: Level 7</span>
                 </h1>
 <!--                 <div class="govuk-panel govuk-panel--confirmation" style="background:#912b88; padding:0; height:105px; width:50%">
                     <h2 class="govuk-panel__title" style="text-align:left; margin:10px 0 0px 10px">£170,000</h2>
@@ -84,57 +64,79 @@ $(document).ready(function() {
                 <table class="govuk-table ">
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
+                               <th class="govuk-table__header" scope="col"></th>
                             <th class="govuk-table__header" scope="col">Name</th>
                             <th class="govuk-table__header" scope="col">ULN</th>
                             <th class="govuk-table__header govuk-table__header--numeric" scope="col">End date</th>
                             <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th> 
                    <!--          <th class="govuk-table__header " scope="col">Status</th> -->
-                            <th class="govuk-table__header" scope="col"></th>
+                         
                         </tr>
                     </thead>
-
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row" id="May18">
+                                     <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td>
                             <td class="govuk-table__cell" scope="row">David Piggins</td>
                             <td class="govuk-table__cell" scope="row">1829856585</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£2,735</td>
               <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
-                            <td class="govuk-table__cell" scope="row">
-                                <a href="buttons/apprenticeConfirm">Approve</a> or  <a href="buttons/reject/apprenticeReject">Reject</a>
-                            </td>
+                 <!--            <td class="govuk-table__cell" scope="row">
+                                <a href="epaoApprovalsDetails">Approve</a> or  <a href="epaoApprovalsDetails">Reject</a>
+                            </td> -->
                         </tr>
-                      
-                        <tr class="govuk-table__row" id="rejectedapp">
+                        <tr class="govuk-table__row">
+                                     <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td>
                             <td class="govuk-table__cell" scope="row">Alex Swordy</td>
                             <td class="govuk-table__cell" scope="row">5389106499</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£2,500</td>
               <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
-                            <td class="govuk-table__cell" scope="row">
-                                  <a href="#">Approve</a> or  <a href="buttons/rejectInline/apprenticeRejectInline">Reject</a>
-                            </td>
+                        <!--     <td class="govuk-table__cell" scope="row">
+                                  <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
                         </tr>
-                  
                         <tr class="govuk-table__row">
+                                     <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td>
                             <td class="govuk-table__cell" scope="row">Vanessa Lu</td>
                             <td class="govuk-table__cell" scope="row">7134322227</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
                <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
-                            <td class="govuk-table__cell" scope="row">
+                     <!--        <td class="govuk-table__cell" scope="row">
                                 <a href="#">Approve</a> or  <a href="#">Reject</a>
-                            </td>
+                            </td> -->
                         </tr>
                         <tr class="govuk-table__row">
+                                     <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td>
                             <td class="govuk-table__cell" scope="row">Andrew Jenkins</td>
                             <td class="govuk-table__cell" scope="row">2490550125</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">01/2021</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
         <!--                      <td class="govuk-table__cell" scope="row">Thing</td> -->
-                            <td class="govuk-table__cell" scope="row">
+                         <!--    <td class="govuk-table__cell" scope="row">
                                 <a href="#">Approve</a> or  <a href="#">Reject</a>
-                            </td>
+                            </td> -->
                         </tr>
     
                     </tbody>
@@ -149,19 +151,19 @@ $(document).ready(function() {
                 </h2>
             </legend>
             <span id="gatewayError" class="govuk-error-message rj-dont-display">
-               Do you want to do the thing to all of these at once?
+               Do you want to do the thing to all the ticked things?
             </span>
             <div class="govuk-radios ">
                 <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="needed-1" name="choosePartner" type="radio" value="true">
                     <label class="govuk-label govuk-radios__label" for="needed-1">
-                        Yes, approve all on this page
+                        Yes, approve  
                     </label>
                 </div>
                 <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="needed-2" name="choosePartner" type="radio" value="false">
                     <label class="govuk-label govuk-radios__label" for="needed-2">
-                        No, reject all on this page
+                        No, reject 
                     </label>
                     <!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
                     You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships

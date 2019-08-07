@@ -322,6 +322,17 @@ router.param('employer', function (req, res, next, employer) {
   res.redirect(`/${req.version}/signout`)
  })
 
+  // EPAO Nav Routes
+
+
+   router.get('/*/EPAOApprovalsNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals`)
+ })
+
+  router.get('/*/*/EPAOApprovalsNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals`)
+ })
+
 ////// end of nav routing
 
 
