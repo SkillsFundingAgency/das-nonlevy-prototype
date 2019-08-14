@@ -6,6 +6,51 @@
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
 {% block content %}
+
+<script>
+var wizzyThing = JSON.parse(localStorage.getItem('epao.wizzyThing'));
+
+$(document).ready(function() {
+ 
+    var changeStuff = function() {
+        if (wizzyThing == "yes") {
+            $(rejectedapp).addClass("rj-dont-display");
+            $(deletedUserAlertMessage).removeClass("rj-dont-display");
+             localStorage.setItem("epao.wizzyThing", JSON.stringify("no"));
+        }
+        // localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("yes"));
+    }
+    changeStuff();
+});
+</script>
+
+
+<script>
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='providersearch';
+                break;
+
+        case  (status == 'false'):
+       window.location.href='epa/epaosearch';
+            break
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+          //   $(gatewayError).removeClass("rj-dont-display");
+          //  $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+                  <div style= "width:66%" id="deletedUserAlertMessage" class="success-summary rj-dont-display"> 
+                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Apprentice rejected</h1>
+                   <p>The apprentice <span style="font-weight:700">Alex Swordy</span> was rejected</p>
+               </div>
+
+
 <style>
 .pad80 {
     padding-right: 80px;
@@ -56,67 +101,16 @@
                 <div class="js-tab-content tab-content">
                     <div class="js-tab-pane tab-pane" id="PAYE">
                         <h2 class="govuk-heading-l" style="margin:15px 0 25px 0 ">Awaiting review</h2>
-                        <table class="govuk-table ">
-                            <thead class="govuk-table__head">
-                                <tr class="govuk-table__row">
-                                    <th class="govuk-table__header" scope="col">Employer</th>
-                                    <th class="govuk-table__header" scope="col" style="width:350px">Standard</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col">Quantity</th>
-                                    <!--   <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th> -->
-                                    <th class="govuk-table__header" scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody class="govuk-table__body">
-                                <tr class="govuk-table__row" id="May18">
-                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
-                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric pad80">4</td>
-                                    <!--      <td class="govuk-table__cell govuk-table__cell--numeric">£2,735</td> -->
-                                    <td class="govuk-table__cell" scope="row">
-                                        <a href="EPAOApprovals/epaoApprovalsDetails">Details</a>
-                                    </td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <td class="govuk-table__cell" scope="row">Tyrell Corp</td>
-                                    <td class="govuk-table__cell" scope="row">Mechatronics Engineer: Level 7</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric pad80">5</td>
-                                    <!--              <td class="govuk-table__cell govuk-table__cell--numeric">£2,500</td> -->
-                                    <td class="govuk-table__cell" scope="row">
-                                        <a href="EPAOApprovals/epaoApprovalsDetailsTicks">Details</a>
-                                    </td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <td class="govuk-table__cell" scope="row">Lex Corp</td>
-                                    <td class="govuk-table__cell" scope="row">Aeronautics Engineer: Level 6</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric pad80">1</td>
-                                    <!--          <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td> -->
-                                    <td class="govuk-table__cell" scope="row">
-                                        <a href="#">Details</a>
-                                    </td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <td class="govuk-table__cell" scope="row">Weyland-Yutani</td>
-                                    <td class="govuk-table__cell" scope="row">Software developer: Level 4</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric pad80">2</td>
-                                    <!--                <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td> -->
-                                    <td class="govuk-table__cell" scope="row">
-                                        <a href="#">Details</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="js-tab-pane tab-pane" id="transactions">
-                        <h2 class="govuk-heading-l" style="margin:15px 0 15px 0 ">Approved</h2>
-                        <table class="govuk-table ">
+                       <table class="govuk-table ">
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th class="govuk-table__header" scope="col">Name</th>
                                     <th class="govuk-table__header" scope="col">ULN</th>
-                                    <th class="govuk-table__header" scope="col" style="width:100px">Company</th>
+                                    <th class="govuk-table__header" scope="col" style="width:100px">Employer</th>
                                     <th class="govuk-table__header" scope="col" style="width:200px">Standard</th>
                                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">End date</th>
                                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th>
+                                     <th class="govuk-table__header" scope="col"></th>
                                     <!--          <th class="govuk-table__header " scope="col">Status</th> -->
                                    <!--  <th class="govuk-table__header" style="width:100px" scope="col"></th> -->
                                 </tr>
@@ -130,6 +124,9 @@
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£2,735</td>
+                                        <td class="govuk-table__cell" scope="row">
+                                <a href="buttons/apprenticeConfirm">Approve</a> or  <a href="buttons/reject/apprenticeReject">Reject</a>
+                            </td>
                                     <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
                                    <!--  <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
                                 </tr>
@@ -141,6 +138,9 @@
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£2,500</td>
+                                       <td class="govuk-table__cell" scope="row">
+                                  <a href="#">Approve</a> or  <a href="buttons/rejectInline/apprenticeRejectInline">Reject</a>
+                            </td>
                                   <!--   <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
                                     <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--     <td class="govuk-table__cell" scope="row">
@@ -155,6 +155,9 @@
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                                      <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td>
                                  <!--    <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
                                     <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--      <td class="govuk-table__cell" scope="row">
@@ -163,6 +166,85 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <td class="govuk-table__cell" scope="row">Andrew Jenkins</td>
+                                    <td class="govuk-table__cell" scope="row">2490550125</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">01/2021</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                                      <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td>
+                                  <!--   <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
+                                    <!--                      <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                    <!--     <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="js-tab-pane tab-pane" id="transactions">
+                        <h2 class="govuk-heading-l" style="margin:15px 0 15px 0 ">Approved</h2>
+                        <table class="govuk-table ">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">Name</th>
+                                    <th class="govuk-table__header" scope="col">ULN</th>
+                                    <th class="govuk-table__header" scope="col" style="width:100px">Employer</th>
+                                    <th class="govuk-table__header" scope="col" style="width:200px">Standard</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">End date</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th>
+                                    <!--          <th class="govuk-table__header " scope="col">Status</th> -->
+                                   <!--  <th class="govuk-table__header" style="width:100px" scope="col"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row" id="May18">
+                                    <td class="govuk-table__cell" scope="row">Kiera Lewis
+</td>
+                                    <td class="govuk-table__cell" scope="row">9720246668</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,735</td>
+                                    <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                   <!--  <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell" scope="row">Aled Bloom
+</td>
+                                    <td class="govuk-table__cell" scope="row">4609629296</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,500</td>
+                                  <!--   <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
+                                    <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                    <!--     <td class="govuk-table__cell" scope="row">
+                                  <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell" scope="row">Marion Gordon
+</td>
+                                    <td class="govuk-table__cell" scope="row">7134322227</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                                 <!--    <td class="govuk-table__cell" scope="row"> <a href="#">Send to gateway</a></td> -->
+                                    <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                    <!--      <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell" scope="row">Lucille Whitehead
+</td>
                                     <td class="govuk-table__cell" scope="row">2490550125</td>
                                     <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
                                     <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
@@ -186,7 +268,7 @@
                                 <tr class="govuk-table__row">
                                     <th class="govuk-table__header" scope="col">Name</th>
                                     <th class="govuk-table__header" scope="col">ULN</th>
-                                    <th class="govuk-table__header" scope="col" style="width:100px">Company</th>
+                                    <th class="govuk-table__header" scope="col" style="width:100px">Employer</th>
                                     <th class="govuk-table__header" scope="col" style="width:200px">Standard</th>
                                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">End date</th>
                                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th>
