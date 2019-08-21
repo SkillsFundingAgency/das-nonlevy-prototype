@@ -1,0 +1,93 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version14/epaoNav.html" %}
+{% include "includes/version14/outcomeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl" style="" id="company-Name">What grade did the apprentice achieve?</h1>
+                <form action="completeLearningOption" method="get" class="form">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading">
+                    
+
+                           <!--span id="email-hint" class="govuk-hint">
+             Choose the level of access this user can have.
+            </span-->
+                                </h2>
+                            </legend>
+                            <div class="govuk-radios ">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--1" name="assessment" type="radio" value="yes" checked="true">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--1">
+                                        Pass
+                                    </label>
+                                </div>
+                                 <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--2" name="assessment" type="radio" value="partial">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--2">
+                                       Credit
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--3" name="assessment" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--3">
+                                        Merit
+                                    </label>
+                                </div>
+                                                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--3" name="assessment" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--3">
+                                        Distinction
+                                    </label>
+                                </div>
+                                                                                         <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--3" name="assessment" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--3">
+                                        Pass with excellence
+                                    </label>
+                                </div>
+                                                                                                               <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--3" name="assessment" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--3">
+                                        No grade awarded
+                                    </label>
+                                </div>
+
+                                <p style="margin: 15px 0 15px 10px">or</div>
+
+                                    <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--3" name="assessment" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--3">
+Fail                                    </label>
+                                </div>
+
+                            </div>
+                        </fieldset>
+            
+                    <button class="govuk-button">Continue</button>
+                </form>
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'No grade awarded' and'Fail mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    No grade awarded: A grade is awarded when the apprentice successfully completes the apprenticeship standard. For some standards there will be no grade awarded. In these cases, select 'no grade awarded'.
+    Fail: Record a 'fail' if a fail is defined in the assessment plan.
+  </div>
+</details>
+
+            </div>
+        </div>
+</div>
+{% endblock %}

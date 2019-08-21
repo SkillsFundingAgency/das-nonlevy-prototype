@@ -333,7 +333,17 @@ router.param('employer', function (req, res, next, employer) {
   res.redirect(`/${req.version}/EPAOApprovals`)
  })
 
+     router.get('/*/EPAOOutcomesNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOutcomes`)
+ })
+
+  router.get('/*/*/EPAOOutcomesNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOutcomes`)
+ })
+
 ////// end of nav routing
+
+
 
 
 /// registration > used service before?
@@ -3057,6 +3067,36 @@ router.get('/*/EPAO/*/apprenticeDetails/draftCohortRedirect' , function (req, re
         }
 })
 
+
+
+/// EPAO > EPAO record an outcome > assessment completed
+// http://127.0.0.1:3000/version-14/EPAOOutcomes/complete?
+router.get('/*/EPAOOutcomes/EPAOAssessmentChoice' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/EPAOOutcomes/declaration`)
+           break;
+
+           case  (confirmTraining == 'partial'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOOutcomes/partial`)
+           break;
+
+          case  (confirmTraining == 'no'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOOutcomes/confirmDidntHappen`)
+           break;
+           
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {
