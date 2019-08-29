@@ -1,0 +1,115 @@
+ {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
+  {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+
+
+<style>
+.people-nav a,
+.learners-nav a {}
+</style>
+<main id="content" role="main">
+    <div class="breadcrumbs back-breadcrumb">
+        <ol role="breadcrumbs">
+        </ol>
+    </div>
+    <!--h1 class="heading-large">Levy account</h1-->
+    <!--h2 class="bold-medium">Acme Ltd Levy Account</h2-->
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Payments</h1>
+
+
+
+<div class="js-tabs nav-tabs">
+    <ul class="tabs-nav" id="tabs-nav" role="tablist">
+        <li class="active">
+            <a href="#PAYE" role="tab" id="tab-PAYE">Amount paid</a>
+        </li>
+        <li class="">
+            <a href="#transactions" role="tab" id="tab-transactions">Left to pay</a>
+        </li>
+    </ul>
+</div>
+<div class="js-tab-content tab-content">
+    <div class="js-tab-pane tab-pane" id="PAYE">
+        <p>
+            Here is a summary of the amounts paid to date.
+        </p>
+    </div>
+    <div class="js-tab-pane tab-pane" id="transactions">
+        <p>
+            Here is a summary of the payment schedule. Remember, this will change if you alter apprenticeships in the future.
+        </p>
+    </div>
+</div>
+
+
+
+
+      </div>
+    </main>
+
+
+
+
+
+
+
+<script>
+//jquery that runs the tabs. Uses the jquery.tabs.js from gov.uk
+
+$(document).ready(function() {
+
+  // change the tabs themselves to active - should be in the above but isn't working because it's looking for a not li so I added this as a quick fix.
+
+  $("ul#tabs-nav li").click(function(e){
+        if (!$(this).hasClass("active")) {
+            var tabNum = $(this).index();
+            var nthChild = tabNum+1;
+            $("ul#tabs-nav li.active").removeClass("active");
+            $(this).addClass("active");
+            $("ul#tabs-nav li.active").removeClass("active");
+            $("ul#tabs-nav li:nth-child("+nthChild+")").addClass("active");
+        }
+    });
+});
+
+  $('ul.tabs-nav').each(function(){
+    // For each set of tabs, we want to keep track of
+    // which tab is active and its associated content
+    var $active, $content, $links = $(this).find('a');
+
+    // If the location.hash matches one of the links, use that as the active tab.
+    // If no match is found, use the first link as the initial active tab.
+    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+   // $active.addClass('active');
+   console.log($active)
+
+    $content = $($active[0].hash);
+
+    // Hide the remaining content
+    $links.not($active).each(function () {
+      $(this.hash).hide();
+    });
+
+    // Bind the click event handler
+    $(this).on('click', 'a', function(e){
+      // Make the old tab inactive.
+    //  $active.removeClass('active');
+      $content.hide();
+
+      // Update the variables with the new link and content
+    //  $active = $(this);
+      $content = $(this.hash);
+
+      // Make the tab active.
+     // $active.addClass('active');
+      $content.show();
+
+      // Prevent the anchor's default click action
+      e.preventDefault();
+    });
+  });
+
+</script>
+
+{% endblock %}
+
