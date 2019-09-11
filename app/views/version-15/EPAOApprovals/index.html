@@ -11,6 +11,28 @@
     padding-right: 80px;
 }
 </style>
+
+
+
+
+<script>
+var wizzyThing = JSON.parse(localStorage.getItem('epao.wizzyThing'));
+
+$(document).ready(function() {
+ 
+    var changeStuff = function() {
+        if (wizzyThing == "yes") {
+            $(rejectedapp).addClass("rj-dont-display");
+            $(deletedUserAlertMessage).removeClass("rj-dont-display");
+             localStorage.setItem("epao.wizzyThing", JSON.stringify("no"));
+        }
+        // localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("yes"));
+    }
+    changeStuff();
+});
+</script>
+
+
 <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
 <!--div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -26,6 +48,11 @@
         <li class="govuk-breadcrumbs__list-item" aria-current="page">Transactions</li>
     </ol>
 </div-->
+
+  <div style= "width:66%" id="deletedUserAlertMessage" class="success-summary rj-dont-display"> 
+                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Apprentices rejected</h1>
+                   <p>4 apprentices were rejected</p>
+               </div>
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
@@ -47,7 +74,7 @@
                                     <th class="govuk-table__header" scope="col" style="width:130px">Employer</th>
                                     <th class="govuk-table__header" scope="col" style="width:290px" >Standard</th>
                                     <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" >Quantity</th>
-                                     <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col">End date</th>
+                                     <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col">Training end date</th>
                                       <th class="govuk-table__header govuk-table__header--numeric" scope="col">Cost</th>
                                     <th class="govuk-table__header" scope="col" style="width:180px"></th>
                                 </tr>
@@ -67,7 +94,8 @@
                                 <a href="EPAOApprovals/buttons/apprenticeConfirm">Approve</a> or  <a href="EPAOApprovals/buttons/reject/apprenticeReject">Reject</a>
                             </td>
                                 </tr>
-                                <tr class="govuk-table__row" id="May18">
+
+                                <tr class="govuk-table__row" id="rejectedapp">
                                     <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
                                     <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3</td>
                                       <td class="govuk-table__cell govuk-table__cell--numeric pad80">4</td>
@@ -78,6 +106,7 @@
                                   <a href="#">Approve</a> or  <a href="EPAOApprovals/buttons/rejectInline/apprenticeRejectInline">Reject</a>
                             </td>
                                 </tr>
+                                
                                 <tr class="govuk-table__row">
                                     <td class="govuk-table__cell" scope="row">Tyrell Corp</td>
                                     <td class="govuk-table__cell" scope="row">Mechatronics Engineer:  Level 7</td>
