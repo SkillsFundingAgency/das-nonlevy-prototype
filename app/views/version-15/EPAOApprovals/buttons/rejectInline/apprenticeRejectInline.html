@@ -1,11 +1,11 @@
 {% extends "layoutEPAO.html" %}
- {% block beforeContent %} 
- {% include "includes/version14/epaoNav.html" %}
-  {% include "includes/version14/financeNav.html" %}
-   {% from "back-link/macro.njk" import govukBackLink %} 
-   {{ govukBackLink({ href: "javascript:history.back()" }) }}
-    {% endblock %} 
-    {% block content %}
+{% block beforeContent %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/requestsNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
 
     <script>
   function whereNow() {
@@ -172,6 +172,15 @@
           <dd class="app-check-your-answers__answer" style="font-weight:700; ">
            £2,735
           </dd>
+        </div>
+           <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+             Message to employer
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+    {{ data['provider-message'] }}
+          </dd>
+        </div>
 
 
 
@@ -182,7 +191,7 @@
 
 </div>
   <div class="govuk-inset-text" style="width:66%">
-  This can't be undone by you, the employer will be notified and will have to do the thing.
+  This can't be undone by you, the employer will be notified of the apprentices rejection.
 </div>
 
 
@@ -201,7 +210,7 @@
 
          <!--    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" /> -->
  </form>
-           <button class="govuk-button" onClick="whereNow()">Reject apprentice </button>
+           <button class="govuk-button" onClick="whereNow()">Reject apprentices </button>
               <a  class="govuk-button clear-button" href="../../epaoApprovalsDetails" >Cancel</a>
        
     </div>
