@@ -1,7 +1,7 @@
 {% extends "layoutEPAO.html" %}
 {% block beforeContent %}
-{% include "includes/version14/epaoNav.html" %}
-{% include "includes/version14/financeNav.html" %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/requestsNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %}
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
@@ -9,11 +9,11 @@
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row"">
-                <div class=" govuk-grid-column-two-thirds">
+                <div class="govuk-grid-column-full">
             <form method="get" action="finishTick">
-                <h1 class="govuk-heading-xl">Confirm apprenticeship</h1>
-                   <h2 class="govuk-heading-m">Apprenticeship details</h2>
-                <dl class="app-check-your-answers app-check-your-answers--short">
+                <h1 class="govuk-heading-xl">Confirm apprenticeships</h1>
+          <!--          <h2 class="govuk-heading-m">Apprenticeship details</h2> -->
+               <!--  <dl class="app-check-your-answers app-check-your-answers--short">
                  
                     <div class="app-check-your-answers__contents">
                         <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
@@ -116,12 +116,51 @@
                         <dd class="app-check-your-answers__answer" style="font-weight:700; ">
                             £2,506
                         </dd>
-                </dl>
+                </dl> -->
+
+
+                <table class="govuk-table ">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                             
+                                    <th class="govuk-table__header" scope="col" style="width:130px">Employer</th>
+                                    <th class="govuk-table__header" scope="col" style="width:190px">Training provider</th>
+                                    <th class="govuk-table__header" scope="col" style="width:290px" >Standard</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" >Quantity</th>
+                                     <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" style="width:100px">Training end date</th>
+                                      <th class="govuk-table__header govuk-table__header--numeric" scope="col">EPA price</th>
+                                 <!--    <th class="govuk-table__header" scope="col" style="width:180px"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row" id="May18">
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">ABC training Ltd</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3</td>
+                                     <td class="govuk-table__cell govuk-table__cell--numeric pad80">4</td>
+                                      <td class="govuk-table__cell govuk-table__cell--numeric pad80">4/2020</td>
+                                         <td class="govuk-table__cell govuk-table__cell--numeric">£2,735</td>
+                                </tr>
+
+
+                    
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell" scope="row">Weyland-Yutani</td>
+                                     <td class="govuk-table__cell" scope="row">A1 training Ltd</td>
+                                    <td class="govuk-table__cell" scope="row">Software developer: Level 4</td>
+                                      <td class="govuk-table__cell govuk-table__cell--numeric pad80">22</td>
+                                       <td class="govuk-table__cell govuk-table__cell--numeric pad80">7/2020</td>
+
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
         </div>
         </fieldset>
 </div>
-<button type="submit" class="govuk-button">Add apprentice </button>
-<a class="govuk-button clear-button" href="../epaoApprovalsDetails">Cancel</a>
+<button type="submit" class="govuk-button">Add apprenticeships </button>
+<a class="govuk-button clear-button" href="../ticks">Cancel</a>
 </form>
 </div>
 </div>

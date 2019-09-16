@@ -1,130 +1,71 @@
 {% extends "layoutEPAO.html" %}
 {% block beforeContent %}
-{% include "includes/version14/epaoNav.html" %}
-{% include "includes/version14/financeNav.html" %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/requestsNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %}
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
 {% block content %}
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
-        <div class="govuk-grid-row"">
-                <div class=" govuk-grid-column-two-thirds">
+        <div class="govuk-grid-row">
+                 <div class="govuk-grid-column-full">
             <form method="get" action="finishTickReject">
                 <h1 class="govuk-heading-xl">Confirm apprenticeship rejection</h1>
-                   <h2 class="govuk-heading-m">Apprenticeship details</h2>
-                <dl class="app-check-your-answers app-check-your-answers--short">
-                 
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ;">
-                        </dd>
-                        <dd class="app-check-your-answers__change">
-                            <a href="add-apprentice" style="font-weight:400; ;">
-                            </a>
-                        </dd>
-                    </div>
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                            Organisation
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            Cyberdyne Inc
-                        </dd>
-                    </div>
-                     <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                            Apprenticeship
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            Financial Services Administrator: Level 3
-                        </dd>
-                    </div>
-                  </dl>
-          
-            <dl class="app-check-your-answers app-check-your-answers--short">
-                 <h2 class="govuk-heading-m" style="margin-top:35px">Personal details</h2>  
-                    <div class="app-check-your-answers__contents">
-                   
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                            Name
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            Alex Swordy 
-                        </dd>
-                    </div>
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                            Unique Learner Number
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            5389106499
-                        </dd>
-                    </div>
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style="font-weight:400; ">
-                            End of training
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            August 2021
-                        </dd>
-                    </div>
-  
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style="font-weight:400; ">
-                            Cost of endpoint assessment
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            £2,500
-                        </dd>
-                </dl>
-                            <dl class="app-check-your-answers app-check-your-answers--short">
-                 <h2 class="govuk-heading-m" style="margin-top:35px">Personal details</h2>  
-                    <div class="app-check-your-answers__contents">
-                   
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                            Name
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-Andrew Jenkins                          </dd>
-                    </div>
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
-                            Unique Learner Number
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            2490550125
-                        </dd>
-                    </div>
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style="font-weight:400; ">
-                            End of training
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            January 2021
-                        </dd>
-                    </div>
-  
-                    <div class="app-check-your-answers__contents">
-                        <dt class="app-check-your-answers__question" style="font-weight:400; ">
-                            Cost of endpoint assessment
-                        </dt>
-                        <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-                            £2,506
-                        </dd>
-                </dl>
+               
+
+               <table class="govuk-table ">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                  
+                                    <th class="govuk-table__header" scope="col" style="width:130px">Employer</th>
+                                    <th class="govuk-table__header" scope="col" style="width:190px">Training provider</th>
+                                    <th class="govuk-table__header" scope="col" style="width:290px" >Standard</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" >Quantity</th>
+                                     <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" style="width:100px">Training end date</th>
+                                      <th class="govuk-table__header govuk-table__header--numeric" scope="col">EPA price</th>
+                                 <!--    <th class="govuk-table__header" scope="col" style="width:180px"></th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                      
+                                    <td class="govuk-table__cell" scope="row">Tyrell Corp</td>
+                                     <td class="govuk-table__cell" scope="row">ABC training Ltd</td>
+                                    <td class="govuk-table__cell" scope="row">Mechatronics Engineer:  Level 7</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric pad80">9</td>
+                                     <td class="govuk-table__cell govuk-table__cell--numeric pad80">6/2020</td>
+                                    
+                                                 <td class="govuk-table__cell govuk-table__cell--numeric">£2,500</td>
+                             <!--       <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+                                <tr class="govuk-table__row">
+                  
+                                    <td class="govuk-table__cell" scope="row">Lex Corp</td>
+                                     <td class="govuk-table__cell" scope="row">All training</td>
+                                    <td class="govuk-table__cell" scope="row">Aeronautics Engineer: Level 6</td>
+                                     <td class="govuk-table__cell govuk-table__cell--numeric pad80">1</td>
+                                      <td class="govuk-table__cell govuk-table__cell--numeric pad80">5/2020</td>
+                                   
+                                             <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                            <!--         <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+           
+                            </tbody>
+                        </table>
         </div>
         </fieldset>
         </div>
   <div class="govuk-inset-text" style="width:66%">
-  This can't be undone by you, the employer will be notified and will have to do the thing.
+  This can't be undone by you, the employer will be notified and will have to resubmit the apprenticeship.
 </div>
-</div>
+
 <button type="submit" class="govuk-button">Reject apprentices </button>
-<a class="govuk-button clear-button" href="../../epaoApprovalsDetailsTicks">Cancel</a>
+<a class="govuk-button clear-button" href="../../ticks">Cancel</a>
 </form>
 </div>
 </div>
