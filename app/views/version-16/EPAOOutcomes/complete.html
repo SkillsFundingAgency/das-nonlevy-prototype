@@ -1,0 +1,55 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/outcomeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl" style="" id="company-Name">Assessment</h1>
+                <form action="EPAOAssessmentChoice" method="get" class="form">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading">
+                         Did you complete the assessment?
+
+                           <!--span id="email-hint" class="govuk-hint">
+             Choose the level of access this user can have.
+            </span-->
+                                </h2>
+                            </legend>
+                            <div class="govuk-radios ">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--1" name="assessment" type="radio" value="yes" checked="true">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--1">
+                                        Yes, all stages of the assessment we're completed
+                                    </label>
+                                </div>
+                                 <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--2" name="assessment" type="radio" value="partial">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--2">
+                                        No, the assessment was partially completed
+                                    </label>
+                                </div>
+                       <!--          <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="team-whats-next--3" name="assessment" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--3">
+                                        No, none of the assessment was completed
+                                    </label>
+                                </div> -->
+
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+</div>
+{% endblock %}
