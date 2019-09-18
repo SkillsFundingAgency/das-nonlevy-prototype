@@ -25,10 +25,40 @@ table.sortable thead {
 }
 */
 
+
+/* 
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
     content: " \25B4\25BE" 
 }
+*/
 
+
+/*table.sortable th:(.sorttable_sorted):(.sorttable_sorted_reverse):(.sorttable_nosort):after { 
+    content: " \25B2\25BC"; font-size: 12px 
+}*/
+
+
+table.sortable th { 
+  color:#005ea5;
+  font-size:19px;
+  font-weight:400;
+}
+
+table.sortable th:hover { 
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+table.sortable th.sorttable_sorted,
+table.sortable th.sorttable_sorted_reverse
+ { 
+    font-weight:700;
+}
+
+#sorttable_sortrevind,
+#sorttable_sortfwdind {
+  font-size: 16px;
+}
 
 //// Things for the autocomplete
 
@@ -1375,7 +1405,7 @@ ul.links {
 
 ul.links li {
     flex: none;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 0.75rem 0 1rem;
     display: inline-block;
 }
 
