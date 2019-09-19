@@ -14,7 +14,18 @@
 
 <script>
   function whereNow() {
-         window.location.href='ticks/gateway';
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='ticks/apprenticeTickConfirm';
+                break;
+        case  (status == 'false'):
+       window.location.href='ticks/reject/apprenticeTickReject';
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+            break;
+        }
     }
  </script>
 
