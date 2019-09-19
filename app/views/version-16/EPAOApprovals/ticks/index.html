@@ -14,21 +14,7 @@
 
 <script>
   function whereNow() {
-  var status = $('input[name=choosePartner]:checked').val();
-       switch (true) {
-          case  (status == 'true'):
-                 window.location.href='ticks/apprenticeTickConfirm';
-                break;
-
-        case  (status == 'false'):
-       window.location.href='ticks/reject/apprenticeTickReject';
-            break
-
-        default:
-             console.log('gyahhhhhhhh, bork bork bork')
-
-            break;
-        }
+         window.location.href='ticks/gateway';
     }
  </script>
 
@@ -231,7 +217,7 @@ $(document).ready(function() {
                             </fieldset>
                         </div>
                     </form>
-                    <button class="govuk-button" onClick="whereNow()">Continue</button>
+                    <button class="govuk-button" onClick="whereNow()">Invoice gateway payment</button>
                 </div>
 
 
