@@ -342,11 +342,11 @@ router.param('employer', function (req, res, next, employer) {
  })
 
        router.get('/*/EPAOPipelinesNav', function (req, res) {
-  res.redirect(`/${req.version}/EPAOApprovals/EPAOPipeline`)
+  res.redirect(`/${req.version}/EPAOApprovals/EPAOPipeline/ticks`)
  })
 
   router.get('/*/*/EPAOPipelinesNav', function (req, res) {
-  res.redirect(`/${req.version}/EPAOApprovals/EPAOPipeline`)
+  res.redirect(`/${req.version}/EPAOApprovals/EPAOPipeline/ticks`)
  })
 
          router.get('/*/EPAOGatewayNav', function (req, res) {
@@ -366,6 +366,14 @@ router.param('employer', function (req, res, next, employer) {
  })
 
 
+
+           router.get('/*/EPAOOrgNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOrganisations`)
+ })
+
+  router.get('/*/*/EPAOOrgNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOrganisations`)
+ })
   
 
 ////// end of nav routing
