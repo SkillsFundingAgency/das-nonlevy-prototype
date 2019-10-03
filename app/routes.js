@@ -326,11 +326,11 @@ router.param('employer', function (req, res, next, employer) {
 
 
    router.get('/*/EPAOApprovalsNav', function (req, res) {
-  res.redirect(`/${req.version}/EPAOApprovals`)
+  res.redirect(`/${req.version}/EPAOApprovals/ticks`)
  })
 
   router.get('/*/*/EPAOApprovalsNav', function (req, res) {
-  res.redirect(`/${req.version}/EPAOApprovals`)
+  res.redirect(`/${req.version}/EPAOApprovals/ticks`)
  })
 
      router.get('/*/EPAOOutcomesNav', function (req, res) {

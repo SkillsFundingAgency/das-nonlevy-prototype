@@ -23,7 +23,7 @@
                                     <th class="govuk-table__header" scope="col" style="width:290px" >Standard</th>
                                     <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" >Quantity</th>
                                      <th class="govuk-table__header govuk-table__header--numeric pad80" scope="col" style="width:100px">Training end date</th>
-                                      <th class="govuk-table__header govuk-table__header--numeric" scope="col">EPA price</th>
+                                      <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price per EPA</th>
                                  <!--    <th class="govuk-table__header" scope="col" style="width:180px"></th> -->
                                 </tr>
                             </thead>
@@ -59,7 +59,11 @@
                         </table>
         </div>
         </fieldset>
+
         </div>
+         <h2 class="govuk-heading-m" style="margin-bottom:5px">Message to employers</h2>
+         <p>{{ data["provider-message"] }} </p>
+               
   <div class="govuk-inset-text" style="width:66%">
   This can't be undone by you, the employer will be notified and will have to resubmit the apprenticeship.
 </div>
