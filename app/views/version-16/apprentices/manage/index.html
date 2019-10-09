@@ -7,6 +7,16 @@
 {% endblock %} 
 {% block content %}
 
+<script src="/public/javascripts/sorttable.js"></script>
+
+<script> 
+//shouldn't really do this but it forces the table to sort itsel by name when it first loads
+$( document ).ready(function() {
+    var myTH = document.getElementsByTagName("th")[1];
+    sorttable.innerSortFunction.apply(myTH, []);
+                                });
+</script>
+
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
