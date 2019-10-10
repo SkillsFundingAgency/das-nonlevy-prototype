@@ -38,6 +38,364 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 }*/
 
 
+// dans stuff for the finance page
+
+.data-wrap {
+  @include govuk-clearfix;
+  // margin: 0 (-$govuk-gutter-half);
+}
+
+.data {
+  width: 100%;
+
+  * {
+    color: #fff;
+  }
+
+  dl {
+    box-sizing: border-box;
+    padding: 15px; 
+    background: govuk-colour("blue");
+    color: white;
+
+    dt {
+      display: table-header-group;
+      @include govuk-font($size: 19, $weight: bold);
+      height: 1.75em;
+    }
+
+    dd,
+    dd.data__data-xl {
+      display: table-footer-group;
+      @include govuk-font($size: 48, $weight: bold);
+
+      &.data__data--l {
+        @include govuk-font($size: 36, $weight: bold);
+
+      }
+    }
+
+    &.current-balance {
+      background: govuk-colour("grey-1")
+    }
+    &.expiring-funds {
+      background: govuk-colour("brown")
+    }
+    &.overdue-completion-payments {
+      background: govuk-colour("grey-1")
+    }
+    &.data--green {
+      background: govuk-colour("green")
+    }
+    &.data--light-green {
+      background: govuk-colour("light-green")
+    }
+    &.data--purple {
+      background: govuk-colour("purple")
+    }
+    &.data--bright-purple {
+      background: govuk-colour("bright-purple")
+    }
+    &.data--light-purple {
+      background: govuk-colour("light-purple")
+    }
+    &.data--red {
+      background: govuk-colour("red")
+    }
+    &.data--orange {
+      background: govuk-colour("orange")
+    }
+    &.data--turquoise {
+      background: govuk-colour("turquoise")
+    }
+    &.data--red-border {
+      background: govuk-colour("white");
+      box-shadow: inset 0 0 0 4px govuk-colour("red");
+      * {
+        color: govuk-colour("black")
+      }
+    }
+    &.data--white {
+      background: govuk-colour("white");
+      box-shadow: inset 0 0 0 4px govuk-colour("blue");
+      * {
+        color: govuk-colour("black")
+      }
+    }
+    &.data--grey {
+      background: govuk-colour("grey-3");
+      * {
+        color: govuk-colour("black")
+      }
+    }
+  }
+
+  @include govuk-media-query($from: tablet) { 
+    float: left;
+    // width: 50%;
+    box-sizing: border-box;
+    dd.long {
+      font-size: 42px;
+      line-height: 50px;
+    }
+    dd.longer {
+      font-size: 32px;
+      line-height: 50px;
+    }
+  }
+
+  @include govuk-media-query($from: desktop) {
+    // width: 33.33%;
+    dd.long {
+      font-size: 48px;
+      line-height: 50px;
+    }
+    dd.longer {
+      font-size: 42px;
+      line-height: 50px;
+    }
+  }
+}
+
+#page-transactions .data {
+  dl {
+    position: relative;
+    min-height: 120px;
+    padding-bottom: 20px;
+  }
+
+  dt {
+    @include govuk-font($size: 19, $weight: bold, $line-height: 1);
+    height: 2.25em;
+  }
+}
+
+
+.app-funding-bar {
+  margin-bottom: $govuk-gutter;
+
+  .app-funding-bar__titles,
+  .app-funding-bar__values {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+
+    .app-funding-bar__stack {
+      height: 100%;
+      padding: 15px;
+      color: black;
+      display: grid;
+      flex-direction: column;
+      @include govuk-text-colour;
+
+      &:last-of-type {
+        flex: auto;
+
+        .app-funding-bar__title,
+        .app-funding-bar__value {
+          align-self: flex-end;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .app-funding-bar__titles {
+    .app-funding-bar__stack {
+      &:first-of-type .app-funding-bar__title {
+        margin-right: $govuk-gutter;
+      }
+
+      &:last-of-type .app-funding-bar__title {
+        margin-left: $govuk-gutter; 
+      }
+
+      .app-funding-bar__title {
+        order: 99;
+        margin-bottom: $govuk-gutter / 2;
+        @include govuk-font($size: 19, $weight: regular, $line-height: 1.15);
+      }
+    }
+  }
+
+  .app-funding-bar__values {
+    margin-bottom: $govuk-gutter / 2;
+
+    .app-funding-bar__stack {
+      .app-funding-bar__value {
+        z-index: 99;
+        order: 1;
+        flex: 1;
+        @include govuk-font($size: 24, $weight: bold, $line-height: 1.5);
+      }
+
+      // if the bar is too small to fit the number
+      // &:first-of-type .app-funding-bar__value {
+      //  background: #fff;
+      //  color: govuk-colour('blue');
+      //  padding: 0 $govuk-gutter-half;
+      // }
+      
+      &:nth-of-type(1) {
+        color: white;
+        background: govuk-colour('blue');
+      }
+
+      &:nth-of-type(2) {
+        background: govuk-colour('grey-3');
+      }
+    }
+  }
+}
+
+.app-finance-summary-box {
+  padding: $govuk-gutter / 3 * 2;
+  border: 1px solid $govuk-border-colour;
+  margin-bottom: $govuk-gutter * 2;
+}
+
+
+.app-finance-mini-box__wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: $govuk-gutter / 3 * 2;
+
+  .app-finance-mini-box__item {
+    display: flex; 
+    flex: 1 1 0 400px;
+    flex-flow: column;
+
+    .app-finance-mini-box {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-bottom: $govuk-gutter / 2;
+
+      .app-finance-mini-box__figure {
+        @include govuk-font($size: 36, $weight: bold);
+        margin-bottom: $govuk-gutter / 4;
+        display: block;
+
+        &.app-finance-mini-box__figure--small {
+          @include govuk-font($size: 19, $weight: regular);
+          text-align: left;
+
+          border: 1px solid #ccc;
+          padding: 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .app-finance-mini-box__description {
+        @include govuk-font($size: 19, $weight: regular);
+        display: block;
+      }
+
+      &.app-finance-mini-box--subtle {
+        color: #333;
+
+        .app-finance-mini-box__figure {
+          @include govuk-font($size: 24, $weight: bold);
+          margin-bottom: 0;
+        }
+
+        .app-finance-mini-box__description {
+          @include govuk-font($size: 16, $weight: regular);
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.app-finance-mini-box--v2__wrapper {
+  display: flex;
+  flex-flow: row wrap;
+
+  margin-bottom: $govuk-gutter / 2;
+
+  .app-finance-mini-box__item {
+    display: flex;
+    flex-flow: column wrap;
+    
+    .app-finance-mini-box {
+      margin-bottom: $govuk-gutter / 2;
+
+      .app-finance-mini-box__figure {
+        display: flex;
+        flex-grow: 1;
+
+        @include govuk-font($size: 36, $weight: regular);
+        border: 1px solid $govuk-border-colour;
+        border-left: none;
+        padding: 1rem 1.25rem;
+        margin-bottom: $govuk-gutter / 3;
+        text-align: right;
+        position: relative;
+
+        &.app-finance-mini-box__figure--small {
+          @include govuk-font($size: 19, $weight: regular);
+          text-align: left;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: -1px;
+          bottom: -1px;
+          left: 0;
+          width: .625rem;
+          background-color: #0b0c0c;
+        }
+
+        &.app-finance-mini-box__figure--blue:before {
+          background-color: govuk-colour("blue");
+        }
+
+        &.app-finance-mini-box__figure--light-blue:before {
+          background-color: govuk-colour("light-blue");
+        }
+
+        &.app-finance-mini-box__figure--red:before {
+          background-color: govuk-colour("red");
+        }
+      }
+
+      .app-finance-mini-box__description {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        flex-grow: 1;
+
+        @include govuk-font($size: 19, $weight: bold);
+        display: block;
+      }
+
+      &.app-finance-mini-box--subtle {
+        .app-finance-mini-box__figure {
+          background: govuk-colour('grey-4');
+          @include govuk-font($size: 24);
+
+          &:before {
+            background-color: govuk-colour("grey-2");
+          }
+
+          &.app-finance-mini-box__figure--red:before {
+            background-color: govuk-colour("red");
+          }
+        }
+
+        .app-finance-mini-box__description {
+          @include govuk-font($size: 16, $weight: bold);
+        }
+      }
+    }
+  }
+}
+
+/// end of dans stuff for finance page
+
 table.sortable th { 
   color:#005ea5;
   font-size:19px;
