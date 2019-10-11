@@ -374,6 +374,16 @@ router.param('employer', function (req, res, next, employer) {
   router.get('/*/*/EPAOOrgNav', function (req, res) {
   res.redirect(`/${req.version}/EPAOOrganisations`)
  })
+
+  
+
+             router.get('/*/epaoHomeNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/home`)
+ })
+
+  router.get('/*/*/epaoHomeNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/home`)
+ })
   
 
 ////// end of nav routing
