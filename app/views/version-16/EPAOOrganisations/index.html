@@ -6,6 +6,28 @@
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
 {% block content %}
+
+<script>
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='ticks/apprenticeTickConfirm';
+                break;
+
+        case  (status == 'false'):
+       window.location.href='ticks/reject/apprenticeTickReject';
+            break
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+          //   $(gatewayError).removeClass("rj-dont-display");
+          //  $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
 <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
@@ -85,9 +107,6 @@
                   </tbody>
                 </table>
                  <p>To make changes to organisation details you need to <a href="">grant access.</a></p>
-
-
-
             </div>
         </div>
     </div>
@@ -106,17 +125,35 @@
                 <li>request the list of options for a Standard</li>
             </ul>
             <p>To enable your API subscription you need to <a href="">request the Change organisation details permission</a></p>
-
         </div>
     </div>
 </div>
 <div class="js-tab-pane tab-pane" id="payment">
-    <h2 class="govuk-heading-l" style=" ">Record a grade API</h2>
+    <h2 class="govuk-heading-l" style=" ">Payment details</h2>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
-            <p>Things and stuff</p>
-
+            <p>We will make payments into this bank account</p>
+             <table class="govuk-table ">
+                  <thead>
+                     <tr class="govuk-table__row">
+                <!--         <h2 class="govuk-heading-m">Apprentices</h2> -->
+                      <!--    <th class="govuk-table__header" scope="col">Name</th>
+                          <th class="govuk-table__header" scope="col">Unique Learner Number</th> -->
+                     <!--  </th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Account number</td>
+                      <td class="govuk-table__cell" scope="row">07625832</td>
+                    </tr>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Sort code</td>
+                      <td class="govuk-table__cell" scope="row">90-87-67</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="govuk-button" onClick="whereNow()">Change payment details</button> 
         </div>
     </div>
 </div>
