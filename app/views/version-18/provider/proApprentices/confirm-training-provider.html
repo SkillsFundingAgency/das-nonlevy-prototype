@@ -3,9 +3,10 @@
  {% include "includes/version1/provider/providerNav.html" %}
   {% include "includes/version1/provider/manageNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({ text: "Back to your apprentices", href: "./" }) }} 
+{{ govukBackLink({ href: "javascript:history.back()" }) }} 
 {% endblock %} 
 {% block content %}
+
 
 
 <div class="govuk-width-container">
@@ -13,24 +14,27 @@
         <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Confirm training provider
+      Confirm employer
+
     </h1>
 
-    <p class="ukgov-body">
-      UK Provider Reference Number <strong>'{{ data["uk-provider-reference-number"] }} 10003375'</strong> matches:</p>
+ 
 
-    <h2 class="govuk-heading-l">
-      ABC Training Ltd
-      <span class="govuk-caption-m">UKPRN: {{ data["uk-provider-reference-number"] }} 10003375 </span>
+
+    <h2 class="govuk-heading-l" style="margin-top:0">
+      Cyberdyne Inc
+      <span class="govuk-caption-m">Account name: Cyberdyne Inc </span>
+      <span class="govuk-caption-m">Aggrement ID: 4A80X560 </span>
     </h2>
 
-    <form action="confirming-training-provider" method="get" class="form">
+    <form action="oneOrBulk" method="get" class="form">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
 
               <label class="govuk-label  bold-label" for="uk-provider-reference-number">
-                       Is this the main provider of the apprenticeship training?
+                      Is this the employer you'd like to create a cohort for?
+
                 </label>   
 
           </legend>
@@ -38,20 +42,20 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confirmation-true" name="confirmation" type="radio" value="true" checked="true">
               <label class="govuk-label govuk-radios__label" for="confirmation-true">
-                Yes, use ABC Training Ltd
+                Yes, use Cyberdyne Inc
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confirmation-false" name="confirmation" type="radio" value="false">
               <label class="govuk-label govuk-radios__label" for="confirmation-false">
-                No, change UK Provider Reference Number
+                No, choose a different employer
               </label>
             </div>
           </div>
         </fieldset>
       </div>
 
-      <button class="govuk-button">Continue</button>
+      <button class="govuk-button">Save and continue</button>
 
     </form>
   </div>

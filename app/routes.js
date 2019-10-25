@@ -389,8 +389,6 @@ router.param('employer', function (req, res, next, employer) {
 ////// end of nav routing
 
 
-
-
 /// registration > used service before?
 router.get('/*/manage-apprenticeships/signin' , function (req, res) {
   var usedService = req.query.usedService  
