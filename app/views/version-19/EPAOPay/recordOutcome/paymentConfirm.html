@@ -7,21 +7,29 @@
 {% endblock %}
 {% block content %}
 
+
+ <div style= "width:66%" id="deletedUserAlertMessage" class="success-summary"> 
+                   <h1 class="govuk-heading-l" style="margin-bottom:10px">Assessment recorded</h1>
+                   <p>You have recorded a pass for <span style="font-weight:700">Alex Swordy</span></p>
+                       <p>The certificate number is <span style="font-weight:700">0000456</span></p>
+               </div>
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
+
+       
         <div class="govuk-grid-row"">
                 <div class="govuk-grid-column-two-thirds">
 
 
         <form method="get" action="completeFinish">
-            <h1 class="govuk-heading-xl">Check and submit the assessment details</h1>
-            <div class="govuk-inset-text">
+            <h1 class="govuk-heading-xl">Confirm payment details</h1>
+<!--             <div class="govuk-inset-text">
   <p><span style="font-weight:700; font-size:24px; ">Please check before submitting</span></p>
   <p>The apprentice and apprenticeship details will be printed on the certificate.</p>
   <p>If the name, standard or level is incorrect, you need to agree on the correct details along with the training provider and the employer. The training provider needs to then update the Indivualised Learner Record (ILR).
-</div>
+</div> -->
 
-<h2 class="govuk-heading-m" style="margin-top:35px">Apprentice details</h2>
+<h2 class="govuk-heading-m" style="">Apprentice details</h2>
                   <dl class="app-check-your-answers app-check-your-answers--short">
 <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
@@ -53,7 +61,7 @@
 </div>
 </dl>
 
-<h2 class="govuk-heading-m" style="margin-top:35px">Apprenticeship details</h2>
+<h2 class="govuk-heading-m" style="margin-top:35px">Payment details</h2>
                   <dl class="app-check-your-answers app-check-your-answers--short">
 <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
@@ -68,24 +76,33 @@
 </div>
 <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
-       Standard
+       Agree total price
     </dt>
     <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-        Financial Services Administrator
+        £900
     </dd>
       <dd class="app-check-your-answers__change">
           </dd>
 </div>
 <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
-        Level </dt>
+        Payments already made </dt>
     <dd class="app-check-your-answers__answer" style="font-weight:700; ">
-        3
+        £300
     </dd>
         <dd class="app-check-your-answers__change">
           </dd>
 </div>
 <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+        Remaining payment to be made  </dt>
+    <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+        £600
+    </dd>
+        <dd class="app-check-your-answers__change">
+          </dd>
+</div>
+<!-- <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
         Grade </dt>
     <dd class="app-check-your-answers__answer" style="font-weight:700; ">
@@ -120,9 +137,9 @@
               Change
             </a>
           </dd>
-</div>
+</div> -->
 </dl>
-
+<!-- 
 <h2 class="govuk-heading-m" style="margin-top:35px">We'll send the certificate to:</h2>
                   <dl class="app-check-your-answers app-check-your-answers--short">
 <div class="app-check-your-answers__contents">
@@ -187,7 +204,7 @@
             </a>
           </dd>
 </div>
-
+ -->
 
 
 

@@ -366,6 +366,14 @@ router.param('employer', function (req, res, next, employer) {
  })
 
 
+           router.get('/*/EPAOPayNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOPay`)
+ })
+
+  router.get('/*/*/EPAOPaysNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOPay`)
+ })
+
 
            router.get('/*/EPAOOrgNav', function (req, res) {
   res.redirect(`/${req.version}/EPAOOrganisations`)
@@ -3140,6 +3148,60 @@ router.get('/*/EPAOOutcomes/EPAOAssessmentChoice' , function (req, res) {
             break;
         }
 })
+
+/// EPAO > EPAO record an outcome > assessment completed
+// http://127.0.0.1:3000/version-14/EPAOOutcomes/complete?
+router.get('/*/EPAOPay/EPAOAssessmentChoice' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/EPAOPay/chooseCert`)
+           break;
+
+           case  (confirmTraining == 'partial'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOPay/partial`)
+           break;
+
+          case  (confirmTraining == 'gateway'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOPay/gatewayChoose`)
+           break;
+           
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+
+/// EPAO > EPAO pay me > have you recorded an outcome
+// http://127.0.0.1:3000/version-19/EPAOPay/chooseCert
+router.get('/*/EPAOPay/EPAOCertOrNot' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/EPAOPay/recordOutcome/recorded`)
+           break;
+
+           case  (confirmTraining == 'no'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOPay/recordOutcome`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {

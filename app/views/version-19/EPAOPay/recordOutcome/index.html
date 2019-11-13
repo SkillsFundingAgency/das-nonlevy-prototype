@@ -1,7 +1,7 @@
 {% extends "layoutEPAO.html" %}
 {% block beforeContent %}
 {% include "includes/version19/epaoNav.html" %}
-{% include "includes/version19/financeNav.html" %}
+{% include "includes/version19/payNav.html" %}
 {% from "back-link/macro.njk" import govukBackLink %}
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
@@ -41,7 +41,7 @@ $( document ).ready(function() {
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
                 <h1 class="govuk-heading-xl">
-                    Pipeline
+                    Choose apprentice
                 </h1>
 
                 <table class="govuk-table sortable ">
@@ -66,7 +66,7 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
-                                    <td class="govuk-table__cell" scope="row"> <a href="EPAOPipeline/gateway">Claim gateway payment</a></td>
+                                    <td class="govuk-table__cell" scope="row"> <a href="recordOutcome/declaration">Choose</a></td>
                                     <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--     <td class="govuk-table__cell" scope="row">
                                   <a href="#">Approve</a> or  <a href="#">Reject</a>
@@ -80,7 +80,7 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">01/2021</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
-                                    <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td>
+                                    <td class="govuk-table__cell" scope="row"> <a href="#">Choose</a></td>
                                     <!--                      <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--     <td class="govuk-table__cell" scope="row">
                                 <a href="#">Approve</a> or  <a href="#">Reject</a>
@@ -96,7 +96,7 @@ $( document ).ready(function() {
                                     <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
                                     <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
-                                    <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td>
+                                    <td class="govuk-table__cell" scope="row"> <a href="#">Choose</a></td>
                                 </tr>
          
                                 <tr class="govuk-table__row">
@@ -107,7 +107,7 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
-                                    <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td>
+                                    <td class="govuk-table__cell" scope="row"> <a href="#">Choose</a></td>
                                     <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--      <td class="govuk-table__cell" scope="row">
                                 <a href="#">Approve</a> or  <a href="#">Reject</a>
