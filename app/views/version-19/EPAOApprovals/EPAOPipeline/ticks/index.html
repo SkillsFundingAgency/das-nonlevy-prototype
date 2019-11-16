@@ -17,7 +17,7 @@
 <script> 
 //shouldn't really do this but it forces the table to sort itsel by name when it first loads
 $( document ).ready(function() {
-    var myTH = document.getElementsByTagName("th")[1];
+    var myTH = document.getElementsByTagName("th")[0];
     sorttable.innerSortFunction.apply(myTH, []);
                                 });
 </script>
@@ -53,25 +53,27 @@ $( document ).ready(function() {
                 <table class="govuk-table sortable ">
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                     <th class="govuk-table__header sorttable_nosort" style="" scope="col"></th>
+                                    <!--  <th class="govuk-table__header sorttable_nosort" style="" scope="col"></th> -->
                                     <th class="govuk-table__header" scope="col">Name</th>
                                     <th class="govuk-table__header" scope="col">ULN</th>
                                     <th class="govuk-table__header" scope="col" style="width:100px">Company</th>
                                     <th class="govuk-table__header" scope="col" style="width:200px">Standard</th>
                                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Training end date</th>
                                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th>
+                                     <th class="govuk-table__header" scope="col" style="">Status</th>
+                                      <th class="govuk-table__header" scope="col" style="">Alerts</th>
                                     <!--          <th class="govuk-table__header " scope="col">Status</th> -->
                                    
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                                        <tr class="govuk-table__row">
-                                                                     <td class="govuk-table__cell" scope="row">
+                       <!--                                               <td class="govuk-table__cell" scope="row">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
                                         <label class="govuk-label govuk-checkboxes__label" for="review"></label>
                                     </div>
-                                </td>
+                                </td> -->
                                     <td class="govuk-table__cell" scope="row">Alex Swordy</td>
                                     <td class="govuk-table__cell" scope="row">5389106499</td>
                                     <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
@@ -79,6 +81,8 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                      <td class="govuk-table__cell" scope="row">Gateway</td>
+                                        <td class="govuk-table__cell" scope="row"><a href="ticks/changes">Changes requested</A></td>
                              <!--        <td class="govuk-table__cell" scope="row"> <a href="EPAOPipeline/gateway">Claim gateway payment</a></td> -->
                                     <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--     <td class="govuk-table__cell" scope="row">
@@ -86,12 +90,12 @@ $( document ).ready(function() {
                             </td> -->
                                 </tr>
                                                       <tr class="govuk-table__row">
-                                                                     <td class="govuk-table__cell" scope="row">
+                      <!--                                                <td class="govuk-table__cell" scope="row">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
                                         <label class="govuk-label govuk-checkboxes__label" for="review"></label>
                                     </div>
-                                </td>
+                                </td> -->
                                     <td class="govuk-table__cell" scope="row">Andrew Jenkins</td>
                                     <td class="govuk-table__cell" scope="row">2490550125</td>
                                     <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
@@ -99,6 +103,8 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">01/2021</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                         <td class="govuk-table__cell" scope="row">Training</td>
+                                        <td class="govuk-table__cell" scope="row"></td>
                              <!--        <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td> -->
                                     <!--                      <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--     <td class="govuk-table__cell" scope="row">
@@ -107,12 +113,12 @@ $( document ).ready(function() {
                                 </tr>
 
                                 <tr class="govuk-table__row" id="May18">
-                                                 <td class="govuk-table__cell" scope="row">
+                         <!--                         <td class="govuk-table__cell" scope="row">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
                                         <label class="govuk-label govuk-checkboxes__label" for="review"></label>
                                     </div>
-                                </td>
+                                </td> -->
                                     <td class="govuk-table__cell" scope="row">David Piggins</td>
                                     <td class="govuk-table__cell" scope="row">1829856585</td>
                                     <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
@@ -120,17 +126,19 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                      <td class="govuk-table__cell" scope="row">Training</td>
+                                        <td class="govuk-table__cell" scope="row"></td>
                                     <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
                                 <!--     <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td> -->
                                 </tr>
          
                                 <tr class="govuk-table__row">
-                                                 <td class="govuk-table__cell" scope="row">
+                       <!--                           <td class="govuk-table__cell" scope="row">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
                                         <label class="govuk-label govuk-checkboxes__label" for="review"></label>
                                     </div>
-                                </td>
+                                </td> -->
                                     <td class="govuk-table__cell" scope="row">Vanessa Lu</td>
                                     <td class="govuk-table__cell" scope="row">7134322227</td>
                                     <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
@@ -138,6 +146,8 @@ $( document ).ready(function() {
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                      <td class="govuk-table__cell" scope="row">Training</td>
+                                        <td class="govuk-table__cell" scope="row"></td>
                                 <!--     <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td> -->
                                     <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
                                     <!--      <td class="govuk-table__cell" scope="row">
@@ -148,7 +158,7 @@ $( document ).ready(function() {
                             </tbody>
                         </table>
 
-                             <button class="govuk-button" onClick="whereNow()">Invoice gateway payment</button>
+                           <!--   <button class="govuk-button" onClick="whereNow()">Invoice gateway payment</button> -->
 
 
                 </div>

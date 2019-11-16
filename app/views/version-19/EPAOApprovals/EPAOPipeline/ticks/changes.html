@@ -1,0 +1,59 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/financeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+   <h1 class="govuk-heading-xl">Check changes</h1>
+        <p class="govuk-body">
+          Do the thing     
+        </p>
+
+<!-- <form action="addApprenticeAddSingleApprenticeFinished" method="get" class="form">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <label class="govuk-label  govuk-label--m" for="uk-provider-reference-number">
+                    What's next?
+              </label>   
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="addAnother" checked="true">
+              <label class="govuk-label govuk-radios__label" for="confirmation-true">
+                Add another apprentice
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="apprenticeships">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+                Manage your apprentices
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="homepage">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+                Return to homepage
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form> -->
+
+</div>
+</main>
+</div>
+
+{% endblock %}
