@@ -8,52 +8,112 @@
 {% block content %}
 
 
+
+<script>
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='finishChanges';
+                break;
+
+        case  (status == 'false'):
+       window.location.href='finishChangesReject';
+            break
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+          //   $(gatewayError).removeClass("rj-dont-display");
+          //  $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
+
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">
+                    Check changes 
+                   <!--  <span class="govuk-caption-xl">Mechatronics Engineer: Level 7</span> -->
+                </h1>
+<!--                 <div class="govuk-panel govuk-panel--confirmation" style="background:#912b88; padding:0; height:105px; width:50%">
+                    <h2 class="govuk-panel__title" style="text-align:left; margin:10px 0 0px 10px">£170,000</h2>
+                    <div class="">
+                        <p style="text-align:left; color:#fff;margin:5px 0 10px 15px; font-weight:700; font-size:19px; "> Current Funds</p>
+                    </div>
+                </div> -->
 
 
-  <div class="govuk-grid-column-two-thirds">
-   <h1 class="govuk-heading-xl">Check changes</h1>
-        <p class="govuk-body">
-          Do the thing     
-        </p>
 
-<!-- <form action="addApprenticeAddSingleApprenticeFinished" method="get" class="form">
-      <div class="govuk-form-group">
+
+                <table class="govuk-table ">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+             
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header govuk-table__header--numeric" scope="col">Previous </th> 
+
+                            <th class="govuk-table__header govuk-table__header--numeric" scope="col">Changed to</th> 
+                   <!--          <th class="govuk-table__header " scope="col">Status</th> -->
+                         
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row" id="May18">
+            
+                            <td class="govuk-table__cell" scope="row">Price</td>
+                             <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£835</td>
+              <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                 <!--            <td class="govuk-table__cell" scope="row">
+                                <a href="epaoApprovalsDetails">Approve</a> or  <a href="epaoApprovalsDetails">Reject</a>
+                            </td> -->
+                        </tr>
+
+    
+                    </tbody>
+                </table>
+
+                <form action="changePermissionsRecruit" method="get" class="form">
+    <div id="addTheError" class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <label class="govuk-label  govuk-label--m" for="uk-provider-reference-number">
-                    What's next?
-              </label>   
-          </legend>
-          <div class="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="addAnother" checked="true">
-              <label class="govuk-label govuk-radios__label" for="confirmation-true">
-                Add another apprentice
-              </label>
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+                   Are you happy to approve these changes?
+                </h2>
+            </legend>
+            <span id="gatewayError" class="govuk-error-message rj-dont-display">
+             Are you happy to approve these changes?
+            </span>
+            <div class="govuk-radios ">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-1" name="choosePartner" type="radio" value="true">
+                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                        Yes, approve these changes
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-2" name="choosePartner" type="radio" value="false">
+                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                        No, reject these changes
+                    </label>
+                    <!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+                </div>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="apprenticeships">
-              <label class="govuk-label govuk-radios__label" for="confirmation-false">
-                Manage your apprentices
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="homepage">
-              <label class="govuk-label govuk-radios__label" for="confirmation-false">
-                Return to homepage
-              </label>
-            </div>
-          </div>
         </fieldset>
-      </div>
-      <button class="govuk-button">Continue</button>
-    </form> -->
+    </div>
+</form>
+<button class="govuk-button" onClick="whereNow()">Continue</button> <!-- <a  class="govuk-button clear-button" -->
 
-</div>
-</main>
-</div>
 
+            </div>
+        </div>
+    </main>
+</div>
 {% endblock %}
