@@ -1,0 +1,221 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/orgNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+
+<script>
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='ticks/apprenticeTickConfirm';
+                break;
+
+        case  (status == 'false'):
+       window.location.href='ticks/reject/apprenticeTickReject';
+            break
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+               window.location.href='EPAOOrganisations/changeBank';
+          //   $(gatewayError).removeClass("rj-dont-display");
+          //  $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h1 class="govuk-heading-xl" style="margin-bottom:5px">Organisation details</h1>
+     <!--            <p style="margin:5px 0 5px 0; width:66%">There are <span style="font-weight:700">4</span> training providers and <span style="font-weight:700">2</span> end-point assessment organisations for the <span style="font-weight:700">Financial Services Administrator, level 3</span> apprenticeship</span>.</p>
+                <p style="margin:15px 0 5px 0">Training provider results are ordered by distance from<span style="font-weight:700"> 'N4 3BJ'</span></p> -->
+
+            </div>
+        </div>
+
+<div class="js-tabs nav-tabs" style="margin-top:35px">
+    <ul class="tabs-nav" id="tabs-nav" role="tablist">
+        <li class="active">
+            <a href="#PAYE" role="tab" id="tab-PAYE">Register details</a>
+        </li>
+        <li class="">
+            <a href="#transactions" role="tab" id="tab-transactions">API subscription</a>
+        </li>
+          <li class="">
+            <a href="#payment" role="tab" id="tab-payment" class="" >Payment details</a>
+        </li>
+    </ul>
+</div>
+
+<div class="js-tab-content tab-content">
+    <div class="js-tab-pane tab-pane" id="PAYE">
+        <h2 class="govuk-heading-l" style="">Register details</h2>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                        <span class="govuk-warning-text__assistive">Warning</span>
+                        We need to know your contact name for the register
+                    </strong>
+                </div>
+                <p>This is the information that employers and training providers will use to contact you.</p>
+
+                  <table class="govuk-table ">
+                  <thead>
+                     <tr class="govuk-table__row">
+                <!--         <h2 class="govuk-heading-m">Apprentices</h2> -->
+                      <!--    <th class="govuk-table__header" scope="col">Name</th>
+                          <th class="govuk-table__header" scope="col">Unique Learner Number</th> -->
+                     <!--  </th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Contact name</td>
+                      <td class="govuk-table__cell" scope="row">David Piggins</td>
+                    
+                    </tr>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Phone number</td>
+                      <td class="govuk-table__cell" scope="row">123456789</td>
+                   
+                    </tr>
+                   
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Address</td>
+                      <td class="govuk-table__cell" scope="row">23 Bracey St </br />Finsbury Pk <br />N4 3BJ</td>
+                   
+                    </tr>
+                  
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Email</td>
+                      <td class="govuk-table__cell" scope="row">87HGS3FGH</td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Website</td>
+                      <td class="govuk-table__cell" scope="row">www.btsssa.org</td>
+                    </tr>
+                  </tbody>
+                </table>
+                 <p>To make changes to organisation details you need to <a href="">grant access.</a></p>
+            </div>
+        </div>
+    </div>
+
+<div class="js-tab-pane tab-pane" id="transactions">
+    <h2 class="govuk-heading-l" style=" ">Record a grade API</h2>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-body">Use the Record a grade API to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>record a grade and request a single certificate</li>
+                <li>record a grade and request a batch of certificates</li>
+                <li>check if a certificate exists</li>
+                <li>delete a certificate before it is submitted</li>
+                <li>request a list of valid certificate grades</li>
+                <li>request the list of options for a Standard</li>
+            </ul>
+            <p>To enable your API subscription you need to <a href="">request the Change organisation details permission</a></p>
+        </div>
+    </div>
+</div>
+<div class="js-tab-pane tab-pane " id="payment">
+    <h2 class="govuk-heading-l" style=" ">Payment details</h2>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <p>We will make payments into this bank account</p>
+             <table class="govuk-table ">
+                  <thead>
+                     <tr class="govuk-table__row">
+                <!--         <h2 class="govuk-heading-m">Apprentices</h2> -->
+                      <!--    <th class="govuk-table__header" scope="col">Name</th>
+                          <th class="govuk-table__header" scope="col">Unique Learner Number</th> -->
+                     <!--  </th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Account number</td>
+                      <td class="govuk-table__cell" scope="row">07625832</td>
+                    </tr>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__header" scope="row">Sort code</td>
+                      <td class="govuk-table__cell" scope="row">90-87-67</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="govuk-button" onClick="whereNow()">Change payment details</button> 
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+<script>
+//jquery that runs the tabs. Uses the jquery.tabs.js from gov.uk
+$(document).ready(function() {
+    // change the tabs themselves to active - should be in the above but isn't working because it's looking for a not li so I added this as a quick fix.
+    $("ul#tabs-nav li").click(function(e) {
+        if (!$(this).hasClass("active")) {
+            var tabNum = $(this).index();
+            var nthChild = tabNum + 1;
+            $("ul#tabs-nav li.active").removeClass("active");
+            $(this).addClass("active");
+            $("ul#tabs-nav li.active").removeClass("active");
+            $("ul#tabs-nav li:nth-child(" + nthChild + ")").addClass("active");
+        }
+    });
+});
+
+$('ul.tabs-nav').each(function() {
+    // For each set of tabs, we want to keep track of
+    // which tab is active and its associated content
+    var $active, $content, $links = $(this).find('a');
+    // If the location.hash matches one of the links, use that as the active tab.
+    // If no match is found, use the first link as the initial active tab.
+    $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
+    // $active.addClass('active');
+    console.log($active)
+
+    $content = $($active[0].hash);
+
+    // Hide the remaining content
+    $links.not($active).each(function() {
+        $(this.hash).hide();
+    });
+
+    // Bind the click event handler
+    $(this).on('click', 'a', function(e) {
+        // Make the old tab inactive.
+        //  $active.removeClass('active');
+        $content.hide();
+
+        // Update the variables with the new link and content
+        //  $active = $(this);
+        $content = $(this.hash);
+
+        // Make the tab active.
+        // $active.addClass('active');
+        $content.show();
+
+        // Prevent the anchor's default click action
+        e.preventDefault();
+    });
+});
+</script> 
+
+{% endblock %}

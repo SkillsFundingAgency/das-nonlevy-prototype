@@ -1,0 +1,36 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/requestsNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+           Message for the employer
+        </h1>
+
+        <p class="">Let <strong>Cyberdyne Inc</strong> know why you are rejecting the apprentices.</hp>
+        
+        <form action="apprenticeRejectInline" method="get" class="form">            
+            <div class="govuk-form-group">
+                <label class=" govuk-label--s" for="provider-message">
+                    Message (optional)
+                </label>                
+                <textarea class="govuk-textarea" id="provider-message" name="provider-message" rows="5" value="{{ data["provider-message"] }}"></textarea>
+            </div>
+            <button class="govuk-button">Continue</button>
+    
+          </form>          
+    </div>
+</div>
+</main>
+</div>
+
+
+{% endblock %}

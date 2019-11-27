@@ -1,0 +1,135 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version1/provider/providerNav.html" %}
+  {% include "includes/version1/provider/manageNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %} 
+{% block content %}
+
+{% set trainingCost = data['price'] | int %}
+{% set epaoCost = data['agreedEPAOPrice']| int %}
+{% set totalCost = [trainingCost, epaoCost] %}
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <h1 class="govuk-heading-xl">Approve 1 apprentice details</h1>
+            <!--             <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                    <div class="block-panel block-panel-blue" style="max-height:190px">
+                        <h2 class="govuk-heading-xl govuk-!-font-size-80 govuk-!-font-weight-bold">1</h2>
+                        <p class="govuk-heading-m goWhite">Apprentices</p>
+                    </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <div class="block-panel block-panel-purple" style="max-height:190px">
+                        <h2 class="govuk-heading-xl govuk-!-font-size-80 govuk-!-font-weight-bold">0</h2>
+                        <p class="govuk-heading-m goWhite">Incomplete records</p>
+                    </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <div class="block-panel block-panel-pink" style="max-height:190px; height:150px">
+                        <h2 class="govuk-heading-xl govuk-!-font-size-48 govuk-!-font-weight-bold">£9,000</h2>
+                        <p class="govuk-heading-m goWhite" style="margin-top:50px">Total cost</p>
+                    </div>
+                </div>
+            </div> -->
+            <div class="">
+                <div class="">
+                    <div class=" " style="">
+                        <p style="margin-bottom:10px; font-weight:700">Organisation:<span style="font-weight:400"> Cyberdyne Inc</span></p>
+                    </div>
+                    <div class="">
+                        <p style="margin-bottom:10px; font-weight:700">Reference: <span style="font-weight:400">XFGBNH</span></p>
+                    </div>
+    <!--                 <div class="">
+                        <p style="margin-bottom:10px; font-weight:700">Message:</p>
+                        <div class="govuk-inset-text" style="margin-top:0">
+                            No message
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div>
+
+           <div class="govuk-grid-row">
+     <div class="govuk-grid-column-two-thirds">
+                <!--     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <a class="govuk-button" style="margin-bottom:0" <a href="Finished">Save and continue</a>
+                <a class="govuk-button button-grey-secondary" style="margin-bottom:0; margin-left:15px" <a href="../cohorts/add-apprentice">Add an apprentice</a>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"> -->
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <h2 class="govuk-heading-m" style="margin-bottom:0">1 x  {{ data['course-name'] }}</h2>
+                <p>Training code: 34</p>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col">Name</th>
+                            <!--     <th class="govuk-table__header" scope="col">Unique learner number</th> -->
+                            <th class="govuk-table__header" scope="col">Date of birth</th>
+                            <th class="govuk-table__header" scope="col" style="">Training dates</th>
+                            <th class="govuk-table__header govuk-table__cell--numeric" scope="col" style="font-weight:700">Total price</th>
+                            <th class="govuk-table__header govuk-table__cell--numeric" scope="col" style="width:100px"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">{{ data['FirstFirstName'] }} {{ data['FirstLastName'] }}</td>
+                            <!--      <td class="govuk-table__cell"> 9021090210</td> -->
+                            <td class="govuk-table__cell"> 1 Jan 2000</td>
+                            <td class="govuk-table__cell"> January 2020 to January 2021</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric"> £{{ totalCost | sum }}</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <a href="../courseComplete">Edit <br /><br />Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+              <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="font-weight:700; padding:25px 0 0 0; font-size:22px;border-bottom: none;" >Total apprenticeship training price<br/>(excluding VAT)</td>
+                             <td class="govuk-table__cell govuk-table__cell--numeric" style="border-bottom: none;"> </td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric" style="font-weight:700;font-size:22px;border-bottom: none;"> £{{ totalCost | sum }}</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric" style="width:100px;border-bottom: none;"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div><p style="display:inline-block; float:left"><a href="../courseComplete">Add another apprentice</a></p><p style="display:inline-block; float:right"><a href="">Delete this group</a></p></div>
+                <div style="clear:both"></div>
+                  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="margin:55px 0 45px 0">
+                </div>
+            </div>
+
+
+
+        <form action="message" method="POST" class="form">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                <label class="govuk-label  bold-label" for="firstName">Approve these details</label>
+                            </legend>
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="organisation-nice-employer" name="organisation" type="radio" value="Nice Employer" {{ checked( "organisation", "Nice Employer") }}>
+                                    <label class="govuk-label govuk-radios__label" for="organisation-nice-employer">
+                                        Yes, approve and notify employer
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="organisation-good-employer" name="organisation" type="radio" value="Assurance Aerospace Engineering (Wings) Ltd" {{ checked( "organisation", "Assurance Aerospace Engineering (Wings) Ltd") }}>
+                                    <label class="govuk-label govuk-radios__label" for="organisation-good-employer">
+                                      No, request changes from employer
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                     <button class="govuk-button">Save and submit</button>
+                </form>
+            </div>
+        </div>
+    </main>    </div>
+{% endblock %}
