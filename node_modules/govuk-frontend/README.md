@@ -37,7 +37,7 @@ imports) if you want to override GOV.UK Frontend with your own styles.
 To import add the below to your Sass file:
 
   ```scss
-  @import "node_modules/govuk-frontend/all";
+  @import "node_modules/govuk-frontend/govuk/all";
   ```
 
 [More details on importing styles](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md#importing-styles)
@@ -48,7 +48,7 @@ Some of the JavaScript included in GOV.UK Frontend improves the usability and
 accessibility of the components. You should make sure that you are importing and
 initialising Javascript in your application to ensure that all users can use it successfully.
 
-You can include Javascript for all components either by copying the `all.js` from `node_modules/govuk-frontend` into your application or referencing the file directly:
+You can include Javascript for all components either by copying the `all.js` from `node_modules/govuk-frontend/govuk/` into your application or referencing the file directly:
 
 ```html
 <script src="<path-to-govuk-frontend-all-file>/all.js"></script>
@@ -71,17 +71,12 @@ In order to import GOV.UK Frontend images and fonts to your project, you should 
 
 ## Getting updates
 
-To check whether you have the latest version of GOV.UK Frontend, run:
+To be notified when there’s a new release, you can either:
 
-```
-npm outdated govuk-frontend
-```
+- [watch the govuk-frontend Github repository](https://help.github.com/en/articles/watching-and-unwatching-repositories)
+- join the [#govuk-design-system channel on cross-government Slack](https://ukgovernmentdigital.slack.com/app_redirect?channel=govuk-design-system)
 
-To update to the latest version, run:
-
-```
-npm update govuk-frontend
-```
+Find out how to [update with npm](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/updating-with-npm.md).
 
 ## Licence
 

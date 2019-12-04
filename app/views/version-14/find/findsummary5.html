@@ -1,5 +1,5 @@
  {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
-  {% include "includes/version1/homeNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+  {% include "includes/version1/homeNav.html" %} {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
 <script>
 function whereNow() {
         localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));

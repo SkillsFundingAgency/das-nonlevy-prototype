@@ -4,17 +4,9 @@
 
 If you have made any changes outside the `app` folder, this process will destroy those changes. We will try and improve the update process to avoid this, but in the meantime you will need to make a note of your changes outside `app`, and add them back after updating.
 
-## Version 7
-
-Version 7 of the GOV.UK Prototype Kit is a large change from previous versions. Updating an old prototype will mean re-writing most of the code.
-
-We are working on ways to make updating easier, so if you have a large prototype it may be worth waiting for that.
-
-There is a [guide to updating your code](https://design-system.service.gov.uk/get-started/updating-your-code/) on the GOV.UK Design System.
-
 ## Steps
 
-Download the latest Prototype Kit.
+[Download the latest Prototype Kit](/docs/download) and unzip it.
 
 In your project, delete everything apart from the `app` and `.git` folder.
 
@@ -25,6 +17,8 @@ Copy the config.js file from the `app` folder in the latest kit to the `app` fol
 Check `\app\assets\sass\patterns` in the latest kit for any new patterns. Copy the files over to your prototype.
 
 Check `\app\assets\sass\application.scss` in the latest kit to see if any changes have been made in the top section, above where it says `// Add extra styles here`. Copy anything new from that file to the version in your prototype, making sure you don't overwrite any extra styles you have added yourself.
+
+Check the [release notes for the latest release](https://github.com/alphagov/govuk-prototype-kit/releases/latest), for any additional changes you need to make to your prototype.
 
 ---
 
@@ -41,7 +35,7 @@ Updating via the command line involves fetching the latest code from the 'upstre
 Firstly change to the base directory of your prototyping kit in terminal, for example:
 
 ```
-cd ~/sites/govuk_prototype_kit
+cd ~/sites/govuk-prototype-kit
 ```
 
 Once in the directory start by listing the git remote(s) you have referenced from your machine. To do this you type:
@@ -51,8 +45,8 @@ Once in the directory start by listing the git remote(s) you have referenced fro
 This will typically output a list of all the remote git repositories that have the prototype code, for example:
 
 ```
-origin  https://github.com/paulmsmith/govuk_prototype_kit.git (fetch)
-origin  https://github.com/paulmsmith/govuk_prototype_kit.git (push)
+origin  https://github.com/paulmsmith/govuk-prototype-kit.git (fetch)
+origin  https://github.com/paulmsmith/govuk-prototype-kit.git (push)
 ```
 
 So long as you can see a list of repositories as above, we can move on to adding a reference to the original 'alphagov' repository which we will need in order to update.
@@ -62,7 +56,7 @@ So long as you can see a list of repositories as above, we can move on to adding
 To add the alphagov remote repository, type the following command and hit enter:
 
 ```
-git remote add upstream https://github.com/alphagov/govuk_prototype_kit.git
+git remote add upstream https://github.com/alphagov/govuk-prototype-kit.git
 ```
 
 All being well, you will just return to a command prompt, now if you type:
@@ -71,10 +65,10 @@ All being well, you will just return to a command prompt, now if you type:
 You should see an 'upstream' in your list, for example:
 
 ```
-origin	https://github.com/paulmsmith/govuk_prototype_kit.git (fetch)
-origin	https://github.com/paulmsmith/govuk_prototype_kit.git (push)
-upstream	https://github.com/alphagov/govuk_prototype_kit.git (fetch)
-upstream	https://github.com/alphagov/govuk_prototype_kit.git (push)
+origin	https://github.com/paulmsmith/govuk-prototype-kit.git (fetch)
+origin	https://github.com/paulmsmith/govuk-prototype-kit.git (push)
+upstream	https://github.com/alphagov/govuk-prototype-kit.git (fetch)
+upstream	https://github.com/alphagov/govuk-prototype-kit.git (push)
 ```
 
 #### Merging from upstream
@@ -90,7 +84,7 @@ git fetch upstream latest-release
 You will see it output a few lines telling you that was successful, for example:
 
 ```
-From https://github.com/alphagov/govuk_prototype_kit
+From https://github.com/alphagov/govuk-prototype-kit
  * branch            latest-release    -> FETCH_HEAD
 ```
 
@@ -130,4 +124,6 @@ In terminal:
 npm start
 ```
 
-If you still have an error, you can [raise an issue within github](https://github.com/alphagov/govuk_prototype_kit/issues) or ask in the [Slack channel for users of the Prototype Kit](https://ukgovernmentdigital.slack.com/messages/prototype-kit/) by providing as much information as you can about the error and the computer you are attempting to run the prototyping kit on.
+Check the [release notes for the latest release](https://github.com/alphagov/govuk-prototype-kit/releases/latest), for any additional changes you need to make to your prototype.
+
+If you still have an error, you can [raise an issue within github](https://github.com/alphagov/govuk-prototype-kit/issues) or ask in the [Slack channel for users of the Prototype Kit](https://ukgovernmentdigital.slack.com/messages/prototype-kit/) by providing as much information as you can about the error and the computer you are attempting to run the prototyping kit on.

@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block beforeContent %}
  {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
- {% from "back-link/macro.njk" import govukBackLink %} 
+ {% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
  {{ govukBackLink({ text: "Back to cohort", href: "draft-cohort" }) }}
   {% endblock %} 
   {% block content %}

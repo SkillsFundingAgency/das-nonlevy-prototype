@@ -1,20 +1,22 @@
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 
-// Import GOV.UK Frontend
-@import "node_modules/govuk-frontend/all";
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
 
 // Patterns that aren't in Frontend
-@import "patterns/check-your-answers";
+@import "patterns/step-by-step-navigation";
 @import "patterns/task-list";
 @import "patterns/related-items";
+@import "patterns/check-your-answers";
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-
-/// Stuff to alter the sortable tables
 
 /* Sortable tables 
 table.sortable thead {
@@ -36,6 +38,13 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 /*table.sortable th:(.sorttable_sorted):(.sorttable_sorted_reverse):(.sorttable_nosort):after { 
     content: " \25B2\25BC"; font-size: 12px 
 }*/
+
+
+.disability-confident-logo {
+    width: 150px;
+    margin: 10px 0 0 0;
+  }
+
 
 
 // dans stuff for the finance page
@@ -76,13 +85,13 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     }
 
     &.current-balance {
-      background: govuk-colour("grey-1")
+      background: govuk-colour("mid-grey")
     }
     &.expiring-funds {
       background: govuk-colour("brown")
     }
     &.overdue-completion-payments {
-      background: govuk-colour("grey-1")
+      background: govuk-colour("mid-grey")
     }
     &.data--green {
       background: govuk-colour("green")
@@ -123,7 +132,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
       }
     }
     &.data--grey {
-      background: govuk-colour("grey-3");
+      background: govuk-colour("dark-grey");
       * {
         color: govuk-colour("black")
       }
@@ -242,7 +251,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
       }
 
       &:nth-of-type(2) {
-        background: govuk-colour('grey-3');
+        background: govuk-colour('dark-grey');
       }
     }
   }
@@ -374,11 +383,11 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 
       &.app-finance-mini-box--subtle {
         .app-finance-mini-box__figure {
-          background: govuk-colour('grey-4');
+          background: govuk-colour('dark-grey');
           @include govuk-font($size: 24);
 
           &:before {
-            background-color: govuk-colour("grey-2");
+            background-color: govuk-colour("light-grey");
           }
 
           &.app-finance-mini-box__figure--red:before {
@@ -571,7 +580,7 @@ table.sortable th.sorttable_sorted_reverse
 }
 
 .autocomplete__option--odd {
-  background-color: govuk-colour("grey-4");
+  background-color: govuk-colour("dark-grey");
 }
 
 .autocomplete__option--focused,
@@ -583,8 +592,8 @@ table.sortable th.sorttable_sorted_reverse
 }
 
 .autocomplete__option--no-results {
-  background-color: govuk-colour("grey-4");
-  color: govuk-colour("grey-1");
+  background-color: govuk-colour("dark-grey");
+  color: govuk-colour("mid-grey");
   cursor: not-allowed;
 }
 

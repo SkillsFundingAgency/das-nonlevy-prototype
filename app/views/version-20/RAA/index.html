@@ -48,8 +48,15 @@
     margin-right: 5px
 }
 </style>
-<div class="govuk-width-container">
-    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+            <div class="do-a-thing"></div>
+{% else %}
+            <div class="dont-a-thing"></div>
+{% endif %}
+<!-- end of conditional statement -->
+
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl ">Find an apprenticeship</h1>
@@ -57,7 +64,7 @@
                 <div class="govuk-inset-text">
                     You can apply for apprenticeships in <a href="">Scotland</a>,<a href="">Northern Ireland</a> and <a href="">Wales</a>.
                 </div>
-                <a href="find/appreticeshipsearch" class="govuk-button govuk-button--start">Search</a>
+                <a href="RAA/apprenticeshipsearch" class="govuk-button govuk-button--start" style="background-image: none">Search</a>
                 <p>You can also:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li><a href="">sign in</a>to your account</li>
@@ -78,6 +85,8 @@
                          <p style="font-size:14px; font-weight:700"><a href="">Apprenticeships,14 to 19 education and training for work</a></p>
                 <p style="font-size:14px; font-weight:700"><a href="">Finding a job</a></p>
                  <p style="font-size:14px; font-weight:700"><a href="">Apprenticeships</a></p>
+                   <h3 class="govuk-heading-s " style="margin-top:15px">Elsewhere on the web</h3>
+                      <p style="font-size:14px"><a href="">Help with your application</a></p>
             </div>
         </div>
     </main>

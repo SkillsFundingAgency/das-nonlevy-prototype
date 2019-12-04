@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block beforeContent %}  {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back",  href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+{% extends "layout.html" %} {% block beforeContent %}  {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back",  href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
 <script>
 function whereNow() {
     // var status = $('input[name=radio-group]:checked').val();

@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/provider/providerNav.html" %}
-  {% include "includes/version1/provider/cohortsNav.html" %}{% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back to apprentices", href: "./" }) }} {% endblock %} {% block content %}
+  {% include "includes/version1/provider/cohortsNav.html" %}{% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back to apprentices", href: "./" }) }} {% endblock %} {% block content %}
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">

@@ -2,7 +2,8 @@
 {% block beforeContent %} 
  {% include "includes/version1/provider/providerNav.html" %}
   {% include "includes/version1/provider/manageNav.html" %}
-{% from "back-link/macro.njk" import govukBackLink %} 
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ 
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %} 
 {% block content %}

@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
-  {% include "includes/version1/homeNav.html" %}  {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "ApprenticeshipOrProvider" }) }} {% endblock %} {% block content %}
+  {% include "includes/version1/homeNav.html" %}  {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "ApprenticeshipOrProvider" }) }} {% endblock %} {% block content %}
 <!--script>
 
 $(document).on('click', 'input[type="radio"]', function (e) {

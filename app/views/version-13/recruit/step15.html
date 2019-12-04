@@ -1,7 +1,7 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
 {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
-{% from "back-link/macro.njk" import govukBackLink %} 
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
 {{ govukBackLink({ text: "Back", href: "wholeList" }) }} 
 {% endblock %} 
 {% block content %}

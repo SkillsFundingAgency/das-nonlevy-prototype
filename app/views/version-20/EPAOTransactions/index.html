@@ -2,7 +2,8 @@
 {% block beforeContent %}
 {% include "includes/version19/epaoNav.html" %}
 {% include "includes/version19/transactionNav.html" %}
-{% from "back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
 {{ govukBackLink({ href: "javascript:history.back()" }) }}
 {% endblock %}
 {% block content %}

@@ -2,8 +2,6 @@
 
 // Note: prototype config can be overridden using environment variables (eg on heroku)
 
-
-
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
   serviceName: '',
@@ -17,8 +15,12 @@ module.exports = {
   // Automatically stores form data, and send to all views
   useAutoStoreData: 'true',
 
+  // Enable cookie-based session store (persists on restart)
+  // Please note 4KB cookie limit per domain, cookies too large will silently be ignored
+  useCookieSessionStore: 'false',
+
   // Enable or disable built-in docs and examples.
- useDocumentation: 'true',
+  useDocumentation: 'true',
 
   // Force HTTP to redirect to HTTPS on production
   useHttps: 'true',

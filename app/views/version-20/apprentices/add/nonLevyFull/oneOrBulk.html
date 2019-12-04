@@ -1,4 +1,5 @@
-{% extends "layout.html" %} {% block beforeContent %} {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "../" }) }} {% endblock %} {% block content %}
+{% extends "layout.html" %} {% block beforeContent %} {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %} {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {{ govukBackLink({ text: "Back", href: "../" }) }} {% endblock %} {% block content %}
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row">
