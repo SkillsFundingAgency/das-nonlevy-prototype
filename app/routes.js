@@ -3202,6 +3202,35 @@ router.get('/*/EPAOPay/EPAOCertOrNot' , function (req, res) {
         }
 })
 
+//////// START OF RAA ROUTES ///////////////////////////
+
+
+// Any sign in trigger on RAA will go through here
+// http://127.0.0.1:3000/version-20/RAA
+router.get('/*/RAA/signInTrigger' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = true;
+  res.redirect(`/${req.version}/RAA/appForm`)
+  })
+
+// Any sign out trigger on RAA will go through here
+// http://127.0.0.1:3000/version-20/RAA
+router.get('/*/RAA/signOutTrigger' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = false;
+  res.redirect(`/${req.version}/RAA/`)
+  })
+
+
+
+
+
+/////////END OF RAA ROUTES //////////////////////////////
+
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {

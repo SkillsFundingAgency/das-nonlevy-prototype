@@ -40,6 +40,29 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 }*/
 
 
+@media (max-width: 641px) {
+ .mobileSmall {
+  font-size:14px;
+}
+.mobileRight{
+  float:right;
+}
+
+ .mobileMiddle {
+  font-size:19px;
+  text-align:center;
+}
+
+}
+
+@media (min-width: 641px) {
+.mobileLeft{
+  float:right;
+    }
+}
+
+
+
 .disability-confident-logo {
     width: 150px;
     margin: 10px 0 0 0;
