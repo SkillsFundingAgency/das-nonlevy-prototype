@@ -85,7 +85,7 @@ changeStuff();
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <p>Please give us a little bit more info about you. This will help us to understand how effective the service is</p>
-        <form method="get" action="confirm">
+        <form method="get" action="apprenticeshipsearchLog">
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -196,38 +196,34 @@ For example, do you need a signer or information in braille
                     </h1>
                   </legend>
                        <span id="changed-name-hint" class="govuk-hint">
-We need this information to make sure we're giving equal opportunities to all candidates
-                  </span>
+                            We need this information to make sure we're giving equal opportunities to all candidates
+                      </span>
                 <select class="govuk-select mobileFullWidth" selected id="sort" name="sort" >
                   <option value="select">-- Please select --</option>
                   <option value="prefer-not-to-say" >Prefer not to say</option>
                         <span id="changed-name-hint" class="govuk-hint">
-                            White
-                        </span>
                 <optgroup label="White">
-                  <option value="views" style="">English / Welsh / Scottish / Northern Irish / British Irish</option>
-                  <option value="comments">Gypsy or Irish Traveller</option>
-                  <option value="updated" >Any other White background</option>
+                  <option value="English / Welsh / Scottish / Northern Irish / British Irish" style="">English / Welsh / Scottish / Northern Irish / British Irish</option>
+                  <option value="Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+                  <option value="other White background" >Any other White background</option>
                 <optgroup label="Mixed / Multiple ethnic groups">
-
-
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
-                                    <option value="updated" >Recently updated</option>
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
-                                    <option value="updated" >Recently updated</option>
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
-                                    <option value="updated" >Recently updated</option>
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
-                                    <option value="updated" >Recently updated</option>
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
-                                    <option value="updated" >Recently updated</option>
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
+                      <option value="White and Black Caribbean" >White and Black Caribbean</option>
+                        <option value="White and Black African" >White and Black African</option>
+                          <option value="White and Asian" >White and Asian</option>
+                            <option value="other Mixed " >Any other Mixed / Multiple ethnic background</option>
+                 <optgroup label="Asian / Asian British">
+                      <option value="Indian" >Indian</option>
+                      <option value="Pakistani" >Pakistani</option>
+                      <option value="Bangladeshi" >Bangladeshi</option>
+                      <option value="Chinese" >Chinese</option>
+                      <option value="other Asian" >Any other Asian background</option>
+                   <optgroup label="Black / African / Caribbean / Black British">
+                         <option value="African" >African</option>
+                                  <option value="Caribbean" >Caribbean</option>
+                                           <option value="other Black background" >Any other Black / African / Caribbean background</option>
+                     <optgroup label="Other ethnic group">
+                      <option value="Arab" >Arab</option>
+                      <option value="other ethnic" >Any other ethnic group</option>
                 </select>
               </div>
 
@@ -247,6 +243,7 @@ We need this information to make sure we're giving equal opportunities to all ca
 
 
             <button type="submit" class="govuk-button" style="margin-bottom:15px">Save and continue</button>
+            <p class="mobileCenter"><a href="apprenticeshipsearchLog">Skip</a></p>
     </div>
 </div>
 </form>

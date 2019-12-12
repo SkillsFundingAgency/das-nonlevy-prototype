@@ -35,26 +35,27 @@ EventUtil.addHandler(createButton, 'click', function(){
 </script>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-panel govuk-panel--confirmation">
+   <!--      <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-heading-l" style="color:#fff; margin-bottom:5px">
-            We've sent you an email
+           Activate your account
           </h1>
           <div class="govuk-body" style="color:#fff">
-            To confirm your identity, we've sent a code to test@test.com
+            An email has been sent to test@test.com. It'll contain a 6-character code that you'll need to activate your account.
           </div>
-        </div>
+        </div> -->
 
 
       <form action="moreReg" method="get" class="form">
      <h1 class="govuk-heading-xl" style="margin-top:1.25em; margin-bottom:0.625em">
-Confirm your identity
+ Activate your account
         </h1>
+        <p> An email has been sent to test@test.com. It'll contain a 6-character code that you'll need to activate your account.</p>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
 
           <div class="govuk-form-group">
               <label class="govuk-label govuk-!-width-three-quarters bold-label" for="firstName">
-                 Enter code
+                Activation code
               </label>
               <!--span id="email-hint" class="govuk-hint">
               We’ll only use this to send you a receipt
@@ -64,11 +65,13 @@ Confirm your identity
           </fieldset>
         </div>
 
-        <button class="govuk-button">Continue</button>
-
+        <button class="govuk-button">Activate account</button>
+         <a href="#">Resend code</a>
       </form>
-    <h3 class="govuk-heading-s">Not received an email? </h3>
-    <a href="#">You can request another email</a>
+   <div class="govuk-inset-text">
+  You must activate your account within 30 days of receiving your activation code. After 30 days your account will be deleted and you'll need to register again.
+</div>
+   
     </div>
 
   </div>

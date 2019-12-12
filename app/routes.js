@@ -3227,6 +3227,16 @@ router.get('/*/RAA/signOutTrigger' , function (req, res) {
 
 
 
+// Registration trigger RAA will go through here
+// http://127.0.0.1:3000/version-20/RAA/moreReg
+router.get('/*/RAA/apprenticeshipsearchLog' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = true;
+  res.redirect(`/${req.version}/RAA/apprenticeshipsearch`)
+  })
+
 
 
 /////////END OF RAA ROUTES //////////////////////////////
