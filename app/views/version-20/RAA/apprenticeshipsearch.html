@@ -2,7 +2,6 @@
 {% block beforeContent %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-{{ govukBackLink({ href: "javascript:history.back()" }) }}
 
 
 {% endblock %}
@@ -160,13 +159,14 @@ $( document ).ready(function() {
     }
  </script>
 
- <!-- Here is the code to show conditional stuff in liquid-->
+<!-- Here is the code to show conditional stuff in liquid-->
 {% if data.FAALoggedIn %}
-            <div class="do-a-thing"></div>
+{% include "includes/RAALoggedIn.html" %}
 {% else %}
-            <div class="dont-a-thing"></div>
+{% include "includes/RAAUnloggedIn.html" %}
 {% endif %}
 <!-- end of conditional statement -->
+
 
 <!-- <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" /> -->
 

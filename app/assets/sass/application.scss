@@ -39,8 +39,13 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     content: " \25B2\25BC"; font-size: 12px 
 }*/
 
+.appsThings
+{ font-weight:700;
+   font-size:24px;
+  }
 
 @media (max-width: 641px) {
+  ///   MOBILE
  .mobileSmall {
   font-size:14px;
 }
@@ -49,17 +54,40 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 }
 
  .mobileMiddle {
-  font-size:19px;
+  font-size:16px;
   text-align:center;
+}
+
+.appsThings{
+  font-size:18px;
+  }
+
+.applicationsSpacing {
+  margin-bottom:30px
+}
+
+.mobileFullWidth {
+  width:100%;
 }
 
 }
 
 @media (min-width: 641px) {
+  ///   DESKTOP
 .mobileLeft{
   float:right;
     }
+.desktopInline {
+ display: inline-block;
+ margin-right:20px;
 }
+
+.applicationsSpacing {
+  margin-bottom:100px
+}
+}
+
+
 
 
 

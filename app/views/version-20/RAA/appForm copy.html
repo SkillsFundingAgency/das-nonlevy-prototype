@@ -96,61 +96,35 @@ changeStuff();
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <div class="">
-            <h1 class="govuk-heading-xl" style="">Application form</h1>
+            <h1 class="govuk-heading-xl" style="">Check your application</h1>
             <!--<h3 class="heading-small">Role</h3>-->
-            <p style="margin-bottom:3px"><a href=""><i class="fas fa-question-circle" style="margin-right:4px;"></i>How to apply for an apprenticeship</a></p>
-            <p>(interactive walkthrough)</p>
+            <p><i class="fas fa-print" style="margin-right:5px"></i><a href="">Print this page</a></p>
 
-            <p>To efficiently undertake basic administration and clerical duties</p>
+                {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+                {{ govukInsetText({
 
+                text: "Check you answers before submitting and make sure they're relevant to the apprenticeship: Business Admin Apprentice"
+                }) }}
+
+             <p><a href="appForm">Return to application form</a></p>
         </div>
-        <h1 class="govuk-heading-l" style="margin-top:25px">Business admin apprentice    <span id="reference-hint" class="govuk-hint" style="font-size:19px">
-                    Central Financial Services
-                </span></h1>
-     <p>To efficiently undertake basic adminstration and clerical duties</p>
-     <p><a href="">View apprenticeship</a></p>
     </div>
 </div>
 
 
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-            <h3 class="govuk-heading-l" style="">Your details</h3>
-    </div>
-</div>
+
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-        <dl class="data-list">
-        
-             <h3 class="govuk-heading-s" style="margin-bottom:5px">Full name</h3>
-            <p style="margin-bottom:5px">Alex Piggins</p>
-          
-               <h3 class="govuk-heading-s" style="margin-bottom:5px">Date of birth</h3>
-            <p>01 Jan 2000</p>
-                <h3 class="govuk-heading-s" style="margin-bottom:5px">Address</h3>
-            <p>101 Bracey St<br /> Finsbury Park<br /> London<br /> N4 3BJ</p>
-               <h3 class="govuk-heading-s" style="margin-bottom:5px">Date posted</h3>
-            <p>15 Jan 2018</p>
-        </dl>
-    </div>
-
-    <div class="govuk-grid-column-two-thirds">
-                    <h3 class="govuk-heading-s" style="margin-bottom:5px">Email address</h3>
-            <p>apprentice@mailinator.com</p>
-                   <h3 class="govuk-heading-s" style="margin-bottom:5px">Phone</h3>
-            <p>0207 555 5555</p>
-    </div>
-
     <div class="govuk-grid-column-full">
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
             <h1 class="govuk-heading-l" style="">Education </h1>
+            <p><a href="appForm"><i class="fas fa-pencil-alt" style="margin-right:5px"></i>Edit section</a></p>
 
-      <form method="get" action="appFormConfirm">
+      <form method="get" action="Finish">
       
         <div class="govuk-form-group">
             <label class="govuk-label govuk-!-width-two-thirds bold-label" for="college">Name of most recent school or college</label>
-            <input class="govuk-input govuk-!-width-two-thirds" id="college" name="college" type="text" value=" {{ data['college'] }} " />
+            <p>{{ data['college'] }}</p>
         </div>
              <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
@@ -164,8 +138,8 @@ changeStuff();
                                 <label class="govuk-label govuk-date-input__label" for="start" >
                                     Started
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="edu-start-month" name="edu-start-month" type="number"
-                                    pattern="[0-9]*" value="">
+                                  <p>{{ data['edu-start-month'] }}</p>
+                              
                             </div>
                         </div>
 
@@ -174,8 +148,8 @@ changeStuff();
                                 <label class="govuk-label govuk-date-input__label" for="start-year">
                                     Finished
                                 </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="edu-start-year" name="edu-start-year" type="number"
-                                    pattern="[0-9]*" value="">
+                                <p>{{ data['edu-start-year'] }}</p>
+                               
                             </div>
                         </div>
                     </div>
@@ -194,57 +168,51 @@ changeStuff();
                     Do you have any qualifications?
                 </h1>
             </legend>
-            <span id="workexp-hint" class="govuk-hint">
+  <!--           <span id="workexp-hint" class="govuk-hint">
                 If you don't know your results yet, enter your predicted grades. These are grades your teacher expects you to get.
-            </span>
+            </span> -->
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="qualifications-conditional" name="qualifications" type="radio" value="qual-yes" {{ checked('qualifications', "qual-yes") }} data-aria-controls="conditional-qualifications-conditional">
+                    <input class="govuk-radios__input" id="qualifications-conditional" name="qualifications" type="radio" value="" data-aria-controls="conditional-qualifications-conditional">
                     <label class="govuk-label govuk-radios__label" for="qualifications-conditional">
                         Yes
                     </label>
                 </div>
+
+
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-qualifications-conditional">
                     <div class="govuk-form-group">
                         <label class="govuk-label   govuk-label--s" for="partialCost">
                             Type of qualification
                         </label>
-                        <!--     <span id="reference-hint" class="govuk-hint">
-                    Can include job title, employer or reference number
-                </span> -->
-                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
-                            <option value="" selected>Select from list</option>
-                            <option value="GCSE">GCSE</option>
-                        <option value=" AS-level">AS Level</option>
-                            <option value="A-level">A level</option>
-                            <option value="BTEC">BTEC</option>
-                            <option value="NVQ1">NVQ or SVQ Level 1</option>
-                            <option value="NVQ2">NVQ or SVQ Level 2</option>
-                            <option value="NVQ3">NVQ or SVQ Level 3</option>
-                            <option value="Other">Other</option>
-                        </select>
+                          <p>{{ data['sort'] }}</p>
+         
+                   
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
                             Year
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="qual-year" name="qual-year" type="text" spellcheck="false">
+                        <p>{{ data['qual-year'] }}</p>
+                       
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
                             Subject
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="qual-subject" name="qual-subject" type="text" spellcheck="false">
+                          <p>{{ data['qual-subject'] }}</p>
+                       
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
                             Grade
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="qual-grade" name="qual-grade" type="text" spellcheck="false">
+                          <p>{{ data['qual-grade'] }}</p>
+                       
                     </div>
                     <div class="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="predicted" name="predicted" type="checkbox" value="predicted" {{ checked('predicted', "predicted") }}>
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
                             <label class="govuk-label govuk-checkboxes__label" for="waste">
                                 Predicted?
                             </label>
@@ -252,7 +220,7 @@ changeStuff();
                     </div>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="qualifications-conditional-2" name="qualifications" type="radio" value="qual-no" {{ checked('qualifications', "qual-no") }} data-aria-controls="conditional-qualifications-conditional-2">
+                    <input class="govuk-radios__input" id="qualifications-conditional-2" name="qualifications" type="radio" value="No, I do not have any qualifications" data-aria-controls="conditional-qualifications-conditional-2">
                     <label class="govuk-label govuk-radios__label" for="qualifications-conditional-2">
                         No
                     </label>
@@ -272,13 +240,13 @@ changeStuff();
                   Do you have any work experience?
                 </h1>
             </legend>
-            <span id="workexp-hint" class="govuk-hint">
+        <!--     <span id="workexp-hint" class="govuk-hint">
                Please include any work, whether paid or voluntary
-            </span>
+            </span> -->
 
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="workexperience-conditional" name="workexperience" type="radio" value="work-yes" {{ checked('workexperience', "work-yes") }} data-aria-controls="conditional-workexperience-conditional">
+                    <input class="govuk-radios__input" id="qualifications-conditional" name="workexperience" type="radio" value="" data-aria-controls="conditional-workexperience-conditional">
                     <label class="govuk-label govuk-radios__label" for="workexperience-conditional">
                         Yes
                     </label>
@@ -289,19 +257,22 @@ changeStuff();
                         <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
                             Employer
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="exp-employer" name="exp-employer" type="text" spellcheck="false">
+                         <p>{{ data['exp-employer'] }}</p>
+                     
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
                             Job title
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="exp-job" name="exp-job" type="text" spellcheck="false">
+                        <p>{{ data['exp-job'] }}</p>
+                     
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
                             Main duties
                         </label>
-                         <textarea class="govuk-textarea" id="exp-duties" name="exp-duties" rows="3" aria-describedby="more-detail-hint"></textarea>
+                         <p>{{ data['exp-duties'] }}</p>
+                     
                     </div>
                  <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
@@ -314,7 +285,8 @@ changeStuff();
                                         <label class="govuk-label govuk-date-input__label" for="start">
                                             Month
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="start-month" name="start-month" type="number" pattern="[0-9]*" value="">
+                                        <p>{{ data['start-month'] }}</p>
+                                      
                                     </div>
                                 </div>
                                 <div class="govuk-date-input__item">
@@ -322,7 +294,7 @@ changeStuff();
                                         <label class="govuk-label govuk-date-input__label" for="start-year">
                                             Year
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="start-year" name="start-year" type="number" pattern="[0-9]*" value="">
+                                          <p>{{ data['start-year'] }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -336,18 +308,18 @@ changeStuff();
                             <div class="govuk-date-input" id="start">
                                 <div class="govuk-date-input__item">
                                     <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="finish-month">
+                                        <label class="govuk-label govuk-date-input__label" for="start">
                                             Month
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="finish-month" name="finish-month" type="number" pattern="[0-9]*" value="">
+                                       <p>{{ data['finish-month'] }}</p>
                                     </div>
                                 </div>
                                 <div class="govuk-date-input__item">
                                     <div class="govuk-form-group govuk-form-group--year">
-                                        <label class="govuk-label govuk-date-input__label" for="finish-year">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
                                             Year
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="finish-year" name="finish-year" type="number" pattern="[0-9]*" value="">
+                                         <p>{{ data['finish-year'] }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -355,18 +327,18 @@ changeStuff();
                 </div>
                 <div class="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="current" name="current" type="checkbox" value="current" {{ checked('current', "current") }}>
-                            <label class="govuk-label govuk-checkboxes__label" for="current">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
                                 Current?
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px; margin-top:15px">Save this work experience</button>
+                 
               </div>
-                <div class="govuk-radios__item">
-                 <input class="govuk-radios__input" id="workexp-2" name="workexperience" type="radio" value="work-no" {{ checked('workexperience', "work-no") }}>
-                 <label class="govuk-label govuk-radios__label" for="workexp-2">
-                         No
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="workexp-2" name="workexp" type="radio" value="no">
+                                        <label class="govuk-label govuk-radios__label" for="workexp-2">
+                                            No
                                         </label>
                                     </div>
                                 </div>
@@ -385,13 +357,13 @@ changeStuff();
                 Have you been on a training course?
                 </h1>
             </legend>
-            <span id="course-provider-hint" class="govuk-hint">
+    <!--         <span id="course-provider-hint" class="govuk-hint">
                Include any courses you've recieved, in or outside of work 
-            </span>
+            </span> -->
 
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="course-provider-conditional" name="course-provider" type="radio" value="course-yes" {{ checked('course-provider', "course-yes") }} data-aria-controls="conditional-course-provider-conditional">
+                    <input class="govuk-radios__input" id="course-provider-conditional" name="course-provider" type="radio" value="" data-aria-controls="conditional-course-provider-conditional">
                     <label class="govuk-label govuk-radios__label" for="course-provider-conditional">
                         Yes
                     </label>
@@ -402,13 +374,15 @@ changeStuff();
                         <label class="govuk-label govuk-!-font-weight-bold" for="course-provider">
                             Provider
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="course-provider" name="course-provider" type="text" spellcheck="false">
+                         <p>{{ data['course-provider'] }}</p>
+                    
                     </div>
                     <div class="govuk-form-group">
-                        <label class="govuk-label govuk-!-font-weight-bold" for="course-title">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="coursetitle">
                             Course title
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="course-title" name="course-title" type="text" spellcheck="false">
+                        <p>{{ data['course-title'] }}</p>
+                     
                     </div>
     
                  <div class="govuk-form-group">
@@ -422,7 +396,8 @@ changeStuff();
                                         <label class="govuk-label govuk-date-input__label" for="from">
                                             Month
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="from-month" name="from-month" type="number" pattern="[0-9]*" value="">
+                                        <p>{{ data['from-month'] }}</p>
+                                       
                                     </div>
                                 </div>
                                 <div class="govuk-date-input__item">
@@ -430,7 +405,8 @@ changeStuff();
                                         <label class="govuk-label govuk-date-input__label" for="start-year">
                                             Year
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="from-year" name="from-year" type="number" pattern="[0-9]*" value="">
+                                         <p>{{ data['from-year'] }}</p>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -447,7 +423,7 @@ changeStuff();
                                         <label class="govuk-label govuk-date-input__label" for="to">
                                             Month
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="to-month" name="to-month" type="number" pattern="[0-9]*" value="">
+                                        <p>{{ data['to-month'] }}</p>
                                     </div>
                                 </div>
                                 <div class="govuk-date-input__item">
@@ -455,17 +431,15 @@ changeStuff();
                                         <label class="govuk-label govuk-date-input__label" for="from-year">
                                             Year
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="to-year" name="to-year" type="number" pattern="[0-9]*" value="">
+                                       <p>{{ data['to-year'] }}</p>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
                 </div>
-  
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px; margin-top:15px">Save this training course</button>
               </div>
                                     <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="course-provider-2" name="course-provider" type="radio"  value="course-no" {{ checked('course-provider', "course-no") }}>
+                                        <input class="govuk-radios__input" id="course-provider-2" name="course-provider" type="radio" value="no">
                                         <label class="govuk-label govuk-radios__label" for="trainingcourse-2">
                                             No
                                         </label>
@@ -494,13 +468,12 @@ changeStuff();
                 What are you main strengths
             </h1>
         </legend>
-        <span id="mainstrengths-hint" class="govuk-hint">
+<!--         <span id="mainstrengths-hint" class="govuk-hint">
             Please provide examples of when you've demonstrated your strengths
-        </span>
-        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="mainstrengths" name="mainstrengths" rows="5" aria-describedby="mainstrengths-hint" style="margin-bottom:2px"></textarea>
-        <span id="workexp-hint" class="govuk-hint">
-            4000 characters remaining
-        </span>
+        </span> -->
+         <p>{{ data['mainstrengths'] }}</p>
+    
+       
     </div>
         <div class="govuk-form-group">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -508,13 +481,11 @@ changeStuff();
                 What skills would you like to improve during this apprenticeship?
             </h1>
         </legend>
-        <span id="mainstrengths-hint" class="govuk-hint">
+<!--         <span id="mainstrengths-hint" class="govuk-hint">
             Think of what your main duties would be and whether there are skills you'd like to develop
-        </span>
-        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="mainskills" name="mainskills" rows="5" aria-describedby="mainstrengths-hint" style="margin-bottom:2px"></textarea>
-        <span id="workexp-hint" class="govuk-hint">
-            4000 characters remaining
-        </span>
+        </span> -->
+         <p>{{ data['mainskills'] }}</p>
+       
     </div>
             <div class="govuk-form-group">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -522,13 +493,11 @@ changeStuff();
                 What are your hobbies and interests?
             </h1>
         </legend>
-        <span id="achievements-hint" class="govuk-hint">
+<!--         <span id="achievements-hint" class="govuk-hint">
             Remember to include any personal achievements
-        </span>
-        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="achievements" name="achievements" rows="5" aria-describedby="achievements-hint" style="margin-bottom:2px"></textarea>
-        <span id="workexp-hint" class="govuk-hint">
-            4000 characters remaining
-        </span>
+        </span> -->
+          <p>{{ data['achievements'] }}</p>
+     
     </div>
 </div>
 <div class="govuk-grid-column-full">
@@ -541,54 +510,27 @@ changeStuff();
                 Why do you want to work for this company?
             </h1>
         </legend>
+         <p>{{ data['wanttowork'] }}</p>
 
-        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="wanttowork" name="wanttowork" rows="5" aria-describedby="wanttowork-hint" style="margin-bottom:2px"></textarea>
-        <span id="wanttowork-hint" class="govuk-hint">
-            4000 characters remaining
-        </span>
     </div>
         <div class="govuk-form-group">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
             <h1 class="govuk-fieldset__heading">
-                Do you have any administration or customer service experience?
+              Do you have any administration or customer service experience?
             </h1>
         </legend>
- 
-        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="adminexperience" name="adminexperience" rows="5" aria-describedby="adminexperience-hint" style="margin-bottom:2px"></textarea>
-        <span id="adminexperience-hint" class="govuk-hint">
-            4000 characters remaining
-        </span>
+        <p>{{ data['adminexperience'] }}</p>  
     </div>
 
         <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="workexp">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                 <h1 class="govuk-fieldset__heading">
-                 Do you have a learning difficulty, disability or health problem?
+                Do you have a learning difficulty, disability or health problem?
                 </h1>
             </legend>
       
-            <div class="govuk-radios govuk-radios">
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="healthprob" name="healthprob" type="radio" value="Yes, I have a problem">
-                    <label class="govuk-label govuk-radios__label" for="healthprob">
-                        Yes
-                    </label>
-                </div>
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="healthprob-2" name="healthprob" type="radio" value="No, I do not have a problem">
-                    <label class="govuk-label govuk-radios__label" for="healthprob-2">
-                        No
-                    </label>
-                </div>
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="healthprob-3" name="healthprob" type="radio" value="I prefer not to say if I have a problem">
-                    <label class="govuk-label govuk-radios__label" for="healthprob-3">
-                        Prefer not to say
-                    </label>
-                </div>
-            </div>
-        </fieldset>
+             <p>{{ data['healthprob'] }}</p>
          
             <details class="govuk-details" data-module="govuk-details" style="margin-top: 10px">
         <summary class="govuk-details__summary">
@@ -606,7 +548,6 @@ changeStuff();
         </div>
     </details>
       </div>
-
 </div>
 
 <div class="govuk-grid-column-full">
@@ -618,38 +559,47 @@ changeStuff();
                     Is there anything we can do to support your interview?
                 </h1>
             </legend>
-            <span id="interviewsupport-hint" class="govuk-hint">
-               For example, do you need a signer or information in braille 
-            </span>
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="interviewsupport-conditional" name="interviewsupport" type="radio" value="Yes I need interview support" data-aria-controls="conditional-interviewsupport-conditional">
-                    <label class="govuk-label govuk-radios__label" for="interviewsupport-conditional">
-                        Yes
-                    </label>
-                </div>
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-interviewsupport-conditional"> 
-                   <div class="govuk-form-group">
-                        <label class="govuk-label govuk-!-font-weight-bold" for="interviewsupport">
-                            Provide details of interview support
-                        </label>
-                         <textarea class="govuk-textarea govuk-!-width-two-thirds" id="interviewSupportReason" name="interviewSupportReason" rows="5" aria-describedby="interviewSupportReason-hint" style="margin-bottom:2px"></textarea>
-                           
-                    </div>
-                </div>
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="interviewsupport-conditional-2" name="interviewsupport" type="radio" value="No, I do not need interview support" data-aria-controls="conditional-interviewsupport-conditional-2">
-                    <label class="govuk-label govuk-radios__label" for="interviewsupport-conditional-2">
-                        No
-                    </label>
-                </div>
-            </div>
+             
+                 <p>{{ data['interviewsupport'] }}</p>
+                 <p>{{ data['interviewSupportReason'] }}</p>
+            
         </fieldset>
     </div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Submit your application </h1>
+            <p>Before you submit your application, make sure you:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>ask someone to check your application for mistakes</li>
+              <li>check your answers are relevant to the apprenticeship</li>
+              <li>are able to get to the apprenticeship location easily</li>
+            </ul>
+
+            <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+   
+    <div class="govuk-checkboxes" style="margin-top:20px">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="approved">
+        <label class="govuk-label govuk-checkboxes__label" for="approved" style="margin-top:-20px">
+          I have checked my application and understand I won't be able to make any changes once it has been submitted
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
 
 
-<button type="submit" class="govuk-button" style="margin-bottom:15px">Save and continue</button>
- <p style="" class="mobileMiddle"> <a href="apprenticeshipsearch" >Save</a></p>
+
+    </div>
+</div>
+
+
+
+<button type="submit" class="govuk-button" style="margin-bottom:15px">Submit application</button>
+
 
 <p style="">Last saved at 2.50:00 PM on 4/12/2019 to <a href="">my applications</a></p>
 </div>
