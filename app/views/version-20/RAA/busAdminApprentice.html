@@ -79,9 +79,9 @@ changeStuff();
 
 <!-- Here is the code to show conditional stuff in liquid-->
 {% if data.FAALoggedIn %}
-            <div class="do-a-thing"></div>
+{% include "includes/RAALoggedIn.html" %}
 {% else %}
-            <div class="dont-a-thing"></div>
+{% include "includes/RAAUnloggedIn.html" %}
 {% endif %}
 <!-- end of conditional statement -->
 
@@ -98,17 +98,18 @@ changeStuff();
             <p><a href="">Print this page</a></p>
             <p>To efficiently undertake basic administration and clerical duties</p>
             {% if data.FAALoggedIn %}
-            <form action="signIn">
-                <div class=" " style="">
-                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Sign in to apply</button>
+            <form action="appForm">
+               
+                     <div class="" style="">
+                    <button type="submit" class="govuk-button" style="margin-bottom:2px">Apply</button>
+                    <!--                     <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div> -->
                     <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 Feb 2020</p>
                 </div>
             </form>
             {% else %}
-            <form action="signin">
-                <div class="" style="">
-                    <button type="submit" class="govuk-button" style="margin-bottom:2px">Sign in to apply</button>
-                    <!--                     <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div> -->
+            <form action="signIn">
+              <div class=" " style="">
+                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Sign in to apply</button>
                     <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 Feb 2020</p>
                 </div>
             </form>

@@ -74,6 +74,10 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   text-align:center
 }
 
+.notOnMobile {
+  display:none;
+}
+
 }
 
 @media (min-width: 641px) {
@@ -89,7 +93,10 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .applicationsSpacing {
   margin-bottom:100px
 }
+.notOnDesktop {
+  display:none;
 }
+    }
 
 
 

@@ -3215,6 +3215,8 @@ router.get('/*/RAA/signInTrigger' , function (req, res) {
   res.redirect(`/${req.version}/RAA/appForm`)
   })
 
+
+
 // Any sign out trigger on RAA will go through here
 // http://127.0.0.1:3000/version-20/RAA
 router.get('/*/RAA/signOutTrigger' , function (req, res) {
