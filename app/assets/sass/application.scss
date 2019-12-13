@@ -78,7 +78,11 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   display:none;
 }
 
+.widthJourney {
+  min-width:320px;
 }
+
+  }
 
 @media (min-width: 641px) {
   ///   DESKTOP
@@ -96,16 +100,18 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .notOnDesktop {
   display:none;
 }
+
+.widthJourney {
+  min-width:520px;
+}
     }
-
-
-
 
 
 .disability-confident-logo {
     width: 150px;
     margin: 10px 0 0 0;
   }
+
 
 
 

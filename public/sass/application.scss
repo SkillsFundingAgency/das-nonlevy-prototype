@@ -77,8 +77,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .notOnMobile {
   display:none;
 }
-
-}
+  }
 
 @media (min-width: 641px) {
   ///   DESKTOP
@@ -99,14 +98,12 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     }
 
 
-
-
-
 .disability-confident-logo {
     width: 150px;
     margin: 10px 0 0 0;
   }
 
+  
 
 
 // dans stuff for the finance page
