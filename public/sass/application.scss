@@ -77,6 +77,11 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .notOnMobile {
   display:none;
 }
+
+.widthJourney {
+  min-width:320px;
+}
+
   }
 
 @media (min-width: 641px) {
@@ -95,6 +100,10 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .notOnDesktop {
   display:none;
 }
+
+.widthJourney {
+  min-width:520px;
+}
     }
 
 
@@ -103,7 +112,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     margin: 10px 0 0 0;
   }
 
-  
+
 
 
 // dans stuff for the finance page
