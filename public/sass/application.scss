@@ -39,6 +39,21 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     content: " \25B2\25BC"; font-size: 12px 
 }*/
 
+.twoFlexContainer {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-items: flex-start
+
+  }
+
+.twoFlexItem {
+  padding:10px;
+}
+
+
+
+
 .appsThings
 { font-weight:700;
    font-size:24px;
@@ -82,6 +97,16 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   min-width:320px;
 }
 
+.CFSlogo {
+  height:70px; 
+  width:100px
+}
+
+.metroLogo {
+ width:180px;
+ height:99px;
+}
+
   }
 
 @media (min-width: 641px) {
@@ -104,6 +129,20 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .widthJourney {
   min-width:520px;
 }
+
+.CFSlogo {
+  height:84px; 
+  width:120px;
+  margin-left:10px;
+}
+
+.metroLgog {
+   width:200px;
+ height:110px;
+
+}
+
+
     }
 
 
