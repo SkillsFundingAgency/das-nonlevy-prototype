@@ -27,17 +27,19 @@ table.sortable thead {
 }
 */
 
-
 /* 
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
     content: " \25B4\25BE" 
 }
 */
 
-
 /*table.sortable th:(.sorttable_sorted):(.sorttable_sorted_reverse):(.sorttable_nosort):after { 
     content: " \25B2\25BC"; font-size: 12px 
 }*/
+
+.govuk-select {
+  background-color: white !important;
+}
 
 .twoFlexContainer {
    display: flex;
@@ -50,9 +52,6 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .twoFlexItem {
   padding:10px;
 }
-
-
-
 
 .appsThings
 { font-weight:700;
@@ -111,6 +110,11 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   margin-top:25px;
    width:150px;
  height:11px;
+}
+
+.bmwLogo {
+ padding-left:100px;
+
 }
 
   }
