@@ -1,0 +1,307 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+<style>
+    /* Remove some of the media queries that handle the tabs on this page */
+
+
+
+</style>
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- end of conditional statement -->
+<!-- <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" /> -->
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl" style="">Find an apprenticeship <span class="govuk-hint" style="font-size:20px; padding-top:8px">
+                Search and apply for an apprenticeship in England
+            </span></h1>
+        <!--            <p style="margin:5px 0 5px 0; width:66%">There are <span style="font-weight:700">4</span> training providers and <span style="font-weight:700">2</span> end-point assessment organisations for the <span style="font-weight:700">Financial Services Administrator, level 3</span> apprenticeship</span>.</p>
+                <p style="margin:15px 0 5px 0">Training provider results are ordered by distance from<span style="font-weight:700"> 'N4 3BJ'</span></p> -->
+        <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+                Contents
+            </h2>
+            <ul class="govuk-tabs__list">
+                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                    <a class="govuk-tabs__tab" href="#search">
+                        Search
+                    </a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#browse">
+                        Browse
+                    </a>
+                </li>
+            </ul>
+            <section class="govuk-tabs__panel" id="search">
+                <form method="get" action="searchResults">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Keywords (optional)
+                        </label>
+                        <span id="reference-hint" class="govuk-hint">
+                            Can include job title, employer or reference number
+                        </span>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>All</option>
+                            <option value="Job title">Job title</option>
+                            <option value="Description">Description</option>
+                            <option value="Employer">Employer</option>
+                            <option value="Ref. number">Ref. number</option>
+                        </select>
+                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Your location
+                        </label>
+                        <span id="reference-hint" class="govuk-hint">
+                            Enter postcode, town or city or <a href="">use current location</a>
+                        </span>
+                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Within
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="2 miles" selected>2 miles</option>
+                            <option value="5 miles" selected>5 miles</option>
+                            <option value="15 miles">15 miles</option>
+                            <option value="20 miles">20 miles</option>
+                            <option value="30 miles">30 miles</option>
+                            <option value="40 miles">40 miles</option>
+                            <option value="England">England</option>
+                        </select></div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Apprenticeship level
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="All levels" selected>All levels</option>
+                            <option value="Intermediate" selected>Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Higher">Higher</option>
+                            <option value="Degree">Degree</option>
+                        </select></div>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Only show
+                            </label>
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        Disability confident
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <!--             <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What can I claim for?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can claim for 'reasonable' costs incurred in attempting to run an assessment
+  </div>
+</details> -->
+                    <button type="submit" class="govuk-button" style="">Search</button>
+                    <a class="" href="confirm-training-provider">Reset search options </a>
+                </form>
+            </section>
+
+<!-- THIS NEXT BIT HAS CSS THAT DOESN'T SHOW IT ON MOBILE TILL I CAN FIX THE WEIRD MOBILE TABS BUG -->
+
+            <section class="govuk-tabs__panel govuk-tabs__panel--hidden notOnMobile" id="browse">
+                <form method="get" action="searchResults">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                Browse by category
+                            </legend>
+                            <div class="govuk-radios govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="Agriculture, Horticulture and Animal Care">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name">
+                                        Agriculture, Horticulture and Animal Care
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Arts, Media and Publishing
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Business, Administration and Law
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Construction, Planning and the Built Environment
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Education and Training
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Engineering and Manufacturing Technologies
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Health, Public Services and Care
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        History, Philosphy and Theology
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Information and Communcation Technology
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Languages, Literature and Culture
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Leisure, Travel and Tourism
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Preperaton for Life and Work
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Retails and Commercial Enterprise
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Arts, Media and Publishing">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Science and Mathematics
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="social-sciences">
+                                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                        Social Sciences
+                                    </label>
+                                </div>
+                              </div>
+                                <div class="govuk-form-group" style="margin-top:25px">
+                                    <label class="govuk-label   govuk-label--s" for="partialCost">
+                                        Your location
+                                    </label>
+                                    <span id="reference-hint" class="govuk-hint">
+                                        Enter postcode, town or city or <a href="">use current location</a>
+                                    </span>
+                                    <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                                </div>
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label   govuk-label--s" for="partialCost">
+                                        Within
+                                    </label>
+                                    <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                                    <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                                        <option value="2 miles" selected>2 miles</option>
+                                        <option value="5 miles" selected>5 miles</option>
+                                        <option value="15 miles">15 miles</option>
+                                        <option value="20 miles">20 miles</option>
+                                        <option value="30 miles">30 miles</option>
+                                        <option value="40 miles">40 miles</option>
+                                        <option value="England">England</option>
+                                    </select></div>
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label   govuk-label--s" for="partialCost">
+                                        Apprenticeship level
+                                    </label>
+                                    <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                                    <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                                        <option value="All levels" selected>All levels</option>
+                                        <option value="Intermediate" selected>Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                        <option value="Higher">Higher</option>
+                                        <option value="Degree">Degree</option>
+                                    </select></div>
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                                            Only show
+                                        </label>
+                                        <div class="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                                                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                                    Disability confident
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+                        </fieldset>
+                    </div>
+                    <button type="submit" class="govuk-button" style="">Browse</button>
+                    <a class="" href="searchResults">Reset search options </a>
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <div style="border-top: 10px solid #005ea5; padding-top:5px"></div>
+        <h3 class="govuk-heading-m" style="margin-top:10px">Help </h3>
+        <p><a href="">How to search for an apprenticeship</a><br />(interactive walkthrough)</p>
+        <p>0800 015 0400</p>
+        <p><a href="">Contact us</a></p>
+        <p><a href="">About apprenticeships</a></p>
+        <p><a href="">Find a traineeships</a></p>
+    </div>
+</div>
+</div>
+</main>
+</div>
+<!-- <script src="/public/javascripts/newtabs.js"></script> -->
+{% endblock %}

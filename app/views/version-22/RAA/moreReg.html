@@ -1,0 +1,252 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<script>
+    function whereNow() {
+        localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
+        window.location.href='proSearch';
+    }
+
+</script>
+<!-- 
+<script>
+$( document ).ready(function() {
+    var appCount=0
+var proCount=0
+ $(".shortlistButton").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+    //        Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove from saved list");
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save this apprenticeship");
+            appCount--;
+      //      Cookies.set("appCount", appCount);
+            console.log(appCount);
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+  });
+</script>
+ -->
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+    $(coInvestPayer).addClass("rj-dont-display")
+   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
+   // document.getElementById("providerName").textContent = "Provider:" ;
+   // $(commitmentStatus).addClass("rj-dont-display");
+   //  $(addDate).addClass("rj-dont-display")
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+       //  $(addDate).addClass("rj-dont-display")
+    }
+else { };
+
+//if (fundingStatus=='transferFunding') {
+  // $(eligibilityTransfer).removeClass("rj-dont-display")
+    //}
+//else { };
+  }
+changeStuff();
+});
+</script-->
+<style>
+    .data-list dd, .data-list dt  {margin-bottom:0;}
+</style>
+{% include "includes/RAALoggedIn.html" %}
+<div class="success-summary">
+    <h3 class="heading-medium"></h3>
+    <p>You've successfully activated your account</p>
+</div>
+<div style="clear:both"></div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="">
+            <h1 class="govuk-heading-xl" style="">Tell us more about you</h1>
+        </div>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <p>Please give us a little bit more info about you. This will help us to understand how effective the service is</p>
+        <form method="get" action="apprenticeshipsearchLog">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                           Are you?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="male">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                                Male
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="female">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                                Female
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="other">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                                Other
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="prefer-not-to-say">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                               Prefer not to say
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+                       <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                           Do you have a learning difficulty, disability or health problem?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-" name="where-do-you" type="radio" value="yes">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-2" name="where-do-you" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-2">
+                                No
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-3" name="where-do-you" type="radio" value="prefer-not-to-say">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-3">
+                                Prefer not to say
+                            </label>
+                        </div>
+                        <details class="govuk-details" data-module="govuk-details" style="margin-top:15px">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                              Why we collect this info
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                            <p>mployers who are part of the ‘Positive about disabled people’ scheme will guarantee candidates an interview who meet the apprenticeship criteria if they have a disability.</p>
+                            <p>For this reason we ask you to provide this information so we can inform the employer and provider.</p>
+                          </div>
+                        </details>
+      
+                    </div>
+                </fieldset>
+            </div>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                   Is there anything we can do to support your interview?
+
+                    </h1>
+                  </legend>
+                  <span id="changed-name-hint" class="govuk-hint">
+For example, do you need a signer or information in braille
+                  </span>
+                  <div class="govuk-radios govuk-radios--inline">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+                      <label class="govuk-label govuk-radios__label" for="changed-name">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                      <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="govuk-form-group">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                  What is your ethnic group?
+                    </h1>
+                  </legend>
+                       <span id="changed-name-hint" class="govuk-hint">
+                            We need this information to make sure we're giving equal opportunities to all candidates
+                      </span>
+                <select class="govuk-select mobileFullWidth" selected id="sort" name="sort" >
+                  <option value="select">-- Please select --</option>
+                  <option value="prefer-not-to-say" >Prefer not to say</option>
+                        <span id="changed-name-hint" class="govuk-hint">
+                <optgroup label="White">
+                  <option value="English / Welsh / Scottish / Northern Irish / British Irish" style="">English / Welsh / Scottish / Northern Irish / British Irish</option>
+                  <option value="Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+                  <option value="other White background" >Any other White background</option>
+                <optgroup label="Mixed / Multiple ethnic groups">
+                      <option value="White and Black Caribbean" >White and Black Caribbean</option>
+                        <option value="White and Black African" >White and Black African</option>
+                          <option value="White and Asian" >White and Asian</option>
+                            <option value="other Mixed " >Any other Mixed / Multiple ethnic background</option>
+                 <optgroup label="Asian / Asian British">
+                      <option value="Indian" >Indian</option>
+                      <option value="Pakistani" >Pakistani</option>
+                      <option value="Bangladeshi" >Bangladeshi</option>
+                      <option value="Chinese" >Chinese</option>
+                      <option value="other Asian" >Any other Asian background</option>
+                   <optgroup label="Black / African / Caribbean / Black British">
+                         <option value="African" >African</option>
+                                  <option value="Caribbean" >Caribbean</option>
+                                           <option value="other Black background" >Any other Black / African / Caribbean background</option>
+                     <optgroup label="Other ethnic group">
+                      <option value="Arab" >Arab</option>
+                      <option value="other ethnic" >Any other ethnic group</option>
+                </select>
+              </div>
+
+                     <details class="govuk-details" data-module="govuk-details" style="margin-top:15px">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                            Why are we asking all these questions?
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                            <p>The Education and Skills Funding Agency aims to make apprenticeships and traineeships inclusive. Learning more about you will help us do this and meet our obligations under the Equality Act 2010.</p>
+                            <p>You don’t have to answer the questions, but the information allows us to make the application process easier.</p>
+                            <p>Your answers will be treated in confidence and are covered by data protection legislation.</p>
+                            <p>Answering the questions may lead to a guaranteed interview if you are disabled and the employer is a member of the Two Ticks scheme.</p>
+                          </div>
+                        </details>
+
+
+            <button type="submit" class="govuk-button" style="margin-bottom:15px">Save and continue</button>
+            <p class="mobileCenter"><a href="apprenticeshipsearchLog">Skip</a></p>
+    </div>
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

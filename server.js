@@ -14,6 +14,8 @@ const cookieParser = require('cookie-parser')
 // Run before other code to make sure variables from .env are available
 dotenv.config()
 
+
+
 // Local dependencies
 const middleware = [
   require('./lib/middleware/authentication/authentication.js'),
@@ -44,6 +46,10 @@ if (useV6) {
   console.log('/app/v6/routes.js detected - using v6 compatibility mode')
   v6App = express()
 }
+
+// this has been added to make the soceket.io stuff work...
+    http = require('http').Server(app);
+    io = require('socket.io')(http),
 
 // Set cookies for use in cookie banner.
 app.use(cookieParser())
@@ -337,6 +343,43 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.send(err.message)
 })
+
+
+// Does something to do with running socket.io
+
+//http.listen(3000, function(){
+ // console.log('listening on *:3000');
+//});
+
+var port = process.env.PORT || 3000;
+http.listen(port, function() {
+  var addr = this.address();
+  console.log('Socket IO listening on port ' + addr.port);
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+    console.log('message: ' + msg);
+
+  });
+});
+
+io.on('connection', function(socket){
+  socket.on('internal message', function(msgInternal){
+    io.emit('internal message', msgInternal);
+    console.log('internal message: ' + msgInternal);
+
+  });
+});
+
+// End of socket.io stuff.
+
+
 
 console.log('\nGOV.UK Prototype Kit v' + releaseVersion)
 console.log('\nNOTICE: the kit is for building prototypes, do not use it for production services.')
