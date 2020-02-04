@@ -88,7 +88,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 
 .chat-operator, .chat-operatorN {
   height: 75px;
-  border-bottom: 1px solid  #f3f2f1
+  border-bottom: 1px solid  #f3f2f1;
 }
 
 .chat-body {
@@ -169,6 +169,13 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   padding: 0 !important;
   margin: 0 !important;
 }
+
+@media (max-width: 641px) {
+  ///   MOBILE
+.chat-enter button{
+  padding-bottom: 0.6em;
+}
+    }
 
 // End of chat stuff
 
