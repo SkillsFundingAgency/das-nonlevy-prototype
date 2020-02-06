@@ -111,7 +111,7 @@ $(".shortlist.app").click(function (e) {
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-xl" style="margin-bottom:5px">Search results</h1>
-        <p style="margin:5px 0 5px 0">We've found <span style="font-weight:700">3</span> apprentices in your area.</p>
+        <p style="margin:5px 0 5px 0">We've found <span style="font-weight:700">4</span> apprenticeships and <span style="font-weight:700">1</span> employer in your area.</p>
         <p><a href="">Recieve alerts for this search</a></p>
     </div>
 </div>
@@ -294,7 +294,7 @@ $(".shortlist.app").click(function (e) {
     </div>
     <div class="govuk-grid-column-two-thirds">
         <div class="column details" style=" float:left">
-            <details class="govuk-details" data-module="govuk-details">
+<!--             <details class="govuk-details" data-module="govuk-details">
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">
                         More/less detail
@@ -302,27 +302,27 @@ $(".shortlist.app").click(function (e) {
                 </summary>
                 <div class="govuk-details__text">
                 </div>
-            </details>
-            <div class="govuk-form-group">
+            </details> -->
+   <!--          <div class="govuk-form-group">
                 <label class="govuk-label   govuk-label--s" for="partialCost">
                     Sort results
                 </label>
-                <!--     <span id="reference-hint" class="govuk-hint">
-                    Can include job title, employer or reference number
-                </span> -->
+    
                 <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
                     <option value="Best match" selected>Best match</option>
                     <option value="Closing date">Closing date</option>
                     <option value="Distance">Distance</option>
                     <option value="Recently added">Recently added</option>
-                </select></div>
+                </select></div> -->
             <div class="twoFlexContainer">
                 <div class="twoFlexItem" style="padding-left:0">
-                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="busAdminApprentice">Business Admin Apprentice</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
-                            Central Financial Services </span> <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
-                            Added 15 Dec 2019</span>
-                        <span id="reference-hint" class="govuk-hint" style="font-size:14px">
-                            1 position available </span>
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="busAdminApprentice">Business Admin Apprentice</a> 
+                        <p id="reference-hint" class="govuk-hint" style="font-size:16px; margin-bottom:5px; margin-top:5px; color:#000">
+                           Level 3 (equivalent to A-levels)</p>
+                        <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                            Central Financial Services </span> 
+                 <!--        <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                            1 position available </span> -->
                     </h2>
                 </div>
                 <div class="twoFlexItem">
@@ -394,8 +394,8 @@ $(".shortlist.app").click(function (e) {
             </div>
             <p>To efficiently undertake basic administrations and clerical duties</p>
             <div>
-                <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:86px">Distance</span>0.5 miles </p>
-                <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
+                <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:60px">Journey time</span>Between 1 and 10 minutes </p>
+<!--                 <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
                     <summary class="govuk-details__summary" style="margin:0">
                         <span class="govuk-details__summary-text">
                             Journey time
@@ -412,19 +412,22 @@ $(".shortlist.app").click(function (e) {
                             <p style="margin-bottom:0; margin-top:2px">1 minute</p>
                         </div>
                     </div>
-                </details>
+                </details> -->
+                          
+                              <!--         <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Intermediate</p> -->
                 <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:53px">Closing date:</span> 10 Feb 2020</p>
                 <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:12px">Possible start date:</span> 11 Feb 2020</p>
-                <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Intermediate</p>
-                <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £136.50 per week</p>
-                <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                    <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £346 per week</p>
+        
+  
+ <!--                <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
                     <summary class="govuk-details__summary" style="margin:0">
                         <span class="govuk-details__summary-text">
                             Show/hide map
                         </span>
                     </summary>
                     <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
-                </details>
+                </details> -->
                 <!--              <div class="shortlist app" >
                     <i class="fa fa-star-o "></i>
                     <span>Save</span>
@@ -435,10 +438,10 @@ $(".shortlist.app").click(function (e) {
                     <div class="twoFlexItem" style="padding-left:0">
                         <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Apprentice Financial Customer Service Specialist</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
                                 Metro Bank Plc</span>
-                            <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
+<!--                             <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
                                 Added 4 Nov 2019</span>
                             <span id="reference-hint" class="govuk-hint" style="font-size:14px">
-                                17 positions available </span>
+                                17 positions available </span> -->
                         </h2>
                     </div>
                     <div class="twoFlexItem">
@@ -449,8 +452,8 @@ $(".shortlist.app").click(function (e) {
                 </div>
                 <p>Metro Bank Plc are looking to recruit a Financial Customer Service Specialist Apprentice in their Contact Centre to assist with duties such as greeting customers and creating fans, finding solutions for customers and advising them on our service etc.</p>
                 <div>
-                    <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:86px">Distance</span>8.3 miles </p>
-                    <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
+                    <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:60px">Journey time</span>25 mins to 1 hour </p>
+         <!--            <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
                         <summary class="govuk-details__summary" style="margin:0">
                             <span class="govuk-details__summary-text">
                                 Journey time
@@ -467,19 +470,19 @@ $(".shortlist.app").click(function (e) {
                                 <p style="margin-bottom:0; margin-top:2px">1 minute</p>
                             </div>
                         </div>
-                    </details>
+                    </details> -->
                     <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:53px">Closing date:</span> in 3 days</p>
                     <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:12px">Possible start date:</span> 01 Feb 2020</p>
-                    <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Intermediate</p>
+                
                     <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £18,000.00 per year</p>
-                    <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+   <!--                  <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
                         <summary class="govuk-details__summary" style="margin:0">
                             <span class="govuk-details__summary-text">
                                 Show/hide map
                             </span>
                         </summary>
                         <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
-                    </details>
+                    </details> -->
                 </div>
             </div>
             <div style="clear:both"></div>
@@ -489,10 +492,10 @@ $(".shortlist.app").click(function (e) {
                 <div class="twoFlexItem" style="padding-left:0">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Level 4/6 Investment Operations Financial Services Professional Apprenticeship (London)</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
                             J.P. MORGAN CHASE (UK) HOLDINGS LIMITED </span>
-                        <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
+    <!--                     <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
                             Added 23 Oct 2019</span>
                         <span id="reference-hint" class="govuk-hint" style="font-size:14px">
-                            20 positions available </span>
+                            20 positions available </span> -->
                     </h2>
                 </div>
                 <div class="twoFlexItem">
@@ -503,8 +506,8 @@ $(".shortlist.app").click(function (e) {
             </div>
             <p>Our four-year apprenticeship programme starting in September 2020 offers a comprehensive introduction to the broad variety of roles within the financial services industry. This programme offers the apprentices the opportunity to gain two professional qualifications alongside the chance to obtain a full honours degree from the University of Exeter.</p>
             <div>
-                <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:86px">Distance</span>6.1 miles </p>
-                <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
+                <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:60px">Journey time</span>35 mins to 1 hour</p>
+   <!--              <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
                     <summary class="govuk-details__summary" style="margin:0">
                         <span class="govuk-details__summary-text">
                             Journey time
@@ -521,19 +524,19 @@ $(".shortlist.app").click(function (e) {
                             <p style="margin-bottom:0; margin-top:2px">1 minute</p>
                         </div>
                     </div>
-                </details>
+                </details> -->
                 <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:53px">Closing date:</span> 20 Dec 2019</p>
                 <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:12px">Possible start date:</span> 01 Sep 2020</p>
-                <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Higher</p>
-                <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £21,000.00 per year</p>
-                <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+    
+                <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £8.65 per hour</p>
+  <!--               <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
                     <summary class="govuk-details__summary" style="margin:0">
                         <span class="govuk-details__summary-text">
                             Show/hide map
                         </span>
                     </summary>
                     <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
-                </details>
+                </details> -->
                 <div class="disability-confident-container">
                     <img src="https://www.findapprenticeship.service.gov.uk//Content/_assets/img/disability-confident.png" class="disability-confident-logo" alt="A logo confirming that the employer is registered as disability confident">
                     <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
@@ -555,8 +558,8 @@ $(".shortlist.app").click(function (e) {
             <div class="twoFlexItem" style="padding-left:0">
                 <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="employerProfile">BMW</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
                         Automotive</span>
-                    <span id="reference-hint" class="govuk-hint" style="font-size:14px">
-                        20 positions available </span>
+                   <!--  <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                        4 positions available </span> -->
                 </h2>
             </div>
             <div class="twoFlexItem">

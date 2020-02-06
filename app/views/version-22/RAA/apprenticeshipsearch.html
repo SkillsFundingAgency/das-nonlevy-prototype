@@ -25,79 +25,72 @@
             </span></h1>
         <!--            <p style="margin:5px 0 5px 0; width:66%">There are <span style="font-weight:700">4</span> training providers and <span style="font-weight:700">2</span> end-point assessment organisations for the <span style="font-weight:700">Financial Services Administrator, level 3</span> apprenticeship</span>.</p>
                 <p style="margin:15px 0 5px 0">Training provider results are ordered by distance from<span style="font-weight:700"> 'N4 3BJ'</span></p> -->
-        <div class="govuk-tabs" data-module="govuk-tabs">
-            <h2 class="govuk-tabs__title">
-                Contents
-            </h2>
-            <ul class="govuk-tabs__list">
-                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-                    <a class="govuk-tabs__tab" href="#search">
-                        Search
-                    </a>
-                </li>
-                <li class="govuk-tabs__list-item">
-                    <a class="govuk-tabs__tab" href="#browse">
-                        Browse
-                    </a>
-                </li>
-            </ul>
-            <section class="govuk-tabs__panel" id="search">
+
+     
                 <form method="get" action="searchResults">
-                    <div class="govuk-form-group">
-                        <label class="govuk-label   govuk-label--s" for="partialCost">
-                            Keywords (optional)
-                        </label>
-                        <span id="reference-hint" class="govuk-hint">
-                            Can include job title, employer or reference number
-                        </span>
-                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
-                            <option value="All" selected>All</option>
-                            <option value="Job title">Job title</option>
-                            <option value="Description">Description</option>
-                            <option value="Employer">Employer</option>
-                            <option value="Ref. number">Ref. number</option>
-                        </select>
-                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
-                    </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label   govuk-label--s" for="partialCost">
                             Your location
                         </label>
                         <span id="reference-hint" class="govuk-hint">
-                            Enter postcode, town or city or <a href="">use current location</a>
+                            Enter postcode, town or city 
                         </span>
                         <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
                     </div>
                     <div class="govuk-form-group">
                         <label class="govuk-label   govuk-label--s" for="partialCost">
-                            Within
+                            Industry
                         </label>
-                        <!--     <span id="reference-hint" class="govuk-hint">
-                    Can include job title, employer or reference number
-                </span> -->
-                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
-                            <option value="2 miles" selected>2 miles</option>
-                            <option value="5 miles" selected>5 miles</option>
-                            <option value="15 miles">15 miles</option>
-                            <option value="20 miles">20 miles</option>
-                            <option value="30 miles">30 miles</option>
-                            <option value="40 miles">40 miles</option>
-                            <option value="England">England</option>
-                        </select></div>
-                    <div class="govuk-form-group">
-                        <label class="govuk-label   govuk-label--s" for="partialCost">
-                            Apprenticeship level
-                        </label>
-                        <!--     <span id="reference-hint" class="govuk-hint">
-                    Can include job title, employer or reference number
-                </span> -->
-                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
-                            <option value="All levels" selected>All levels</option>
-                            <option value="Intermediate" selected>Intermediate</option>
-                            <option value="Advanced">Advanced</option>
-                            <option value="Higher">Higher</option>
-                            <option value="Degree">Degree</option>
-                        </select></div>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>All</option>
+                            <option value="Job title">Accountancy</option>
+                            <option value="Description">Agriculture & Horticulture</option>
+                            <option value="Employer">Animal care</option>
+                            <option value="Ref. number">Arts</option>
+                            <option value="Ref. number">Automotive</option>
+                             <option value="Ref. number">Business & administration</option>
+                             <option value="Ref. number">Catering & hospitality</option>
+                             <option value="Ref. number">Childcare</option>
+                             <option value="Ref. number">Cleaning & enviromental</option>
+                             <option value="Ref. number">Constructionn</option>
+                             <option value="Ref. number">Contact center</option>
+                             <option value="Ref. number">Creative & digital media</option>
+                             <option value="Ref. number">Customer service</option>
+                             <option value="Ref. number">Dental</option>
+                             <option value="Ref. number">Education & training</option>
+                             <option value="Ref. number">Employability</option>
+                             <option value="Ref. number">Engineering & manufacturing</option>                            
+                              <option value="Ref. number">Environmental sciences</option>
+                             <option value="Ref. number">Facilities management</option>                            
+                              <option value="Ref. number">Fashion & textiles</option>
+                             <option value="Ref. number">Financial services</option>
+                               <option value="Ref. number">Firefighter</option>
+                                 <option value="Ref. number">Food manufacturing</option>
+                                   <option value="Ref. number">Hairdressing & beauty</option>
+                                     <option value="Ref. number">Health & social care</option>
+                                       <option value="Ref. number">Horse care</option>
+                                         <option value="Ref. number">Human resources</option>
+                                           <option value="Ref. number">Insurance</option>
+                                             <option value="Ref. number">IT</option>
+                                               <option value="Ref. number">Law</option>
+                                                 <option value="Ref. number">Leisure</option>
+                                                   <option value="Ref. number">Management & team leading</option>
+                                 <option value="Ref. number">Martime & marine operation</option>
+                                    <option value="Ref. number">Marketing</option>
+                                     <option value="Ref. number">Media & publishing</option>
+                                    <option value="Ref. number">Pharmaceutical</option>
+                                    <option value="Ref. number">Playwork</option>
+                                     <option value="Ref. number">Property services</option>
+                                    <option value="Ref. number">Public services & emergency services</option>
+                                    <option value="Ref. number">Social media & digital marketing</option>
+                                    <option value="Ref. number">Telecommunications</option>
+                                 <option value="Ref. number">Transport logistics</option>
+                              <option value="Ref. number">Travel & tourism</option>
+                                <option value="Ref. number">Veterinary nursing</option>
+                                  <option value="Ref. number">Warehousing</option>
+                        </select>
+                    </div>
+
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                             <label class="govuk-label   govuk-label--s" for="partialCost">
