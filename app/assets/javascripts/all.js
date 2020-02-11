@@ -2090,7 +2090,10 @@ Tabs.prototype.init = function () {
 
 //
 Tabs.prototype.setupResponsiveChecks = function () {
-  this.mql = window.matchMedia('(min-width: 40.0625em)');
+  //Change by RJ on 11 Feb to make tabs work as tabs on mobile
+  
+//  this.mql = window.matchMedia('(min-width: 40.0625em)');
+    this.mql = window.matchMedia('(min-width: 1.0625em)');
   this.mql.addListener(this.checkMode.bind(this));
   this.checkMode();
 };

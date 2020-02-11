@@ -37,9 +37,99 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     content: " \25B2\25BC"; font-size: 12px 
 }*/
 
+// this is from _tabs.css - i hacked it to show tabs on mobile as that is what FAA does but have to do it here or it won't show on mobile
 
 
 
+  // JavaScript enabled
+  .js-enabled {
+
+   //  @include govuk-media-query($from: tablet) {
+    // removing the above line and the closing brackets below means that tabs will show on mobile, like they do on FAA
+
+      .govuk-tabs__list {
+        @include govuk-clearfix;
+        margin-bottom: 0;
+        border-bottom: 1px solid $govuk-border-colour;
+      }
+
+      .govuk-tabs__title {
+        display: none;
+      }
+
+      .govuk-tabs__list-item {
+        position: relative;
+
+        margin-right: govuk-spacing(1);
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: govuk-spacing(2) govuk-spacing(4);
+
+        float: left;
+        background-color: govuk-colour("light-grey", $legacy: "grey-4");
+        text-align: center;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      .govuk-tabs__list-item--selected {
+        $border-width: 1px;
+
+        position: relative;
+
+        margin-top: - govuk-spacing(1);
+
+        // Compensation for border (otherwise we get a shift)
+        margin-bottom: -$border-width;
+        padding-top: govuk-spacing(3) - $border-width;
+        padding-right: govuk-spacing(4) - $border-width;
+        padding-bottom: govuk-spacing(3) + $border-width;
+        padding-left: govuk-spacing(4) - $border-width;
+
+        border: $border-width solid $govuk-border-colour;
+        border-bottom: 0;
+
+        background-color: $govuk-body-background-colour;
+
+        .govuk-tabs__tab {
+          text-decoration: none;
+        }
+      }
+
+      .govuk-tabs__tab {
+        @include govuk-link-style-text;
+
+        margin-bottom: 0;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .govuk-tabs__panel {
+        @include govuk-responsive-margin(0, "bottom");
+        padding: govuk-spacing(6) govuk-spacing(4);
+        border: 1px solid $govuk-border-colour;
+        border-top: 0;
+
+        & > :last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .govuk-tabs__panel--hidden {
+        display: none;
+      }
+    // }
+
+  }
 
 
 // Chat stuff
