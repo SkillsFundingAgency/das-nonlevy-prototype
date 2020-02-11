@@ -40,54 +40,6 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 // this is from _tabs.css - i hacked it to show tabs on mobile as that is what FAA does but have to do it here or it won't show on mobile
 
 
-@include govuk-exports("govuk/component/tabs") {
-
-  .govuk-tabs {
-    @include govuk-responsive-margin(1, "top");
-    @include govuk-responsive-margin(6, "bottom");
-  }
-
-  .govuk-tabs__title {
-    @include govuk-font($size: 19);
-    @include govuk-text-colour;
-    margin-bottom: govuk-spacing(2);
-  }
-
-  .govuk-tabs__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    @include govuk-responsive-margin(6, "bottom");
-  }
-
-  .govuk-tabs__list-item {
-    @include govuk-font($size: 19);
-    margin-left: govuk-spacing(5);
-
-    &::before {
-      @include govuk-text-colour;
-      content: "\2014 "; // "— "
-      margin-left: - govuk-spacing(5);
-      padding-right: govuk-spacing(1);
-    }
-  }
-
-  .govuk-tabs__tab {
-    @include govuk-link-style-default;
-
-    display: inline-block;
-    margin-bottom: govuk-spacing(2);
-
-    // Focus state for mobile and when JavaScript is disabled
-    // It is removed for JS-enabled desktop styles
-    &:focus {
-      @include govuk-focused-text;
-    }
-  }
-
-  .govuk-tabs__panel {
-    @include govuk-responsive-margin(8, "bottom");
-  }
 
   // JavaScript enabled
   .js-enabled {
@@ -177,7 +129,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     // }
 
   }
-}
+
 
 
 
