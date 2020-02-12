@@ -3240,6 +3240,37 @@ router.get('/*/RAA/apprenticeshipsearchLog' , function (req, res) {
   })
 
 
+/// EPAO > EPAO pay me > have you recorded an outcome
+// http://127.0.0.1:3000/version-19/EPAOPay/chooseCert
+router.get('/*/RAA/reg3/searchForDifferentApprentices' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'employer'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/reg3/employerSearch`)
+           break;
+
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/reg3/jobSearch`)
+           break;
+
+            case  (confirmTraining == 'saved'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/reg3/savedSearch`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/EPAOPay/arse`)
+            break;
+        }
+})
+
+
 
 /////////END OF RAA ROUTES //////////////////////////////
 
