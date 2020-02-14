@@ -360,10 +360,28 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .WideMobile175 {
   max-width:175px;
   }
+
+.sevenHundred {
+  font-weight:700;
+}
+  .sevenHundred a {
+  color:#fff;
+}
+  
 }
 
 @media (min-width: 641px) {
   ///   DESKTOP
+
+.sevenHundred {
+  font-weight:700;
+}
+
+.sevenHundred a {
+  color:#fff;
+}
+
+
 .mobileLeft{
   float:right;
     }

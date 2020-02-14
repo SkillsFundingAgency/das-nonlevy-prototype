@@ -2,126 +2,9 @@
 {% block beforeContent %}
 {% endblock %}
 {% block content %}
-  <script src="/public/javascripts/accordion.js"></script>
-<!--script>
 
-$(document).on('click', 'input[type="radio"]', function (e) {
-  if ($(e.target).attr('id') === 'radio-3' || $(e.target).attr('id') === 'radio-4' || $(e.target).attr('id') === 'radio-5') 
-  { $('#other-organisation-options').removeClass('js-hidden') ; } 
-       else {$('#other-organisation-options').addClass('js-hidden');};
-});
-
-</script-->
-<script>
-// uncomment this to turn on the accordions
-
-if (
-    'addEventListener' in document &&
-    document.querySelectorAll
-) {
-    document.addEventListener('DOMContentLoaded', function() {
-        var accordions = document.querySelectorAll('.accordion')
-        for (var i = accordions.length - 1; i >= 0; i--) {
-            new Accordion(accordions[i])
-        };
-    })
-}
-</script>
-<style>
-.accordion-controls{
-    display:none;
-}
-</style>
 <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
-<!-- <script>
-$( document ).ready(function() {
-var appCount=0
-var proCount=0
- $(".shortlist.app").click(function (e) {
-        e.preventDefault();
-        console.log("shortlist button clicked: " + appCount);
 
-
-        if ($("i", this).hasClass("fa-star-o")) {
-            console.log("isnt shortlisted");
-            appCount = appCount + 1;
-            console.log(appCount);
-        //    Cookies.set("appCount", appCount);
-            $("i", this).removeClass("fa-star-o").addClass("fa-star");
-            $("span", this).text("Remove");
-            $("#bannerCount span").text(Number(proCount) + Number(appCount));
-
-        } else {
-            console.log("is shortlisted");
-            $("i", this).removeClass("fa-star").addClass("fa-star-o");
-            $("span", this).text("Save");
-            appCount--;
-        //    Cookies.set("appCount", appCount);
-            console.log(appCount);
-            $("#bannerCount span").text(Number(proCount) + Number(appCount));
-        }
-    })
- });
-</script> -->
-<!--script>
- var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
-console.log(fundingStatus)
-$(document).ready(function() {
-  var changeStuff = function() {
-  if (fundingStatus=='yes') {
-
-    $(dtLevyPayer).removeClass("rj-dont-display")
-    $(ddLevyPayer).removeClass("rj-dont-display")
-    $(dtCoInvestPayer).addClass("rj-dont-display")
-    $(ddCoInvestPayer).addClass("rj-dont-display")
-
-    }
-else {};
-
-if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
-
-    }
-else { };
-
-
-  }
-changeStuff();
-});
-</script
-<!-- 
-           <script>
-$( document ).ready(function() {
-var appCount=0
-var proCount=0
-$(".shortlist.app").click(function (e) {
-    e.preventDefault();
-    console.log("shortlist button clicked: " + appCount);
-    //appCount++;
-
-    if ($(".shortlist .app i").hasClass("fa-star-o")) {
-        console.log("isnt shortlisted");
-        appCount++;
-        console.log(appCount);
-   //     Cookies.set("appCount", appCount);
-        $(".shortlist.app i").removeClass("fa-star-o").addClass("fa-star");
-        $(".shortlist.app span").text("Remove from shortlist");
-        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
-
-    } else {
-        console.log("is shortlisted");
-        $(".shortlist.app i").removeClass("fa-star").addClass("fa-star-o");
-        $(".shortlist.app span").text("Shortlist this apprenticeship");
-        appCount--;
- //       Cookies.set("appCount", appCount);
-        console.log(appCount);
-        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
-    }
-
-    //.toggleClass(".fa-star-o").toggleClass(".fa-star");
-
-    })
-});
-</script> -->
 <!-- Here is the code to show conditional stuff in liquid-->
 {% if data.FAALoggedIn %}
 {% include "includes/RAALoggedIn.html" %}
@@ -130,19 +13,22 @@ $(".shortlist.app").click(function (e) {
 {% endif %}
 <!-- end of conditional statement -->
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full" style="margin-bottom:25px">
-        <h1 class="govuk-heading-xl" style="margin-bottom:5px">Search results</h1>
-        <p style="margin:5px 0 5px 0">We've found <span style="font-weight:700">3</span> apprenticeships in your area.</p>
-        <p><a href="">Recieve alerts for this search</a></p>
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl" style="">Find an apprenticeship</h1>
+<!--         <p style="margin:5px 0 5px 0">We've found <span style="font-weight:700">3</span> apprenticeships in your area.</p>
+        <p><a href="">Recieve alerts for this search</a></p> -->
     </div>
 </div>
+
+
+ <form method="get" action="searchResults">
+   
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
         <!-- desktop version of the filters -->
-        <div class="notOnMobile">
-            <H3 class="govuk-heading-m" style="display:inline-block">Edit search </H3>
+        <div class="">
 
-             <div class="filter-form filtering ">
+            <div class="filter-form filtering ">
       <div id="finder-frontend" class="inner-block">
 
 
@@ -284,12 +170,151 @@ $(".shortlist.app").click(function (e) {
             </div>
         </div>
 
+
+       
+<!-- 
+            <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Alerts</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state">
+                  <div class="js-auto-height-inner">
+                       <label for="Live">
+                        <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                          No action needed
+                        </label>
+                       <label for="not-started">
+                       <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                            Changes pending
+                        </label>
+                        <label for="Paused">
+                        <input name="case_type[]" value="Cyberdyne" id="Cyberdyne" type="checkbox" aria-controls="js-search-results-info">
+                          Payment failed
+                        </label>
+  
+                         <label for="Stopped">
+                        <input name="case_type[]" value="Cyberdyne" id="Cyberdyne" type="checkbox" aria-controls="js-search-results-info">
+                          End-point assessor review needed
+                        </label>
+                  </div>
+               </div>
+          </div>
+
+          <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Apprenticeship training courses</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state">
+                  <div class="js-auto-height-inner">
+                      <label for="Acme Coventry Ltd">
+                        <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                          Mechatronics engineers
+                        </label>
+                        <label for="Cyberdyne Systems Inc">
+                        <input name="case_type[]" value="Cyberdyne" id="Cyberdyne" type="checkbox" aria-controls="js-search-results-info">
+                          Manufacturing engineers
+                        </label>
+                        <label for="Tyrell Corp">
+                        <input name="case_type[]" value="Tyrell" id="Tyrell" type="checkbox" aria-controls="js-search-results-info">
+                          Survival equipment fitter
+                        </label>
+                                                <label for="Tyrell Corp">
+                        <input name="case_type[]" value="Tyrell" id="Tyrell" type="checkbox" aria-controls="js-search-results-info">
+                          Network engineer
+                        </label>
+                                                                        <label for="Tyrell Corp">
+                        <input name="case_type[]" value="Tyrell" id="Tyrell" type="checkbox" aria-controls="js-search-results-info">
+                          Cyber intrusion analyst
+                        </label>
+                                                                                                <label for="Tyrell Corp">
+                        <input name="case_type[]" value="Tyrell" id="Tyrell" type="checkbox" aria-controls="js-search-results-info">
+                          Cyber security technologist
+                        </label>
+                                                                                                              <label for="Tyrell Corp">
+                        <input name="case_type[]" value="Tyrell" id="Tyrell" type="checkbox" aria-controls="js-search-results-info">
+                          Embedded Electronic Systems Design and Development Engineer
+                        </label>
+
+                  </div>
+
+               </div>
+          </div>
+ -->
+<!--     <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Training providers</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state">
+                  <div class="js-auto-height-inner">
+                      <label for="Acme Coventry Ltd">
+                        <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                          Hackney Skills &amp Training
+                        </label>
+                        <label for="Cyberdyne Systems Inc">
+                        <input name="case_type[]" value="Cyberdyne" id="Cyberdyne" type="checkbox" aria-controls="js-search-results-info">
+                          Skills, Skills, Skills Ltd
+                        </label>
+                        <label for="Tyrell Corp">
+                        <input name="case_type[]" value="Tyrell" id="Tyrell" type="checkbox" aria-controls="js-search-results-info">
+                          Apprenticeships R Us
+                        </label>
+                  </div>
+               </div>
+          </div> -->
+
+         <!--  <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Organisation</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state">
+                  <div class="js-auto-height-inner">
+                       <label for="Live">
+                        <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                          Acme Coventry Ltd
+                        </label>
+                       <label for="not-started">
+                       <input name="case_type[]" value="acme-cov" id="acme-birm" type="checkbox" aria-controls="js-search-results-info">
+                          Acme Birmingham Ltd
+                        </label>
+
+                  </div>
+               </div>
+          </div>
+ -->
+   <!--        <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Cohort reference</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state">
+                  <div class="js-auto-height-inner">
+                       <label for="Live">
+                        <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                          98HXGFD
+                        </label>
+                       <label for="not-started">
+                       <input name="case_type[]" value="acme-cov" id="acme-cov" type="checkbox" aria-controls="js-search-results-info">
+                          78JKHGS
+                        </label>
+                        <label for="Paused">
+                        <input name="case_type[]" value="Cyberdyne" id="Cyberdyne" type="checkbox" aria-controls="js-search-results-info">
+                          HJGS897
+                        </label>
+                         <label for="Stopped">
+                        <input name="case_type[]" value="Cyberdyne" id="Cyberdyne" type="checkbox" aria-controls="js-search-results-info">
+                          UIOY784
+                        </label>
+                  </div>
+               </div>
+          </div> -->
+
+ <!--        </div>
+      </div>
+    </div> -->
+
+
+    
 <!--             <div class="filter-form filtering ">
                 <div id="finder-frontend" class="">
-                    <form method="get" action="searchResults">
-                        <div class="govuk-form-group" style="margin-top:15px">
-                   
-                        </div>
                         <div class="govuk-form-group" style="margin-bottom:15px">
                             <label class="govuk-label   govuk-label--s" for="partialCost">
                                 Your location
@@ -303,7 +328,7 @@ $(".shortlist.app").click(function (e) {
                             <label class="govuk-label   govuk-label--s" for="partialCost">
                                 Within
                             </label>
-                    
+               
                             <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
                                 <option value="2 miles" >2 miles</option>
                                 <option value="5 miles" >5 miles</option>
@@ -371,7 +396,7 @@ $(".shortlist.app").click(function (e) {
                             <label class="govuk-label   govuk-label--s" for="partialCost">
                                 Apprenticeship level
                             </label>
-                    
+                      
                             <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
                                 <option value="All levels" selected>All levels</option>
                                 <option value="Intermediate" selected>Intermediate</option>
@@ -406,157 +431,19 @@ $(".shortlist.app").click(function (e) {
 
 
 
-        <div class="notOnDesktop">
-
-<div class="accordion" style="margin-bottom:25px">
-    <div class="accordion-section">
-        <div class="accordion-section-header">
-            <h2 class="govuk-heading-m">Edit search </h2>
-        </div>
-        <div class="accordion-section-body">
-            
-            <div class="filter-form filtering ">
-                    <div id="finder-frontend" class="">
-                        <form method="get" action="searchResults">
-                            <div class="govuk-form-group" style="margin-top:15px">
-                                <!-- <label class="govuk-label   govuk-label--s" for="partialCost">
-                                    Keywords (optional)
-                                </label>
-                                <span id="reference-hint" class="govuk-hint">
-                                    Can include job title, employer or reference number
-                                </span>
-                                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
-                                    <option value="All" selected>-- Refine Search --</option>
-                                    <option value="Job title">Job title</option>
-                                    <option value="Description">Description</option>
-                                    <option value="Employer">Employer</option>
-                                    <option value="Ref. number">Ref. number</option>
-                                </select>
-                                <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" /> -->
-                            </div>
-                            <div class="govuk-form-group">
-                                <label class="govuk-label   govuk-label--s" for="partialCost">
-                                    Your location
-                                </label>
-                                <span id="reference-hint" class="govuk-hint">
-                                    Enter postcode, town or city or <a href="">use current location</a>
-                                </span>
-                                <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
-                            </div>
-                            <div class="govuk-form-group">
-                                <label class="govuk-label   govuk-label--s" for="partialCost">
-                                    Within
-                                </label>
-                                <!--     <span id="reference-hint" class="govuk-hint">
-                    Can include job title, employer or reference number
-                </span> -->
-                                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
-                                    <option value="2 miles" >2 miles</option>
-                                    <option value="5 miles" >5 miles</option>
-                                    <option value="15 miles">15 miles</option>
-                                    <option value="20 miles">20 miles</option>
-                                    <option value="30 miles" selected>30 miles</option>
-                                    <option value="40 miles">40 miles</option>
-                                    <option value="England">England</option>
-                                </select></div>
-
-                    <div class="govuk-form-group">
-                        <label class="govuk-label   govuk-label--s" for="partialCost">
-                            Industry
-                        </label>
-                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
-                            <option value="All" selected>All</option>
-                            <option value="Job title">Accountancy</option>
-                            <option value="Description">Agriculture & Horticulture</option>
-                            <option value="Employer">Animal care</option>
-                            <option value="Ref. number">Arts</option>
-                            <option value="Ref. number">Automotive</option>
-                             <option value="Ref. number" selected>Business & administration</option>
-                             <option value="Ref. number">Catering & hospitality</option>
-                             <option value="Ref. number">Childcare</option>
-                             <option value="Ref. number">Cleaning & enviromental</option>
-                             <option value="Ref. number">Constructionn</option>
-                             <option value="Ref. number">Contact center</option>
-                             <option value="Ref. number">Creative & digital media</option>
-                             <option value="Ref. number">Customer service</option>
-                             <option value="Ref. number">Dental</option>
-                             <option value="Ref. number">Education & training</option>
-                             <option value="Ref. number">Employability</option>
-                             <option value="Ref. number">Engineering & manufacturing</option>                            
-                              <option value="Ref. number">Environmental sciences</option>
-                             <option value="Ref. number">Facilities management</option>                            
-                              <option value="Ref. number">Fashion & textiles</option>
-                             <option value="Ref. number">Financial services</option>
-                               <option value="Ref. number">Firefighter</option>
-                                 <option value="Ref. number">Food manufacturing</option>
-                                   <option value="Ref. number">Hairdressing & beauty</option>
-                                     <option value="Ref. number">Health & social care</option>
-                                       <option value="Ref. number">Horse care</option>
-                                         <option value="Ref. number">Human resources</option>
-                                           <option value="Ref. number">Insurance</option>
-                                             <option value="Ref. number">IT</option>
-                                               <option value="Ref. number">Law</option>
-                                                 <option value="Ref. number">Leisure</option>
-                                                   <option value="Ref. number">Management & team leading</option>
-                                 <option value="Ref. number">Martime & marine operation</option>
-                                    <option value="Ref. number">Marketing</option>
-                                     <option value="Ref. number">Media & publishing</option>
-                                    <option value="Ref. number">Pharmaceutical</option>
-                                    <option value="Ref. number">Playwork</option>
-                                     <option value="Ref. number">Property services</option>
-                                    <option value="Ref. number">Public services & emergency services</option>
-                                    <option value="Ref. number">Social media & digital marketing</option>
-                                    <option value="Ref. number">Telecommunications</option>
-                                 <option value="Ref. number">Transport logistics</option>
-                              <option value="Ref. number">Travel & tourism</option>
-                                <option value="Ref. number">Veterinary nursing</option>
-                                  <option value="Ref. number">Warehousing</option>
-                        </select>
-                    </div>
-
-                            <div class="govuk-form-group">
-                                <label class="govuk-label   govuk-label--s" for="partialCost">
-                                    Apprenticeship level
-                                </label>
-                                <!--     <span id="reference-hint" class="govuk-hint">
-                    Can include job title, employer or reference number
-                </span> -->
-                                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
-                                    <option value="All levels" selected>All levels</option>
-                                    <option value="Intermediate" >Intermediate</option>
-                                    <option value="Advanced">Advanced</option>
-                                    <option value="Higher">Higher</option>
-                                    <option value="Degree">Degree</option>
-                                </select></div>
-                            <div class="govuk-form-group">
-                                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                                    <label class="govuk-label   govuk-label--s" for="partialCost">
-                                        Only show
-                                    </label>
-                                    <div class="govuk-checkboxes">
-                                        <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                                            <label class="govuk-label govuk-checkboxes__label" for="waste">
-                                                Disability confident
-                                            </label>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <button type="submit" class="govuk-button" style="">Update results</button>
-                            <a class="" href="apprenticeshipsearch">Start again</a>
-                        </form>
-                      <!--   <div style="height:200px;width:300px;background-color: #ccc; margin-bottom:15px"><img src="/public/images/searchMap.jpeg" style="width:300px"></div> -->
-                    </div>
-                </div>
-        </div>
-        </div>
-    </div>
-</div>
-
+       
     </div>
     <div class="govuk-grid-column-two-thirds">
         <div class="column details" style=" float:left">
+                   <div class="govuk-form-group" style="margin-bottom:15px">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Search by keywords
+                            </label>
+                            <span id="reference-hint" class="govuk-hint">
+                                For instance job role, skills or employer
+                            </span>
+                            <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                        </div>
             <div class="twoFlexContainer">
                 <div class="twoFlexItem" style="padding-left:0">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="busAdminApprentice">Business Admin </a> 

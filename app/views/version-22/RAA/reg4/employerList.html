@@ -1,0 +1,719 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+  <script src="/public/javascripts/accordion.js"></script>
+<!--script>
+
+$(document).on('click', 'input[type="radio"]', function (e) {
+  if ($(e.target).attr('id') === 'radio-3' || $(e.target).attr('id') === 'radio-4' || $(e.target).attr('id') === 'radio-5') 
+  { $('#other-organisation-options').removeClass('js-hidden') ; } 
+       else {$('#other-organisation-options').addClass('js-hidden');};
+});
+
+</script-->
+<script>
+// uncomment this to turn on the accordions
+
+if (
+    'addEventListener' in document &&
+    document.querySelectorAll
+) {
+    document.addEventListener('DOMContentLoaded', function() {
+        var accordions = document.querySelectorAll('.accordion')
+        for (var i = accordions.length - 1; i >= 0; i--) {
+            new Accordion(accordions[i])
+        };
+    })
+}
+</script>
+<style>
+.accordion-controls{
+    display:none;
+}
+</style>
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+<!-- <script>
+$( document ).ready(function() {
+var appCount=0
+var proCount=0
+ $(".shortlist.app").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+
+
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+        //    Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove");
+            $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save");
+            appCount--;
+        //    Cookies.set("appCount", appCount);
+            console.log(appCount);
+            $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+ });
+</script> -->
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+
+    $(dtLevyPayer).removeClass("rj-dont-display")
+    $(ddLevyPayer).removeClass("rj-dont-display")
+    $(dtCoInvestPayer).addClass("rj-dont-display")
+    $(ddCoInvestPayer).addClass("rj-dont-display")
+
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+
+    }
+else { };
+
+
+  }
+changeStuff();
+});
+</script
+<!-- 
+           <script>
+$( document ).ready(function() {
+var appCount=0
+var proCount=0
+$(".shortlist.app").click(function (e) {
+    e.preventDefault();
+    console.log("shortlist button clicked: " + appCount);
+    //appCount++;
+
+    if ($(".shortlist .app i").hasClass("fa-star-o")) {
+        console.log("isnt shortlisted");
+        appCount++;
+        console.log(appCount);
+   //     Cookies.set("appCount", appCount);
+        $(".shortlist.app i").removeClass("fa-star-o").addClass("fa-star");
+        $(".shortlist.app span").text("Remove from shortlist");
+        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
+
+    } else {
+        console.log("is shortlisted");
+        $(".shortlist.app i").removeClass("fa-star").addClass("fa-star-o");
+        $(".shortlist.app span").text("Shortlist this apprenticeship");
+        appCount--;
+ //       Cookies.set("appCount", appCount);
+        console.log(appCount);
+        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
+    }
+
+    //.toggleClass(".fa-star-o").toggleClass(".fa-star");
+
+    })
+});
+</script> -->
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- end of conditional statement -->
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl" style="margin-bottom:5px">Search results</h1>
+        <p style="margin:5px 0 5px 0">We've found <span style="font-weight:700">3</span> apprenticeships in your area.</p>
+        <p><a href="">Recieve alerts for this search</a></p>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <!-- desktop version of the filters -->
+        <div class="notOnMobile">
+            <H3 class="govuk-heading-m" style="margin: 0; display:inline-block">Edit search </H3>
+            <div class="filter-form filtering ">
+                <div id="finder-frontend" class="">
+                    <form method="get" action="searchResults">
+                        <div class="govuk-form-group" style="margin-top:15px">
+                            <!-- <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Keywords (optional)
+                            </label>
+                            <span id="reference-hint" class="govuk-hint">
+                                Can include job title, employer or reference number
+                            </span>
+                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                                <option value="All" selected>-- Refine Search --</option>
+                                <option value="Job title">Job title</option>
+                                <option value="Description">Description</option>
+                                <option value="Employer">Employer</option>
+                                <option value="Ref. number">Ref. number</option>
+                            </select>
+                            <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" /> -->
+                        </div>
+                        <div class="govuk-form-group" style="margin-bottom:15px">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Your location
+                            </label>
+                            <span id="reference-hint" class="govuk-hint">
+                                Enter postcode, town or city
+                            </span>
+                            <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Within
+                            </label>
+                            <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                                <option value="2 miles" >2 miles</option>
+                                <option value="5 miles" >5 miles</option>
+                                <option value="15 miles">15 miles</option>
+                                <option value="20 miles">20 miles</option>
+                                <option value="30 miles" selected>30 miles</option>
+                                <option value="40 miles">40 miles</option>
+                                <option value="England">England</option>
+                            </select></div>
+  <!-- <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Industry
+                        </label>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>All</option>
+                            <option value="Job title">Accountancy</option>
+                            <option value="Description">Agriculture & Horticulture</option>
+                            <option value="Employer">Animal care</option>
+                            <option value="Ref. number">Arts</option>
+                            <option value="Ref. number">Automotive</option>
+                             <option value="Ref. number" selected>Business & administration</option>
+                             <option value="Ref. number">Catering & hospitality</option>
+                             <option value="Ref. number">Childcare</option>
+                             <option value="Ref. number">Cleaning & enviromental</option>
+                             <option value="Ref. number">Constructionn</option>
+                             <option value="Ref. number">Contact center</option>
+                             <option value="Ref. number">Creative & digital media</option>
+                             <option value="Ref. number">Customer service</option>
+                             <option value="Ref. number">Dental</option>
+                             <option value="Ref. number">Education & training</option>
+                             <option value="Ref. number">Employability</option>
+                             <option value="Ref. number">Engineering & manufacturing</option>                            
+                              <option value="Ref. number">Environmental sciences</option>
+                             <option value="Ref. number">Facilities management</option>                            
+                              <option value="Ref. number">Fashion & textiles</option>
+                             <option value="Ref. number">Financial services</option>
+                               <option value="Ref. number">Firefighter</option>
+                                 <option value="Ref. number">Food manufacturing</option>
+                                   <option value="Ref. number">Hairdressing & beauty</option>
+                                     <option value="Ref. number">Health & social care</option>
+                                       <option value="Ref. number">Horse care</option>
+                                         <option value="Ref. number">Human resources</option>
+                                           <option value="Ref. number">Insurance</option>
+                                             <option value="Ref. number">IT</option>
+                                               <option value="Ref. number">Law</option>
+                                                 <option value="Ref. number">Leisure</option>
+                                                   <option value="Ref. number">Management & team leading</option>
+                                 <option value="Ref. number">Martime & marine operation</option>
+                                    <option value="Ref. number">Marketing</option>
+                                     <option value="Ref. number">Media & publishing</option>
+                                    <option value="Ref. number">Pharmaceutical</option>
+                                    <option value="Ref. number">Playwork</option>
+                                     <option value="Ref. number">Property services</option>
+                                    <option value="Ref. number">Public services & emergency services</option>
+                                    <option value="Ref. number">Social media & digital marketing</option>
+                                    <option value="Ref. number">Telecommunications</option>
+                                 <option value="Ref. number">Transport logistics</option>
+                              <option value="Ref. number">Travel & tourism</option>
+                                <option value="Ref. number">Veterinary nursing</option>
+                                  <option value="Ref. number">Warehousing</option>
+                        </select>
+                    </div>
+ -->
+                        <div class="govuk-form-group">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Apprenticeship level
+                            </label>
+                            <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                                <option value="All levels" selected>All levels</option>
+                                <option value="Intermediate" selected>Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Higher">Higher</option>
+                                <option value="Degree">Degree</option>
+                            </select></div>
+                        <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                                <label class="govuk-label   govuk-label--s" for="partialCost">
+                                    Only show
+                                </label>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                            Disability confident
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <button type="submit" class="govuk-button" style="">Update results</button>
+                        <a class="" href="apprenticeshipsearch">Start again</a>
+                    </form>
+              <!--       <div style="height:200px;width:100%;background-color: #ccc; margin-bottom:15px"><img src="/public/images/searchMap.jpeg" style="width:100%"></div> -->
+                </div>
+            </div>
+        </div>
+        <!-- End of desktop version of the filters -->
+        <!-- mobile version of the filters -->
+
+
+
+        <div class="notOnDesktop">
+
+<div class="accordion" style="margin-bottom:25px">
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Edit search </h2>
+        </div>
+        <div class="accordion-section-body">
+            
+            <div class="filter-form filtering ">
+                    <div id="finder-frontend" class="">
+                        <form method="get" action="searchResults">
+                            <div class="govuk-form-group" style="margin-top:15px">
+                                <!-- <label class="govuk-label   govuk-label--s" for="partialCost">
+                                    Keywords (optional)
+                                </label>
+                                <span id="reference-hint" class="govuk-hint">
+                                    Can include job title, employer or reference number
+                                </span>
+                                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                                    <option value="All" selected>-- Refine Search --</option>
+                                    <option value="Job title">Job title</option>
+                                    <option value="Description">Description</option>
+                                    <option value="Employer">Employer</option>
+                                    <option value="Ref. number">Ref. number</option>
+                                </select>
+                                <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" /> -->
+                            </div>
+                            <div class="govuk-form-group">
+                                <label class="govuk-label   govuk-label--s" for="partialCost">
+                                    Your location
+                                </label>
+                                <span id="reference-hint" class="govuk-hint">
+                                    Enter postcode, town or city or <a href="">use current location</a>
+                                </span>
+                                <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                            </div>
+                            <div class="govuk-form-group">
+                                <label class="govuk-label   govuk-label--s" for="partialCost">
+                                    Within
+                                </label>
+                                <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                                    <option value="2 miles" >2 miles</option>
+                                    <option value="5 miles" >5 miles</option>
+                                    <option value="15 miles">15 miles</option>
+                                    <option value="20 miles">20 miles</option>
+                                    <option value="30 miles" selected>30 miles</option>
+                                    <option value="40 miles">40 miles</option>
+                                    <option value="England">England</option>
+                                </select></div>
+
+                   <!--  <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Industry
+                        </label>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>All</option>
+                            <option value="Job title">Accountancy</option>
+                            <option value="Description">Agriculture & Horticulture</option>
+                            <option value="Employer">Animal care</option>
+                            <option value="Ref. number">Arts</option>
+                            <option value="Ref. number">Automotive</option>
+                             <option value="Ref. number" selected>Business & administration</option>
+                             <option value="Ref. number">Catering & hospitality</option>
+                             <option value="Ref. number">Childcare</option>
+                             <option value="Ref. number">Cleaning & enviromental</option>
+                             <option value="Ref. number">Constructionn</option>
+                             <option value="Ref. number">Contact center</option>
+                             <option value="Ref. number">Creative & digital media</option>
+                             <option value="Ref. number">Customer service</option>
+                             <option value="Ref. number">Dental</option>
+                             <option value="Ref. number">Education & training</option>
+                             <option value="Ref. number">Employability</option>
+                             <option value="Ref. number">Engineering & manufacturing</option>                            
+                              <option value="Ref. number">Environmental sciences</option>
+                             <option value="Ref. number">Facilities management</option>                            
+                              <option value="Ref. number">Fashion & textiles</option>
+                             <option value="Ref. number">Financial services</option>
+                               <option value="Ref. number">Firefighter</option>
+                                 <option value="Ref. number">Food manufacturing</option>
+                                   <option value="Ref. number">Hairdressing & beauty</option>
+                                     <option value="Ref. number">Health & social care</option>
+                                       <option value="Ref. number">Horse care</option>
+                                         <option value="Ref. number">Human resources</option>
+                                           <option value="Ref. number">Insurance</option>
+                                             <option value="Ref. number">IT</option>
+                                               <option value="Ref. number">Law</option>
+                                                 <option value="Ref. number">Leisure</option>
+                                                   <option value="Ref. number">Management & team leading</option>
+                                 <option value="Ref. number">Martime & marine operation</option>
+                                    <option value="Ref. number">Marketing</option>
+                                     <option value="Ref. number">Media & publishing</option>
+                                    <option value="Ref. number">Pharmaceutical</option>
+                                    <option value="Ref. number">Playwork</option>
+                                     <option value="Ref. number">Property services</option>
+                                    <option value="Ref. number">Public services & emergency services</option>
+                                    <option value="Ref. number">Social media & digital marketing</option>
+                                    <option value="Ref. number">Telecommunications</option>
+                                 <option value="Ref. number">Transport logistics</option>
+                              <option value="Ref. number">Travel & tourism</option>
+                                <option value="Ref. number">Veterinary nursing</option>
+                                  <option value="Ref. number">Warehousing</option>
+                        </select>
+                    </div> -->
+
+                            <div class="govuk-form-group">
+                                <label class="govuk-label   govuk-label--s" for="partialCost">
+                                    Apprenticeship level
+                                </label>
+                                <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                                    <option value="All levels" selected>All levels</option>
+                                    <option value="Intermediate" >Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                    <option value="Higher">Higher</option>
+                                    <option value="Degree">Degree</option>
+                                </select></div>
+                            <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                                    <label class="govuk-label   govuk-label--s" for="partialCost">
+                                        Only show
+                                    </label>
+                                    <div class="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                                Disability confident
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <button type="submit" class="govuk-button" style="">Update results</button>
+                            <a class="" href="apprenticeshipsearch">Start again</a>
+                        </form>
+                      <!--   <div style="height:200px;width:300px;background-color: #ccc; margin-bottom:15px"><img src="/public/images/searchMap.jpeg" style="width:300px"></div> -->
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <div class="column details" style=" float:left">
+            <div class="twoFlexContainer">
+                <div class="twoFlexItem" style="padding-left:0">
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="busAdminApprentice">BMW Motor Vehicle Technician </a> 
+                        <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                            BMW Borhamwood </span> 
+                    </h2>
+                </div>
+                <div class="twoFlexItem">
+                    <div style="" class="bmwlogo">
+                         <a href="employerProfile">   <img src="/public/images/bmw.png" alt="Bmw logo" height=50% width=50%> </a>
+                       
+                    </div>
+                </div>
+            </div>
+            <p>We are currently recruiting for a Motor Vehicle Technician Apprentice. The successful applicant will have the opportunity to work with one of the world’s most prestigious and technologically advanced car manufacturers.</p>
+            <div>
+
+
+                <div class="" style="margin-top:25px">
+      
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px">
+                                <p style="margin-bottom:0">Apprenticeship:</p>
+                            </div>
+                           <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">Motor Vehicle Technician - Level 3, Equivalent to A-levels</p>
+                            </div>
+                        </div>
+                       <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 125px">
+                                <p style="margin-bottom:0">Journey time:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">5 mins to 15 mins</p>
+                            </div>
+                        </div>
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Wage:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">£346 per week</p>
+                            </div>
+                        </div>
+                </div>
+
+    <!--              <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:40px">Apprenticeship</span>Business Admin - Level 3, Equaivalent to A-levels </p>
+                <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:60px">Journey time</span>5 mins to 15 mins </p>
+
+                    <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £346 per week</p> -->
+        
+                <div style="clear:both"></div>
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                <div class="twoFlexContainer">
+                    <div class="twoFlexItem" style="padding-left:0">
+                        <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">BMW Genius</a> 
+                            <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px;">
+                                BMW Group Academy</span>
+                        </h2>
+                    </div>
+                    <div class="twoFlexItem">
+                        <div class="bmwLogo">
+                            <img src="/public/images/bmw.png" alt="metro bank logo" height=50% width=50%>
+                        </div>
+                    </div>
+                </div>
+                <p>You will be working in a busy BMW/MINI Retailer, and your role will be focused on dealing with customers, who have high expectations and a varied range of needs and demands.</p>
+                <div>
+
+                 <div class="" style="margin-top:25px">
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px">
+                                <p style="margin-bottom:0">Apprenticeship:</p>
+                            </div>
+                           <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">Customer Service - Level 3, Equivalent to A-levels</p>
+                            </div>
+                        </div>
+                       <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 125px">
+                                <p style="margin-bottom:0">Journey time:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">25 mins to 1 hour</p>
+                            </div>
+                        </div>
+                              <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Closing date:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">In 3 days</p>
+                            </div>
+                        </div>
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Wage:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">£18,000.00 per year</p>
+                            </div>
+                        </div>
+                </div>
+
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <div class="twoFlexContainer">
+                <div class="twoFlexItem" style="padding-left:0">
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Maintenance Technician</a> 
+              <!--              <p id="reference-hint" class="" style="font-size:19px; margin-bottom:5px; margin-top:5px; color:#000">
+                           Level 3 (equivalent to A-levels)</p> -->
+
+                        <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                            BMW Group Plant </span>
+
+    <!--                     <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
+                            Added 23 Oct 2019</span>
+                        <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                            20 positions available </span> -->
+                    </h2>
+                </div>
+                <div class="twoFlexItem">
+                    <div class="bmwLogo">
+                        <img src="/public/images/bmw.png" alt="jp morgan logo" height=50% width=50%>
+                    </div>
+                </div>
+            </div>
+            <p>The technical and maintenance teams you will be working with at Plant Oxford are responsible for the rapid detection, rectification and prevention of faults within our manufacturing facilities. They also control the operation, programming and maintenance of our automated production equipment</p>
+            <div>
+             
+                 <div class="" style="margin-top:25px">
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px">
+                                <p style="margin-bottom:0">Apprenticeship:</p>
+                            </div>
+                           <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">Maintenance Technician - Level 3, Equivalent to A-levels</p>
+                            </div>
+                        </div>
+                       <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 125px">
+                                <p style="margin-bottom:0">Journey time:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">35 mins to 1 hour</p>
+                            </div>
+                        </div>
+       
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Wage:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">£8.65 per hour</p>
+                            </div>
+                        </div>
+                </div>
+                 <div style="clear:both"></div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+  <h3 class="govuk-heading-l" style="margin-bottom:25px">Similar to your search</h3>
+    <!-- <div class="column details" style=" float:left">
+        <div class="twoFlexContainer">
+            <div class="twoFlexItem" style="padding-left:0">
+                <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="#">Jaguar/Land Rover</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                        Automotive</span>
+                    <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                        1 position available </span>
+                </h2>
+            </div>
+            <div class="twoFlexItem">
+                <div class="jaguarLogo">
+                    <img src="/public/images/jaguar.png" alt="Jaguar logo" height=60% width=60%>
+                </div>
+            </div>
+        </div>
+        <p>Our programme starting in October 2020 offers a comprehensive introduction to the broad variety of roles within Jaguar/Land Rover. This programme offers the apprentices the opportunity to gain two professional qualifications alongside the chance to obtain a full honours degree from the University of Coventry.</p>
+        <div>
+        </div>
+    </div> -->
+    
+
+
+    <!-- <div style="clear:both"></div> -->
+            <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <div class="twoFlexContainer">
+                <div class="twoFlexItem" style="padding-left:0">
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Advanced manufacturing</a> 
+              <!--              <p id="reference-hint" class="" style="font-size:19px; margin-bottom:5px; margin-top:5px; color:#000">
+                           Level 3 (equivalent to A-levels)</p> -->
+
+                        <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                            Jaguar & Land Rover Manufacturing </span>
+
+    <!--                     <span id="reference-hint" class="govuk-hint" style="font-size:14px; margin-bottom:5px; margin-top:5px">
+                            Added 23 Oct 2019</span>
+                        <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                            20 positions available </span> -->
+                    </h2>
+                </div>
+                <div class="twoFlexItem">
+                        <div class="jaguarLogo">
+                    <img src="/public/images/jaguar.png" alt="Jaguar logo" height=60% width=60%>
+                    </div>
+                </div>
+            </div>
+            <p>Working in one of the largest functions within our business you’ll have a key role in delivering our current product range of vehicles to the highest standards to meet our customers’ expectations.</p>
+            <div>
+             
+                 <div class="" style="margin-top:25px">
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px">
+                                <p style="margin-bottom:0">Apprenticeship:</p>
+                            </div>
+                           <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">Advanced manufacturing - Level 3, Equivalent to A-levels</p>
+                            </div>
+                        </div>
+                       <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 125px">
+                                <p style="margin-bottom:0">Journey time:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">35 mins to 1 hour</p>
+                            </div>
+                        </div>
+       
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Wage:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">£8.65 per hour</p>
+                            </div>
+                        </div>
+                </div>
+                 
+  <!--               <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                    <summary class="govuk-details__summary" style="margin:0">
+                        <span class="govuk-details__summary-text">
+                            Show/hide map
+                        </span>
+                    </summary>
+                    <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
+                </details> -->
+                <div class="disability-confident-container">
+                    <img src="https://www.findapprenticeship.service.gov.uk//Content/_assets/img/disability-confident.png" class="disability-confident-logo" alt="A logo confirming that the employer is registered as disability confident">
+                    <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                        <summary class="govuk-details__summary" style="">
+                            <span class="govuk-details__summary-text">About disability confident</span></summary>
+                        <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                            <p>Disabled candidates will generally be offered an interview if you meet the minimum requirements for this vacancy. Contact the employer for full details.</p>
+                            <p>Employers may need to limit the number of interviews offered to both disabled and non-disabled people if they receive high numbers of applications.</p>
+                            <p>The disability confident scheme supports employers to make the most of the talents disabled people can bring to your workplace.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
+<!--         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <div class="twoFlexContainer">
+            <div class="twoFlexItem" style="padding-left:0">
+                <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="employerProfile">BMW</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                        Automotive</span>
+                 
+                </h2>
+            </div>
+            <div class="twoFlexItem">
+                <div class="bmwLogo">
+                    <img src="/public/images/bmw.png" alt="Bmw logo" height=50% width=50%>
+                </div>
+            </div>
+        </div>
+        <p>Our four-year apprenticeship programme starting in September 2020 offers a comprehensive introduction to the broad variety of roles within the financial services industry. This programme offers the apprentices the opportunity to gain two professional qualifications alongside the chance to obtain a full honours degree from the University of Exeter.</p>
+        <div> -->
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+</main>
+{% endblock %}
