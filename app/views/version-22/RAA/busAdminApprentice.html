@@ -93,13 +93,13 @@ changeStuff();
         <div class="">
 <div class="twoFlexContainer">
     <div class="twoFlexItem" style="padding-left:0">
-            <h1 class="govuk-heading-xl" style="">Business Admin Apprentice <span id="reference-hint" class="govuk-hint" style="font-size:20px; margin-top:5px">
+            <h1 class="govuk-heading-xl WideMobile255 " style="">Business Admin  <span id="reference-hint" class="govuk-hint companyName" style=" margin-top:5px">
                     Central Financial Services
                 </span></h1>
     </div>
 
  <div class="twoFlexItem">
-    <div style="" class="CFSlogo">
+    <div style="" class="CFSlogo2">
 
             <svg width="100%" height="100%" viewBox="0 0 126 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
@@ -168,10 +168,10 @@ changeStuff();
         </div></div></div>
         <div class="govuk-grid-row">
 
- <div class="govuk-grid-column-two-thirds">
+ <div class="govuk-grid-column-two-thirds" style="margin-bottom:20px">
 
             <!--<h3 class="heading-small">Role</h3>-->
-            <p><a href="searchResults">Return to search results</a></p>
+           <!--  <p><a href="searchResults">Return to search results</a></p> -->
      <!--        <p><a href="">Print this page</a></p> -->
             <p>To efficiently undertake basic administration and clerical duties</p>
             {% if data.FAALoggedIn %}
@@ -180,62 +180,167 @@ changeStuff();
                      <div class="" style="">
                     <button type="submit" class="govuk-button" style="margin-bottom:2px">Apply</button>
                     <!--                     <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div> -->
-                    <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p>
+                   <!--  <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p> -->
                 </div>
             </form>
             {% else %}
             <form action="signIn">
               <div class=" " style="">
                     <button type="submit" class="govuk-button" style="margin-bottom:15px">Sign in to apply</button>
-                    <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p>
+                    <!-- <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p> -->
                 </div>
             </form>
             {% endif %}
-       
-        <h1 class="govuk-heading-l" style="margin-top:25px">Apprenticeship summary</h1>
+                  
+       <!--  <h1 class="govuk-heading-l" style="margin-top:25px">Apprenticeship summary</h1> -->
     </div></div>
+   <!--   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible notOnMobile"> -->
 </div>
 
+    <div class="govuk-grid-column-two-thirds notOnDesktop">
+                  <h1 class="govuk-heading-l" style="">Contents </h1>
+        <p style="margin-bottom:5px"><a href="#overview" >Key facts</a></p>
+         <p style="margin-bottom:5px"><a href="#jd">Job description</a></p>
+         <p style="margin-bottom:5px"><a href="#skills">Skills and qualifications</a></p>
+          <p style="margin-bottom:5px"><a href="#journey">Journey</a></p>
+           <p style="margin-bottom:5px"><a href="#training">Training</a></p>
+            <p style="margin-bottom:5px"><a href="#before">Before you apply</a></p>
+                 <p style="margin-bottom:25px"><a href="#similar">Similar apprenticeships</a></p>
+    </div>
 
 
-    <div class="govuk-grid-column-one-third">
-        <dl class="data-list">
-                 <h3 class="govuk-heading-s" style="margin-bottom:5px">Reference number</h3>
-            <p>VAC001349590</p>
-            <h3 class="govuk-heading-s" style="margin-bottom:5px">Weekly wage</h3>
-            <p>£346.00</p>
-                        <details class="govuk-details" data-module="govuk-details">
+    <div class="govuk-grid-column-two-thirds notOnDesktop" id="overview">
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible ">
+        <h1 class="govuk-heading-l" style="">Key facts </h1>
+                              <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Closing date:</p>
+                            </div>
+                        <div class="WideMobile275" style=" ">
+                                <p style="margin-bottom:0">10 May 2020</p>
+                            </div>
+                        </div>
+                          <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Apprenticeship:</p>
+                            </div>
+                        <div class="WideMobile275" style=" ">
+                                <p style="margin-bottom:0">Business administration <br />Level 3 - Equivalent to A-levels</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-support-meta" style="margin-bottom:5px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Weekly wage:</p>
+                            </div>
+                        <div class="WideMobile275" style=" ">
+                                <p style="margin-bottom:0">£346.00</p>
+                            </div>
+
+                        </div>
+                              <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0"></p>
+                            </div>
+                        <div class="WideMobile275" style=" ">
+                                         <details>
                         <summary class="govuk-details__summary">
                             <span class="govuk-details__summary-text">
                                 Wages explained
                             </span>
                         </summary>
                         <div class="govuk-details__text">
-                            Apprentices are paid fof their normal working hours and training that's part of their apprenticeship (usually one day per week).
+                            Apprentices are paid for their normal working hours and training that's part of their apprenticeship (usually one day per week).
                             <p style="margin-top:15px"><a href="">Minimum Wage Rates</a></p>
                         </div>
                     </details>
-                                  <h3 class="govuk-heading-s" style="margin-bottom:5px">Distance and journey time</h3>
-            <p style="margin-bottom:3px">7.5 miles</p>
-            <p style="margin-bottom:3px">5 minutes by bus</p>
-              <p>15 minutes by walking</p>
+                            </div>
 
-                                <h3 class="govuk-heading-s" style="margin-bottom:5px">Apprenticeship level</h3>
-            <p>Level 3 - Equivalent to A-levels</p>
-                     <h3 class="govuk-heading-s" style="margin-bottom:5px">Working pattern</h3>
+                        </div>
+               
+                    
+
+                        <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Working pattern:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">Monday - Friday shifts TBC <br />40 hours per week</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Expected duration:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">12 months</p>
+                            </div>
+                        </div>
+                <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Start date:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">11 April 2020</p>
+                            </div>
+                        </div>
+
+                          <div class="flex-support-meta" style="margin-bottom:15px">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Reference number:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">VAC001349590</p>
+                            </div>
+                        </div>
+
+
+
+
+
+        <dl class="data-list" style="margin-top:0">
+          
+       <!--      <h3 class="govuk-heading-s" style="margin-bottom:5px">Apprenticeship</h3>
+            <p>Business administration <br />Level 3 - Equivalent to A-levels</p> -->
+        <!--     <h3 class="govuk-heading-s" style="margin-bottom:5px">Weekly wage</h3>
+            <p>£346.00</p> -->
+                   <!--      <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                Wages explained
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            Apprentices are paid for their normal working hours and training that's part of their apprenticeship (usually one day per week).
+                            <p style="margin-top:15px"><a href="">Minimum Wage Rates</a></p>
+                        </div>
+                    </details> -->
+                <!--                   <h3 class="govuk-heading-s" style="margin-bottom:5px">Distance and journey time</h3>
+            <p style="margin-bottom:3px">10.4 miles</p>
+            <p style="margin-bottom:3px">45 minutes by car</p>
+             <p style="margin-bottom:3px">54 minutes by cycling</p>
+              <p>63 minutes by public transport</p> -->
+
+  
+            <!--          <h3 class="govuk-heading-s" style="margin-bottom:5px">Working pattern</h3>
             <p style="margin-bottom:5px">Monday -Friday shifts TBC.</p>
-            <p>Working houes: 40 hour week</p>
-               <h3 class="govuk-heading-s" style="margin-bottom:5px">Expected duration</h3>
-            <p>12 months</p>
-                            <h3 class="govuk-heading-s" style="margin-bottom:5px">Start date</h3>
+            <p>40 hours per week</p> -->
+            <!--    <h3 class="govuk-heading-s" style="margin-bottom:5px">Expected duration</h3>
+            <p>12 months</p> -->
+                       <!--      <h3 class="govuk-heading-s" style="margin-bottom:5px">Start date</h3>
             <p>11 April 2020</p>
+                   <h3 class="govuk-heading-s" style="margin-bottom:5px; ">Reference number</h3>
+            <p>VAC001349590</p> -->
 
 <!--                <h3 class="govuk-heading-s" style="margin-bottom:5px">Date posted</h3>
             <p>15 April 2019</p> -->
         </dl>
     </div>
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds" id="jd">
+         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible notOnDesktop">
+        <h1 class="govuk-heading-l" style="">Job description </h1>
             <p class="govuk-body">To efficiently undertake basic administration and clerical duties which may include the following duties as directed:</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>Data input, data extraction, photocopying, faxing, filing and typing duties.</li>
@@ -251,13 +356,56 @@ changeStuff();
                 <li>Throughout the training period the post holder will be expected to complete all educational and training as required. </li>
             </ul>
     </div>
-    <div class="govuk-grid-column-full">
-        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            <h1 class="govuk-heading-xl" style="">Skills and qualifications </h1>
+
+
+        <div class="govuk-grid-column-one-third notOnMobile">
+
+        <dl class="data-list" style="margin-top:0">
+
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Apprenticeship</h3>
+            <p>Business administration <br />Level 3 - Equivalent to A-levels</p>
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Weekly wage</h3>
+            <p style="margin-bottom:0">£346.00</p>
+                        <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                Wages explained
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            Apprentices are paid for their normal working hours and training that's part of their apprenticeship (usually one day per week).
+                            <p style="margin-top:15px"><a href="">Minimum Wage Rates</a></p>
+                        </div>
+                    </details>
+        <!--                           <h3 class="govuk-heading-s" style="margin-bottom:5px">Distance and journey time</h3>
+            <p style="margin-bottom:3px">10.4 miles</p>
+            <p style="margin-bottom:3px">45 minutes by car</p>
+             <p style="margin-bottom:3px">54 minutes by cycling</p>
+              <p>63 minutes by public transport</p> -->
+
+  
+                     <h3 class="govuk-heading-s" style="margin-bottom:5px">Working pattern</h3>
+            <p style="margin-bottom:5px">Monday - Friday shifts TBC.</p>
+            <p>40 hours per week</p>
+               <h3 class="govuk-heading-s" style="margin-bottom:5px">Expected duration</h3>
+            <p>12 months</p>
+                            <h3 class="govuk-heading-s" style="margin-bottom:5px">Start date</h3>
+            <p>11 April 2020</p>
+                      <h3 class="govuk-heading-s" style="margin-bottom:5px; ">Reference number</h3>
+            <p>VAC001349590</p>
+
+<!--                <h3 class="govuk-heading-s" style="margin-bottom:5px">Date posted</h3>
+            <p>15 April 2019</p> -->
+        </dl>
     </div>
 
+    <div class="govuk-grid-column-two-thirds" id="skills">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Skills and qualifications </h1>
+    
 
-  <div class="govuk-grid-column-one-half">
+
+  <div class="govuk-grid-column-one-half" style="padding-left: 0">
             <h3 class="govuk-heading-s" style="margin-bottom:5px">Desired skills</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li>Good communication skills.</li>
@@ -272,7 +420,8 @@ changeStuff();
       
     </div>
 
-    <div class="govuk-grid-column-one-half">
+
+    <div class="govuk-grid-column-one-half" style="padding-left: 0">
         <h3 class="govuk-heading-s" style="margin-bottom:5px">Desired qualifications</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li>GCSE's C or above preferable (or equivalent).</li>
@@ -283,8 +432,76 @@ changeStuff();
                     <li>A degree qualification is available</li>
             </ul>
     </div>
+      </div>
 
-        <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds" id="journey">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Journey </h1>
+
+               <h3 class="govuk-heading-s" style="margin-bottom:3px">Your location</h3>
+            <p style="margin-bottom:5px">N4 3BJ</p><p style=""><a href="">Change your location</a></p>
+
+            <h3 class="govuk-heading-s" style="margin-bottom:3px">Employer location</h3>
+            <p style="margin-bottom: 3px">281 High St North</p>
+            <p style="margin-bottom: 3px">London</p>
+            <p style="">E12 6SL</p>
+
+        <h3 class="govuk-heading-s" style="margin-bottom:3px">Journey times</h3>
+            <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 155px">
+                                <p style="margin-bottom:0">Driving:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">45 mins</p>
+                            </div>
+                            <div class="" style=" margin-left:15px; ">
+                                <p style="margin-bottom:0">Viewing map</p>
+                            </div>
+            </div>
+                <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 155px">
+                                <p style="margin-bottom:0">Cycling:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">54 mins</p>
+                            </div>
+                              <div class="" style=" margin-left:15px; ">
+                                <p style="margin-bottom:0"><a href="">View map</a></p>
+                            </div>
+            </div>
+              <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 155px">
+                                <p style="margin-bottom:0">Public transport:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">63 mins</p>
+                            </div>
+                                <div class="" style=" margin-left:15px; ">
+                                <p style="margin-bottom:0"><a href="">View map</a></p>
+                            </div>
+            </div>
+        <div style="margin-bottom:25px"></div>
+
+
+         <div class="govuk-grid-column-full-width" style="padding-left:0">
+            <img src="/public/images/mapJourney.jpeg" style="width:100%; height:auto" >
+        </div>
+
+         
+
+<!--             <h3 class="govuk-heading-s" style="margin-bottom:3px">Plan your journey</h3> -->
+
+
+
+
+
+
+
+ </div>
+
+
+
+<!--     <div class="govuk-grid-column-full">
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
             <h1 class="govuk-heading-xl" style="">About the employer </h1>
     </div>
@@ -310,35 +527,41 @@ changeStuff();
                 <li>Car share scheme</li>
             </ul>
 
-    </div>
+    </div> -->
 
 
 
 
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds" id="training">
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            <h1 class="govuk-heading-xl" style="">Training </h1>
-    </div>
+            <h1 class="govuk-heading-l" style="">Training </h1>
+  
 
-  <div class="govuk-grid-column-one-half">
+  <div class="govuk-grid-column-one-half" style="padding-left: 0">
             <h3 class="govuk-heading-s" style="margin-bottom:5px">Training provider</h3>
             <p>CARE FIRST TRAINING LIMITED</p>
             <p>Applications for this apprenticeship are being processed by Care First Training Limited</p>
-            <h3 class="govuk-heading-s" style="margin-bottom:5px">Contact</h3>
-            <p>emily laurenza 01277725974</p>
-            <p>emily@carefirsttraining.co.uk</p>
-    </div>
-
-    <div class="govuk-grid-column-one-half">
-                  <ul class="govuk-list govuk-list--bullet">
-                <li>Business Administration Level 2/3 and functional skills in English, Maths and ICT if required.</li>
-            </ul>
-              <h3 class="govuk-heading-s" style="margin-bottom:5px; margin-top:15px">Apprenticeship framework</h3>
+          <h3 class="govuk-heading-s" style="margin-bottom:5px; margin-top:15px">Apprenticeship framework</h3>
                     <p>Business and Administration</p>
     </div>
-       <div class="govuk-grid-column-full">
+
+
+    <div class="govuk-grid-column-one-half" style="padding-left: 0">
+        
+                       <h3 class="govuk-heading-s" style="margin-bottom:5px">Additional training</h3>
+             
+         <p>Business Administration Level 2/3 and functional skills in English, Maths and ICT if required.</p>
+       
+           <h3 class="govuk-heading-s" style="margin-bottom:5px">Contact</h3>
+            <p>emily laurenza 01277725974</p>
+            <p>emily@carefirsttraining.co.uk</p>
+           
+    </div>
+    
+</div>
+       <div class="govuk-grid-column-two-thirds" id="before">
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            <h1 class="govuk-heading-xl" style="">Before you apply </h1>
+            <h1 class="govuk-heading-l" style="">Before you apply </h1>
             <p>Before you apply for an apprenticeship you must first create an account. If you already have an account you'll need to sign in.</p>
              {% if data.FAALoggedIn %}
             <form action="appForm">
@@ -346,17 +569,78 @@ changeStuff();
                      <div class="" style="">
                     <button type="submit" class="govuk-button" style="margin-bottom:2px">Apply</button>
                     <!--                     <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div> -->
-                    <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p>
+                   <!--  <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p> -->
                 </div>
             </form>
             {% else %}
             <form action="signIn">
               <div class=" " style="">
                     <button type="submit" class="govuk-button" style="margin-bottom:15px">Sign in to apply</button>
-                    <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p>
+                   <!--  <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 May 2020</p> -->
                 </div>
             </form>
             {% endif %}
+        
+    </div>
+
+    <div class="govuk-grid-column-two-thirds" id="similar">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Similar apprenticeships </h1>
+       <div class="twoFlexContainer">
+                    <div class="twoFlexItem" style="padding-left:0">
+                        <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Financial Customer Service Specialist</a> 
+                            <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px;">
+                                Metro Bank Plc</span>
+                        </h2>
+                    </div>
+                    <div class="twoFlexItem">
+                        <div class="metroLogo2">
+                            <img src="/public/images/metro.png" alt="metro bank logo" height=100% width=100%>
+                        </div>
+                    </div>
+                </div>
+                <p>Metro Bank Plc are looking to recruit a Financial Customer Service Specialist Apprentice in their Contact Centre to assist with duties such as greeting customers and creating fans, finding solutions for customers and advising them on our service etc.</p>
+                <div>
+
+                 <div class="" style="margin-top:25px">
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px">
+                                <p style="margin-bottom:0">Apprenticeship:</p>
+                            </div>
+                           <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">Business Admin - Level 3, Equivalent to A-levels</p>
+                            </div>
+                        </div>
+                       <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px;  width: 125px">
+                                <p style="margin-bottom:0">Journey time:</p>
+                            </div>
+                            <div class="WideMobile175" style="  ">
+                                <p style="margin-bottom:0">25 mins to 1 hour</p>
+                            </div>
+                        </div>
+                              <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Closing date:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">In 3 days</p>
+                            </div>
+                        </div>
+                        <div class="flex-support-meta">
+                            <div class=" " style="margin-right:25px; width: 125px ">
+                                <p style="margin-bottom:0">Wage:</p>
+                            </div>
+                        <div class="WideMobile175" style=" ">
+                                <p style="margin-bottom:0">£18,000.00 per year</p>
+                            </div>
+                        </div>
+                </div>
+
+                </div>
+            </div>
+            <div style="clear:both"></div>
+  
          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
     </div>
   

@@ -334,14 +334,29 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 }
 
 .CFSlogo {
-  padding-left:75px;
+//  padding-left:75px;
+  height:70px; 
+  width:100px
+}
+
+.CFSlogo svg {
+padding-left:95px;
+}
+
+.CFSlogo2 {
+//  padding-left:75px;
   height:70px; 
   width:100px
 }
 
 .metroLogo {
- width:180px;
- height:99px;
+ width:184px;
+ height:92px;
+// padding-left:25px;
+}
+
+.metroLogo img {
+padding-left:45px;
 }
 
 .jpmorganLogo {
@@ -361,17 +376,40 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   max-width:175px;
   }
 
+  .WideMobile275 {
+     max-width:225px;
+  }
+
+.WideMobile255 {
+  width:255px;
+}
+
 .sevenHundred {
   font-weight:700;
 }
   .sevenHundred a {
   color:#fff;
 }
-  
+
+ .companyName {
+    font-size:24px;
+  }
+
+.flexFirstWidth {
+    width:125px;
+  }
 }
 
 @media (min-width: 641px) {
   ///   DESKTOP
+
+    .flexFirstWidth {
+    width:190px;
+  }
+
+  .companyName {
+    font-size:28px;
+  }
 
 .sevenHundred {
   font-weight:700;
@@ -402,17 +440,29 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 }
 
 .CFSlogo {
-    padding-left:210px;
+   padding-left:285px;
   height:84px; 
   width:120px;
   margin-left:10px;
 }
 
+.CFSlogo2 {
+   padding-left:50px;
+  height:84px; 
+  width:120px;
+  margin-left:10px;
+}
+
+
 .metroLogo {
  //  margin-top:15px;
 
-   width:200px;
- height:110px;
+   width:184px;
+ height:92px;
+}
+
+.metroLogo img {
+padding-left:55px;
 }
 
 .jpmorganLogo {

@@ -165,7 +165,7 @@ $(".shortlist.app").click(function (e) {
                                 Your location
                             </label>
                             <span id="reference-hint" class="govuk-hint">
-                                Enter postcode, town or city
+                                Enter postcode, town or city or <a href="">use current location</a>
                             </span>
                             <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
                         </div>
@@ -176,7 +176,8 @@ $(".shortlist.app").click(function (e) {
                             <!--     <span id="reference-hint" class="govuk-hint">
                     Can include job title, employer or reference number
                 </span> -->
-                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; width:100%; ">
+                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; width:100%
+                            ; ">
                                 <option value="2 miles" >2 miles</option>
                                 <option value="5 miles" >5 miles</option>
                                 <option value="15 miles">15 miles</option>
@@ -192,7 +193,7 @@ $(".shortlist.app").click(function (e) {
                             <!--     <span id="reference-hint" class="govuk-hint">
                     Can include job title, employer or reference number
                 </span> -->
-                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; width:100%; ">
+                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px;width:100%; ">
                                 <option value="All levels" selected>All levels</option>
                                 <option value="Intermediate" >Intermediate</option>
                                 <option value="Advanced">Advanced</option>
@@ -215,7 +216,7 @@ $(".shortlist.app").click(function (e) {
                             </fieldset>
                         </div>
                         <button type="submit" class="govuk-button" style="">Update results</button>
-                  <!--       <a class="" href="apprenticeshipsearch">Start again</a> -->
+                       <!--  <a class="" href="apprenticeshipsearch">Start again</a> -->
                     </form>
                
                 </div>
@@ -320,8 +321,8 @@ $(".shortlist.app").click(function (e) {
             <div class="twoFlexItem" style="padding-left:0">
                 <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="employerProfile">BMW</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
                         Automotive</span>
-                    <span id="reference-hint" class="govuk-hint" style="font-size:14px">
-                        4 positions available </span>
+               <!--      <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                        4 positions available </span> -->
                 </h2>
             </div>
             <div class="twoFlexItem">
@@ -331,19 +332,58 @@ $(".shortlist.app").click(function (e) {
             </div>
         </div>
         <p>Our apprenticeship programmes starting in September 2020 offer a comprehensive introduction to the broad variety of roles within BMW. This programme offers the apprentices the opportunity to gain professional qualifications alongside the chance to obtain a full honours degree from the University of Exeter.</p>
-        <div>
-        </div>
+
+                    <div style="margin-top:25px"></div>
+            <table class="govuk-table" style="">
+                <!--   <caption class="govuk-table__caption">Apprenticeships</caption> -->
+               <!--  <h2 class="govuk-heading-m" style="margin-bottom: 5px">Current apprenticeships</h2> -->
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header"></th>
+                        <th scope="col" class="govuk-table__header"></th>
+                        <th scope="col" class="govuk-table__header" style="width:100px"></th>
+                        <th scope="col" class="govuk-table__header"></th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">BMW Motorcycle<br />Technician</td>
+                         <td scope="row" class="govuk-table__cell">Accross England</td>
+                        <td scope="row" class="govuk-table__cell">Level 2</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">BMW Sales<br />Advisor</td>
+                        <td scope="row" class="govuk-table__cell">London</td>
+                        <td scope="row" class="govuk-table__cell">Level 3</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">BMW Bodyshop Panel Apprenticeship</td>
+                        <td scope="row" class="govuk-table__cell">Manchester</td>
+                         <td scope="row" class="govuk-table__cell">Level 4</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">Business Administrator</td>
+                        <td scope="row" class="govuk-table__cell">Reading</td>
+                        <td scope="row" class="govuk-table__cell">Level 4</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+       
     </div>
     <div style="clear:both"></div>
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-  <h3 class="govuk-heading-l" style="margin-bottom:25px">Similar to your search</h3>
+  <!--   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
+  <h3 class="govuk-heading-l" style="margin-bottom:25px; margin-top:25px">Similar to your search</h3>
     <div class="column details" style=" float:left">
         <div class="twoFlexContainer">
             <div class="twoFlexItem" style="padding-left:0">
                 <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="#">Jaguar/Land Rover</a> <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
                         Automotive</span>
-                    <span id="reference-hint" class="govuk-hint" style="font-size:14px">
-                        1 position available </span>
+              <!--       <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                        1 position available </span> -->
                 </h2>
             </div>
             <div class="twoFlexItem">
@@ -353,11 +393,31 @@ $(".shortlist.app").click(function (e) {
             </div>
         </div>
         <p>Our programme starting in October 2020 offers a comprehensive introduction to the broad variety of roles within Jaguar/Land Rover. This programme offers the apprentices the opportunity to gain two professional qualifications alongside the chance to obtain a full honours degree from the University of Coventry.</p>
-        <div>
-        </div>
+                     <div style="margin-top:25px"></div>
+            <table class="govuk-table" style="">
+                <!--   <caption class="govuk-table__caption">Apprenticeships</caption> -->
+               <!--  <h2 class="govuk-heading-m" style="margin-bottom: 5px">Current apprenticeships</h2> -->
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header"></th>
+                        <th scope="col" class="govuk-table__header"></th>
+                        <th scope="col" class="govuk-table__header" style="width:100px"></th>
+                        <th scope="col" class="govuk-table__header"></th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+     
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">Business Administrator</td>
+                        <td scope="row" class="govuk-table__cell">Coventry</td>
+                        <td scope="row" class="govuk-table__cell">Level 4</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
     <div style="clear:both"></div>
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<!--     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
 </div>
 </main>
 {% endblock %}
