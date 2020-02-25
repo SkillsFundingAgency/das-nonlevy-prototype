@@ -1,0 +1,197 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                                <h1 class="govuk-heading-xl">What do you want to search for? </h1>
+                <form action="searchForDifferentApprenticesv6" >
+<!--                     <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                      <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                        an employer
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                        a job role
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-saved" name="assessment" type="radio" value="keywords" {{ checked( 'chooseSearch', 'saved') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                        keywords
+                                    </label>
+                                </div>
+                                 <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-saved" name="assessment" type="radio" value="subject" {{ checked( 'chooseSearch', 'saved') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                       subject
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-saved" name="assessment" type="radio" value="saved" {{ checked( 'chooseSearch', 'saved') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                        my saved searches
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div> -->
+
+                    <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+  <!--   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        How would you prefer to be contacted?
+      </h1>
+    </legend> -->
+   
+    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="how-contacted-conditional" name="assessment" type="radio" value="employer" data-aria-controls="conditional-how-contacted-conditional">
+        <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+          Employer
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+        <div class="govuk-form-group" style="margin-bottom:15px">
+          <label class="govuk-label" for="contact-by-email">
+            Search for employer
+          </label>
+          <input class="govuk-input govuk-!-width-three-quarters" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+        </div>
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-email">
+            Location
+          </label>
+          <input class="govuk-input govuk-!-width-one-half" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+        </div>
+
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="how-contacted-conditional-2" name="assessment" type="radio" value="job" data-aria-controls="conditional-how-contacted-conditional-2">
+        <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+          Job role
+        </label>
+      </div>
+
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+        <div class="govuk-form-group" style="margin-bottom:15px">
+          <label class="govuk-label" for="contact-by-phone">
+            Job role
+          </label>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>All</option>
+                            <option value="Job title">Accountancy</option>
+                            <option value="Description">Agriculture & Horticulture</option>
+                            <option value="Employer">Animal care</option>
+                            <option value="Ref. number">Arts</option>
+                            <option value="Ref. number">Automotive</option>
+                             <option value="Ref. number">Business & administration</option>
+                             <option value="Ref. number">Catering & hospitality</option>
+                             <option value="Ref. number">Childcare</option>
+                             <option value="Ref. number">Cleaning & enviromental</option>
+                             <option value="Ref. number">Constructionn</option>
+                             <option value="Ref. number">Contact center</option>
+                             <option value="Ref. number">Creative & digital media</option>
+                             <option value="Ref. number">Customer service</option>
+                             <option value="Ref. number">Dental</option>
+                             <option value="Ref. number">Education & training</option>
+                             <option value="Ref. number">Employability</option>
+                             <option value="Ref. number">Engineering & manufacturing</option>                            
+                              <option value="Ref. number">Environmental sciences</option>
+                             <option value="Ref. number">Facilities management</option>                            
+                              <option value="Ref. number">Fashion & textiles</option>
+                             <option value="Ref. number">Financial services</option>
+                               <option value="Ref. number">Firefighter</option>
+                                 <option value="Ref. number">Food manufacturing</option>
+                                   <option value="Ref. number">Hairdressing & beauty</option>
+                                     <option value="Ref. number">Health & social care</option>
+                                       <option value="Ref. number">Horse care</option>
+                                         <option value="Ref. number">Human resources</option>
+                                           <option value="Ref. number">Insurance</option>
+                                             <option value="Ref. number">IT</option>
+                                               <option value="Ref. number">Law</option>
+                                                 <option value="Ref. number">Leisure</option>
+                                                   <option value="Ref. number">Management & team leading</option>
+                                 <option value="Ref. number">Martime & marine operation</option>
+                                    <option value="Ref. number">Marketing</option>
+                                     <option value="Ref. number">Media & publishing</option>
+                                    <option value="Ref. number">Pharmaceutical</option>
+                                    <option value="Ref. number">Playwork</option>
+                                     <option value="Ref. number">Property services</option>
+                                    <option value="Ref. number">Public services & emergency services</option>
+                                    <option value="Ref. number">Social media & digital marketing</option>
+                                    <option value="Ref. number">Telecommunications</option>
+                                 <option value="Ref. number">Transport logistics</option>
+                              <option value="Ref. number">Travel & tourism</option>
+                                <option value="Ref. number">Veterinary nursing</option>
+                                  <option value="Ref. number">Warehousing</option>
+                        </select>
+        </div>
+          <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-phone">
+            Location
+          </label>
+                   <span id="reference-hint" class="govuk-hint">
+                            Enter postcode, town or city 
+                        </span>
+          <input class="govuk-input govuk-!-width-one-half" id="contact-by-phone" name="contact-by-phone" type="text" spellcheck="false">
+        </div>
+
+      </div>
+      <div class="govuk-radios__item" >
+        <input class="govuk-radios__input" id="how-contacted-conditional-3" name="assessment" type="radio" value="keywords" data-aria-controls="conditional-how-contacted-conditional-3">
+        <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+          Keywords
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-3">
+        <div class="govuk-form-group" style="margin-bottom:15px">
+          <label class="govuk-label" for="contact-by-text">
+           Keywords
+          </label>
+                   <span id="reference-hint" class="govuk-hint">
+                            For instance job role, skills or employer 
+                        </span>
+          <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-text" name="contact-by-text" type="tel">
+        </div>
+         <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-phone">
+            Location
+          </label>
+                   <span id="reference-hint" class="govuk-hint">
+                            Enter postcode, town or city 
+                        </span>
+          <input class="govuk-input govuk-!-width-one-half" id="contact-by-phone" name="contact-by-phone" type="text" spellcheck="false">
+        </div>
+      </div>
+      <div class="govuk-radios__divider">or</div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="how-contacted-conditional-3" name="assessment" type="radio" value="saved" data-aria-controls="conditional-how-contacted-conditional-4">
+        <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-4">
+          Saved searchs
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

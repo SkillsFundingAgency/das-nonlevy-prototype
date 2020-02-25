@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                                <h1 class="govuk-heading-xl">What do you want to search for? </h1>
+                <form action="searchForDifferentApprentices" >
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                      <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                        an employer
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                        a job role
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-saved" name="assessment" type="radio" value="keywords" {{ checked( 'chooseSearch', 'saved') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                        keywords
+                                    </label>
+                                </div>
+                                 <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-saved" name="assessment" type="radio" value="subject" {{ checked( 'chooseSearch', 'saved') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                       subject
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-saved" name="assessment" type="radio" value="saved" {{ checked( 'chooseSearch', 'saved') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-coventry">
+                                        my saved searches
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

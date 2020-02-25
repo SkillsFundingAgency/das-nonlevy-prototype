@@ -1,0 +1,612 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+
+<script>
+function whereNow() {
+        localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
+        window.location.href='proSearch';
+    }
+
+</script>
+
+
+<!-- 
+<script>
+$( document ).ready(function() {
+    var appCount=0
+var proCount=0
+ $(".shortlistButton").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+    //        Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove from saved list");
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save this apprenticeship");
+            appCount--;
+      //      Cookies.set("appCount", appCount);
+            console.log(appCount);
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+  });
+</script>
+ -->
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+    $(coInvestPayer).addClass("rj-dont-display")
+   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
+   // document.getElementById("providerName").textContent = "Provider:" ;
+   // $(commitmentStatus).addClass("rj-dont-display");
+   //  $(addDate).addClass("rj-dont-display")
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+       //  $(addDate).addClass("rj-dont-display")
+    }
+else { };
+
+//if (fundingStatus=='transferFunding') {
+  // $(eligibilityTransfer).removeClass("rj-dont-display")
+    //}
+//else { };
+  }
+changeStuff();
+});
+</script-->
+
+<style>
+.data-list dd, .data-list dt  {margin-bottom:0;}
+</style>
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+            <div class="do-a-thing"></div>
+{% else %}
+            <div class="dont-a-thing"></div>
+{% endif %}
+<!-- end of conditional statement -->
+
+ {% include "includes/RAALoggedIn.html" %} 
+<div class="info-summary">
+    <h3 class="heading-medium"></h3>
+    <p>Last saved at 3:00:10 PM on 4/12/2019 to <a href="">my applications</a></p>
+</div>
+       
+
+<div style="clear:both"></div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="">
+            <h1 class="govuk-heading-xl" style="">Check your application</h1>
+            <!--<h3 class="heading-small">Role</h3>-->
+            <p><i class="fas fa-print" style="margin-right:5px"></i><a href="">Print this page</a></p>
+
+                {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+                {{ govukInsetText({
+
+                text: "Check you answers before submitting and make sure they're relevant to the apprenticeship: Business Admin Apprentice"
+                }) }}
+
+             <p><a href="appForm">Return to application form</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Education </h1>
+            <p><a href="appForm"><i class="fas fa-pencil-alt" style="margin-right:5px"></i>Edit section</a></p>
+
+      <form method="get" action="Finish">
+      
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="college">Name of most recent school or college</label>
+            <p>{{ data['college'] }}</p>
+        </div>
+             <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                            Years attended
+                        </label>
+
+                    <div class="govuk-date-input" id="start">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="start" >
+                                    Started
+                                </label>
+                                  <p>{{ data['edu-start-month'] }}</p>
+                              
+                            </div>
+                        </div>
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group govuk-form-group--year">
+                                <label class="govuk-label govuk-date-input__label" for="start-year">
+                                    Finished
+                                </label>
+                                <p>{{ data['edu-start-year'] }}</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+   
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Qualifications</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="qualifications">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                    Do you have any qualifications?
+                </h1>
+            </legend>
+  <!--           <span id="workexp-hint" class="govuk-hint">
+                If you don't know your results yet, enter your predicted grades. These are grades your teacher expects you to get.
+            </span> -->
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="qualifications-conditional" name="qualifications" type="radio" value="" data-aria-controls="conditional-qualifications-conditional">
+                    <label class="govuk-label govuk-radios__label" for="qualifications-conditional">
+                        Yes
+                    </label>
+                </div>
+
+
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-qualifications-conditional">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Type of qualification
+                        </label>
+                          <p>{{ data['sort'] }}</p>
+         
+                   
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
+                            Year
+                        </label>
+                        <p>{{ data['qual-year'] }}</p>
+                       
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
+                            Subject
+                        </label>
+                          <p>{{ data['qual-subject'] }}</p>
+                       
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
+                            Grade
+                        </label>
+                          <p>{{ data['qual-grade'] }}</p>
+                       
+                    </div>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                Predicted?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="qualifications-conditional-2" name="qualifications" type="radio" value="No, I do not have any qualifications" data-aria-controls="conditional-qualifications-conditional-2">
+                    <label class="govuk-label govuk-radios__label" for="qualifications-conditional-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Work experience</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="workexp">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Do you have any work experience?
+                </h1>
+            </legend>
+        <!--     <span id="workexp-hint" class="govuk-hint">
+               Please include any work, whether paid or voluntary
+            </span> -->
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="qualifications-conditional" name="workexperience" type="radio" value="" data-aria-controls="conditional-workexperience-conditional">
+                    <label class="govuk-label govuk-radios__label" for="workexperience-conditional">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-workexperience-conditional">
+       
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
+                            Employer
+                        </label>
+                         <p>{{ data['exp-employer'] }}</p>
+                     
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
+                            Job title
+                        </label>
+                        <p>{{ data['exp-job'] }}</p>
+                     
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
+                            Main duties
+                        </label>
+                         <p>{{ data['exp-duties'] }}</p>
+                     
+                    </div>
+                 <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                Started
+                            </label>
+                            <div class="govuk-date-input" id="start">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="start">
+                                            Month
+                                        </label>
+                                        <p>{{ data['start-month'] }}</p>
+                                      
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
+                                            Year
+                                        </label>
+                                          <p>{{ data['start-year'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                Finished
+                            </label>
+                            <div class="govuk-date-input" id="start">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="start">
+                                            Month
+                                        </label>
+                                       <p>{{ data['finish-month'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
+                                            Year
+                                        </label>
+                                         <p>{{ data['finish-year'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                Current?
+                            </label>
+                        </div>
+                    </div>
+                 
+              </div>
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="workexp-2" name="workexp" type="radio" value="no">
+                                        <label class="govuk-label govuk-radios__label" for="workexp-2">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+        </fieldset>
+    </div>
+</div>
+
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Training courses</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="course-provider">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                Have you been on a training course?
+                </h1>
+            </legend>
+    <!--         <span id="course-provider-hint" class="govuk-hint">
+               Include any courses you've recieved, in or outside of work 
+            </span> -->
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="course-provider-conditional" name="course-provider" type="radio" value="" data-aria-controls="conditional-course-provider-conditional">
+                    <label class="govuk-label govuk-radios__label" for="course-provider-conditional">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-course-provider-conditional">
+       
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="course-provider">
+                            Provider
+                        </label>
+                         <p>{{ data['course-provider'] }}</p>
+                    
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="coursetitle">
+                            Course title
+                        </label>
+                        <p>{{ data['course-title'] }}</p>
+                     
+                    </div>
+    
+                 <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                From
+                            </label>
+                            <div class="govuk-date-input" id="from">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="from">
+                                            Month
+                                        </label>
+                                        <p>{{ data['from-month'] }}</p>
+                                       
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
+                                            Year
+                                        </label>
+                                         <p>{{ data['from-year'] }}</p>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                To
+                            </label>
+                            <div class="govuk-date-input" id="to">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="to">
+                                            Month
+                                        </label>
+                                        <p>{{ data['to-month'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="from-year">
+                                            Year
+                                        </label>
+                                       <p>{{ data['to-year'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+              </div>
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="course-provider-2" name="course-provider" type="radio" value="no">
+                                        <label class="govuk-label govuk-radios__label" for="trainingcourse-2">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">About you</h1>
+    <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Help with this section
+            </span>
+        </summary>
+        <div class="govuk-details__text">
+            Think carefully about how you answer these questions. Where possible, keep the apprenticeship that you're applying for in mind, and tailor your answers to match the role.
+        </div>
+    </details>
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                What are you main strengths
+            </h1>
+        </legend>
+<!--         <span id="mainstrengths-hint" class="govuk-hint">
+            Please provide examples of when you've demonstrated your strengths
+        </span> -->
+         <p>{{ data['mainstrengths'] }}</p>
+    
+       
+    </div>
+        <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                What skills would you like to improve during this apprenticeship?
+            </h1>
+        </legend>
+<!--         <span id="mainstrengths-hint" class="govuk-hint">
+            Think of what your main duties would be and whether there are skills you'd like to develop
+        </span> -->
+         <p>{{ data['mainskills'] }}</p>
+       
+    </div>
+            <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                What are your hobbies and interests?
+            </h1>
+        </legend>
+<!--         <span id="achievements-hint" class="govuk-hint">
+            Remember to include any personal achievements
+        </span> -->
+          <p>{{ data['achievements'] }}</p>
+     
+    </div>
+</div>
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Additional questions</h1>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                Why do you want to work for this company?
+            </h1>
+        </legend>
+         <p>{{ data['wanttowork'] }}</p>
+
+    </div>
+        <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              Do you have any administration or customer service experience?
+            </h1>
+        </legend>
+        <p>{{ data['adminexperience'] }}</p>  
+    </div>
+
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="workexp">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                Do you have a learning difficulty, disability or health problem?
+                </h1>
+            </legend>
+      
+             <p>{{ data['healthprob'] }}</p>
+         
+            <details class="govuk-details" data-module="govuk-details" style="margin-top: 10px">
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Why we collect this info
+            </span>
+        </summary>
+        <div class="govuk-details__text">
+            <p>
+                Employers who are part of the ‘Positive about disabled people’ scheme will guarantee candidates an interview who meet the apprenticeship criteria if they have a disability.
+            </p>
+            <p>
+                For this reason we ask you to provide this information so we can inform the employer and provider.
+            </p>
+        </div>
+    </details>
+      </div>
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="interviewsupport">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                    Is there anything we can do to support your interview?
+                </h1>
+            </legend>
+             
+                 <p>{{ data['interviewsupport'] }}</p>
+                 <p>{{ data['interviewSupportReason'] }}</p>
+            
+        </fieldset>
+    </div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Submit your application </h1>
+            <p>Before you submit your application, make sure you:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>ask someone to check your application for mistakes</li>
+              <li>check your answers are relevant to the apprenticeship</li>
+              <li>are able to get to the apprenticeship location easily</li>
+            </ul>
+
+            <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+   
+    <div class="govuk-checkboxes" style="margin-top:20px">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="approved">
+        <label class="govuk-label govuk-checkboxes__label" for="approved" style="margin-top:-20px">
+          I have checked my application and understand I won't be able to make any changes once it has been submitted
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+<button type="submit" class="govuk-button" style="margin-bottom:15px">Submit application</button>
+
+
+<p style="">Last saved at 2.50:00 PM on 4/12/2019 to <a href="">my applications</a></p>
+</div>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}
