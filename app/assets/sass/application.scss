@@ -398,6 +398,12 @@ padding-left:45px;
 .flexFirstWidth {
     width:125px;
   }
+
+.task-name, .app-task-list__task-name {
+  font-size:16px !important;
+  width:66%;
+}
+
 }
 
 @media (min-width: 641px) {
@@ -2275,7 +2281,7 @@ ul.hidden-links li:first-child  {
 
 
 .task-name, .app-task-list__task-name {
-	font-size:19px !important;
+	font-size:19px;
 	width:66%;
 }
 
