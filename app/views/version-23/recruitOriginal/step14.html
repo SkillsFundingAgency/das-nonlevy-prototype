@@ -1,7 +1,8 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
 {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
-
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back", href: "wholeList" }) }} 
 {% endblock %} 
 {% block content %}
 
@@ -11,12 +12,12 @@
                 <div class="govuk-grid-column-two-thirds">
 
 
-        <form method="get" action="wholeList">
-            <h1 class="govuk-heading-xl">Vacancy summary
+        <form method="get" action="step14b">
+            <h1 class="govuk-heading-xl">Your provider
 </h1>
 
 
-<p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p>
+<!-- <p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p> -->
 
 <!-- <details class="govuk-details">
     <summary class="govuk-details__summary">
@@ -30,19 +31,22 @@
 </details> -->
             <div class="govuk-form-group">
                 <label class="govuk-label   govuk-label--s" for="vacancyName">
-What do you want to call this vacancy?                </label>
+Enter the training provider UK Provider Reference Number (UKPRN)
+               </label>
                 <span id="price-hint" class="govuk-hint">
-               For example, Software developer apprenticeship. The vacancy title must include the word apprentice or apprenticeship.
+             You will be able to get this from your training provider
+Your provider must also have a recruit an apprentice account
+The UKPRN must only be 8 digits (For example, 12345678)
 
                 </span>
-                <input class="govuk-input" id="vacancyName" name="vacancyName" type="text" aria-describedby="vacancyName-hint" value="{{ data['vacancyName'] }}"/>
+                <input class="govuk-input govuk-input--width-10" id="recruitUKPRN" name="recruitUKPRN" type="text" aria-describedby="recruitUKPRN-hint" value="{{ data['recruitUKPRN'] }}"/>
             </div>
-            <div class="govuk-form-group">
+<!--             <div class="govuk-form-group">
                 <label class="govuk-label   govuk-label--s" for="numberOfApprentices">
                     How many positions do you have for this apprenticeship?
                 </label>
                 <input class="govuk-input govuk-input--width-5" id="numberOfApprentices" name="numberOfApprentices" type="text" aria-describedby="numberOfPostitions-hint" value="{{ data['numberOfApprentices'] }}"  />
-            </div>
+            </div> -->
                     </div>
                 </fieldset>
             </div>
@@ -105,7 +109,7 @@ What do you want to call this vacancy?                </label>
             </div> -->
 
             <button type="submit" class="govuk-button">Save and return </button>
-              <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
+              <a  class="govuk-button clear-button" href="step14b" >Cancel </a>
         </form>
     </div>
 </div>

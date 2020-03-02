@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %}    {% endblock %} {% block content %}
+{% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %}    {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "./" }) }} {% endblock %} {% block content %}
 
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
@@ -12,9 +12,9 @@
                     <li>know which training course and training provider you want to use</li>
 <!--                     <li>know your training provider's UK Provider Reference Number (UKPRN) - your training provider can tell you this</li>
  -->                    <li>have <a href="./finance/reserve">reserved funding</a> for the apprenticeship</a></li>
-                    <li>do something to a thing</a></li>
+                   <!--  <li>do something to a thing</a></li> -->
                 </ul>
-            <a href="step0"  class="govuk-button govuk-button--start">Start</a>
+            <a href="step1"  class="govuk-button govuk-button--start">Start</a>
             </div>
         </div>
     </main>

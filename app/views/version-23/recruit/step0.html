@@ -1,8 +1,7 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
 {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
-{{ govukBackLink({ text: "Back", href: "step-1" }) }} 
+
 {% endblock %} 
 {% block content %}
 
@@ -10,52 +9,50 @@
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row"">
                 <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Reserved funding</h1>
-<p>Use your reserved funding for this apprenticeship?</p>
-<div class="govuk-form-group">
-            <form method="get" action="recruitReserveFundingUse">
-                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                      <h1 class="govuk-fieldset__heading">
-                       Use reserved funding?
-                      </h1>
-                    </legend>
-                    <div class="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="app-1" name="funding" type="radio" value="Aeronautical engineer, Level 2">
-                        <label class="govuk-label govuk-radios__label" for="app-1" style="padding-bottom:0" >
-                          Aeronautical engineer, Level 2
-                        </label>
-                        <label class="govuk-label govuk-radios__label" style="display:block; padding-top:0" for="app-1" >
-                          <span class="reserveLevel"> 2 available</span>
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="app-2" name="funding" type="radio" value="Mechanical engineer, Level 3" >
-                        <label class="govuk-label govuk-radios__label" for="app-2" style="padding-bottom: 0" >
-                           Mechanical engineer,Level 3
-                        </label>
-                              <label class="govuk-label govuk-radios__label" style="display:block; padding-top:0" for="app-1" >
-                          <span class="reserveLevel"> 1 available</span>
-                        </label>
-                      </div>
 
-                      <div class="govuk-radios__divider"><p style="padding-left:10px; margin-bottom:10px">or</p></div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="app-4" name="funding" type="radio" value="Financial Services Administrator, Level 3">
-                        <label class="govuk-label govuk-radios__label" for="app-4">
-                          Find another apprenticship
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-            <button type="submit" class="govuk-button">
-                Continue
-            </button>
-        </form>
+
+   
+            <h1 class="govuk-heading-l">You must pay the apprenticeship levy to post vacancies on Recruitment
+</h1>
+
+<!-- <p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p> -->
+
+<!-- <details class="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+     Show example summary 
+    </span>
+    </summary>
+    <div class="govuk-details__text">
+       Example summary needs to go here
     </div>
-
+</details> -->
+<form method="get" action="wholeList">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+<!--                 <h1 class="govuk-fieldset__heading">
+       Which organisation is the vacancy for?
+      </h1> -->
+            </legend>
+            <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
+                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+Yes - I pay the apprenticeship levy                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+No - I do not pay the apprenticeship levy
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+            <button type="submit" class="govuk-button">Continue</button>
+          <!--     <a  class="govuk-button clear-button" href="../recruit" >Cancel </a> -->
+        </form>
     </div>
 </div>
 </main>

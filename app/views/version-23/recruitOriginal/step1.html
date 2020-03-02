@@ -1,7 +1,8 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
 {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
-
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back", href: "step-1" }) }} 
 {% endblock %} 
 {% block content %}
 
@@ -11,7 +12,7 @@
                 <div class="govuk-grid-column-two-thirds">
 
 
-        <form method="get" action="wholeList">
+        <form method="get" action="step2">
             <h1 class="govuk-heading-xl">Vacancy summary
 </h1>
 
@@ -104,7 +105,7 @@ What do you want to call this vacancy?                </label>
                 <input class="govuk-input" id="reference" name="reference" type="text" aria-describedby="reference-hint" />
             </div> -->
 
-            <button type="submit" class="govuk-button">Save and return </button>
+            <button type="submit" class="govuk-button">Save and continue </button>
               <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
         </form>
     </div>

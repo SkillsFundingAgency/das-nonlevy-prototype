@@ -1,11 +1,12 @@
 {% extends "layout.html" %} 
 {% block beforeContent %} 
 {% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
-
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back", href: "wholeList" }) }} 
 {% endblock %} 
 {% block content %}
 
-<Script>
+<!-- <Script>
 function addMe(clickedID) {
     console.log("working")
     var arse = "{{ data['recruitQual'] }}"
@@ -13,7 +14,7 @@ function addMe(clickedID) {
 
     $(notShown).removeClass("rj-dont-display");
 }
-</script>
+</script> -->
 
 <!-- This isn't being used. Just here to cut and paste bits to make stuff work -->
 <script>
@@ -118,13 +119,13 @@ else {  };
                   </div>
                 </div>
             </div>
-            <a class="govuk-button button-grey-secondary" type="submit" onclick="addMe(this.id)">+ Add this qualification </a>
+            <a class="govuk-button button-grey-secondary" type="submit" href="step10b">+ Add this qualification </a>
          </div>
                 </fieldset>
             </div>
 
             <!-- table created by the inputs and button above, only works for one entry-->
-            <div class="notShown" id="notShown">
+<!--             <div class="notShown" id="notShown">
                              <table class="govuk-table ">
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
@@ -137,17 +138,17 @@ else {  };
                     </thead>
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row" id="May18">
-                            <td class="govuk-table__cell" scope="row">GCSE</td>
-                            <td class="govuk-table__cell ">{{ data['recruitSubject'] }}Mathematics</td>
-                            <td class="govuk-table__cell ">{{ data['recruitGrade'] }}C</td>
-                             <td class="govuk-table__cell ">{{ data['recruitEssDes'] }}Essential</td>
+                            <td class="govuk-table__cell" scope="row">{{ data['recruitQual'] }}</td>
+                            <td class="govuk-table__cell ">{{ data['recruitSubject'] }}</td>
+                            <td class="govuk-table__cell ">{{ data['recruitGrade'] }}</td>
+                             <td class="govuk-table__cell ">{{ data['recruitEssDes'] }}</td>
                             <td class="govuk-table__cell" scope="row">
                                 <a href="changeReserve/fundingDetail">Remove</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <button type="submit" class="govuk-button">Save and return </button>
               <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
         </form>
