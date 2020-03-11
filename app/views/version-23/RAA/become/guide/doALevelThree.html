@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+<style>
+/* Remove some of the media queries that handle the tabs on this page */
+</style>
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- <script src="/public/javascripts/accordion.js"></script>
+ -->
+<script>
+function whereNow() {
+    // var status = $('input[name=radio-group]:checked').val();
+    switch (true) {
+        //  case  (status == 'provider-1'):
+        //          window.location.href='./levy-list';
+        //         break;
+        // case  (status == 'provider-2'):
+        //      window.location.href='./non-levy-list';
+        //     break
+        // case  (status == 'provider-3'):
+        //      window.location.href='./explain-levy';
+        //     break
+        default:
+            window.location.href = 'proResults';
+            // console.log('gyahhhhhhhh, bork bork bork')
+            break;
+    }
+}
+</script>
+<script>
+// uncomment this to turn on the accordions
+
+// if (
+//     'addEventListener' in document &&
+//     document.querySelectorAll
+// ) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         var accordions = document.querySelectorAll('.accordion')
+//         for (var i = accordions.length - 1; i >= 0; i--) {
+//             new Accordion(accordions[i])
+//         };
+//     })
+// }
+</script>
+<main class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Which levels can you do</h1>
+
+       <p>You told us that you have 5 or more GCSE's above grade C or equivalent.</p><p>Based on this we would recommend that you look at Level 3 apprenticeships which are equivalent to A-levels.</p>
+       <p>You could also do a Level 2 apprenticeship if it is in a different area of study to your existing qualifications.</p>
+
+               <form action="showMeLevelThrees">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">Show me Level 3 apprenticeships</h2>
+                    </legend>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="yes" >
+                                <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                   Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="no" >
+                                <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                   No, take me back to the homepage
+                                </label>
+                            </div>
+          
+</div>
+                        </div>
+                    </fieldset>
+                <button class="govuk-button">Continue</button>
+                    </div>
+            </form>
+       
+
+        <div class="govuk-grid-column-one-third">
+            <aside class="related">
+                <h2 class="govuk-heading-m" style="margin-top:10px">Help</h2>
+                <nav role="navigation">
+                    <ul class="robSideNav">
+                        <li><a target="_blank" class="looks-like-a-link-underline" id="one" onclick="whereNow(this.id)">Additional information about qualifications</a></li>
+               
+                        <li><a href="">Need support?</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+    {% endblock %}

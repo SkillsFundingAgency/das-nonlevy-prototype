@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+<style>
+/* Remove some of the media queries that handle the tabs on this page */
+</style>
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- <script src="/public/javascripts/accordion.js"></script>
+ -->
+<script>
+function whereNow() {
+    // var status = $('input[name=radio-group]:checked').val();
+    switch (true) {
+        //  case  (status == 'provider-1'):
+        //          window.location.href='./levy-list';
+        //         break;
+        // case  (status == 'provider-2'):
+        //      window.location.href='./non-levy-list';
+        //     break
+        // case  (status == 'provider-3'):
+        //      window.location.href='./explain-levy';
+        //     break
+        default:
+            window.location.href = 'proResults';
+            // console.log('gyahhhhhhhh, bork bork bork')
+            break;
+    }
+}
+</script>
+<script>
+// uncomment this to turn on the accordions
+
+// if (
+//     'addEventListener' in document &&
+//     document.querySelectorAll
+// ) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         var accordions = document.querySelectorAll('.accordion')
+//         for (var i = accordions.length - 1; i >= 0; i--) {
+//             new Accordion(accordions[i])
+//         };
+//     })
+// }
+</script>
+
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+            <h1 class="govuk-heading-xl">What is an apprenticeship</h1>
+              
+              
+                 <p>Apprenticeships combine practical training in a job with study.</p>
+                  <p>As an apprentice you’ll:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>work alongside experienced staff</li>
+                     <li>gain job-specific skills</li>
+                      <li>earn a wage and get holiday pay</li>
+                       <li>get time for study related to your role (usually one day a week)</li>
+                    </ul>
+                       <p>Apprenticeships take 1 to 5 years to complete depending on their <a href="whatQualifications">level</a>.</p>
+<!--                     <li>know your training provider's UK Provider Reference Number (UKPRN) - your training provider can tell you this</li>
+ -->                    <!-- <li>make sure the organisation that's named on the contract you have with your training provider is in your account - <a href="#"> view organisations in this account</a></li>
+                    <li>make sure the PAYE scheme that each apprentice is paid through is in your account - <a href="#">view PAYE schemes in this account</a></li> -->
+                </ul>
+
+                
+                <h1 class="govuk-heading-m">Who can apply</h1>
+              
+                 <p>You can apply for an apprenticeship while you’re still at school. To start one, you’ll need to be:</p>
+               <!--    <p>As an apprentice you’ll:</p> -->
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>16 or over by the end of the summer holidays</li>
+                     <li>living in England</li>
+                      <li>not in full-time education</li>
+               
+                    </ul>
+                    <!--    <p>Apprenticeships take 1 to 5 years to complete depending on their <a href="whatQualifications">level</a>.</p> -->
+                </ul>
+
+                       <h1 class="govuk-heading-m">Working hours</h1>
+              
+                 <p>An apprenticeship can be full-time or part-time. Part-time apprenticeships will take place over a longer period of time.</p>
+    </div>
+
+   <div class="govuk-grid-column-one-third">
+           <aside class="related">
+                <h2 class="govuk-heading-m" style="margin-top:10px">Help</h2>
+                <nav role="navigation">
+                      <ul class="robSideNav">
+                            <li><a target="_blank" class="looks-like-a-link-underline" id="one" onclick="whereNow(this.id)" >Additional information on what an apprenticeship is</a></li>
+                             <li><a target="_blank" class="looks-like-a-link-underline" id="two" onclick="whereNow(this.id)" >Additional information on who can apply</a></li>
+                       
+                             <li><a href="">Need support?</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
+</div>
+
+
+{% endblock %}

@@ -497,7 +497,19 @@ padding-left:55px;
     margin: 15px 0 0 0;
   }
 
+.robSideNav {
+  list-style-type: none;
+  padding-left:0;
+}
 
+.robSideNav li {
+padding-bottom:10px;
+}
+
+.related {
+  border-top: 10px solid #005ea5;
+  padding-top: 5px;
+}
 
 
 // dans stuff for the finance page

@@ -3332,6 +3332,31 @@ router.get('/*/RAA/become/guide/guidanceornot' , function (req, res) {
 })
 
 
+/// Become an apprentice
+// http://127.0.0.1:3000/version-23/RAA/become/guide/showMeLevelThrees
+router.get('/*/RAA/become/guide/showMeLevelThrees' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/reg8/apprenticeshipsearch`)
+           break;
+
+           case  (confirmTraining == 'no'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/showall`)
+           break;
+
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/RAA/become/guide/showall`)
+            break;
+        }
+})
+
 
 /////////END OF RAA ROUTES //////////////////////////////
 

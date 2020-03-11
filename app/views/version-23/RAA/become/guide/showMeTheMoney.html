@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+<style>
+/* Remove some of the media queries that handle the tabs on this page */
+</style>
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- <script src="/public/javascripts/accordion.js"></script>
+ -->
+<script>
+function whereNow() {
+    // var status = $('input[name=radio-group]:checked').val();
+    switch (true) {
+        //  case  (status == 'provider-1'):
+        //          window.location.href='./levy-list';
+        //         break;
+        // case  (status == 'provider-2'):
+        //      window.location.href='./non-levy-list';
+        //     break
+        // case  (status == 'provider-3'):
+        //      window.location.href='./explain-levy';
+        //     break
+        default:
+            window.location.href = 'proResults';
+            // console.log('gyahhhhhhhh, bork bork bork')
+            break;
+    }
+}
+</script>
+<script>
+// uncomment this to turn on the accordions
+
+// if (
+//     'addEventListener' in document &&
+//     document.querySelectorAll
+// ) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         var accordions = document.querySelectorAll('.accordion')
+//         for (var i = accordions.length - 1; i >= 0; i--) {
+//             new Accordion(accordions[i])
+//         };
+//     })
+// }
+</script>
+
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+            <h1 class="govuk-heading-xl">How much will I be paid</h1>
+              
+              
+                 <p>You’ll be paid during your apprenticeship.</p>
+                 <p>You’re entitled to the National Minimum Wage.</p>
+                 <p>The current minimum wage rate for an apprentice is £3.90 per hour.</p>
+                 <p>This rate applies to apprentices under 19 and those aged 19 or over who are in their first year.</p>
+                 <p>You must be paid at least the minimum wage rate for your age if you’re an apprentice aged 19 or over and have completed your first year.</p>
+
+                    <h2 class="govuk-heading-m">Hours apprentices are paid for</h2>
+
+                  <p>You must be paid for:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>your normal working hours</li>
+                     <li>training that’s part of your apprenticeship (usually one day per week)</li>
+                </ul>
+
+                
+                <h2 class="govuk-heading-m">Holiday</h2>
+              
+                 <p>You’ll get at least 20 days paid holiday per year, plus bank holidays.</p>
+               <!--    <p>As an apprentice you’ll:</p> -->
+ 
+    </div>
+
+   <div class="govuk-grid-column-one-third">
+           <aside class="related">
+                <h2 class="govuk-heading-m" style="margin-top:10px">Help</h2>
+                <nav role="navigation">
+                      <ul class="robSideNav">
+                            <li><a target="_blank" class="looks-like-a-link-underline" id="one" onclick="whereNow(this.id)" >Additional information on pay and conditions</a></li>
+                             <li><a target="_blank" class="looks-like-a-link-underline" id="two" onclick="whereNow(this.id)" >Additional information on holidays</a></li>
+                       
+                             <li><a href="">Need support?</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
+</div>
+
+
+{% endblock %}

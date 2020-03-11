@@ -4,8 +4,14 @@
 {% block content %}
 
 
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
 
-
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
 <div class="govuk-width-container">
 <!--     <main class="govuk-main-wrapper govuk-main-wrapper--l"> -->
   <div class="govuk-grid-row">
@@ -25,36 +31,46 @@ column-minimum">
            <p class="desktopLeft35">An apprenticeship combines practical training in a job with study.</p>
                 <!--      <div class="dummyvideo"> <img class="play-btn-guide" src="https://www.getingofar.gov.uk/img/icons/xplay-btn.png.pagespeed.ic.WsDW9VyeOZ.webp" alt="Play"></div> -->
           <ul class="app-task-list__items">
-             <li class="app-task-list__item">
+<!--              <li class="app-task-list__item">
               <a class="task-name mobile16" href="" aria-describedby="eligibility-completed" style="">
                 Who can become an apprentice?
+              </a>
+            </li> -->
+
+            <li class="app-task-list__item">
+              <a class="task-name" href="whatIsAnApprentice" aria-describedby="eligibility-completed" style="">
+                What is an apprenticeship
               </a>
 <!--                <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityLevy">Levy funded</strong>
                  <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed arj-dont-display" id="eligibilityCoinvestment">Co-investment funded</strong>
                   <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityTransfer">Transfer funded</strong> -->
             </li>
-            <li class="app-task-list__item">
-              <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
-                What is an apprenticeship?
+                        <li class="app-task-list__item">
+              <a class="task-name" href="showMeTheMoney" aria-describedby="eligibility-completed" style="">
+                How much will I be paid
               </a>
-<!--                <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityLevy">Levy funded</strong>
-                 <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed arj-dont-display" id="eligibilityCoinvestment">Co-investment funded</strong>
-                  <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityTransfer">Transfer funded</strong> -->
             </li>
 
             <li class="app-task-list__item">
               <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
-                What qualifications will I get?
+                What qualifications do I need
               </a>
             </li>
-                <li class="app-task-list__item">
+
+  
+<!--              <li class="app-task-list__item">
               <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
                 How do I pick an apprenticeship?
               </a>
-            </li>
+            </li> -->
             <li class="app-task-list__item">
               <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
-                What happens during my apprenticeship?
+                What happens during my apprenticeship
+              </a>
+            </li>
+           <li class="app-task-list__item">
+              <a class="task-name" href="whatQualificationsWillIGet" aria-describedby="eligibility-completed" style="">
+                What qualifications will I get
               </a>
             </li>
 
@@ -77,25 +93,22 @@ column-minimum">
 
         <li>
           <h2 class="app-task-list__section">
-           <span class="app-task-list__section-number">2. </span> What careers can I do?
+           <span class="app-task-list__section-number">2. </span> What career is right for me
           </h2>
-           <p class="desktopLeft35">There are lots of careers you can do, use our tools to help you find the right one for you</p>
+           <p class="desktopLeft35">Find out about careers in different sectors</p>
    <!--          <div class="dummyvideo"> <img class="play-btn-guide" src="https://www.getingofar.gov.uk/img/icons/xplay-btn.png.pagespeed.ic.WsDW9VyeOZ.webp" alt="Play"></div> -->
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a class="task-name" href="checkFundingv1" aria-describedby="eligibility-completed" style="font-size:19px">
-                Match your skills and interests to a career
+Explore sectors and careers
               </a>
-<!--                <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityLevy">Levy funded</strong>
-                 <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed arj-dont-display" id="eligibilityCoinvestment">Co-investment funded</strong>
-                  <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityTransfer">Transfer funded</strong> -->
             </li>
 
-            <li class="app-task-list__item">
+  <!--           <li class="app-task-list__item">
               <a class="task-name" href="checkFundingv1" aria-describedby="eligibility-completed" style="font-size:19px">
                 Some more things about careers
               </a>
-            </li>
+            </li> -->
 
  <!--            <li class="app-task-list__item rj-dont-display" id="forecastMyLevy">
               <a class="task-name" href="" aria-describedby="eligibility-completed">
@@ -115,16 +128,16 @@ column-minimum">
               <h2 class="app-task-list__section">
                       <span class="app-task-list__section-number">3. </span>  Find an apprenticeship
                     </h2>
-              <p class="desktopLeft35">Search and apply for apprenticship job listings </p>
+              <p class="desktopLeft35">Search and apply for apprenticeship job listings </p>
               <ul class="app-task-list__items">
                   <li class="app-task-list__item">
-                      <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
+                      <a class="task-name" href="../../reg8/apprenticeshipsearch"  aria-describedby="company-information-completed" style="font-size:19px">
                           Search and apply for an apprenticeship job
                         </a>
                   </li>
                   <li class="app-task-list__item">
-                      <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
-                          Login or create an account to view saved apprenticeships
+                      <a class="task-name" href="../../reg8/apprenticeshipsearch"  aria-describedby="company-information-completed" style="font-size:19px">
+                          Login or create an account to save apprenticeships
                         </a>
                   </li>
 <!--                   <li class="app-task-list__item">
@@ -140,7 +153,7 @@ column-minimum">
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">4. </span>  Applying for apprenticeships
           </h2>
-          <p class="desktopLeft35">Find the right apprenticeship for your business and then find a training provider to deliver the training, who's either national or local to you. You can save your searches to refer back to later.</p>
+          <p class="desktopLeft35">Guidance on writing an application</p>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a class="task-name" href=""  aria-describedby="company-information-completed" style="font-size:19px">
@@ -182,30 +195,30 @@ column-minimum">
               <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
           </li>
           </ul>
-          <li>
 
 
+        <li>
           <h2 class="app-task-list__section">
-            <span class="task-list-section-number">5. </span> Start an apprenticeship
+            <span class="task-list-section-number">5. </span> Manage your apprenticeship
           </h2>
-         <p class="desktopLeft35">If you have been offered a job you can commit to your apprenticeship or find out more</p>
+         <p class="desktopLeft35">If you've started an apprenticeship you can view and manage your apprenticeship details</p>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a class="task-name" href=""   aria-describedby="contact-details-completed" style="font-size:19px">
-                Commit to your apprenticeship
+               Login or create an account to view your apprenticeship
               </a>
             </li>
-            <li class="app-task-list__item">
+     <!--        <li class="app-task-list__item">
               <a class="task-name" href=""   aria-describedby="contact-details-completed" style="font-size:19px">
                 Why do I need to commit to my apprenticeship?
               </a>
-            </li>
+            </li> -->
             <!--li class="app-task-list__item">
               <a class="task-name" href="" style="font-size:19px">
                 View your saved training providers
               </a>
              <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="contact-details-completed"><span>0</span></strong>
-             <!--strong class="govuk-tag app-task-list__task-completed" style="min-width:60px; text-align: center; " id="contact-details-completed">3</strong-->
+ 
             </li-->
           </ul>
        </li>

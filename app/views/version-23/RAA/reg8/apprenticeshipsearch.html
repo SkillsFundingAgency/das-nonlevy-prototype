@@ -2,6 +2,27 @@
 {% block beforeContent %}
 {% endblock %}
 {% block content %}
+<script src="/public/javascripts/accordion.js"></script>
+<script>
+// uncomment this to turn on the accordions
+
+if (
+    'addEventListener' in document &&
+    document.querySelectorAll
+) {
+    document.addEventListener('DOMContentLoaded', function() {
+        var accordions = document.querySelectorAll('.accordion')
+        for (var i = accordions.length - 1; i >= 0; i--) {
+            new Accordion(accordions[i])
+        };
+    })
+}
+</script>
+<style>
+.accordion-controls{
+    display:none;
+}
+</style>
 
 <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -26,7 +47,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
         <!-- desktop version of the filters -->
-        <div class="">
+        <div class="notOnMobile">
 
             <div class="filter-form filtering ">
       <div id="finder-frontend" class="inner-block">
@@ -437,13 +458,183 @@
         <div class="column details" style=" float:left">
                    <div class="govuk-form-group" style="margin-bottom:15px">
                             <label class="govuk-label   govuk-label--s" for="partialCost">
-                                Search by keywords
+                                Filter by keywords
                             </label>
                             <span id="reference-hint" class="govuk-hint">
                                 For instance job role, skills or employer
                             </span>
                             <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
                         </div>
+
+
+<div class="notOnDesktop">
+<div class="accordion" style="margin-bottom:25px">
+      <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Location </h2>
+        </div>
+        <div class="accordion-section-body">
+            <div class="govuk-form-group" style="margin-top:15px">
+                <label class="govuk-label   govuk-label--s" for="employer">
+                    Location
+                </label>
+                <span id="reference-hint" class="govuk-hint">
+                  
+                </span>
+                <input class="govuk-input" id="employer" name="employer" type="text" aria-describedby="employer-hint" value="" />
+            </div>
+        </div>
+    </div>
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Employer </h2>
+        </div>
+        <div class="accordion-section-body">
+            <div class="govuk-form-group" style="margin-top:15px">
+                <label class="govuk-label   govuk-label--s" for="employer">
+                    Employer
+                </label>
+                <!--      <span id="reference-hint" class="govuk-hint">
+                            Enter postcode, town or city 
+                        </span> -->
+                <input class="govuk-input" id="employer" name="employer" type="text" aria-describedby="employer-hint" value="" />
+            </div>
+        </div>
+    </div>
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Job role </h2>
+        </div>
+        <div class="accordion-section-body">
+            <div class="govuk-form-group" style="margin-top:15px">
+                <label class="govuk-label   govuk-label--s" for="partialCost">
+                    Job role
+                </label>
+                <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                    <option value="All" selected>All</option>
+                    <option value="Job title">Accountancy</option>
+                    <option value="Description">Agriculture & Horticulture</option>
+                    <option value="Employer">Animal care</option>
+                    <option value="Ref. number">Arts</option>
+                    <option value="Ref. number">Automotive</option>
+                    <option value="Ref. number">Business & administration</option>
+                    <option value="Ref. number">Catering & hospitality</option>
+                    <option value="Ref. number">Childcare</option>
+                    <option value="Ref. number">Cleaning & enviromental</option>
+                    <option value="Ref. number">Constructionn</option>
+                    <option value="Ref. number">Contact center</option>
+                    <option value="Ref. number">Creative & digital media</option>
+                    <option value="Ref. number">Customer service</option>
+                    <option value="Ref. number">Dental</option>
+                    <option value="Ref. number">Education & training</option>
+                    <option value="Ref. number">Employability</option>
+                    <option value="Ref. number">Engineering & manufacturing</option>
+                    <option value="Ref. number">Environmental sciences</option>
+                    <option value="Ref. number">Facilities management</option>
+                    <option value="Ref. number">Fashion & textiles</option>
+                    <option value="Ref. number">Financial services</option>
+                    <option value="Ref. number">Firefighter</option>
+                    <option value="Ref. number">Food manufacturing</option>
+                    <option value="Ref. number">Hairdressing & beauty</option>
+                    <option value="Ref. number">Health & social care</option>
+                    <option value="Ref. number">Horse care</option>
+                    <option value="Ref. number">Human resources</option>
+                    <option value="Ref. number">Insurance</option>
+                    <option value="Ref. number">IT</option>
+                    <option value="Ref. number">Law</option>
+                    <option value="Ref. number">Leisure</option>
+                    <option value="Ref. number">Management & team leading</option>
+                    <option value="Ref. number">Martime & marine operation</option>
+                    <option value="Ref. number">Marketing</option>
+                    <option value="Ref. number">Media & publishing</option>
+                    <option value="Ref. number">Pharmaceutical</option>
+                    <option value="Ref. number">Playwork</option>
+                    <option value="Ref. number">Property services</option>
+                    <option value="Ref. number">Public services & emergency services</option>
+                    <option value="Ref. number">Social media & digital marketing</option>
+                    <option value="Ref. number">Telecommunications</option>
+                    <option value="Ref. number">Transport logistics</option>
+                    <option value="Ref. number">Travel & tourism</option>
+                    <option value="Ref. number">Veterinary nursing</option>
+                    <option value="Ref. number">Warehousing</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <div class="accordion-section-header">
+            <h2 class="govuk-heading-m">Levels </h2>
+        </div>
+        <div class="accordion-section-body">
+            <div class="govuk-form-group" style="margin-bottom:15px">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <!--   <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                              <h1 class="govuk-fieldset__heading">
+                                Which types of waste do you transport?
+                              </h1>
+                            </legend> -->
+                    <span id="waste-hint" class="govuk-hint">
+                        Select all that apply.
+                    </span>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                Level 2 (equivalent to GCSE)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                                Level 3 (equivalent to A-levels)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                                Level 4 (Equivalent to HNC)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-4">
+                                Level 5 (Equivalent to HND)
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-5">
+                                Level 6 (Equivalent to undergraduate degree)
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <label class="govuk-label   govuk-label--s" for="partialCost">
+            Only show
+        </label>
+        <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Disability confident
+                </label>
+            </div>
+        </div>
+    </fieldset>
+</div>
+</div>
+
+
+
+
+
             <div class="twoFlexContainer">
                 <div class="twoFlexItem" style="padding-left:0">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="busAdminApprentice">Business Admin </a> 
