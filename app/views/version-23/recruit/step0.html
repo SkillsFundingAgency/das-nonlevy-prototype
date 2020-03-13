@@ -1,81 +1,61 @@
-{% extends "layout.html" %} 
-{% block beforeContent %} 
-{% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
-
-{% endblock %} 
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} {% include "includes/version5/recruitNav.html" %}
+{% endblock %}
 {% block content %}
-
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper govuk-main-wrapper--l">
         <div class="govuk-grid-row"">
-                <div class="govuk-grid-column-two-thirds">
-
-
-   
+                <div class=" govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Employing an apprentice</h1>
             <p>You must meet the following rules in order to employ an apprentice.</p>
-
-<p>Assurance Aerospace Ltd confirm that:</p>
-
-      <!--    <p>You must be paid for:</p> -->
-                <ul class="govuk-list govuk-list--bullet">
-
-                     <li>Assurance Aerospace Ltd will meet the cost of the apprentice’s wages</li>
-                     <li>Assurance Aerospace Ltd will provide a job role to the apprentice that allows them to gain the knowledge, skills and behaviours they need to successfully complete the apprenticeship</li>
-                     <li>Assurance Aerospace Ltd will give appropriate support and supervision on the job to allow the apprentice to carry out their role</li>
-                         <li>The apprentice will have a contract of service with Assurance Aerospace Ltd or an apprenticeship training agency, that is long enough for them to successfully complete the apprenticeship and any end point assessment
-                        <details class="govuk-details" style="margin-bottom:0px
-                        ">
-                            <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">
-                             See exceptions for this
+            <p>Assurance Aerospace Ltd confirm that:</p>
+            <!--    <p>You must be paid for:</p> -->
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Assurance Aerospace Ltd will meet the cost of the apprentice’s wages</li>
+                <li>Assurance Aerospace Ltd will provide a job role to the apprentice that allows them to gain the knowledge, skills and behaviours they need to successfully complete the apprenticeship</li>
+                <li>Assurance Aerospace Ltd will give appropriate support and supervision on the job to allow the apprentice to carry out their role</li>
+                <li>The apprentice will have a contract of service with Assurance Aerospace Ltd or an apprenticeship training agency, that is long enough for them to successfully complete the apprenticeship and any end point assessment
+                    <details class="govuk-details" style="margin-bottom:0px">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                See exceptions for this
                             </span>
-                            </summary>
-                            <div class="govuk-details__text">
-                             <p>Apprentices who have been made redundant less than six months before the final day of their apprenticeship</p>
-<p>Apprentices who have been made redundant, with more than six months but less than 12 months of their apprenticeship remaining; these apprentices may seek a further contract of service with a duration of less than 12 months, and we will fund them for up to 12 weeks while they do so.</p>
-<p> Particular office holders, namely constables of English police forces and ministers or trainee ministers of a religious denomination, who are undertaking an alternative English apprenticeship. Except for the requirement to have an apprenticeship agreement and a contract of service in relation to these alternative apprentices, you must comply with all the other rules set out in this document.</p>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p>Apprentices who have been made redundant less than six months before the final day of their apprenticeship</p>
+                            <p>Apprentices who have been made redundant, with more than six months but less than 12 months of their apprenticeship remaining; these apprentices may seek a further contract of service with a duration of less than 12 months, and we will fund them for up to 12 weeks while they do so.</p>
+                            <p> Particular office holders, namely constables of English police forces and ministers or trainee ministers of a religious denomination, who are undertaking an alternative English apprenticeship. Except for the requirement to have an apprenticeship agreement and a contract of service in relation to these alternative apprentices, you must comply with all the other rules set out in this document.</p>
+                        </div>
+                    </details>
+                </li>
+            </ul>
+            <form method="get" action="wholeList">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">Does your vacancy meet the rules?</h1>
+                        </legend>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
+                                <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                                    Yes, I am eligible to employ an apprentice </label>
                             </div>
-                        </details>
-
-
-
-
-
-                    </li>
-                </ul>
-
-
-
-<form method="get" action="wholeList">
-    <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                <h1 class="govuk-fieldset__heading">Does your vacancy meet the rules?</h1>
-            </legend>
-            <div class="govuk-radios">
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="england">
-                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
-Yes, I am eligible to employ an apprentice                   </label>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                                <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                                    No, I can't meet all these rules
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
-                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
-No, I can't meet all these rules
-                    </label>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-            <button type="submit" class="govuk-button">Continue</button>
-          <!--     <a  class="govuk-button clear-button" href="../recruit" >Cancel </a> -->
-        </form>
-    </div>
+                <button type="submit" class="govuk-button">Continue</button>
+                <!--     <a  class="govuk-button clear-button" href="../recruit" >Cancel </a> -->
+            </form>
+        </div>
 </div>
 </main>
 </div>
-
-
-
 {% endblock %}
