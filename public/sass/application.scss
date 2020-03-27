@@ -339,6 +339,10 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   width:100px
 }
 
+.CFSlogo svg {
+padding-left:95px;
+}
+
 .CFSlogo2 {
 //  padding-left:75px;
   height:70px; 
@@ -346,8 +350,13 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 }
 
 .metroLogo {
- width:300px;
- height:132px;
+ width:184px;
+ height:92px;
+// padding-left:25px;
+}
+
+.metroLogo img {
+padding-left:45px;
 }
 
 .jpmorganLogo {
@@ -389,12 +398,22 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .flexFirstWidth {
     width:125px;
   }
+
+.task-name, .app-task-list__task-name {
+  font-size:16px !important;
+  width:66%;
+}
+
 }
 
 @media (min-width: 641px) {
   ///   DESKTOP
 
-    .flexFirstWidth {
+  .desktopLeft35 {
+    padding-left:35px;
+  }
+
+  .flexFirstWidth {
     width:190px;
   }
 
@@ -448,8 +467,12 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 .metroLogo {
  //  margin-top:15px;
 
-   width:300px;
- height:132px;
+   width:184px;
+ height:92px;
+}
+
+.metroLogo img {
+padding-left:55px;
 }
 
 .jpmorganLogo {
@@ -474,7 +497,19 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     margin: 15px 0 0 0;
   }
 
+.robSideNav {
+  list-style-type: none;
+  padding-left:0;
+}
 
+.robSideNav li {
+padding-bottom:10px;
+}
+
+.related {
+  border-top: 10px solid #005ea5;
+  padding-top: 5px;
+}
 
 
 // dans stuff for the finance page
@@ -2258,7 +2293,7 @@ ul.hidden-links li:first-child  {
 
 
 .task-name, .app-task-list__task-name {
-	font-size:19px !important;
+	font-size:19px;
 	width:66%;
 }
 
