@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+<style>
+/* Remove some of the media queries that handle the tabs on this page */
+</style>
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- <script src="/public/javascripts/accordion.js"></script>
+ -->
+<script>
+function whereNow() {
+    // var status = $('input[name=radio-group]:checked').val();
+    switch (true) {
+        //  case  (status == 'provider-1'):
+        //          window.location.href='./levy-list';
+        //         break;
+        // case  (status == 'provider-2'):
+        //      window.location.href='./non-levy-list';
+        //     break
+        // case  (status == 'provider-3'):
+        //      window.location.href='./explain-levy';
+        //     break
+        default:
+            window.location.href = 'proResults';
+            // console.log('gyahhhhhhhh, bork bork bork')
+            break;
+    }
+}
+</script>
+<script>
+// uncomment this to turn on the accordions
+
+// if (
+//     'addEventListener' in document &&
+//     document.querySelectorAll
+// ) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         var accordions = document.querySelectorAll('.accordion')
+//         for (var i = accordions.length - 1; i >= 0; i--) {
+//             new Accordion(accordions[i])
+//         };
+//     })
+// }
+</script>
+<main class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">What qualifications will I get</h1>
+            <h2 class="govuk-heading-m">Levels of apprenticeship</h2>
+            <p style="margin-bottom:55px">Apprenticeships have equivalent educational levels.</p>
+                <table class="govuk-table" style="">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col" style="padding-top:0">Name
+                                </th>
+                            <!--th scope="col" style="padding-top:0">Email address</th-->
+                            <th class="govuk-table__header" scope="col" style="padding-top:0; ">Level  </th>
+                             <th class="govuk-table__header" scope="col" style="padding-top:0; ">Equivalent educational level  </th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="govuk-table__row">
+                            <!--quick hack, will fix -->
+                            <td class="govuk-table__cell ">Intermediate</td>
+                            <td class="govuk-table__cell ">2</td>
+                              <td class="govuk-table__cell ">GCSE</td>
+                  
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <!--quick hack, will fix -->
+                            <td class="govuk-table__cell ">Advanced</td>
+                            <td class="govuk-table__cell ">3</td>
+                              <td class="govuk-table__cell ">A level </td>
+                    
+                        </tr>
+                        <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Higher</td>
+                              <td class="govuk-table__cell ">4,5,6 and 7</td>
+                                <td class="govuk-table__cell">Foundation degree and above</td>
+                        </tr>
+                         <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Degree</td>
+                              <td class="govuk-table__cell ">6 and 7</td>
+                                <td class="govuk-table__cell">Bachelor’s or master’s degree</td>
+                        </tr>
+                    </tbody>
+                </table>
+      
+            <p>Some apprenticeships may also give you an additional qualification, such as a diploma.</p>
+
+  <h2 class="govuk-heading-m">Which level should you choose</h2>
+       <p>You will normally do an apprenticeship at the next level up from your current qualifications. You can do the same level as you current qualifications if it is different enough from your "old studies".</p>
+       <p>We can help you choose which level is right for you.</p>
+        <form action="doALevelThree">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">
+What is the highest qualification you have or are expected to get</h2>
+                    </legend>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
+                                <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                    No qualifications
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                    Fewer that 5 GCSE's above grade C or equivalent
+                                </label>
+                            </div>
+                                                        <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                    5 or more GCSE's above grade C or equivalent
+                                </label>
+                            </div>
+                                                        <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                    A-levels or equivalent
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                   Post-school qualifications
+                                     <span id="sign-in-hint" class="govuk-hint">
+For instance a HNC, HND or degree    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                <button class="govuk-button">Continue</button>
+                    </div>
+            </form>
+
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <aside class="related">
+                <h2 class="govuk-heading-m" style="margin-top:10px">Help</h2>
+                <nav role="navigation">
+                    <ul class="robSideNav">
+                        <li><a target="_blank" class="looks-like-a-link-underline" id="one" onclick="whereNow(this.id)">Additional information about qualifications</a></li>
+            <!--             <li><a target="_blank" class="looks-like-a-link-underline" id="two" onclick="whereNow(this.id)">Additional information on who can apply</a></li> -->
+                        <li><a href="">Need support?</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+    {% endblock %}

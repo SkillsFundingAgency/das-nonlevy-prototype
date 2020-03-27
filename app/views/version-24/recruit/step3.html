@@ -1,0 +1,84 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
+
+{% endblock %} 
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+
+
+   
+            <h1 class="govuk-heading-xl">Location</h1>
+<!-- <p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p> -->
+
+
+<form method="get" action="wholeList">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">Which organisation is the vacancy for?</h1>
+            </legend>
+            <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="assurance aerospace ltd">
+                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                        Assurance Aerospace Ltd
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="assurance plumbing ltd">
+                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                        Assurance Plumbing Ltd
+                    </label>
+                </div>
+<!--                 <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                        Wales
+                    </label>
+                </div> -->
+            </div>
+        </fieldset>
+    </div>
+    <div class="govuk-form-group recruitAddress">
+        <label class="govuk-label   govuk-label--s" for="apprenticeAddress">
+Enter the address where the apprentice will work
+        </label>
+        <!--                 <span id="price-hint" class="govuk-hint">
+                For example, Software developer apprenticeship
+                </span> -->
+        <input class="govuk-input govuk-!-width-three-quarters" id="addressOne" name="addressOne" type="text" aria-describedby="FirstName-hint" value="" />
+    </div>
+    <div class="govuk-form-group">
+        <input class="govuk-input govuk-!-width-three-quarters" id="addressTwo" name="addressTwo" type="text" aria-describedby="FirstName-hint" value="" />
+    </div>
+        <div class="govuk-form-group">
+        <input class="govuk-input govuk-!-width-three-quarters" id="addressThree" name="addressThree" type="text" aria-describedby="FirstName-hint" value="" />
+    </div>
+        <div class="govuk-form-group">
+        <input class="govuk-input govuk-!-width-three-quarters" id="addressFour" name="addressFour" type="text" aria-describedby="FirstName-hint" value="" />
+    </div>
+        <div class="govuk-form-group">
+        <label class="govuk-label   govuk-label--s" for="recruitPostCode">
+Postcode
+        </label>
+        <!--                 <span id="price-hint" class="govuk-hint">
+                For example, Software developer apprenticeship
+                </span> -->
+        <input class="govuk-input govuk-input--width-5" id="addressPost" name="addressPost" type="text" aria-describedby="addressPost-hint" value="" />
+    </div>
+    </div>
+    </fieldset>
+    </div>
+            <button type="submit" class="govuk-button">Save and return </button>
+              <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+{% endblock %}

@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} {% include "includes/version5/recruitNav.html" %}
+
+{% endblock %}
+{% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class=" govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Important dates</h1>
+            <form method="get" action="wholeList">
+                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h1 class="govuk-fieldset__heading">
+                                Desired skills or personal qualities?
+                              </h1>
+                            </legend>
+                            <span id="waste-hint" class="govuk-hint">
+                              Select all that apply.
+                            </span>
+                            <div style="margin-bottom:25px"></div>
+
+               <div class="govuk-grid-row"">
+                <div class=" govuk-grid-column-one-half">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" >
+ 
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="Communication-skills" name="recruitSkills" type="checkbox" value="Communication-skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="Communication-skills">
+                                        Communication skills
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitITSkills" name="recruitSkills" type="checkbox" value="IT Skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitITSkills">
+                                        IT Skills
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitAttentionDetail" name="recruitSkills" type="checkbox" value="Attention to Detail">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitAttentionDetail">
+                                        Attention to detail
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitOrgSkills" name="recruitSkills" type="checkbox" value="Organisation skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitOrgSkills">
+                                        Organisation skills
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitCustomerSkills" name="recruitSkills" type="checkbox" value="Customer care skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitCustomerSkills">
+                                        Customer care skills
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitCustomerSkills" name="recruitSkills" type="checkbox" value="Customer care skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitCustomerSkills">
+                                        Problem solving skills
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitPresentationSkills" name="recruitSkills" type="checkbox" value="Customer care skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitPresentationSkills">
+                                        Presentation skills
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitAdministrativeSkills" name="recruitSkills" type="checkbox" value="Customer care skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitAdministrativeSkills">
+                                        Administrative skills
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="recruitNumberSkills" name="recruitSkills" type="checkbox" value="Customer care skills">
+                                    <label class="govuk-label govuk-checkboxes__label" for="recruitNumberSkills">
+                                        Number skills
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="govuk-grid-column-one-half">
+          
+                    <div class="govuk-form-group">
+                        <div class="govuk-checkboxes">
+
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitAnalyticalSkills" name="recruitSkills" type="checkbox" value="recruitAnalyticalSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitAnalyticalSkills">
+                                   Analytical skills
+                                </label>
+                            </div>
+          
+           
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitLogicalSkills" name="recruitSkills" type="checkbox" value="recruitLogicalSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitLogicalSkills">
+                                   Logical
+                                </label>
+                            </div>
+             
+     
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitTeamSkills" name="recruitSkills" type="checkbox" value="recruitTeamSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitTeamSkills">
+                                   Team working
+                                </label>
+                            </div>
+      
+            
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitCreativeSkills" name="recruitSkills" type="checkbox" value="recruitCreativeSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitCreativeSkills">
+                                   Creative
+                                </label>
+                            </div>
+            
+       
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitInitiativeSkills" name="recruitSkills" type="checkbox" value="recruitInitiativeSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitInitiativeSkills">
+                                   Initiative
+                                </label>
+                            </div>
+         
+ 
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitNonjudgeSkills" name="recruitSkills" type="checkbox" value="recruitNonjudgeSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitNonjudgeSkills">
+                                   Non judgemental
+                                </label>
+                            </div>
+     
+            
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitPatienceSkills" name="recruitSkills" type="checkbox" value="recruitPatienceSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitPatienceSkills">
+                                   Patience
+                                </label>
+                            </div>
+             
+       
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="recruitFitnessSkills" name="recruitSkills" type="checkbox" value="recruitFitnessSkills">
+                                <label class="govuk-label govuk-checkboxes__label" for="recruitFitnessSkills">
+                                   Physical fitness
+                                </label>
+                            </div>
+                         </div>
+                     </div>
+                 </fieldset>
+            </div>
+        </div>
+        <p style="margin-bottom:0">or</p>
+                   <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="addNewSkills">
+                    Add a new desired skill or personal quality
+
+                </label>
+                <input class="govuk-input govuk-!-width-three-quarters " id="addNewSkills" name="addNewSkills" type="text" aria-describedby="addNewSkills-hint" value=""  />
+                  <a  class="govuk-button button-grey-secondary" href="wholeList" >+ Add this skill </a>
+            </div>
+    <button type="submit" class="govuk-button">Save and continue </button>
+    <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
+    </form>
+    </div>
+</div>
+</main>
+</div>
+{% endblock %}

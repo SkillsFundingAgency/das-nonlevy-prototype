@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+<link href="/public/bot/govuk-template.css" media="screen" rel="stylesheet" type="text/css">
+<link href="/public/bot/fonts.css" media="all" rel="stylesheet" type="text/css">
+
+<link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
+<link href="/public/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+<script>
+
+$(document).ready(function() {
+    var socket = io();
+       // var socket = io.connect('http://example.com:3080'); //  instead of var socket = io(); - not entirelly sure why!
+    $('form').submit(function(){
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+
+    socket.on('chat message', function(msg){
+      $('#messages').append($('<li class="listMessage">').text(msg));
+    });
+      socket.on('internal message', function(msg){
+      $('#messages').append($('<li class="listMessageInternal">').text(msg));
+    });
+
+});
+
+</script>
+</head>
+<body>
+
+<main class="" id="" role="main">
+
+        <div id="chatAppear">
+                <div class="chat-header">
+                  <div class="chatMin"><p>hide</p></div>
+                  <div class="chatClose"><p style="text-align:right">close</p></div>
+                </div>
+
+                <div class="chat-operator flex-chat"> 
+                    <div class="chat-picture"  ><img  src="/public/images/avatar.jpg"></div>
+                    <div class="chat-copy"><span>You are the support person</span></div>
+                </div>
+
+                <div class="chat-body">
+                    <ul id="messages"></ul>
+                </div>
+
+                <div style="margin-top:15px"></div>
+                <div class="chat-enter">
+                      <form action="">
+                        <div class="form-group">
+                           <!--input id="m" autocomplete="off" /><button>Send</button-->
+                            <input autocomplete="off" class="form-control" id="m" autocomplete="off" style="width:100%" placeholder=" ask your question" />
+                            <button  class="button"  style="width:100%"  >Send </button>
+                         </div>
+                      </form>
+                </div>
+      </div>
+
+</main>
+</body>
+</html>
+
+

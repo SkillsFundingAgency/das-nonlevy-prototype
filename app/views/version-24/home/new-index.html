@@ -1,0 +1,180 @@
+{% extends "layoutMA.html" %}
+
+{% block pageTitle %}
+  Apprenticeships
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+<!-- 
+<script>
+
+    var firstTimeReg = JSON.parse(localStorage.getItem('registration.firstTimeReg'));
+    var completeAgreement = JSON.parse(localStorage.getItem('registration.completeAgreement')); // "no" means not done the agreement
+    var completeTax = JSON.parse(localStorage.getItem('registration.completeTax')); //"no" means not done any of the tax stuff. 
+
+console.log(firstTimeReg, completeAgreement, completeTax )
+
+$(document).ready(function() {
+  var changeStuff = function() {  
+       switch (true) {
+        // Coming from registration and agreement and tax are both done
+          case  (firstTimeReg == 'yes') && (completeAgreement != 'no') && (completeTax != 'no'):
+               $(firstTimeRegMessage).removeClass("rj-dont-display");
+              localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+           break;
+        // Coming from registration and agreement and tax are both NOT done
+            case  (firstTimeReg == 'yes') && ((completeAgreement == 'no') && (completeTax == 'no')):
+              $(paneTasksTax).removeClass("rj-dont-display")
+               $(paneTasksAgreement).removeClass("rj-dont-display")
+                 $(paneNoTasks).addClass("rj-dont-display")
+
+                  $(companyNameGeneric).removeClass("rj-dont-display")
+                 $(companyName).addClass("rj-dont-display")
+
+            localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+           break;
+
+        // Coming from registration and agreement is not done but tax is done
+             case  (firstTimeReg == 'yes') && ((completeAgreement == 'no') || (completeTax == 'yes')):
+             console.log("agreement is not done but tax IS Done")
+           //    $(firstTimeRegMessageIncompleteAgreementOnly).removeClass("rj-dont-display")
+             $(paneTasksAgreement).removeClass("rj-dont-display")
+             $(paneNoTasks).addClass("rj-dont-display")
+
+            localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+           break;
+
+         // Coming from registration and agreement is done but TAX is NOT done
+           case  (firstTimeReg == 'yes') && ((completeAgreement == 'yes') || (completeTax == 'no')):
+               console.log("agreement is  done but tax is NOT one")
+          //    $(firstTimeRegMessageIncompleteTaxOnly).removeClass("rj-dont-display")
+            $(paneTasksTax).removeClass("rj-dont-display")
+              $(paneNoTasks).addClass("rj-dont-display")
+                  $(companyNameGeneric).removeClass("rj-dont-display")
+                 $(companyName).addClass("rj-dont-display")
+            localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+           break;
+
+           default:
+            localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+            console.log("bork bork bork what");
+            break;
+        } 
+      }
+changeStuff();
+});
+
+</script> -->
+
+
+    <section class="das-section das-section--header">
+        <div class="govuk-width-container">
+            <h1 class="govuk-heading-m das-account__title">Your employer account</h1>
+            <h2 class="govuk-heading-l das-account__account-name">Assurance Aerospace Ltd</h2>
+        </div>
+    </section>
+
+<!--
+    <section class="das-section das-section--search">
+        <div class="govuk-width-container">
+            <div class="das-dashboard-header__row">
+                <div class="das-dashboard-header__col das-dashboard-header__col--primary">
+                    <form>
+                        <div class="govuk-form-group das-form-group-inline das-dashboard-search">
+                            <label for="search" class="govuk-visually-hidden">Search</label>
+                            <input class="govuk-input das-dashboard-search__input" id="search" type="search" placeholder="Search">
+                            <div class="das-form-group-inline__button-wrap">
+                                <button class="govuk-button das-dashboard-search__button" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="das-dashboard-header__col das-dashboard-header__col--secondary">
+                    <h2 class="das-placeholder-tasks">Other tasks you can do</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <main class="govuk-main-wrapper das-section--dashboard" id="main-content" role="main">
+        <div class="govuk-width-container">
+            <div class="das-panels">
+                <div class="das-panels__col das-panels__col--primary">
+                    <div class="das-panel das-panel--featured">
+                        <h3 class="das-panel__heading">Reserve funding </h3>
+                        <p>Reserve funding for training and end-point assessment.</p>
+                        <p><a href="EPAOReserve" class="das-panel__link">Reserve funding</a> </p>
+                    </div>
+                    <div class="das-panel">
+                        <h3 class="das-panel__heading">Your saved apprenticeships, training providers and end-point assessment organisations</h3>
+                        <p>You do not have any apprenticeships, training providers or end-point assessment organisations saved.</p>
+                         <p><a href="find" class="">Find training</a> </p>
+                    </div>
+                </div>
+                <div class="das-panels__col das-panels__col--secondary">
+                    <div class="das-panel">
+                        <h3 class="das-panel__heading">ABC Training Limited</h3>
+                        <p>123 Coventry Road, <br>Coventry, CV1 AB3</p>
+
+                        <dl class="das-definition-list das-definition-list--inline">
+                            <dt class="das-definition-list__title"><b>Tel</b></dt>
+                            <dd class="das-definition-list__definition">02476 786 1011</dd>
+                            <dt class="das-definition-list__title"><b>Email</b></dt>
+                            <dd class="das-definition-list__definition">info@apextraining.com</dd>
+                        </dl>
+
+                        <p><a href="savedProviders" class="govuk-link govuk-link--no-visited-state">View permissions</a> </p>
+                    </div>
+                    <div class="das-panel">
+                        <h3 class="das-panel__heading">Your account settings</h3>
+                        <ul class="govuk-list">
+                           <li><a href="#" class="govuk-link govuk-link--no-visited-state">Your accounts</a> </li>
+                           <li><a href="#" class="govuk-link govuk-link--no-visited-state">Rename account </a> </li>
+                           <li><a href="#" class="govuk-link govuk-link--no-visited-state">Change your password </a> </li>
+                           <li><a href="#" class="govuk-link govuk-link--no-visited-state">Change your email address </a> </li>
+                           <li><a href="#" class="govuk-link govuk-link--no-visited-state">Notification settings </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="das-section das-section--main das-dashboard-footer" aria-labelledby="more-title">
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row">
+                <hr class="das-section-break das-section-break--l das-section-break--heavy das-section-break--gutters">
+                <div class="das-dashboard-footer__column das-dashboard-footer__column--title">
+                    <h2 id="more-title" class="das-dashboard-footer__title">More on the Apprenticeships Service</h2>
+                </div>
+                <div class="das-dashboard-footer__column">
+                    <h3 class="govuk-heading-m das-dashboard-footer__sub-title">Most active</h3>
+                    <ul class="govuk-list das-list--featured">
+                       <li><a href="EPAOReserve" class="govuk-link govuk-link--no-visited-state">Reserve funding</a></li>
+                        <li><a href="EPAO/epaoandcost" class="govuk-link govuk-link--no-visited-state">Add an apprentice</a></li>
+                        <li><a href="apprentices/manage" class="govuk-link govuk-link--no-visited-state">Manage your apprentices</a></li>
+                        <li><a href="find" class="govuk-link govuk-link--no-visited-state">Find apprenticeship training and assessment</a></li>
+<!--                         <li><a href="#" class="govuk-link govuk-link--no-visited-state">Add a new organisation</a></li>
+                        <li><a href="#" class="govuk-link govuk-link--no-visited-state">Rename your account</a></li> -->
+                    </ul>
+                </div>
+                <div class="das-dashboard-footer__column">
+                    <a class="das-promo" href="#">
+                        What you need to know about apprenticeships
+                    </a>
+                    <p>
+                        Find out more about <a href="#" class="govuk-link govuk-link--no-visited-state"> what the Apprenticeship Service can do for your organisation</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
