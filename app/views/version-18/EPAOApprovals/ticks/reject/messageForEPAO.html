@@ -1,0 +1,37 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/requestsNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+           Message for the employer
+        </h1>
+
+        <p class="">Let <strong>Tyrell Corp</strong> and <strong>Lex Corp</strong> know why you are rejecting the apprentices. The same message will be sent to all employers.</p>
+       
+        
+        <form action="apprenticeTickReject" method="get" class="form">            
+            <div class="govuk-form-group">
+                <label class=" govuk-label--s" for="provider-message">
+                    Message (optional)
+                </label>                
+                <textarea class="govuk-textarea" id="provider-message" name="provider-message" rows="5" value="{{ data["provider-message"] }}"></textarea>
+            </div>
+            <button class="govuk-button">Continue</button>
+    
+          </form>          
+    </div>
+</div>
+</main>
+</div>
+
+
+{% endblock %}

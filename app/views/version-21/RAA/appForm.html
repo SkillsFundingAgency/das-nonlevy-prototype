@@ -1,0 +1,661 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+
+<script>
+function whereNow() {
+        localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
+        window.location.href='proSearch';
+    }
+
+</script>
+
+
+<!-- 
+<script>
+$( document ).ready(function() {
+    var appCount=0
+var proCount=0
+ $(".shortlistButton").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+    //        Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove from saved list");
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save this apprenticeship");
+            appCount--;
+      //      Cookies.set("appCount", appCount);
+            console.log(appCount);
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+  });
+</script>
+ -->
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+    $(coInvestPayer).addClass("rj-dont-display")
+   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
+   // document.getElementById("providerName").textContent = "Provider:" ;
+   // $(commitmentStatus).addClass("rj-dont-display");
+   //  $(addDate).addClass("rj-dont-display")
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+       //  $(addDate).addClass("rj-dont-display")
+    }
+else { };
+
+//if (fundingStatus=='transferFunding') {
+  // $(eligibilityTransfer).removeClass("rj-dont-display")
+    //}
+//else { };
+  }
+changeStuff();
+});
+</script-->
+
+<style>
+.data-list dd, .data-list dt  {margin-bottom:0;}
+</style>
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+            <div class="do-a-thing"></div>
+{% else %}
+            <div class="dont-a-thing"></div>
+{% endif %}
+<!-- end of conditional statement -->
+
+ {% include "includes/RAALoggedIn.html" %} 
+<div class="info-summary">
+    <h3 class="heading-medium"></h3>
+    <p>Last saved at 3:00:10 PM on 4/12/2019 to <a href="myApplications">my applications</a></p>
+</div>
+       
+
+<div style="clear:both"></div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="">
+            <h1 class="govuk-heading-xl" style="">Application form</h1>
+            <!--<h3 class="heading-small">Role</h3>-->
+            <p style="margin-bottom:3px"><a href=""><i class="fas fa-question-circle" style="margin-right:4px;"></i>How to apply for an apprenticeship</a></p>
+            <p>(interactive walkthrough)</p>
+
+            <p>To efficiently undertake basic administration and clerical duties</p>
+
+        </div>
+        <h1 class="govuk-heading-l" style="margin-top:25px">Business admin apprentice    <span id="reference-hint" class="govuk-hint" style="font-size:19px">
+                    Central Financial Services
+                </span></h1>
+     <p>To efficiently undertake basic adminstration and clerical duties</p>
+     <p><a href="busAdminApprentice">View apprenticeship</a></p>
+    </div>
+</div>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+            <h3 class="govuk-heading-l" style="">Your details</h3>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <dl class="data-list">
+        
+             <h3 class="govuk-heading-s" style="margin-bottom:5px">Full name</h3>
+            <p style="margin-bottom:5px">Alex Piggins</p>
+          
+               <h3 class="govuk-heading-s" style="margin-bottom:5px">Date of birth</h3>
+            <p>01 Jan 2000</p>
+                <h3 class="govuk-heading-s" style="margin-bottom:5px">Address</h3>
+            <p>101 Bracey St<br /> Finsbury Park<br /> London<br /> N4 3BJ</p>
+               <h3 class="govuk-heading-s" style="margin-bottom:5px">Date posted</h3>
+            <p>15 Jan 2018</p>
+        </dl>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+                    <h3 class="govuk-heading-s" style="margin-bottom:5px">Email address</h3>
+            <p>apprentice@mailinator.com</p>
+                   <h3 class="govuk-heading-s" style="margin-bottom:5px">Phone</h3>
+            <p>0207 555 5555</p>
+    </div>
+
+    <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-l" style="">Education </h1>
+
+      <form method="get" action="appFormConfirm">
+      
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="college">Name of most recent school or college</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="college" name="college" type="text" value=" {{ data['college'] }} " />
+        </div>
+             <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                        <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                            Years attended
+                        </label>
+
+                    <div class="govuk-date-input" id="start">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="start" >
+                                    Started
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="edu-start-month" name="edu-start-month" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group govuk-form-group--year">
+                                <label class="govuk-label govuk-date-input__label" for="start-year">
+                                    Finished
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="edu-start-year" name="edu-start-year" type="number"
+                                    pattern="[0-9]*" value="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+   
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Qualifications</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="qualifications">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                    Do you have any qualifications?
+                </h1>
+            </legend>
+            <span id="workexp-hint" class="govuk-hint">
+                If you don't know your results yet, enter your predicted grades. These are grades your teacher expects you to get.
+            </span>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="qualifications-conditional" name="qualifications" type="radio" value="qual-yes" {{ checked('qualifications', "qual-yes") }} data-aria-controls="conditional-qualifications-conditional">
+                    <label class="govuk-label govuk-radios__label" for="qualifications-conditional">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-qualifications-conditional">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Type of qualification
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="" selected>Select from list</option>
+                            <option value="GCSE">GCSE</option>
+                        <option value=" AS-level">AS Level</option>
+                            <option value="A-level">A level</option>
+                            <option value="BTEC">BTEC</option>
+                            <option value="NVQ1">NVQ or SVQ Level 1</option>
+                            <option value="NVQ2">NVQ or SVQ Level 2</option>
+                            <option value="NVQ3">NVQ or SVQ Level 3</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
+                            Year
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="qual-year" name="qual-year" type="text" spellcheck="false">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
+                            Subject
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="qual-subject" name="qual-subject" type="text" spellcheck="false">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="qualifications">
+                            Grade
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="qual-grade" name="qual-grade" type="text" spellcheck="false">
+                    </div>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="predicted" name="predicted" type="checkbox" value="predicted" {{ checked('predicted', "predicted") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                Predicted?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="qualifications-conditional-2" name="qualifications" type="radio" value="qual-no" {{ checked('qualifications', "qual-no") }} data-aria-controls="conditional-qualifications-conditional-2">
+                    <label class="govuk-label govuk-radios__label" for="qualifications-conditional-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Work experience</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="workexp">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                  Do you have any work experience?
+                </h1>
+            </legend>
+            <span id="workexp-hint" class="govuk-hint">
+               Please include any work, whether paid or voluntary
+            </span>
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="workexperience-conditional" name="workexperience" type="radio" value="work-yes" {{ checked('workexperience', "work-yes") }} data-aria-controls="conditional-workexperience-conditional">
+                    <label class="govuk-label govuk-radios__label" for="workexperience-conditional">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-workexperience-conditional">
+       
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
+                            Employer
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="exp-employer" name="exp-employer" type="text" spellcheck="false">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
+                            Job title
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="exp-job" name="exp-job" type="text" spellcheck="false">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="workexperience">
+                            Main duties
+                        </label>
+                         <textarea class="govuk-textarea" id="exp-duties" name="exp-duties" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    </div>
+                 <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                Started
+                            </label>
+                            <div class="govuk-date-input" id="start">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="start">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="start-month" name="start-month" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="start-year" name="start-year" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                Finished
+                            </label>
+                            <div class="govuk-date-input" id="start">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="finish-month">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="finish-month" name="finish-month" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="finish-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="finish-year" name="finish-year" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="current" name="current" type="checkbox" value="current" {{ checked('current', "current") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="current">
+                                Current?
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="govuk-button" style="margin-bottom:15px; margin-top:15px">Save this work experience</button>
+              </div>
+                <div class="govuk-radios__item">
+                 <input class="govuk-radios__input" id="workexp-2" name="workexperience" type="radio" value="work-no" {{ checked('workexperience', "work-no") }}>
+                 <label class="govuk-label govuk-radios__label" for="workexp-2">
+                         No
+                                        </label>
+                                    </div>
+                                </div>
+        </fieldset>
+    </div>
+</div>
+
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Training courses</h1>
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="course-provider">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                Have you been on a training course?
+                </h1>
+            </legend>
+            <span id="course-provider-hint" class="govuk-hint">
+               Include any courses you've recieved, in or outside of work 
+            </span>
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="course-provider-conditional" name="course-provider" type="radio" value="course-yes" {{ checked('course-provider', "course-yes") }} data-aria-controls="conditional-course-provider-conditional">
+                    <label class="govuk-label govuk-radios__label" for="course-provider-conditional">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-course-provider-conditional">
+       
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="course-provider">
+                            Provider
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="course-provider" name="course-provider" type="text" spellcheck="false">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="course-title">
+                            Course title
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="course-title" name="course-title" type="text" spellcheck="false">
+                    </div>
+    
+                 <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                From
+                            </label>
+                            <div class="govuk-date-input" id="from">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="from">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="from-month" name="from-month" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="from-year" name="from-year" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="start-hint" role="group">
+                            <label class="govuk-label govuk-!-width-three-quarters bold-label" for="plannedTrainingStartDate">
+                                To
+                            </label>
+                            <div class="govuk-date-input" id="to">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="to">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="to-month" name="to-month" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group govuk-form-group--year">
+                                        <label class="govuk-label govuk-date-input__label" for="from-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4 undefined" id="to-year" name="to-year" type="number" pattern="[0-9]*" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                </div>
+  
+                    <button type="submit" class="govuk-button" style="margin-bottom:15px; margin-top:15px">Save this training course</button>
+              </div>
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="course-provider-2" name="course-provider" type="radio"  value="course-no" {{ checked('course-provider', "course-no") }}>
+                                        <label class="govuk-label govuk-radios__label" for="trainingcourse-2">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">About you</h1>
+    <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Help with this section
+            </span>
+        </summary>
+        <div class="govuk-details__text">
+            Think carefully about how you answer these questions. Where possible, keep the apprenticeship that you're applying for in mind, and tailor your answers to match the role.
+        </div>
+    </details>
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                What are you main strengths
+            </h1>
+        </legend>
+        <span id="mainstrengths-hint" class="govuk-hint">
+            Please provide examples of when you've demonstrated your strengths
+        </span>
+        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="mainstrengths" name="mainstrengths" rows="5" aria-describedby="mainstrengths-hint" style="margin-bottom:2px"></textarea>
+        <span id="workexp-hint" class="govuk-hint">
+            4000 characters remaining
+        </span>
+    </div>
+        <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                What skills would you like to improve during this apprenticeship?
+            </h1>
+        </legend>
+        <span id="mainstrengths-hint" class="govuk-hint">
+            Think of what your main duties would be and whether there are skills you'd like to develop
+        </span>
+        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="mainskills" name="mainskills" rows="5" aria-describedby="mainstrengths-hint" style="margin-bottom:2px"></textarea>
+        <span id="workexp-hint" class="govuk-hint">
+            4000 characters remaining
+        </span>
+    </div>
+            <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                What are your hobbies and interests?
+            </h1>
+        </legend>
+        <span id="achievements-hint" class="govuk-hint">
+            Remember to include any personal achievements
+        </span>
+        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="achievements" name="achievements" rows="5" aria-describedby="achievements-hint" style="margin-bottom:2px"></textarea>
+        <span id="workexp-hint" class="govuk-hint">
+            4000 characters remaining
+        </span>
+    </div>
+</div>
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h1 class="govuk-heading-l" style="">Additional questions</h1>
+
+    <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                Why do you want to work for this company?
+            </h1>
+        </legend>
+
+        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="wanttowork" name="wanttowork" rows="5" aria-describedby="wanttowork-hint" style="margin-bottom:2px"></textarea>
+        <span id="wanttowork-hint" class="govuk-hint">
+            4000 characters remaining
+        </span>
+    </div>
+        <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+                Do you have any administration or customer service experience?
+            </h1>
+        </legend>
+ 
+        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="adminexperience" name="adminexperience" rows="5" aria-describedby="adminexperience-hint" style="margin-bottom:2px"></textarea>
+        <span id="adminexperience-hint" class="govuk-hint">
+            4000 characters remaining
+        </span>
+    </div>
+
+        <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="workexp">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                 Do you have a learning difficulty, disability or health problem?
+                </h1>
+            </legend>
+      
+            <div class="govuk-radios govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="healthprob" name="healthprob" type="radio" value="Yes, I have a problem">
+                    <label class="govuk-label govuk-radios__label" for="healthprob">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="healthprob-2" name="healthprob" type="radio" value="No, I do not have a problem">
+                    <label class="govuk-label govuk-radios__label" for="healthprob-2">
+                        No
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="healthprob-3" name="healthprob" type="radio" value="I prefer not to say if I have a problem">
+                    <label class="govuk-label govuk-radios__label" for="healthprob-3">
+                        Prefer not to say
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+         
+            <details class="govuk-details" data-module="govuk-details" style="margin-top: 10px">
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+                Why we collect this info
+            </span>
+        </summary>
+        <div class="govuk-details__text">
+            <p>
+                Employers who are part of the ‘Positive about disabled people’ scheme will guarantee candidates an interview who meet the apprenticeship criteria if they have a disability.
+            </p>
+            <p>
+                For this reason we ask you to provide this information so we can inform the employer and provider.
+            </p>
+        </div>
+    </details>
+      </div>
+</div>
+
+<div class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="interviewsupport">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h1 class="govuk-fieldset__heading">
+                    Is there anything we can do to support your interview?
+                </h1>
+            </legend>
+            <span id="interviewsupport-hint" class="govuk-hint">
+               For example, do you need a signer or information in braille 
+            </span>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="interviewsupport-conditional" name="interviewsupport" type="radio" value="Yes I need interview support" data-aria-controls="conditional-interviewsupport-conditional">
+                    <label class="govuk-label govuk-radios__label" for="interviewsupport-conditional">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-interviewsupport-conditional"> 
+                   <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="interviewsupport">
+                            Provide details of interview support
+                        </label>
+                         <textarea class="govuk-textarea govuk-!-width-two-thirds" id="interviewSupportReason" name="interviewSupportReason" rows="5" aria-describedby="interviewSupportReason-hint" style="margin-bottom:2px"></textarea>
+                           
+                    </div>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="interviewsupport-conditional-2" name="interviewsupport" type="radio" value="No, I do not need interview support" data-aria-controls="conditional-interviewsupport-conditional-2">
+                    <label class="govuk-label govuk-radios__label" for="interviewsupport-conditional-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+<button type="submit" class="govuk-button" style="margin-bottom:15px">Save and continue</button>
+ <p style="" class="mobileMiddle"> <a href="myApplications" >Save</a></p>
+
+<p style="">Last saved at 2.50:00 PM on 4/12/2019 to <a href="myApplications">my applications</a></p>
+</div>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+ href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="apprenticeshipCorrect" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">When do you expect your apprenticeship training to start?</h1>
+
+
+<p>Funding will be guaranteed for a 3 month period, one month either side of your chosen start month. </p>
+<p>Your funding will no longer be guaranteed if the apprenticeship does not start within this 3 month period.</p>
+                 <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                       Choose when your apprentice will start:
+                      </h1>
+                    </legend>
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-1" name="startAppDate" type="radio" value="01 Jan 2019 and 31 March 2019 ">
+                        <label class="govuk-label govuk-radios__label" for="app-1" style="padding-bottom:0" >
+                         January 2019
+                        </label>
+           
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-2" name="startAppDate" type="radio" value="01 Jan 2019 and 31 March 2019" >
+                        <label class="govuk-label govuk-radios__label" for="app-2" style="padding-bottom: 0" >
+                         February 2019
+                        </label>
+ <!--                              <label class="govuk-label govuk-radios__label" style="display:block; padding-top:0" for="app-1" >
+                          <span class="reserveLevel"> 5 May 2000</span>
+                        </label> -->
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-3" name="startAppDate" type="radio" value="01 Feb and 30 April 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-3">
+                          March 2019
+                        </label>
+                      </div>
+                       <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-4" name="startAppDate" type="radio" value="01 March and 31 May 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-4">
+                          April 2019
+                        </label>
+                      </div>
+                                             <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-5" name="startAppDate" type="radio" value="01 April and 30 June 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-5">
+                          May 2019
+                        </label>
+                      </div>
+                                             <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-6" name="startAppDate" type="radio" value="01 May and 30 July 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-6">
+                          June 2019
+                        </label>
+                      </div>
+                  </fieldset>
+                </div>
+
+
+      <button class="govuk-button">Continue</button>
+      </form>
+</div>
+</main>
+</div>
+  </div>
+{% endblock %}

@@ -1,0 +1,502 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+<!--script>
+
+$(document).on('click', 'input[type="radio"]', function (e) {
+  if ($(e.target).attr('id') === 'radio-3' || $(e.target).attr('id') === 'radio-4' || $(e.target).attr('id') === 'radio-5') 
+  { $('#other-organisation-options').removeClass('js-hidden') ; } 
+       else {$('#other-organisation-options').addClass('js-hidden');};
+});
+
+</script-->
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+<!-- <script>
+$( document ).ready(function() {
+var appCount=0
+var proCount=0
+ $(".shortlist.app").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+
+
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+        //    Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove");
+            $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save");
+            appCount--;
+        //    Cookies.set("appCount", appCount);
+            console.log(appCount);
+            $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+ });
+</script> -->
+
+
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+
+    $(dtLevyPayer).removeClass("rj-dont-display")
+    $(ddLevyPayer).removeClass("rj-dont-display")
+    $(dtCoInvestPayer).addClass("rj-dont-display")
+    $(ddCoInvestPayer).addClass("rj-dont-display")
+
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+
+    }
+else { };
+
+
+  }
+changeStuff();
+});
+</script
+<!-- 
+           <script>
+$( document ).ready(function() {
+var appCount=0
+var proCount=0
+$(".shortlist.app").click(function (e) {
+    e.preventDefault();
+    console.log("shortlist button clicked: " + appCount);
+    //appCount++;
+
+    if ($(".shortlist .app i").hasClass("fa-star-o")) {
+        console.log("isnt shortlisted");
+        appCount++;
+        console.log(appCount);
+   //     Cookies.set("appCount", appCount);
+        $(".shortlist.app i").removeClass("fa-star-o").addClass("fa-star");
+        $(".shortlist.app span").text("Remove from shortlist");
+        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
+
+    } else {
+        console.log("is shortlisted");
+        $(".shortlist.app i").removeClass("fa-star").addClass("fa-star-o");
+        $(".shortlist.app span").text("Shortlist this apprenticeship");
+        appCount--;
+ //       Cookies.set("appCount", appCount);
+        console.log(appCount);
+        $("#bannerSignedIn span").text(Number(proCount) + Number(appCount));
+    }
+
+    //.toggleClass(".fa-star-o").toggleClass(".fa-star");
+
+    })
+});
+</script> -->
+
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- end of conditional statement -->
+
+
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h1 class="govuk-heading-xl" style="margin-bottom:5px">Search results</h1>
+                <p style="margin:5px 0 5px 0">We've found <span style="font-weight:700">3</span> apprentices in your area.</p>
+               <p><a href="">Recieve alerts for this search</a></p>
+            </div>
+        </div>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+
+            <!-- desktop version of the filters -->
+            <div class="notOnMobile">
+        <H3 class="govuk-heading-m" style="margin: 0; display:inline-block">Edit search </H3>
+        <div class="filter-form filtering ">
+            <div id="finder-frontend" class="">
+                <form method="get" action="searchResults">
+                    <div class="govuk-form-group" style="margin-top:15px">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Keywords (optional)
+                        </label>
+                        <span id="reference-hint" class="govuk-hint">
+                            Can include job title, employer or reference number
+                        </span>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>-- Refine Search --</option>
+                            <option value="Job title">Job title</option>
+                            <option value="Description">Description</option>
+                            <option value="Employer">Employer</option>
+                            <option value="Ref. number">Ref. number</option>
+                        </select>
+                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Your location
+                        </label>
+                        <span id="reference-hint" class="govuk-hint">
+                            Enter postcode, town or city or <a href="">use current location</a>
+                        </span>
+                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Within
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="2 miles" selected>2 miles</option>
+                            <option value="5 miles" selected>5 miles</option>
+                            <option value="15 miles">15 miles</option>
+                            <option value="20 miles">20 miles</option>
+                            <option value="30 miles">30 miles</option>
+                            <option value="40 miles">40 miles</option>
+                            <option value="England">England</option>
+                        </select></div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Apprenticeship level
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="All levels" selected>All levels</option>
+                            <option value="Intermediate" selected>Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Higher">Higher</option>
+                            <option value="Degree">Degree</option>
+                        </select></div>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Only show
+                            </label>
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        Disability confident
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button type="submit" class="govuk-button" style="">Update results</button>
+                    <a class="" href="apprenticeshipsearch">Start again</a>
+                </form>
+                <div style="height:200px;width:100%;background-color: #ccc; margin-bottom:15px"><img src="/public/images/searchMap.jpeg" style="width:100%"></div>
+            </div>
+        </div>
+    </div>
+            <!-- End of desktop version of the filters -->
+                        <!-- mobile version of the filters -->
+            <div class="notOnDesktop">
+                <details class="govuk-details" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                           <H3 class="govuk-heading-m" style="margin: 0; display:inline-block">Edit search </H3>
+                        </span>
+                      </summary>
+        
+                   
+       
+        <div class="filter-form filtering ">
+            <div id="finder-frontend" class="">
+                <form method="get" action="searchResults">
+                    <div class="govuk-form-group" style="margin-top:15px">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Keywords (optional)
+                        </label>
+                        <span id="reference-hint" class="govuk-hint">
+                            Can include job title, employer or reference number
+                        </span>
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
+                            <option value="All" selected>-- Refine Search --</option>
+                            <option value="Job title">Job title</option>
+                            <option value="Description">Description</option>
+                            <option value="Employer">Employer</option>
+                            <option value="Ref. number">Ref. number</option>
+                        </select>
+                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Your location
+                        </label>
+                        <span id="reference-hint" class="govuk-hint">
+                            Enter postcode, town or city or <a href="">use current location</a>
+                        </span>
+                        <input class="govuk-input" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value="" />
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Within
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="2 miles" selected>2 miles</option>
+                            <option value="5 miles" selected>5 miles</option>
+                            <option value="15 miles">15 miles</option>
+                            <option value="20 miles">20 miles</option>
+                            <option value="30 miles">30 miles</option>
+                            <option value="40 miles">40 miles</option>
+                            <option value="England">England</option>
+                        </select></div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                            Apprenticeship level
+                        </label>
+                        <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                        <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                            <option value="All levels" selected>All levels</option>
+                            <option value="Intermediate" selected>Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Higher">Higher</option>
+                            <option value="Degree">Degree</option>
+                        </select></div>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                            <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Only show
+                            </label>
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        Disability confident
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button type="submit" class="govuk-button" style="">Update results</button>
+                    <a class="" href="apprenticeshipsearch">Start again</a>
+                </form>
+                <div style="height:200px;width:300px;background-color: #ccc; margin-bottom:15px"><img src="/public/images/searchMap.jpeg" style="width:300px"></div>
+            </div>
+        </div>
+    </div>
+     </details>
+            <!-- End of mobile version of the filters -->
+    </div>
+
+
+
+
+    <div class="govuk-grid-column-two-thirds">
+                <div class="column details" style=" float:left">
+        
+
+                     <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                More/less detail
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            
+                        </div>
+                    </details>
+
+                    <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="partialCost">
+                  Sort results
+                </label>
+             <!--     <span id="reference-hint" class="govuk-hint">
+                    Can include job title, employer or reference number
+                </span> -->
+                  <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 0px; ">
+                        <option value="Best match" selected>Best match</option>
+                        <option value="Closing date"  >Closing date</option>
+                        <option value="Distance">Distance</option>
+                        <option value="Recently added">Recently added</option>
+                    
+                  </select></div>
+
+                    <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="busAdminApprentice">Business Admin Apprentice</a>   <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                    Central Financial Services </span> <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                    (Added 15 Dec 2019 - 1 position available) </span>
+                </span> </h2>
+                <p>To efficiently undertake basic administrations and clerical duties</p>
+                        <div>
+                            <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:86px">Distance</span>0.5 miles   </p>
+<details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
+    <summary class="govuk-details__summary" style="margin:0">
+        <span class="govuk-details__summary-text">
+            Journey time
+        </span>
+    </summary>
+    <div class="govuk-details__text" style="border-left-color: #fff;padding-left:0; ">
+        <div class="govuk-form-group">
+            <select class="govuk-select widthJourney" id="sort" name="sort" style="margin-bottom: 0px;  ">
+          <option value="Best match" selected>Driving</option>
+                <option value="Closing date">Bus/Train</option>
+                <option value="Distance">Walking</option>
+                <option value="Recently added">Cycling</option>
+            </select>
+            <p style="margin-bottom:0; margin-top:2px">1 minute</p>
+        </div>
+    </div>
+</details>
+                                  
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:53px">Closing date:</span> 10 Feb 2020</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:12px">Possible start date:</span> 11 Feb 2020</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Intermediate</p>
+                             <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £136.50 per week</p>
+
+                                <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                                            <summary class="govuk-details__summary" style="margin:0">
+                                                <span class="govuk-details__summary-text">
+                                                    Show/hide map
+                                                </span>
+                                            </summary>
+                                                  <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
+                                          
+                                        </details>
+                          
+                
+    <!--              <div class="shortlist app" >
+                    <i class="fa fa-star-o "></i>
+                    <span>Save</span>
+                </div> -->
+                <div style="clear:both"></div>
+
+                    <hr  class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Apprentice Financial Customer Service Specialist</a>   <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                    Metro Bank Plc </span> <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                    (Added 4 Nov 2019 - 17 positions available) </span>
+                </span> </h2>
+                <p>Metro Bank Plc are looking to recruit a Financial Customer Service Specialist Apprentice in their Contact Centre to assist with duties such as greeting customers and creating fans, finding solutions for customers and advising them on our service etc.</p>
+                        <div>
+                            <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:86px">Distance</span>8.3 miles   </p>
+                           <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
+    <summary class="govuk-details__summary" style="margin:0">
+        <span class="govuk-details__summary-text">
+            Journey time
+        </span>
+    </summary>
+    <div class="govuk-details__text" style="border-left-color: #fff;padding-left:0; ">
+        <div class="govuk-form-group">
+            <select class="govuk-select widthJourney" id="sort" name="sort" style="margin-bottom: 0px;  ">
+          <option value="Best match" selected>Driving</option>
+                <option value="Closing date">Bus/Train</option>
+                <option value="Distance">Walking</option>
+                <option value="Recently added">Cycling</option>
+            </select>
+            <p style="margin-bottom:0; margin-top:2px">1 minute</p>
+        </div>
+    </div>
+</details>
+                                  
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:53px">Closing date:</span> in 3 days</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:12px">Possible start date:</span> 01 Feb 2020</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Intermediate</p>
+                             <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £18,000.00 per year</p>
+
+                                <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                                            <summary class="govuk-details__summary" style="margin:0">
+                                                <span class="govuk-details__summary-text">
+                                                    Show/hide map
+                                                </span>
+                                            </summary>
+                                               <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
+                                        </details>
+                          
+                        </div>       
+                </div>
+                <div style="clear:both"></div>
+        
+
+                    <!--div class="shortlist app"><i class="fa fa-star-o "></i><span>Save</span></div-->
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+  <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Level 4/6 Investment Operations Financial Services Professional Apprenticeship (London)</a>   <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px">
+                    J.P. MORGAN CHASE (UK) HOLDINGS LIMITED </span> <span id="reference-hint" class="govuk-hint" style="font-size:14px">
+                    (Added 23 Oct 2019 - 20 positions available) </span>
+                </span> </h2>
+                <p>Our four-year apprenticeship programme starting in September 2020 offers a comprehensive introduction to the broad variety of roles within the financial services industry. This programme offers the apprentices the opportunity to gain two professional qualifications alongside the chance to obtain a full honours degree from the University of Exeter.</p>
+                        <div>
+                            <p style="min-width:135px; margin:0 5px 0 0 ; display:inline-block;" class=""><span style="min-width:135px; margin-right:86px">Distance</span>6.1 miles   </p>
+                     <details class="govuk-details" data-module="govuk-details" style="display:inline-block; margin:0">
+    <summary class="govuk-details__summary" style="margin:0">
+        <span class="govuk-details__summary-text">
+            Journey time
+        </span>
+    </summary>
+    <div class="govuk-details__text" style="border-left-color: #fff;padding-left:0; ">
+        <div class="govuk-form-group">
+            <select class="govuk-select widthJourney" id="sort" name="sort" style="margin-bottom: 0px;  ">
+          <option value="Best match" selected>Driving</option>
+                <option value="Closing date">Bus/Train</option>
+                <option value="Distance">Walking</option>
+                <option value="Recently added">Cycling</option>
+            </select>
+            <p style="margin-bottom:0; margin-top:2px">1 minute</p>
+        </div>
+    </div>
+</details>
+                                  
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px; margin-right:53px">Closing date:</span> 20 Dec 2019</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="min-width:135px;  margin-right:12px">Possible start date:</span> 01 Sep 2020</p>
+                            <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:0px">Apprenticeship level:</span> Higher</p>
+                             <p style="min-width:135px; margin:0" class=""><span style="font-weight:400; margin-right:101px">Wage:</span> £21,000.00 per year</p>
+
+                                <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                                            <summary class="govuk-details__summary" style="margin:0">
+                                                <span class="govuk-details__summary-text">
+                                                    Show/hide map
+                                                </span>
+                                            </summary>
+                                              <div style="height:200px;width:300px; margin-bottom:15px"><img src="/public/images/indiMap.jpeg" style="width:100%"></div>
+                                        </details>
+
+                        <div class="disability-confident-container" >
+                            <img src="https://www.findapprenticeship.service.gov.uk//Content/_assets/img/disability-confident.png" class="disability-confident-logo" alt="A logo confirming that the employer is registered as disability confident">
+                             <details class="govuk-details" data-module="govuk-details" style="margin-top:10px">
+                                <summary class="govuk-details__summary" style="">
+                                                <span class="govuk-details__summary-text">About disability confident</span></summary>
+                                <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                                    <p>Disabled candidates will generally be offered an interview if you meet the minimum requirements for this vacancy. Contact the employer for full details.</p>
+                                    <p>Employers may need to limit the number of interviews offered to both disabled and non-disabled people if they receive high numbers of applications.</p>
+                                    <p>The disability confident scheme supports employers to make the most of the talents disabled people can bring to your workplace.</p>
+                                </div>
+                            </details>
+                        </div>
+                        </div>       
+                </div>
+                <div style="clear:both"></div>
+            </div>
+         </main>
+  {% endblock %}

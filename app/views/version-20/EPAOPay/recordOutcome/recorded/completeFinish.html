@@ -1,0 +1,24 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/payNav.html" %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                    Payment submitted
+                </h1>
+            </div>
+            <div style="margin-top:35px"></div>
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">What happens next?</h2>
+                <p class="govuk-body">You will be paid the remaining £535 for this assessment.</p>
+            </div>
+    </main>
+</div>
+
+{% endblock %}

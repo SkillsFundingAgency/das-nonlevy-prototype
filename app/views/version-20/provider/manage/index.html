@@ -1,0 +1,169 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version1/provider/providerNav.html" %}
+  {% include "includes/version1/provider/manageNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ 
+{{ govukBackLink({ text: "Back", href: "./home" }) }} 
+{% endblock %} 
+{% block content %}
+
+<script src="/public/javascripts/sorttable.js"></script>
+
+<script> 
+//shouldn't really do this but it forces the table to sort itsel by name when it first loads
+$( document ).ready(function() {
+    var myTH = document.getElementsByTagName("th")[6];
+    sorttable.innerSortFunction.apply(myTH, []);
+
+                                });
+</script>
+
+<style>
+.search-submit input {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border: none;
+    overflow: hidden;
+    text-indent: -5000px;
+    color: #fff;
+    background-color: #2b8cc4;
+    background-image: url(https://assets.publishing.service.gov.uk/frontend/govuk_publishing_components/search-button-ca89b2a79f944909ceb7370d3f0b78811d32b96e883348fcd8886f63dd619585.png);
+    background-repeat: no-repeat;
+    background-position: -12.5% 50%;
+}
+
+.search-input {
+       display:inline;
+    position: relative;
+}
+
+.search-submit  {
+    display:inline;
+    position: absolute;
+    bottom: 34px;
+    right: 0;
+    overflow: visible;
+}
+</style>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <h1 class="govuk-heading-xl">
+            Manage your apprentices
+        </h1>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <form action="#å" method="get" class="form">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-!-width-three-quarters " for="firstName">
+                                    Search by apprentice or employer
+                                </label>
+                                <!--span id="email-hint" class="govuk-hint">
+                        We’ll only use this to send you a receipt
+                        </span-->
+                                <div style="">
+                                    <div class="search-input">
+                                        <input class="govuk-input govuk-!-width-three-quarters-half" id="firstName" name="firstName" type="text" aria-describedby="First Name" style="height:50px">
+                                        <div class="search-submit">
+                                            <input class="button" id="saveAndContinue" type="submit" value="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="margin-top:10px"><strong>3</strong> records found of 3 total, <strong>2</strong> with alerts.</p>
+                                <!--button class="govuk-button">Search</button-->
+                            </div>
+                        </fieldset>
+                </form>
+            </div>
+            </form>
+        </div>
+    </div>
+   <div class="govuk-grid-column-column-full">
+        <table class="govuk-table sortable">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-body-s" scope="col">Name</th>
+                     <th class="govuk-table__header govuk-body-s" scope="col">ULN</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Apprenticeship<br /> training course</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Planned<br /> start date</th>
+                     <th class="govuk-table__header govuk-body-s" scope="col">Planned <br />end date</th>
+                      <th class="govuk-table__header govuk-body-s" scope="col">Employer</th>
+                       <th class="govuk-table__header govuk-body-s" scope="col">Status</th>
+                    <th class="govuk-table__header govuk-body-s" scope="col">Alerts</th>
+                  
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap " scope="row"><a href="manage/robEdwardsLive">Alex Swordy</a></td>
+                    <td class="govuk-table__cell nowrap " scope="row">5389106499</td>
+
+                  
+                     <td class="govuk-table__cell nowrap" scope="row">Financial Services<br /> Administrator, Level 3</td>
+                      <td class="govuk-table__cell nowrap" scope="row">Dec 2019</td>
+                       <td class="govuk-table__cell nowrap" scope="row">August 2021</td>
+                        <td class="govuk-table__cell nowrap" scope="row">Cyberdyne Ltd</td>
+                    <td class="govuk-table__cell " scope="row">Live</td>
+                    <td class="govuk-table__cell " scope="row"><a href="manage/robEdwardsLive"">EPAO rejected</a></td>
+                  <!--   <td class="govuk-table__cell govuk-body-s" scope="row"><a href="manage/robEdwardsLive">View</a> -->
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap " scope="row"><a href="#">Rob Edwards</a></td>
+
+                       <td class="govuk-table__cell nowrap " scope="row">0000000000</td>
+                     <td class="govuk-table__cell nowrap" scope="row">Accounting, Level: 2</td>
+                                           <td class="govuk-table__cell nowrap" scope="row">Dec 2019</td>
+                       <td class="govuk-table__cell nowrap" scope="row">Nov 2021</td>
+                        <td class="govuk-table__cell nowrap" scope="row">Cyberdyne Ltd</td>
+                    <td class="govuk-table__cell " scope="row">Live</td>
+                    <td class="govuk-table__cell " scope="row"><a href="#">EPAO rejected</a></td>
+                  <!--   <td class="govuk-table__cell govuk-body-s" scope="row"><a href="manage/robEdwardsLive">View</a> -->
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap " scope="row"><a href="#">Amy Russell</a></td>
+                   <td class="govuk-table__cell nowrap " scope="row">0000000000</td>
+                    
+                     <td class="govuk-table__cell nowrap" scope="row">Accounting, Level: 4</td>
+                                           <td class="govuk-table__cell nowrap" scope="row">Dec 2019</td>
+                       <td class="govuk-table__cell nowrap" scope="row">Nov 2021</td>
+                        <td class="govuk-table__cell nowrap" scope="row">Cyberdyne Ltd</td>
+                    <td class="govuk-table__cell " scope="row">Live</td>
+                    <td class="govuk-table__cell g" scope="row"></td>
+               <!--      <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a> -->
+                    </td>
+                </tr>
+{% if data['susanApanManageApps'] == 'true' %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell nowrap " scope="row">Susan Apan</td>
+                    <td class="govuk-table__cell nowrap " scope="row">10 June 2001</td>
+                    <td class="govuk-table__cell " scope="row">Live</td>
+                    <td class="govuk-table__cell " scope="row"></td>
+                <!--     <td class="govuk-table__cell govuk-body-s" scope="row"><a href="#">View</a> -->
+                    </td>
+                </tr>
+            {% else %}
+{% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+
+{% endblock %}

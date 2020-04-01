@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/version1/mainNav.html" %}  {% include "includes/version1/financeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "../"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+.white-button {
+    background: #fff;
+    color: #005ea5 !important ;
+    font-weight: bold;
+}
+
+.white-button:hover {
+    background: #fff;
+    color: #005ea5 !important ;
+    font-weight: bold;
+  }
+
+.govuk-warning-text__icon {
+   border: 3px solid #fff;
+   background:#fff;
+   color:#000;
+}
+
+</style>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel--blue slides">
+
+
+  <h1 class="govuk-heading-l" style="color:#fff">Current funding status</h1>
+
+<div class="govuk-warning-text govuk-!-margin-bottom-">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text" style="color:white">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    There are currently no funding restrictions in place
+  </strong>
+</div>
+
+  <p>You can reserve funding for all apprenticeship types for the next 6 months.</p>
+
+   <a class=" white-button govuk-button " href="reserveStartDate" role="button">Continue to reserve funding </a>
+
+</div>
+
+   
+
+    </div>
+  </div>
+</main>
+</div>
+
+{% endblock %}

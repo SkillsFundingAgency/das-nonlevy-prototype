@@ -1,0 +1,241 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+<style>
+/* Remove some of the media queries that handle the tabs on this page */
+</style>
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- <script src="/public/javascripts/accordion.js"></script>
+ -->
+<script>
+function whereNow() {
+    // var status = $('input[name=radio-group]:checked').val();
+    switch (true) {
+        //  case  (status == 'provider-1'):
+        //          window.location.href='./levy-list';
+        //         break;
+        // case  (status == 'provider-2'):
+        //      window.location.href='./non-levy-list';
+        //     break
+        // case  (status == 'provider-3'):
+        //      window.location.href='./explain-levy';
+        //     break
+        default:
+            window.location.href = 'proResults';
+            // console.log('gyahhhhhhhh, bork bork bork')
+            break;
+    }
+}
+</script>
+<script>
+// uncomment this to turn on the accordions
+
+// if (
+//     'addEventListener' in document &&
+//     document.querySelectorAll
+// ) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         var accordions = document.querySelectorAll('.accordion')
+//         for (var i = accordions.length - 1; i >= 0; i--) {
+//             new Accordion(accordions[i])
+//         };
+//     })
+// }
+</script>
+<script>
+$(document).ready(function() {
+    var appCount = 0
+    var proCount = 0
+    $(".shortlisty.appy").click(function(e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+
+
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+            //    Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Stop saving this employer");
+            $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save this employer");
+            appCount--;
+            //    Cookies.set("appCount", appCount);
+            console.log(appCount);
+            $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+});
+</script>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="twoFlexContainer">
+            <div class="twoFlexItem" style="padding-left:0">
+                <h1 class="govuk-heading-xl" style="">BMW <span id="reference-hint" class="govuk-hint" style="font-size:20px; margin-top:5px">
+                        Automotive
+                    </span></h1> 
+            </div>
+            <div class="twoFlexItem">
+                <div style="" class="BMWlogo">
+                    <div style="height:100px;width:100px;background-color: #fff; padding-left:100px"><img src="/public/images/bmw.png" style="width:100px"></div>
+                </div>
+            </div>
+        </div>
+        <form action="providersearch">
+            <div class="weird-floating-button" style="text-align:left; margin-bottom:15px">
+                <!--    <button type="submit" class="govuk-button" style="margin-bottom:15px">Do a thing</button> -->
+                <div class="shortlisty appy"><a href="#" class="shortlistButton " name="funding" value="Financial services administrator" style="font-size:19px; "><i class="fa fa-star-o"></i><span style="padding-left:5px">Save this employer </span></a></div>
+            </div>
+        </form>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+<!--         <p class="proMarketing">Whether you are looking to BMW as a step forward towards a successful career, retraining, progression to university or to pursue an area of interest, BMW has something for you. We offer a wide range ofApprenticeships and professional and leisure things.</p> -->
+        <div class="govuk-grid-row attachment-full-width" style="margin-top: 25px">
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-s">About BMW</h2>
+            </div>
+            <div class="govuk-grid-column-two-thirds">
+                <ul class="govuk-list govuk-list--bullet" style="margin-bottom: 0px;">
+                    <li>BMW has 100,000 employees worldwide</li>
+                    <li>we have 500 apprentices in the UK</li>
+                    <li>BMW owns the Mini and Bentley brands</li>
+                </ul>
+            </div>
+        </div>
+
+            <div>
+            <div style="margin-top:25px"></div>
+            <table class="govuk-table" style="">
+                <!--   <caption class="govuk-table__caption">Apprenticeships</caption> -->
+                <h2 class="govuk-heading-m" style="margin-bottom: 5px">Current apprenticeships</h2>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header"></th>
+                        <th scope="col" class="govuk-table__header" style="width:100px"></th>
+                        <th scope="col" class="govuk-table__header"></th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">BMW Motorcycle<br />Technician</td>
+                        <td scope="row" class="govuk-table__cell">Level 2</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">BMW Sales<br />Advisor</td>
+                        <td scope="row" class="govuk-table__cell">Level 3</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">BMW Bodyshop Panel Apprenticeship</td>
+                        <td scope="row" class="govuk-table__cell">Level 4</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell">Business Administrator</td>
+                        <td scope="row" class="govuk-table__cell">Level 4</td>
+                        <td class="govuk-table__cell"><a href="">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="govuk-grid-row attachment-full-width" style="margin-top:15px">
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-s">New apprenticeships are posted:</h2>
+            </div>
+            <div class="govuk-grid-column-two-thirds">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>1 June 2019</li>
+                  <li>1 September 2019</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="govuk-grid-row attachment-full-width" style="margin-top:15px">
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-s">Locations</h2>
+            </div>
+            <div class="govuk-grid-column-two-thirds">
+                <p style="">Multiple locations across England</p>
+            </div>
+        </div>
+        
+        <div style="margin-top:25px"></div>
+<!--         <h2 class="govuk-heading-m">About BMW</h2>
+        <div class="">
+            <p>This course delivers the knowledge element of the apprenticeship as defined in the Post Graduate Engineer Standard . As can be seen above the course modules map to the requirements of the Standard.</p>
+            <p>The skills and behaviour elements of the Standard are to be met by the Employer with reinforcement delivered within the modules.</p>
+            <p>On successful completion of the course, Cranfield University will award a Postgraduate Diploma in Engineering Competence, this will be part of the apprentice's portfolio in support of their achieving recognition of the competence required to complete their Apprenticeship.</p>
+        </div> -->
+        <h2 class="govuk-heading-m">Our apprenticeships</h2>
+        <div class="accordion-section-body">
+            <p>At BWM, we're passionate about providing education tailored for industry. Every year we develop current and future leaders in technology and management. We can help you strengthen your staff and executive management base at all levels</p>
+            <p>We specialise in:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Aerospace</li>
+                <li>Defence and Security</li>
+                <li>Energy and Power</li>
+                <li>Environment and Agrifood</li>
+                <li>Management and Leadership</li>
+                <li>Manufacturing</li>
+                <li>Transport Systems</li>
+                <li>Water</li>
+            </ul>
+        </div>
+<!--         <h2 class="govuk-heading-m">Hear from our apprentices</h2>
+        <h2 class="govuk-heading-s">Jennifers story</h2>
+        <div class="">
+            <p>This course delivers the knowledge element of the apprenticeship as defined in the Post Graduate Engineer Standard . As can be seen above the course modules map to the requirements of the Standard.</p>
+            <p>The skills and behaviour elements of the Standard are to be met by the Employer with reinforcement delivered within the modules.</p>
+            <p>On successful completion of the course, Cranfield University will award a Postgraduate Diploma in Engineering Competence, this will be part of the apprentice's portfolio in support of their achieving recognition of the competence required to complete their Apprenticeship.</p>
+        </div> -->
+    
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <aside class="related-container related">
+            <div class="panel--contact">
+                <h2 class="govuk-heading-m">Contact details</h2>
+                <dl>
+                    <dt class="govuk-heading-s" style="margin-bottom:0px">Website:</dt>
+                    <p><a href="http://www.bmw.co.uk" rel="external" target="_blank" class="course-link apprenticeshipContact">
+                            BMW website</a>
+                    </p>
+                    <div class="govuk-heading-s" style="margin-top:0px; margin-bottom:0; padding-top:0">Phone number:</div>
+                    <p id="phone" class="phone">01234 754930</p>
+                    <dt class="govuk-heading-s" style="margin-top:0px; margin-bottom:0; padding-top:0">Email:</dt>
+                    <p id="email" class="email"><a href="mailto:masterships@bmw.co.uk">epa@abcepa.ac.uk</a></p>
+               <!--      <dt class="govuk-heading-s" style="margin-top:0px; margin-bottom:0; padding-top:0">Contact page</dt> -->
+                <!--     <p id="linky" class="linky"><a href="http://www.bmw.co.uk/contact/employers-booking-form">contact this employer</a></p> -->
+                    <dt class="govuk-heading-s" style="margin-top:0px; margin-bottom:0; padding-top:0">Head office address:</dt>
+                    <p id="training-location" class="training-location">
+                        BMW (UK) Ltd
+                        <br />The Bounce,
+                        <br />Ford,
+                        <br />Glos,
+                        <br />GL10 6AE
+                    </p>
+                </dl>
+            </div>
+        </aside>
+            </div>
+</div>
+        <div class="disclaimer" style=" margin-top:25px">
+            <h4 class="govuk-heading-s">Content disclaimer</h4>
+            <p>Skills Funding Agency cannot guarantee the accuracy of course information on this site and makes no representations about the quality of any courses which appear on the site. Skills Funding Agency is not liable for any losses suffered as a result of any party relying on the course information provided.
+            </p>
+        </div>
+
+{% endblock %}

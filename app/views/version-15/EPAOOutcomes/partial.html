@@ -1,0 +1,68 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/outcomeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl" style="" id="company-Name">Partially complete assessment</h1>
+                <form action="partialCost" method="get" class="form">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading">
+                        Which parts of the assessment did you incur costs against?
+
+                          <span id="email-hint" class="govuk-hint">
+             Choose all that apply
+            </span>
+                                </h2>
+                            </legend>
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="one">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        First bit
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="two">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                                      Second bit
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="three">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                                       Third bit
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="four">
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste-4">
+                                        Fourth bit
+                                    </label>
+                                </div>
+                            </div>
+                          </fieldset>
+                    </div>
+                    <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    Government will pay you based on these answers, you will get into trouble if the answers are wrong
+  </strong>
+</div>
+                    <button class="govuk-button">Continue</button>
+                     <a  class="govuk-button clear-button" href="../" >Cancel and return</a>
+                </form>
+            </div>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+
+{% extends "layout.html" %}
+{% block beforeContent %}
+ {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/apprenticesNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                                <h1 class="govuk-heading-xl">Endpoint assessment organisation </h1>
+   
+
+   <form action="chooseEPAOorNot" method="get" class="form">
+        <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           Have you chosen an endpoint assessment organisation (EPAO)?
+            </h2>
+          </legend>
+
+ <!--          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+               Do you want to do this now?
+
+          </span> -->
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                Yes
+              </label>
+            </div>
+
+                    
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+               No, I will choose my EPAO later 
+              </label>
+   <!--            <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+            </div>
+          </div>
+          </fieldset>
+        </div>
+
+    <button class="govuk-button">Continue</button>
+
+</form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

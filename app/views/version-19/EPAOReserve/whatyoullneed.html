@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} 
+
+{% include "includes/version1/financeNav.html" %} 
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<script>
+  function whereNow() {
+  var status = $('input[name=whatsNeeded]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='numberOfApps';
+                break;
+
+        case  (status == 'false'):
+                  $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+             $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!--form  method="get" class="form"-->
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+         How to get funding
+        </h1>
+        <p class="govuk-body">To be able to get the funding for your chosen apprenticeships you need to do the following:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>add at least one PAYE scheme</li>
+                <li>sign the <a href="">agreement with the ESFA</a> </li>
+              </ul>
+
+<p>To add your PAYE scheme you will need to know your organisation’s Government Gateway user ID and password or have access to your accounts office reference number. </p>
+
+                <details class="govuk-details" style="margin-bottom:10px">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                        What’s an employer PAYE reference number?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                      The employer reference number is in two parts. The first part is 3 digits, which identifies the HMRC office number that deals with the organisation’s PAYE. The second part of the reference (which follows a forward slash) is the tax office's reference for the organisation.
+                      </div>
+                </details>
+
+                <details class="govuk-details" style="margin-bottom:10px">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                         Where do I find my Government Gateway login?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        Your payroll or finance department should have your organisation’s Government Gateway information if you don’t already know it. If your organisation has a payroll agent, don’t use the agent’s login details.
+
+                        You will need to <a href="">set up a Government Gateway account</a> if you do not already have one.
+                      </div>
+                </details>
+                <details class="govuk-details" style="margin-bottom:30px">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                         What’s an accounts office reference number?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                       This is your 13-character accounts office reference number and is used as a payment reference. You will need this number if you contact HRMC to discuss anything relating to your PAYE account. 
+
+                        You can find your accounts office reference number on the letter HMRC sent you when you first registered as an employer.
+                      </div>
+                </details>
+
+
+
+
+        <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+         Do you have everything you need?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+               You need this information so you can get funding for your apprenticeships
+
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                Yes, I have everything I need
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+                No, I don't have everything I need
+              </label>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" onClick="whereNow()">Continue</button>
+
+    </div>
+  </div>
+{% endblock %}

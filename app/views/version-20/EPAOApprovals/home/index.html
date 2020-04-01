@@ -1,0 +1,229 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/homeNav.html" %}
+
+{% endblock %}
+{% block content %}
+
+
+<script>
+/*
+// putting this here so i don't forget it.
+
+  //store details entered into the form in local storage
+var creategovuk-button = document.getElementById('createAccountgovuk-button');
+EventUtil.addHandler(creategovuk-button, 'click', function(){
+              // save the form info to local storage by first putting the data into an object
+              var userDetails = {
+                email: document.getElementById('email-address').value,
+                password: document.getElementById('password').value
+            };
+
+            //store the object in local storage using json stringify
+              localStorage.setItem("login", JSON.stringify(userDetails));
+
+            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
+            document.cookie =  "emailAddress="  + userDetails.email 
+            // shows the cookie in the console log to check it is working
+            console.log (document.cookie)
+
+        // not needed at the moment
+
+              //hide the login form
+              //$('#login').addClass('hidden');
+              //show the quiz
+           // $('#wrapper').removeClass('hidden')
+    });
+*/
+</script>
+
+
+
+<script>
+var fundingStatus = JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+var welcomeWizardStatus = JSON.parse(localStorage.getItem('nonLevy.welcomeWizardStatus'));
+
+
+$(document).ready(function() {
+ 
+    var changeStuff = function() {
+        if (welcomeWizardStatus == "dontShow") {
+            $(welcome).addClass("rj-dont-display");
+            $(allContentHome).removeClass("rj-dont-display");
+        }
+        // localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("yes"));
+    }
+
+    // Deal with the PAYE first options
+
+
+    $('input:radio[name="add-paye-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '2') {
+                $(addPAYEPanel).removeClass("rj-dont-display");
+            } else {
+                $(addPAYEPanel).addClass("rj-dont-display");
+                $(payeQuestion).addClass("rj-dont-display");
+                $(payeSuccess).removeClass("rj-dont-display");
+                $(addOrg).removeClass("rj-dont-display");
+            }
+        });
+
+    $('input:radio[name="add-org-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '2') {
+                $(addORGPanel).removeClass("rj-dont-display");
+            } else {
+                $(addORGPanel).addClass("rj-dont-display");
+                $(orgQuestions).addClass("rj-dont-display");
+                $(orgSuccess).removeClass("rj-dont-display");
+                $(inviteUsers).removeClass("rj-dont-display");
+            }
+        });
+
+    $('input:radio[name="invite-users-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '2') {
+                $(addTEAMPanel).removeClass("rj-dont-display");
+            } else {
+                $(addTEAMPanel).addClass("rj-dont-display");
+                $(teamQuestions).addClass("rj-dont-display");
+                $(teamSuccess).removeClass("rj-dont-display");
+                $(signAgreement).removeClass("rj-dont-display");
+            }
+        });
+
+    $('input:radio[name="sign-org-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '1') {
+                $(addAGREEPanel).removeClass("rj-dont-display");
+            } else {
+                $(addAGREEPanel).addClass("rj-dont-display");
+                $(agreeQuestions).addClass("rj-dont-display");
+                $(agreeSuccess).removeClass("rj-dont-display");
+                $(wizardPending).removeClass("rj-dont-display");
+            }
+        });
+
+    changeStuff();
+});
+
+function closeWelcomeWizard() {
+    $(welcome).addClass("rj-dont-display");
+    $(allContentHome).removeClass("rj-dont-display");
+    localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("dontShow"));
+}
+
+function loggedInHomepage() {
+    $(welcome).addClass("rj-dont-display");
+    $(allContentHome).removeClass("rj-dont-display");
+}
+
+function goToAgreements() {
+    localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("dontShow"));
+    window.location.href = './orgs';
+
+}
+</script>
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+
+  
+    <!----------/////////////////////////// MAIN PAGE CONTENT HERE /////////////////////////////////////////////////////////////////////////////////-->  
+
+        <section id="allContentHome" class="rj-dont-display">
+            <!-- <div class="govuk-grid-row"> -->
+                <h1 class="govuk-heading-xl rj-headings-border" style="" id="company-Name"><span class="govuk-caption-l">Account ID: XJBMNV</span>Cyberdyne Inc</h1>
+                <!--script>document.getElementById('company-Name').innerText = JSON.parse(localStorage.getItem('company-name-header'));</script-->
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <div style="max-width:90%">
+                            <div class="govuk-grid-row">
+                                 <div class="govuk-grid-column-full">
+                                        <h1 class="govuk-heading-l" style="" id="">Apprenticeships</h1>
+                                        <p class="govuk-caption-m">Manage your apprentices, recruit apprentices and set training provider permissions</p>
+                                </div>
+
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m" style="margin-top:0 "><a href="./apprentices">Apprentices</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">Add apprentices,update details of existing apprentices and authorise payments to training providers.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m rj-top-border-mobile" style="margin-top:0;"><a href="#">Recruitment</a></h3>
+                                    <p style="font-size:16px">Recruit an apprentice by creating a vacancy. This vacancy will be advertised on Find an apprenticeship.</p>
+                                </div>
+                            </div>
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m rj-top-border" style="margin-top:0;padding-top:35px  "><a href="./savedProviders">Training provider permissions</a></h3>
+                                    <p style="font-size:16px">Set training provider permissions and control what tasks they can do on your behalf.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m rj-top-border" style="margin-top:0; padding-top:35px"><a href="#">Find apprenticeship training</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">Search for apprenticeships and see details of approved providers who can deliver the training.</p>
+                                </div>
+                            </div>
+
+                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" style="border-bottom: 2px solid #bfc1c3">
+                    <h2 class="govuk-heading-l " style="" id="">Finances</h2>
+                        <p class="govuk-caption-m">Manage your apprenticeship funds</p>
+
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m " style="margin-top:0;  "><a href="./EPAOReserve">Your funding reservations</a></h3>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile" style="font-size:16px">Reserve and manage funding.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m " style="margin-top:0; "><a href="./finance">Your finances</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">View your financial transactions, connect with other employers and recieve transfer funds.</p>
+                                </div>
+                            </div>
+                    
+                  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" style="border-bottom: 2px solid #bfc1c3">
+                    <h2 class="govuk-heading-l " style="" id="">Account</h2>
+                        <p class="govuk-caption-m">Manage your account details and team</p>
+
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m " style="margin-top:0;  "><a href="#">Your organisations and agreements</a></h3>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile" style="font-size:16px">Add your organisations that will make contracts with training providers.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m " style="margin-top:0; "><a href="#">Your team</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">Control what your team can do and invite new team members.</p>
+                                </div>
+                            </div>
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m rj-top-border" style="margin-top:0; padding-top:35px"><a href="#">PAYE schemes</a></h3>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile " style="font-size:16px">Add or remove PAYE schemes.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m rj-top-border looks-like-a-link-underline-h2" style="margin-top:0; padding-top:35px"> </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <section>
+                            <nav style="height:47px">
+                                <ul class="js-tabs" role="tablist">
+                                    <li role="tab" id="tab-tasks" aria-controls="pane-tasks"><a href="#pane-tasks" class="selected">Tasks</a></li>
+                                </ul>
+                            </nav>
+                            <div class="panes">
+                                <div class="js-tab-pane" id="pane-tasks" role="tabpanel" aria-hidden="false" style="display: block;">
+                                    <p>You do not have any tasks</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </section>
+</div>
+    
+{% endblock %}

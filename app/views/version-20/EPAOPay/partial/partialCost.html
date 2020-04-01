@@ -1,0 +1,78 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/payNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+<style>
+.pad80 {
+    padding-right: 80px;
+}
+</style>
+
+<!--div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../../../accounts">Your Accounts</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../../{{employer.id}}">{{ employer.name }}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../finance">Finance</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Transactions</li>
+    </ol>
+</div-->
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">
+                    Claim costs
+                    <!--  <span class="govuk-caption-xl">May 2018</span> -->
+                </h1>
+                <p>You can claim for reasonable costs that you have incurred attempting to run an assessment
+    <form method="get" action="partialConfirm">
+            <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="partialCost">
+                   Claim amount
+                </label>
+               <!--   <span id="reference-hint" class="govuk-hint">
+                    in pounds
+                </span> -->
+                <p style="display:inline-block"><span style="font-size:19px; font-weight:400; padding-right:5px">£</span></p><input class="govuk-input govuk-!-width-one-quarter" id="partialCost" name="partialCost" type="text" aria-describedby="FirstName-hint" value=""
+                />
+            </div>
+
+
+<!--             <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What can I claim for?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can claim for 'reasonable' costs incurred in attempting to run an assessment
+  </div>
+</details> -->
+
+                <button type="submit" class="govuk-button">Continue</button>
+              <!-- <a  class="govuk-button clear-button" href="confirm-training-provider" >Cancel </a> -->
+        </form>
+ 
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

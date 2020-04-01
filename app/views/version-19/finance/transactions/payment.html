@@ -1,0 +1,98 @@
+{% extends "layout.html" %} {% block beforeContent %} {% include "includes/version1/mainNav.html" %}    {% include "includes/version1/financeNav.html" %} {% from "govuk/components/back-link/macro.njk" import govukBackLink %}   {{ govukBackLink({ href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+
+<!--div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../../../accounts">Your Accounts</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../../{{employer.id}}">{{ employer.name }}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../finance">Finance</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Transactions</li>
+    </ol>
+</div-->
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full-width">
+<h1 class="govuk-heading-xl">
+    Payment details
+</h1>
+<h2 class="govuk-heading-s">
+    <span style="font-weight:400">Date</span> 5 May 20202<br /> <span style="font-weight:400">Payment to</span>
+</h2>
+
+              <!--   <div class="govuk-panel govuk-panel--confirmation" style="background:#912b88; padding:0; height:105px; width:50%">
+                    <h2 class="govuk-panel__title" style="text-align:left; margin:10px 0 0px 10px">£170,000</h2>
+                    <div class="">
+                        <p style="text-align:left; color:#fff;margin:5px 0 10px 15px; font-weight:700; font-size:19px; "> Current Funds</p>
+                    </div>
+                </div> -->
+
+
+    <table class="govuk-table ">
+                <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col"></th>
+                <th class="govuk-table__header" scope="col"></th>
+                <th class="govuk-table__header govuk-table__header--numeric" scope="col" colspan=2 style="text-align:center; background-color: #f3f2f1    ">Co-investment</th>
+              
+                     <th class="govuk-table__header govuk-table__header--numeric" scope="col"></th>
+            <!--     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Balance</th> -->
+                <th class="govuk-table__header" scope="col"></th>
+            </tr>
+        </thead>
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">Course</th>
+                <th class="govuk-table__header" scope="col">Paid from levy</th>
+                <th class="govuk-table__header govuk-table__header--numeric" scope="col" style="background-color: #f3f2f1">Government<BR />contribution</th>
+                 <th class="govuk-table__header govuk-table__header--numeric" scope="col" style="background-color: #f3f2f1">Your<BR />contribution</th>
+                     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Amount</th>
+            <!--     <th class="govuk-table__header govuk-table__header--numeric" scope="col">Balance</th> -->
+                <th class="govuk-table__header" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row" id="May18">
+                <td class="govuk-table__cell" scope="row">(Course details not available)</td>
+                <td class="govuk-table__cell" scope="row">-£3,333.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric" style="background-color: #f3f2f1">£0.00</td>
+                 <td class="govuk-table__cell govuk-table__cell--numeric" style="background-color: #f3f2f1">£0.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric" scope="row">-£3,333.00</td>
+         <!--        <td class="govuk-table__cell govuk-table__cell--numeric">£2,735,847.65</td> -->
+                <td class="govuk-table__cell " scope="row">
+                    <a href="">Details</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Accounting: level 4</td>
+                <td class="govuk-table__cell" scope="row">-£6,666.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric" style="background-color: #f3f2f1">£0.00</td>
+                 <td class="govuk-table__cell govuk-table__cell--numeric" style="background-color: #f3f2f1">£0.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric" scope="row">-£6,666.00</td>
+              <!--   <td class="govuk-table__cell govuk-table__cell--numeric">£2,500,785.53</td> -->
+                <td class="govuk-table__cell" scope="row">
+                    <a href="apprenticePayment">Details</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row" style="border-bottom: solid 3px; black">
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell" scope="row" style="font-weight:700">-£9,999.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric" style="background-color: #f3f2f1; font-weight:700">£0.00</td>
+                 <td class="govuk-table__cell govuk-table__cell--numeric" style="background-color: #f3f2f1; font-weight:700">£0.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric" scope="row"  style="font-weight:700">-£9,999.00</td>
+                <td class="govuk-table__cell" scope="row"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+      </div>
+  </main>
+</div>
+
+
+{% endblock %}

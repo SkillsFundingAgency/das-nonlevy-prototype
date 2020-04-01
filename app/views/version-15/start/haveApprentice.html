@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+ href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl" style="" id="company-Name">Do you know who the apprentice is?</h1>
+                <form action="startApprenticeshipHaveApprentice" method="get" class="form">
+                    <div class="govuk-form-group">
+                       
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading">
+                   <!--   Where are you adding them from -->
+                           <!--span id="email-hint" class="govuk-hint">
+             Choose the level of access this user can have.
+            </span-->
+                </h2>
+                        </legend>
+                            <div class="govuk-radios ">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="recruit-service--1" name="recruitType" type="radio" value="yes" >
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--1">
+                                        Yes, I know who the apprentice is
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="recruit-recruited--2" name="recruitType" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="team-whats-next--2">
+                                      No, I don't know who the apprentice is yet
+                                    </label>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+</div>
+{% endblock %}

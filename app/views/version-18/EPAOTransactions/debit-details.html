@@ -1,0 +1,228 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version15/epaoNav.html" %}
+{% include "includes/version15/transactionNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+
+<style>
+
+</style>
+
+<main id="content" role="main">
+
+
+
+  <div class="breadcrumbs">
+    <ol role="breadcrumbs">
+    
+    </ol>
+  </div>
+
+
+<!--h1 class="heading-large">Levy account</h1-->
+ <!--h2 class="bold-medium">Acme Ltd Levy Account</h2-->
+
+   <div class="govuk-grid-row">
+           <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl" >Payment details</h1>
+            <div>
+                <p>
+                  The following shows details of the payment into your account.
+                </p>
+                <div class="">
+
+<!--                   <table class="govuk-table ">
+                  <thead>
+                    <tr class="govuk-table__row">
+                    <h2 class="govuk-heading-m">Overview</h2> 
+                     <th class="govuk-table__header" scope="col"></th>
+                      <th class="govuk-table__header" scope="col"></th>
+                       <th class="govuk-table__header" scope="col"></th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Provider name</td>
+                     <td class="govuk-table__cell" scope="row">Hackney skills and training Ltd</td>
+                      <td class="govuk-table__cell" scope="row"></td>
+                    </tr>
+                      <tr class="govuk-table__row">
+                     <td class="govuk-table__cell" scope="row">Cohort reference</td>
+                      <td class="govuk-table__cell" scope="row">98HGS3F</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                    </tr>
+                  </tbody>
+                </table> -->
+
+                  <table class="govuk-table ">
+                  <thead>
+                   <tr class="govuk-table__row">
+                    <!--   <th colspan="3"> -->
+                        <h2 class="govuk-heading-m">Payment</h2>
+                         <th class="govuk-table__header" scope="col"></th>
+                          <th class="govuk-table__header" scope="col"></th>
+                           <th class="govuk-table__header" scope="col"></th>
+                     <!--  </th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="govuk-table__row">
+                     <td class="govuk-table__cell" scope="row">This payment</td>
+                       <td class="govuk-table__cell" scope="row">£2,062</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                     <td class="govuk-table__cell" scope="row">Date of payment</td>
+                       <td class="govuk-table__cell" scope="row">23 May 2019</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                    </tr>
+<!-- 
+                     <tr class="govuk-table__row">
+                     <td class="govuk-table__cell" scope="row">Total agreed</td>
+                       <td class="govuk-table__cell" scope="row">£2,987.24</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                    </tr> -->
+                    <!--tr>
+                     <td class="govuk-table__cell" scope="row">Current total</td>
+                       <td class="govuk-table__cell" scope="row">£2,987.24</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                    </tr-->
+           <!--           <tr class="govuk-table__row">
+                     <td class="govuk-table__cell" scope="row">Total paid to date</td>
+                       <td class="govuk-table__cell" scope="row">£758.00</td>
+                      <td class="govuk-table__cell" scope="row">View</td>
+                    </tr> -->
+         <!--             <tr class="govuk-table__row">
+                     <td class="govuk-table__cell" scope="row">Left to pay</td>
+                       <td class="govuk-table__cell" scope="row">£2,229.24</td>
+                      <td class="govuk-table__cell" scope="row">View</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+
+
+                  <table class="govuk-table ">
+                  <thead>
+                     <tr class="govuk-table__row">
+                
+                        <h2 class="govuk-heading-m">Apprentices</h2>
+                         <th class="govuk-table__header" scope="col">Name</th>
+                          <th class="govuk-table__header" scope="col">Unique Learner Number</th>
+                   
+                     <!--  </th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                               <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Alex Swordy</td>
+                      <td class="govuk-table__cell" scope="row">5389106499</td>
+                    
+                    </tr>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Rob Edwards</td>
+                      <td class="govuk-table__cell" scope="row">98HGS3FDS</td>
+                    
+                    </tr>
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Mel O'Connor</td>
+                      <td class="govuk-table__cell" scope="row">22HGS3FZA</td>
+                   
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Carson Maayan</td>
+                      <td class="govuk-table__cell" scope="row">54HGS3FAS</td>
+                   
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Kim Martie</td>
+                      <td class="govuk-table__cell" scope="row">87HGS3FGH</td>
+                  
+                    </tr>
+                     <tr class="govuk-table__row">
+                      <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Mattie Cheyenne</td>
+                      <td class="govuk-table__cell" scope="row">97HGS3FKL</td>
+                   
+                    </tr>
+                     <tr class="govuk-table__row">
+                                           <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Ziv Yoshi</td>
+                      <td class="govuk-table__cell" scope="row">76HGS3FJH</td>
+                   
+                    </tr>
+                     <tr class="govuk-table__row">
+                                           <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Lou Eden</td>
+                      <td class="govuk-table__cell" scope="row">54HGS3FOI</td>
+                 
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">David Jenkins</td>
+                      <td class="govuk-table__cell" scope="row">89HGS3FTY</td>
+                     
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Susan Hamazaki</td>
+                      <td class="govuk-table__cell" scope="row">59HGS3FFG</td>
+                     
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Eden Tierney</td>
+                      <td class="govuk-table__cell" scope="row">12HGS3MGT</td>
+                  
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Freddie Dikla</td>
+                      <td class="govuk-table__cell" scope="row">87HGS3MNB</td>
+                     
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">September Logan</td>
+                      <td class="govuk-table__cell" scope="row">65HGS3DER</td>
+                  
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Florence Hadar</td>
+                      <td class="govuk-table__cell" scope="row">12HGS3EWR</td>
+                    
+                    </tr>
+                     <tr class="govuk-table__row">
+                     <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row">Greer Merlyn</td>
+                      <td class="govuk-table__cell" scope="row">23HGS3KJH</td>
+                   
+                    </tr>
+                     <tr class="govuk-table__row">
+
+                  </tbody>
+                </table>
+
+                </div>
+            </div>
+              </div>
+          </div>
+
+          <div class="column-one-third">
+      
+            </div>
+        </div>
+</main>
+ <!--button class="button">Do the thing</button-->
+
+
+{% endblock %}
+

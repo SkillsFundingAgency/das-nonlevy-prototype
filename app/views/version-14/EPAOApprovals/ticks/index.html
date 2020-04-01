@@ -1,0 +1,190 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version14/epaoNav.html" %}
+{% include "includes/version14/financeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+<style>
+.pad80 {
+    padding-right: 80px;
+}
+</style>
+
+
+<script>
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='providersearch';
+                break;
+
+        case  (status == 'false'):
+       window.location.href='epa/epaosearch';
+            break
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+             $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
+ 
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h1 class="govuk-heading-xl">
+                    Pipeline 
+                </h1>
+ 
+ 
+                <div class="js-tab-content tab-content">
+                    <div class="js-tab-pane tab-pane" id="PAYE">
+                        <h2 class="govuk-heading-l" style="margin:15px 0 25px 0 ">Awaiting review</h2>
+                        <div class="govuk-form-group" style="margin-bottom:0">
+                            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                                <div class="govuk-checkboxes">
+                                    <table class="govuk-table ">
+                                        <thead class="govuk-table__head">
+                                            <tr class="govuk-table__row">
+                                                <th class="govuk-table__header govuk-table__header--numeric" scope="col"></th>
+                                                <th class="govuk-table__header" scope="col">Name</th>
+                                                <!--  <th class="govuk-table__header" scope="col">ULN</th> -->
+                                                <th class="govuk-table__header" scope="col" style="width:250px">Standard</th>
+                                                <th class="govuk-table__header" scope="col">Company</th>
+                                                <th class="govuk-table__header govuk-table__header--numeric" scope="col">End date</th>
+                                                <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th>
+                                                <!--          <th class="govuk-table__header " scope="col">Status</th> -->
+                                                <!--      <th class="govuk-table__header" style="width:100px" scope="col"></th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody class="govuk-table__body">
+                                            <tr class="govuk-table__row" id="May18">
+                                                <td class="govuk-table__cell" scope="row">
+                                                    <div class="govuk-checkboxes__item">
+                                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                                    </div>
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Vanessa Hamazaki</td>
+                                                <!--     <td class="govuk-table__cell" scope="row">1829856585</td> -->
+                                                <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">£2,735</td>
+                                                <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                                <!--   <td class="govuk-table__cell" scope="row"> <a href="#">Do a thing</a></td> -->
+                                            </tr>
+                                            <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell" scope="row">
+                                                    <div class="govuk-checkboxes__item">
+                                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                                    </div>
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Rachel Rivers</td>
+                                                <!--   <td class="govuk-table__cell" scope="row">5389106499</td> -->
+                                                <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">£2,500</td>
+                                                <!--     <td class="govuk-table__cell" scope="row"> <a href="#">Do a thing</a></td> -->
+                                                <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                                <!--     <td class="govuk-table__cell" scope="row">
+                                  <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                            </tr>
+                                            <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell" scope="row">
+                                                    <div class="govuk-checkboxes__item">
+                                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                                    </div>
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Geoff Lu</td>
+                                                <!--      <td class="govuk-table__cell" scope="row">7134322227</td> -->
+                                                <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                                                <!--   <td class="govuk-table__cell" scope="row"> <a href="#">Do a thing</a></td> -->
+                                                <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                                <!--      <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                            </tr>
+                                            <tr class="govuk-table__row">
+                                                <td class="govuk-table__cell" scope="row">
+                                                    <div class="govuk-checkboxes__item">
+                                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                                    </div>
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Michael Perrin</td>
+                                                <!--     <td class="govuk-table__cell" scope="row">2490550125</td> -->
+                                                <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                                </td>
+                                                <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">01/2021</td>
+                                                <td class="govuk-table__cell govuk-table__cell--numeric">£2,506</td>
+                                                <!--    <td class="govuk-table__cell" scope="row"> <a href="#">Do a thing</a></td> -->
+                                                <!--                      <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                                <!--     <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                        <div>
+                            <form action="changePermissionsRecruit" method="get" class="form">
+                                <div id="addTheError" class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+                                                Do you want to do the thing to all the ticked things?
+                                            </h2>
+                                        </legend>
+                                        <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                                            Do you want to do the thing to all of these at once?
+                                        </span>
+                                        <div class="govuk-radios ">
+                                            <div class="govuk-radios__item">
+                                                <input class="govuk-radios__input" id="needed-1" name="choosePartner" type="radio" value="true">
+                                                <label class="govuk-label govuk-radios__label" for="needed-1">
+                                                    Yes, approve all the ticked things
+                                                </label>
+                                            </div>
+                                            <div class="govuk-radios__item">
+                                                <input class="govuk-radios__input" id="needed-2" name="choosePartner" type="radio" value="false">
+                                                <label class="govuk-label govuk-radios__label" for="needed-2">
+                                                    No, reject all the ticked things
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </form>
+                            <button class="govuk-button" onClick="whereNow()">Continue</button>
+                        </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</main>
+</div>
+{% endblock %}

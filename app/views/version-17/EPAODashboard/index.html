@@ -1,0 +1,271 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+
+
+<script>
+/*
+// putting this here so i don't forget it.
+
+  //store details entered into the form in local storage
+var creategovuk-button = document.getElementById('createAccountgovuk-button');
+EventUtil.addHandler(creategovuk-button, 'click', function(){
+              // save the form info to local storage by first putting the data into an object
+              var userDetails = {
+                email: document.getElementById('email-address').value,
+                password: document.getElementById('password').value
+            };
+
+            //store the object in local storage using json stringify
+              localStorage.setItem("login", JSON.stringify(userDetails));
+
+            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
+            document.cookie =  "emailAddress="  + userDetails.email 
+            // shows the cookie in the console log to check it is working
+            console.log (document.cookie)
+
+        // not needed at the moment
+
+              //hide the login form
+              //$('#login').addClass('hidden');
+              //show the quiz
+           // $('#wrapper').removeClass('hidden')
+    });
+*/
+</script>
+
+
+
+<!-- <script>
+var fundingStatus = JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+var welcomeWizardStatus = JSON.parse(localStorage.getItem('nonLevy.welcomeWizardStatus'));
+
+
+$(document).ready(function() {
+ 
+    var changeStuff = function() {
+        if (welcomeWizardStatus == "dontShow") {
+            $(welcome).addClass("rj-dont-display");
+            $(allContentHome).removeClass("rj-dont-display");
+        }
+        // localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("yes"));
+    }
+
+    // Deal with the PAYE first options
+
+
+    $('input:radio[name="add-paye-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '2') {
+                $(addPAYEPanel).removeClass("rj-dont-display");
+            } else {
+                $(addPAYEPanel).addClass("rj-dont-display");
+                $(payeQuestion).addClass("rj-dont-display");
+                $(payeSuccess).removeClass("rj-dont-display");
+                $(addOrg).removeClass("rj-dont-display");
+            }
+        });
+
+    $('input:radio[name="add-org-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '2') {
+                $(addORGPanel).removeClass("rj-dont-display");
+            } else {
+                $(addORGPanel).addClass("rj-dont-display");
+                $(orgQuestions).addClass("rj-dont-display");
+                $(orgSuccess).removeClass("rj-dont-display");
+                $(inviteUsers).removeClass("rj-dont-display");
+            }
+        });
+
+    $('input:radio[name="invite-users-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '2') {
+                $(addTEAMPanel).removeClass("rj-dont-display");
+            } else {
+                $(addTEAMPanel).addClass("rj-dont-display");
+                $(teamQuestions).addClass("rj-dont-display");
+                $(teamSuccess).removeClass("rj-dont-display");
+                $(signAgreement).removeClass("rj-dont-display");
+            }
+        });
+
+    $('input:radio[name="sign-org-group"]').change(
+        function() {
+            if ($(this).is(':checked') && $(this).val() == '1') {
+                $(addAGREEPanel).removeClass("rj-dont-display");
+            } else {
+                $(addAGREEPanel).addClass("rj-dont-display");
+                $(agreeQuestions).addClass("rj-dont-display");
+                $(agreeSuccess).removeClass("rj-dont-display");
+                $(wizardPending).removeClass("rj-dont-display");
+            }
+        });
+
+    changeStuff();
+});
+
+function closeWelcomeWizard() {
+    $(welcome).addClass("rj-dont-display");
+    $(allContentHome).removeClass("rj-dont-display");
+    localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("dontShow"));
+}
+
+function loggedInHomepage() {
+    $(welcome).addClass("rj-dont-display");
+    $(allContentHome).removeClass("rj-dont-display");
+}
+
+function goToAgreements() {
+    localStorage.setItem("nonLevy.welcomeWizardStatus", JSON.stringify("dontShow"));
+    window.location.href = './orgs';
+
+}
+</script> -->
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <section id="allContentHome" class="">
+            <!-- <div class="govuk-grid-row"> -->
+                <h1 class="govuk-heading-xl " style="" id="company-Name"><!-- <span class="govuk-caption-l">Account ID: XJBMNV</span> -->Apprenticeships overview</h1>
+                <h2 class="govuk-heading-l " style="" id="">This month</h2>
+                <!--script>document.getElementById('company-Name').innerText = JSON.parse(localStorage.getItem('company-name-header'));</script-->
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-full">
+                        <div style="max-width:90%">
+                            <div class="govuk-grid-row">
+                            <!--      <div class="govuk-grid-column-full">
+                                        <h1 class="govuk-heading-l" style="" id="">Apprenticeships</h1>
+                                        <p class="govuk-caption-m">Manage your apprentices, recruit apprentices and set training provider permissions</p>
+                                </div> -->
+
+                          <!--       <div class="govuk-grid-column-one-third ">
+                                    <h3 class="govuk-heading-m" style="margin-top:0 "><a href="./apprentices">Apprentices</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">Add apprentices,update details of existing apprentices and authorise payments to training providers.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-third">
+                                    <h3 class="govuk-heading-m rj-top-border-mobile" style="margin-top:0;"><a href="#">Recruitment</a></h3>
+                                    <p style="font-size:16px">Recruit an apprentice by creating a vacancy. This vacancy will be advertised on Find an apprenticeship.</p>
+                                </div>
+                                    <div class="govuk-grid-column-one-third">
+                                    <h3 class="govuk-heading-m rj-top-border-mobile" style="margin-top:0;"><a href="#">Recruitment</a></h3>
+                                    <p style="font-size:16px">Recruit an apprentice by creating a vacancy. This vacancy will be advertised on Find an apprenticeship.</p>
+                                </div> -->
+
+                        <div class="govuk-grid-column-one-third">
+                             <div  style="padding-left:0; ; border: 4px solid  #b1b4b6; margin-top:35px" >
+                                            <div style="background-color:#fff; min-height:200px" >
+                                                <div style="float:left">
+                                                 <h2 id="" class="govuk-heading-xl" style=" color:#000; margin: 25px 0 0px 35px; padding-top:25px; ">5%</h2>
+                                                    
+                                                </div>
+                                               <div style="float:left">
+                                                   <h2 id="" class="govuk-heading-s" style=" color:#6f777b; margin: 25px 0 0px 35px; padding-top:25px; ">last month</h2>
+                                                 <h2 id="" class="govuk-heading-s" style=" color:#6f777b; margin: 0px 0 0px 35px; padding-top:0px; ">4%</h2>
+                                                    
+                                                </div>
+                                                <div style="clear:both"></div>
+                                                 <h2 class="govuk-heading-s" style="color: #000; margin: 85px 0 25px 38px; ">Average decline rate</h2>
+                                        </div>
+                                </div>
+                        </div>
+                      
+                        <div class="govuk-grid-column-one-third">
+                             <div  style="padding-left:0; ; border: 4px solid  #b1b4b6; margin-top:35px" >
+                                            <div style="background-color:#fff; min-height:200px" >
+                                                 <h2 id="numberOfApprentices" class="govuk-heading-xl" style=" color:#000; margin: 25px 0 0px 15px; padding-top:25px; ">96%</h2>
+                                            <h2 class="govuk-heading-s" style="color: #000; margin: 85px 0 25px 15px; ">Average % of cap</h2>
+                                            
+                                           
+                                     </div>
+                                </div>
+                        </div>
+                          <div class="govuk-grid-column-one-third">
+                             <div  style="padding-left:0; ; border: 4px solid  #b1b4b6; margin-top:35px" >
+                                            <div style="background-color:#fff; min-height:200px" >
+                                                 <h2 id="numberOfApprentices" class="govuk-heading-xl" style=" color:#000; margin: 25px 0 0px 15px; padding-top:25px; ">22%</h2>
+                                            <h2 class="govuk-heading-s" style="color: #000; margin: 85px 0 25px 15px; ">% of a thing</h2>
+                                            
+                                           
+                                     </div>
+                                </div>
+                        </div>
+                            </div>
+                            <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-third">
+                             <div  style="padding-left:0; ; border: 4px solid  #b1b4b6; margin-top:35px" >
+                                                     <div style="background-color:#fff; min-height:180px" >
+                                            <h2 class="govuk-heading-s" style="color: #000; margin: 35px 0 0px 15px; ">Current balance</h2>
+                                             <h2 id="numberOfApprentices" class="govuk-heading-m" style=" color:#000; margin: 0px 0 0px 15px; padding-top:25px; "><span style="">£</span>99,000,000</h2>
+                                     </div>
+                                </div>
+                        </div>
+                                        
+                              <div class="govuk-grid-column-one-third">
+                             <div  style="padding-left:0; ; border: 4px solid  #b1b4b6; margin-top:35px" >
+                                                    <div style="background-color:#fff; min-height:180px" >
+                                            <h2 class="govuk-heading-s" style="color: #000; margin: 35px 0 0px 15px; ">Current balance</h2>
+                                             <h2 id="numberOfApprentices" class="govuk-heading-m" style=" color:#000; margin: 0px 0 0px 15px; padding-top:25px; "><span style="">£</span>99,000,000</h2>
+                                     </div>
+                                </div>
+                        </div>
+                           <div class="govuk-grid-column-one-third">
+                             <div  style="padding-left:0; ; border: 4px solid  #b1b4b6; margin-top:35px" >
+                                         <div style="background-color:#fff; min-height:180px" >
+                                            <h2 class="govuk-heading-s" style="color: #000; margin: 35px 0 0px 15px; ">Current balance</h2>
+                                             <h2 id="numberOfApprentices" class="govuk-heading-m" style=" color:#000; margin: 0px 0 0px 15px; padding-top:25px; "><span style="">£</span>99,000,000</h2>
+                                     </div>
+                                </div>
+                        </div>
+                            </div>
+
+                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" style="border-bottom: 2px solid #bfc1c3">
+                    <h2 class="govuk-heading-l " style="" id="">Links</h2>
+                        <p class="govuk-caption-m">Do a thing</p>
+
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m " style="margin-top:0;  "><a href="">Do a thing</a></h3>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile" style="font-size:16px">Reserve and manage things.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m " style="margin-top:0; "><a href="">Do a thing</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">Do things</p>
+                                </div>
+                            </div>
+                    
+                  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" style="border-bottom: 2px solid #bfc1c3">
+                    <h2 class="govuk-heading-l " style="" id="">Links</h2>
+                        <p class="govuk-caption-m">Do a thing</p>
+
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m " style="margin-top:0;  "><a href="#">Do things</a></h3>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile" style="font-size:16px">Do the thing.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m " style="margin-top:0; "><a href="#">Your things</a></h3>
+                                    <p class="rj-home-spacer" style="font-size:16px">Control what your things can do and invite new things.</p>
+                                </div>
+                            </div>
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    <h3 class="govuk-heading-m rj-top-border" style="margin-top:0; padding-top:35px"><a href="#">Thing schemes</a></h3>
+                                    <p class="rj-home-spacer rj-bottom-border-mobile " style="font-size:16px">Add or remove things.</p>
+                                </div>
+                                <div class="govuk-grid-column-one-half ">
+                                    <h3 class="govuk-heading-m rj-top-border looks-like-a-link-underline-h2" style="margin-top:0; padding-top:35px"> </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            <!-- </div> -->
+        </section>
+</div>
+    
+{% endblock %}

@@ -82,6 +82,47 @@ router.param('employer', function (req, res, next, employer) {
 //   }
 // })
 
+// Redirects for Vanessas end to end
+// Employer started
+ router.get('/directEmployer', function (req, res) {
+   res.redirect(`/version-12/newregister/employerStarted/v3/`)
+ })
+
+
+// Provider started, employer finishes
+ router.get('/directProvider', function (req, res) {
+  res.redirect("/version-12/newregister/employerStarted/v3/email")
+ })
+
+
+// v11 Homepage back to Vanessas version
+ router.get('/version-11/home', function (req, res) {
+  res.redirect("https://das-registration-prototype.herokuapp.com/interimHomepage")
+ })
+
+// v11 Recruit back to Vanessas version
+ router.get('/version-11/recruit', function (req, res) {
+  res.redirect("https://das-recruit-prototype.herokuapp.com/raa-v2/0-1-9/recruitment/dashboard-multiple?user=employer&journey=existing&NumberOfEntities=0")
+ })
+
+
+
+
+// EPAO Commitment - Choose EPAO and Cost
+ router.get('/EPAOandCost', function (req, res) {
+  res.redirect("/version-13/EPAO/epaoandcost")
+ })
+
+ // EPAO Commitment - Choose EPAO and Cost v2
+ router.get('/EPAOandCostv2', function (req, res) {
+  res.redirect("/version-13/EPAO/epaoandcostv2")
+ })
+
+  // EPAO Commitment - Choose cost only
+ router.get('/EPAOCostOnly', function (req, res) {
+  res.redirect("/version-13/EPAO/epaoOnlyCost")
+ })
+
 
 
 // Employer > Nav > Home
@@ -280,6 +321,78 @@ router.param('employer', function (req, res, next, employer) {
   router.get('/*/*/signoutNav', function (req, res) {
   res.redirect(`/${req.version}/signout`)
  })
+
+  // EPAO Nav Routes
+
+
+   router.get('/*/EPAOApprovalsNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/ticks`)
+ })
+
+  router.get('/*/*/EPAOApprovalsNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/ticks`)
+ })
+
+     router.get('/*/EPAOOutcomesNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOutcomes`)
+ })
+
+  router.get('/*/*/EPAOOutcomesNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOutcomes`)
+ })
+
+       router.get('/*/EPAOPipelinesNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/EPAOPipeline/ticks`)
+ })
+
+  router.get('/*/*/EPAOPipelinesNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/EPAOPipeline/ticks`)
+ })
+
+         router.get('/*/EPAOGatewayNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/EPAOGateway`)
+ })
+
+  router.get('/*/*/EPAOGatewayNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/donedoEPAOGateway`)
+ })
+
+           router.get('/*/EPAOTransactionsNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOTransactions`)
+ })
+
+  router.get('/*/*/EPAOTransactionsNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOTransactions`)
+ })
+
+
+           router.get('/*/EPAOPayNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOPay`)
+ })
+
+  router.get('/*/*/EPAOPaysNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOPay`)
+ })
+
+
+           router.get('/*/EPAOOrgNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOrganisations`)
+ })
+
+  router.get('/*/*/EPAOOrgNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOOrganisations`)
+ })
+
+  
+
+             router.get('/*/epaoHomeNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/home`)
+ })
+
+  router.get('/*/*/epaoHomeNav', function (req, res) {
+  res.redirect(`/${req.version}/EPAOApprovals/home`)
+ })
+  
 
 ////// end of nav routing
 
@@ -532,8 +645,14 @@ router.get('/*/find/chooseFATType' , function (req, res) {
   var fatType = req.query.fatType
        switch (true) {
           case  (fatType == 'apprenticeship'):
+          req.session.data['justFindEPAO'] = false;
             res.redirect(`/${req.version}/find/appreticeshipsearch`)
            break;
+
+          case  (fatType == 'epao'):
+                 req.session.data['justFindEPAO'] = true;
+              res.redirect(`/${req.version}/find/appreticeshipsearch`)
+          break;
 
           case  (fatType == 'provider'):
               res.redirect(`/${req.version}/find/findaprovider`)
@@ -857,7 +976,7 @@ router.get('/*/apprentices/add/nonLevyFull/oneOrBulkQuestion' , function (req, r
           case  (confirmTraining == 'one'):
            // We removed the stuff coming in from recruit and jumped straight to reserve
            // res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/alreadyAccepted`)
-         
+
            res.redirect(`/${req.version}/apprentices/add/NonLevyFull/oneAtTime/choosereserve/`) 
            break;
 
@@ -2851,6 +2970,396 @@ router.get('/*/newregister/employerStarted/feb/employerStartedEmployerWhatYoullN
             break;
         }
 })
+
+
+// =====================================================================
+// --------------------------- EPAO End Point Assessor -----------------
+// =====================================================================
+
+
+// More cowboyed stuff for the EPAO!
+
+// WHen the user adds an apprentice, this rewrites the dates and adds up the costs
+//Hacky rewrite of numbers to months, don't judge, it works.
+// http://127.0.0.1:3000/version-13/EPAO/epaoandcost/apprenticeDetails/add-apprentice
+router.get('/*/EPAO/*/apprenticeDetails/addEPAOapprentice' , function (req, res) {
+  var confirmTraining =  req.session.data['start-month'] 
+  var trainingCost =  parseInt(req.session.data['price'], 10) 
+   var epaoCost =  parseInt(req.session.data['agreedEPAOPrice'], 10)
+
+   var epaoTotalCost = trainingCost + epaoCost;
+
+   req.session.data['epaoTotalCost'] = epaoTotalCost
+
+
+       switch (true) {
+        case  (confirmTraining == '1' || confirmTraining == '01'):
+          req.session.data['start-month'] = "January"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '2' || confirmTraining == '02'):
+          req.session.data['start-month'] = "February"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '3' || confirmTraining == '03'):
+          req.session.data['start-month'] = "March"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '4' || confirmTraining == '04'):
+          req.session.data['start-month'] = "April"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '5' || confirmTraining == '05'):
+          req.session.data['start-month'] = "May"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '6' || confirmTraining == '06'):
+          req.session.data['start-month'] = "June"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+        case  (confirmTraining == '7' || confirmTraining == '07'):
+          req.session.data['start-month'] = "July"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+       case  (confirmTraining == '8' || confirmTraining == '08'):
+          req.session.data['start-month'] = "August"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+       case  (confirmTraining == '9' || confirmTraining == '09'):
+          req.session.data['start-month'] = "September"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '10' || confirmTraining == '10'):
+          req.session.data['start-month'] = "October"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '11' || confirmTraining == '11'):
+          req.session.data['start-month'] = "November"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+      case  (confirmTraining == '12' || confirmTraining == '12'):
+          req.session.data['start-month'] = "December"
+            res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            req.session.data['start-month'] = ""
+             res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/apprenticeConfirm`)
+            break;
+        }
+})
+
+
+
+//// For the version that only shows cots and not the the choice of EPAO - just sets a parameter to not show the EPAO confirm fields
+/// EPAO > Enter costs only  > confirm page
+//
+router.get('/*/EPAO/*/apprenticeDetails/dontShowEPAOConfirmation' , function (req, res) {
+    req.session.data['showEPAOConfirm'] = false;
+   res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice`)
+})
+
+
+//// For the version that shows both the choice of EPAO and cost
+/// EPAO > Enter EPAO and costs  > confirm page
+
+router.get('/*/EPAO/*/apprenticeDetails/showEPAOConfirmation' , function (req, res) {
+    req.session.data['showEPAOConfirm'] = true;
+   res.redirect(`/${req.version}/EPAO/epaoandcost/apprenticeDetails/addEPAOapprentice`)
+})
+
+
+/// Employer > EPAO commitment > choose to add an epao or not
+// http://127.0.0.1:3000/version-13/epao/epaoChoice/epaoOrNot?confirmation=true
+router.get('/*/epao/epaoChoice/chooseEPAOorNot' , function (req, res) {
+  console.log(req.query.confirmation)
+  var confirmTraining = req.query.whatsNeeded
+       switch (true) {
+          case  (confirmTraining == 'true'):
+             req.session.data['showApprenticeBox'] = false;
+              req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/epao/epaoChoice/courseComplete`)
+           break;
+
+           case  (confirmTraining == 'false'):
+             req.session.data['showEPAOConfirm'] = false;
+             req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/epao/epaoChoice/apprenticeDetails/add-apprentice`)
+           break;
+           
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+// For the full version that uses the cohort screen. Just adds up the total for that screen
+// http://127.0.0.1:3000/version-14/EPAO/fullCommit/apprenticeDetails/add-apprentice?addApprentices=true
+router.get('/*/EPAO/*/apprenticeDetails/draftCohortRedirect' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+     function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                              }
+
+  var trainingCost =  parseInt(req.session.data['price'], 10) 
+   var epaoCost =  parseInt(req.session.data['agreedEPAOPrice'], 10)
+   var epaoTotalCost = trainingCost + epaoCost;
+// run the function that adds commas to the cost
+    epaoTotalCost = numberWithCommas(epaoTotalCost)
+// add the final cost so we can pull it into the interface
+   req.session.data['epaoTotalCost'] = epaoTotalCost
+
+       switch (true) {
+        default:
+             res.redirect(`/${req.version}/EPAO/fullCommit/apprenticeDetails/draft-cohort`)
+            break;
+        }
+})
+
+
+
+/// EPAO > EPAO record an outcome > assessment completed
+// http://127.0.0.1:3000/version-14/EPAOOutcomes/complete?
+router.get('/*/EPAOOutcomes/EPAOAssessmentChoice' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/EPAOOutcomes/declaration`)
+           break;
+
+           case  (confirmTraining == 'partial'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOOutcomes/partial`)
+           break;
+
+          case  (confirmTraining == 'no'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOOutcomes/confirmDidntHappen`)
+           break;
+           
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+/// EPAO > EPAO record an outcome > assessment completed
+// http://127.0.0.1:3000/version-14/EPAOOutcomes/complete?
+router.get('/*/EPAOPay/EPAOAssessmentChoice' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/EPAOPay/chooseCert`)
+           break;
+
+           case  (confirmTraining == 'partial'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOPay/partial`)
+           break;
+
+          case  (confirmTraining == 'gateway'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOPay/gatewayChoose`)
+           break;
+           
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+
+/// EPAO > EPAO pay me > have you recorded an outcome
+// http://127.0.0.1:3000/version-19/EPAOPay/chooseCert
+router.get('/*/EPAOPay/EPAOCertOrNot' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/EPAOPay/recordOutcome/recorded`)
+           break;
+
+           case  (confirmTraining == 'no'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/EPAOPay/recordOutcome`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+            break;
+        }
+})
+
+//////// START OF RAA ROUTES ///////////////////////////
+
+
+// Any sign in trigger on RAA will go through here
+// http://127.0.0.1:3000/version-20/RAA
+router.get('/*/RAA/signInTrigger' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = true;
+  res.redirect(`/${req.version}/RAA/appForm`)
+  })
+
+
+
+// Any sign out trigger on RAA will go through here
+// http://127.0.0.1:3000/version-20/RAA
+router.get('/*/RAA/signOutTrigger' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = false;
+  res.redirect(`/${req.version}/RAA/`)
+  })
+
+
+
+// Registration trigger RAA will go through here
+// http://127.0.0.1:3000/version-20/RAA/moreReg
+router.get('/*/RAA/apprenticeshipsearchLog' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = true;
+  res.redirect(`/${req.version}/RAA/apprenticeshipsearch`)
+  })
+
+
+/// FAA search
+// http://127.0.0.1:3000/version-22/RAA/reg3/chooseSearch
+router.get('/*/RAA/reg3/searchForDifferentApprentices' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'employer'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/reg3/employerSearch`)
+           break;
+
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/reg3/jobSearch`)
+           break;
+
+            case  (confirmTraining == 'saved'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/reg3/savedSearch`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/EPAOPay/arse`)
+            break;
+        }
+})
+
+/// FAA search
+// http://127.0.0.1:3000/version-22/RAA/reg6/chooseSearch
+router.get('/*/RAA/reg6/searchForDifferentApprenticesv6' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'employer'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/employerList`)
+           break;
+
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/searchResults`)
+           break;
+
+          case  (confirmTraining == 'keywords'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/searchResults`)
+           break;
+
+            case  (confirmTraining == 'saved'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/reg6/savedSearch`)
+           break;
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/EPAOPay/arse`)
+            break;
+        }
+})
+
+/// Become an apprentice
+// http://127.0.0.1:3000/version-23/RAA/become/guide/allornothing
+router.get('/*/RAA/become/guide/guidanceornot' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'employer'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/step-1`)
+           break;
+
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/showall`)
+           break;
+
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/arsebork`)
+            break;
+        }
+})
+
+
+/// Become an apprentice
+// http://127.0.0.1:3000/version-23/RAA/become/guide/showMeLevelThrees
+router.get('/*/RAA/become/guide/showMeLevelThrees' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'yes'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/reg8/apprenticeshipsearch`)
+           break;
+
+           case  (confirmTraining == 'no'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/showall`)
+           break;
+
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/RAA/become/guide/showall`)
+            break;
+        }
+})
+
+
+/////////END OF RAA ROUTES //////////////////////////////
+
 
 /// Add apprentices > add apprentices yourself or send to provider
 // router.get('/version-1/apprentices/add/finishAppEarly' , function (req, res) {

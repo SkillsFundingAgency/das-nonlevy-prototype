@@ -1,0 +1,202 @@
+ {% extends "layout.html" %} {% block beforeContent %}  {% include "includes/version1/mainNav.html" %}
+  {% include "includes/version1/homeNav.html" %} {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }} {% endblock %} {% block content %}
+
+
+<script>
+  function whereNow() {
+  var status = $('input[name=choosePartner]:checked').val();
+       switch (true) {
+          case  (status == 'true'):
+                 window.location.href='providersearch';
+                break;
+
+        case  (status == 'false'):
+       window.location.href='epa/epaosearch';
+            break
+
+        default:
+             console.log('gyahhhhhhhh, bork bork bork')
+             $(gatewayError).removeClass("rj-dont-display");
+            $(addTheError).addClass("govuk-form-group--error");
+            break;
+        }
+    }
+ </script>
+
+<style>
+.data-list dd, .data-list dt  {margin-bottom:0;}
+
+</style>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <div class="">
+                    <h1 class="govuk-heading-xl" style="">Financial services administrator</h1>
+                    <!--<h3 class="heading-small">Role</h3>-->
+                    <p class="">This information is taken from an apprenticeship framework. It sets out what qualifications the apprentice can achieve.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                     <h1 class="govuk-heading-l" style="margin-top:25px">Summary of this apprenticeship framework</h1>
+                    <dl class="data-list">
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+                        <dt>Level</dt>
+                        <dd id="level">3 (equivalent to A levels at grades A to E)</dd>
+                    <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                        <dt>Current funding band</dt>
+                        <dd id="funding-cap">
+                           <p style="margin:0px 0 0 0 ">Maximum cost of training:<span style="padding-left:140px; font">£8,000 per apprentice </span></p>
+                            <p id="coInvestPayer" style="margin:0">Maximum cost of end point assessment: <span style="padding-left:20px">£1,000 per apprentice</span></p>
+                            <p id="coInvestPayer" style="margin:0px 0 10px 0 ; font-weight:700">Maximum total cost:<span style="padding-left:173px; font-weight:700">£9,000 per apprentice</span></p>
+      
+                            <a href="https://www.gov.uk/guidance/employing-an-apprentice-technical-guide-for-employers#funding-for-your-apprenticeship" target="_blank">More information about funding</a>
+       <!--                         <div style="margin-top:10px"> <a href="../finance/reserve/reserveStartDate" class=" " style="width:100%; font-size:19px;">Reserve funding for this apprenticeship</a></div> -->
+                        </dd>
+                        <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+                        <dt>Typical length</dt>
+                        <dd id="length">12 months</dd>
+                        <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+
+                        <dt>Entry requirements</dt>
+                        <dd class="entry-requirements">
+                            <div>Your chosen training provider can advise you about entry requirements for apprentices.</div>
+                        </dd>
+                        <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+                        <dt>Suitable roles for apprentices</dt>
+                        <dd class="job-roles">
+                            <ul class="govuk-list govuk-list--bullet" style="margin-top:0">
+                                <li>Assistant Copywriter</li>
+                                <li>Desktop Publishing Assistant</li>
+                                <li>Junior Graphic Designer</li>
+                                <li>Junior Product Designer</li>
+                                <li>Technical Illustrator</li>
+                            </ul>
+                            <div>
+                                Your chosen training provider can advise you about the kinds of skills apprentices will learn.
+                            </div>
+                        </dd>
+                        <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+                        <dt>Qualifications</dt>
+                        <dd>
+                            <div class="qualifications">
+                                <div class="competencyQualifications">
+                                    <p>Apprentices will achieve a practical (or 'competence') qualification:</p>
+                                    <ul class="govuk-list govuk-list--bullet">
+                                        <li>NVQ Diploma in Design</li>
+                                    </ul>
+                                </div>
+                                <div class="knowledgeQualifications">
+                                    <p>Apprentices will also achieve a theory-based (or 'knowledge') qualification:</p>
+                                    <ul class="govuk-list govuk-list--bullet">
+                                        <li>90-credit Diploma in Art and Design</li>
+                                        <li>BTEC Diploma in Art and Design</li>
+                                        <li>BTEC Subsidiary Diploma in Art and Design</li>
+                                        <li class="default-hidden" style="display: none;">Diploma in Art &amp; Design - Foundation Studies</li>
+                                        <li class="default-hidden" style="display: none;">Diploma in Art and Design</li>
+                                        <li class="default-hidden" style="display: none;">Extended Diploma in Art and Design</li>
+                                        <a href="#" class="showmore">Show more</a>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="qualificationsStatic">Your chosen training provider can advise you about the qualifications open to apprentices as they can change depending on individual and other circumstances.</p>
+                        </dd>
+
+                    <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                        <dt>Training providers</dt>
+               
+                        <dd>Training providers are a thing, they will help you do the thing. <a href="providersearch">Find the things</a>.
+<!--                             <div style="margin:15px 0 10px 0"> <a href="epaDetails">ABC EPA Ltd</a></div>
+                             <div> <a href="">Cyberdyne University</a></div> -->
+                        </dd>
+                    
+                    <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                        <dt>End Point Assessment Organisations</dt>
+               
+                        <dd>End point assesment is a thing, the assessor will help you do the thing. <a href="EPA/epaosearch">Find the thing</a>.
+<!--                             <div style="margin:15px 0 10px 0"> <a href="epaDetails">ABC EPA Ltd</a></div>
+                             <div> <a href="">Cyberdyne University</a></div> -->
+                        </dd>
+                   
+
+                <div style="clear:both"></div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                        <dt>Professional registration</dt>
+                        <dd>None specified.</dd>
+
+                    </dl>
+                          <p style="color:white">.</p> <!-- this is weird. have to have this here to make the HR line below show up, no idea why -->
+                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </div>
+
+            </div>
+
+
+<form action="changePermissionsRecruit" method="get" class="form">
+    <div id="addTheError" class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+                    Do you want to find a delivery partner?
+                </h2>
+            </legend>
+            <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                Do you want to do this now?
+            </span>
+            <div class="govuk-radios ">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-1" name="choosePartner" type="radio" value="true">
+                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                        Yes, find training providers
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="needed-2" name="choosePartner" type="radio" value="false">
+                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                        Yes, find end-point assessment organisations
+                    </label>
+                    <!--               <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                    You will need to add at least one PAYE scheme before you can get government funds for your apprenticeships
+              </span> -->
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</form>
+<button class="govuk-button" onClick="whereNow()">Continue</button> <!-- <a  class="govuk-button clear-button" href="./cyberdyne" >Cancel and return</a> -->
+ 
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <!--div class="container shortlist panel panel-width-thin">
+
+                            <a href="proSearch" class="findProviders button"><i class="fa fa-search hidden" style="margin-right: 5px;"></i>Find training providers</a>
+
+                            <a href="#" class="shortlist app shortlistButton"><i class="fa fa-star-o "></i><span>Shortlist this apprenticeship</span></a>
+
+                        </div-->
+                    </div>
+                </div>
+            </section>
+    </main>
+    </div>
+    {% endblock %}

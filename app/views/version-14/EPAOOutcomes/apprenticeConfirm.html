@@ -1,0 +1,87 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version14/epaoNav.html" %}
+{% include "includes/version14/outcomeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+
+
+        <form method="get" action="complete">
+            <h1 class="govuk-heading-xl">Confirm this is the correct apprentice</h1>
+
+<!-- <h2 class="govuk-heading-m" style="margin-top:35px">Apprenticeship</h2> -->
+                  <dl class="app-check-your-answers app-check-your-answers--short">
+               <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
+           
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ;">
+           
+          </dd>
+  
+        </div>
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Name
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           Vanessa Lu
+          </dd>
+
+        </div>
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+ULN          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           0125312351
+          </dd>
+  
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+Standard          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+            Aeronautical Engineer
+          </dd>
+ 
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+           Level
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+4          </dd>
+
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+Learner start date          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           August 2018
+          </dd>
+
+        </div>
+            
+      </dl>
+<p>If the name, standard or level is incorrect, you need to agree on the correct details along with the training provider and the employer. The training provider needs to then update the Individualised Learner Record (ILR).</p>
+            <button type="submit" class="govuk-button">Continue </button>
+              <!-- <a  class="govuk-button clear-button" href="confirm-training-provider" >Cancel and return</a> -->
+        </form>
+    </div>
+</div>
+</main>
+</div>
+
+
+
+{% endblock %}

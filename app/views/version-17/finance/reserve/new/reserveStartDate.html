@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+ {% include "includes/version1/mainNav.html" %}  {% include "includes/version1/financeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+
+<script>
+/*
+// putting this here so i don't forget it.
+
+  //store details entered into the form in local storage
+var createButton = document.getElementById('createAccountButton');
+EventUtil.addHandler(createButton, 'click', function(){
+              // save the form info to local storage by first putting the data into an object
+              var userDetails = {
+                email: document.getElementById('email-address').value,
+                password: document.getElementById('password').value
+            };
+
+            //store the object in local storage using json stringify
+              localStorage.setItem("login", JSON.stringify(userDetails));
+
+            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
+            document.cookie =  "emailAddress="  + userDetails.email 
+            // shows the cookie in the console log to check it is working
+            console.log (document.cookie)
+
+        // not needed at the moment
+
+              //hide the login form
+              //$('#login').addClass('hidden');
+              //show the quiz
+           // $('#wrapper').removeClass('hidden')
+    });
+*/
+</script>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmReserveFunding" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">When will the apprentice start their apprenticeship training?</h1>
+
+
+<p>The apprentice can start their apprenticeship training anytime in the month you choose, or the following 2 months. For example if you select January, the apprentice can start their training anytime from January to March.</p>
+                 <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+<!--                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                       Choose when your apprentice will start:
+                      </h1>
+                    </legend> -->
+                    <div class="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-1" name="acceptedRecruit" type="radio" value="January 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-1" style="padding-bottom:0" >
+                         January 2019
+                        </label>
+           
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-2" name="acceptedRecruit" type="radio" value="Feb 2019" >
+                        <label class="govuk-label govuk-radios__label" for="app-2" style="padding-bottom: 0" >
+                         February 2019
+                        </label>
+ <!--                              <label class="govuk-label govuk-radios__label" style="display:block; padding-top:0" for="app-1" >
+                          <span class="reserveLevel"> 5 May 2000</span>
+                        </label> -->
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-3" name="acceptedRecruit" type="radio" value="March 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-3">
+                          March 2019
+                        </label>
+                      </div>
+                       <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-4" name="acceptedRecruit" type="radio" value="April 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-4">
+                          April 2019
+                        </label>
+                      </div>
+                                             <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-5" name="acceptedRecruit" type="radio" value="May 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-5">
+                          May 2019
+                        </label>
+                      </div>
+                                             <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-6" name="acceptedRecruit" type="radio" value="June 2019">
+                        <label class="govuk-label govuk-radios__label" for="app-6">
+                          June 2019
+                        </label>
+                      </div>
+                  </fieldset>
+                </div>
+
+                <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+     I want a later start date
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can secure funding no more than 6 months in advance of the apprenticeship training start date. If you want to secure funding for a later date, come back later.
+  </div>
+</details>
+
+
+      <button class="govuk-button">Continue</button>
+      </form>
+</div>
+</main>
+</div>
+  </div>
+{% endblock %}

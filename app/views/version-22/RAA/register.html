@@ -1,0 +1,241 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+
+<script>
+function whereNow() {
+        localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
+        window.location.href='proSearch';
+    }
+
+</script>
+
+
+<!-- 
+<script>
+$( document ).ready(function() {
+    var appCount=0
+var proCount=0
+ $(".shortlistButton").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+    //        Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove from saved list");
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save this apprenticeship");
+            appCount--;
+      //      Cookies.set("appCount", appCount);
+            console.log(appCount);
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+  });
+</script>
+ -->
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+    $(coInvestPayer).addClass("rj-dont-display")
+   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
+   // document.getElementById("providerName").textContent = "Provider:" ;
+   // $(commitmentStatus).addClass("rj-dont-display");
+   //  $(addDate).addClass("rj-dont-display")
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+       //  $(addDate).addClass("rj-dont-display")
+    }
+else { };
+
+//if (fundingStatus=='transferFunding') {
+  // $(eligibilityTransfer).removeClass("rj-dont-display")
+    //}
+//else { };
+  }
+changeStuff();
+});
+</script-->
+
+<style>
+.data-list dd, .data-list dt  {margin-bottom:0;}
+</style>
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- end of conditional statement -->
+ 
+<div style="clear:both"></div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="">
+            <h1 class="govuk-heading-xl" style="">Create an account</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+       
+            <h1 class="govuk-heading-l" style="">Your details </h1>
+
+      <form method="get" action="confirm">
+      
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="first-name">First name</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="first-name" type="text" value=" {{ data['first-name'] }} " />
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="last-name">First name</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name" type="text" value=" {{ data['last-name'] }} " />
+        </div>
+        <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+  <label class="govuk-label govuk-!-width-two-thirds bold-label" for="last-name">What is your date of birth</label>
+<!--     <span id="dob-hint" class="govuk-hint">
+      For example, 31 3 1980
+    </span> -->
+    <div class="govuk-date-input" id="dob">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="number" autocomplete="bday-day" pattern="[0-9]*">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="number" autocomplete="bday-month" pattern="[0-9]*">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="number" autocomplete="bday-year" pattern="[0-9]*">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="address-lookup">Enter your postcode or start typing address</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-lookup" name="address-lookup" type="text" value=" {{ data['address-lookup'] }} " />
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="address-enter">Address</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-enter" name="address-enter" type="text" value=" {{ data['address-enter'] }} " />
+        </div>
+        <div class="govuk-form-group">
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-enter-1" name="address-enter-1" type="text" value=" {{ data['address-enter-1'] }} " />
+        </div>
+        <div class="govuk-form-group">
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-enter-2" name="address-enter-2" type="text" value=" {{ data['address-enter-2'] }} " />
+        </div>
+        <div class="govuk-form-group">
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-enter-3" name="address-enter-3" type="text" value=" {{ data['address-enter-3'] }} " />
+        </div>
+         <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="address-lookup">Postcode</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="postcode-lookup" name="postcode-lookup" type="text" value=" {{ data['postcode-lookup'] }} " />
+        </div>
+        <div class="govuk-form-group" id="email">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="email">Email</label>
+                <span id="dob-hint" class="govuk-hint">
+                    You'll need this to sign in to your account. The email address you choose will be seen by employers.
+                </span>
+            <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="email" value=" {{ data['email'] }} " />
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="phone">Enter mobile phone number</label>
+                <span id="dob-hint" class="govuk-hint">
+                    If you don't have a mobile enter a landline number.
+                </span>
+            <input class="govuk-input govuk-!-width-two-thirds" id="phone" name="phone" type="text" value=" {{ data['phone'] }} " />
+        </div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+   <h1 class="govuk-heading-l" style="">Sign in details </h1>
+<div class="govuk-form-group">
+ <label class="govuk-label govuk-!-width-two-thirds bold-label" for="email">Email address</label>
+ <p><a href="#email">Edit your email</a></p>
+</div>
+
+        <div class="govuk-form-group" id="email">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="password">Create password</label>
+                <span id="dob-hint" class="govuk-hint">
+                   Requires upper and lowercase letters, a number and at least 8 characters
+                </span>
+            <input class="govuk-input govuk-!-width-two-thirds" id="password" name="password" type="password" value=" {{ data['password'] }} " />
+              <span id="dob-hint" class="govuk-hint">
+                   Password strength:
+                </span>
+        </div>
+
+        <div class="govuk-form-group" id="email">
+            <label class="govuk-label govuk-!-width-two-thirds bold-label" for="confirm-password">Confirm password</label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="confirm-password" name="confirm-password" type="confirm-password" value=" {{ data['confirm-password'] }} " />
+        </div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      
+    <div class="govuk-checkboxes" style="">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="approved">
+        <label class="govuk-label govuk-checkboxes__label" for="approved" style="">
+          I'd like to recieve the latest careers news and updates
+        </label>
+      </div>
+    </div>
+
+    <div class="govuk-checkboxes" style="margin-bottom:25px">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="approved">
+        <label class="govuk-label govuk-checkboxes__label" for="approved" style="">
+          I accept the <a href="">terms and conditions</a>
+        </label>
+      </div>
+    </div>
+  
+
+   
+
+
+
+
+<button type="submit" class="govuk-button" style="margin-bottom:15px">Create account</button>
+
+</div>
+</div>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

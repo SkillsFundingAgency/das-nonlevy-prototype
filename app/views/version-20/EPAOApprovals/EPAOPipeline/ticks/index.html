@@ -1,0 +1,170 @@
+{% extends "layoutEPAO.html" %}
+{% block beforeContent %}
+{% include "includes/version19/epaoNav.html" %}
+{% include "includes/version19/financeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({ href: "javascript:history.back()" }) }}
+{% endblock %}
+{% block content %}
+<style>
+.pad80 {
+    padding-right: 80px;
+}
+</style>
+<script src="/public/javascripts/sorttable.js"></script>
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script> 
+//shouldn't really do this but it forces the table to sort itsel by name when it first loads
+$( document ).ready(function() {
+    var myTH = document.getElementsByTagName("th")[0];
+    sorttable.innerSortFunction.apply(myTH, []);
+                                });
+</script>
+
+<script>
+  function whereNow() {
+     window.location.href='ticks/gateway';
+    }
+ </script>
+
+<!--div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../../../accounts">Your Accounts</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../../{{employer.id}}">{{ employer.name }}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="../finance">Finance</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Transactions</li>
+    </ol>
+</div-->
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h1 class="govuk-heading-xl">
+                    Pipeline
+                </h1>
+
+                <table class="govuk-table sortable ">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <!--  <th class="govuk-table__header sorttable_nosort" style="" scope="col"></th> -->
+                                    <th class="govuk-table__header" scope="col">Name</th>
+                                    <th class="govuk-table__header" scope="col">ULN</th>
+                                    <th class="govuk-table__header" scope="col" style="width:100px">Company</th>
+                                    <th class="govuk-table__header" scope="col" style="width:200px">Standard</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Training end date</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Price</th>
+                                     <th class="govuk-table__header" scope="col" style="">Status</th>
+                                      <th class="govuk-table__header" scope="col" style="">Alerts</th>
+                                    <!--          <th class="govuk-table__header " scope="col">Status</th> -->
+                                   
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                                       <tr class="govuk-table__row">
+                       <!--                                               <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td> -->
+                                    <td class="govuk-table__cell" scope="row">Alex Swordy</td>
+                                    <td class="govuk-table__cell" scope="row">5389106499</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">08/2021</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                      <td class="govuk-table__cell" scope="row">Gateway</td>
+                                        <td class="govuk-table__cell" scope="row"><a href="ticks/changes">Changes requested</A></td>
+                             <!--        <td class="govuk-table__cell" scope="row"> <a href="EPAOPipeline/gateway">Claim gateway payment</a></td> -->
+                                    <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                    <!--     <td class="govuk-table__cell" scope="row">
+                                  <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+                                                      <tr class="govuk-table__row">
+                      <!--                                                <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td> -->
+                                    <td class="govuk-table__cell" scope="row">Andrew Jenkins</td>
+                                    <td class="govuk-table__cell" scope="row">2490550125</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">01/2021</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                         <td class="govuk-table__cell" scope="row">Training</td>
+                                        <td class="govuk-table__cell" scope="row"></td>
+                             <!--        <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td> -->
+                                    <!--                      <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                    <!--     <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+
+                                <tr class="govuk-table__row" id="May18">
+                         <!--                         <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td> -->
+                                    <td class="govuk-table__cell" scope="row">David Piggins</td>
+                                    <td class="govuk-table__cell" scope="row">1829856585</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                      <td class="govuk-table__cell" scope="row">Training</td>
+                                        <td class="govuk-table__cell" scope="row"></td>
+                                    <!--                <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                <!--     <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td> -->
+                                </tr>
+         
+                                <tr class="govuk-table__row">
+                       <!--                           <td class="govuk-table__cell" scope="row">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="review" name="review" type="checkbox" value="hamazaki">
+                                        <label class="govuk-label govuk-checkboxes__label" for="review"></label>
+                                    </div>
+                                </td> -->
+                                    <td class="govuk-table__cell" scope="row">Vanessa Lu</td>
+                                    <td class="govuk-table__cell" scope="row">7134322227</td>
+                                    <td class="govuk-table__cell" scope="row">Cyberdyne Inc</td>
+                                    <td class="govuk-table__cell" scope="row">Financial Services Administrator: Level 3
+                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">12/2020</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£735</td>
+                                      <td class="govuk-table__cell" scope="row">Training</td>
+                                        <td class="govuk-table__cell" scope="row"></td>
+                                <!--     <td class="govuk-table__cell" scope="row"> <a href="#">Claim gateway payment</a></td> -->
+                                    <!--               <td class="govuk-table__cell" scope="row">Thing</td> -->
+                                    <!--      <td class="govuk-table__cell" scope="row">
+                                <a href="#">Approve</a> or  <a href="#">Reject</a>
+                            </td> -->
+                                </tr>
+          
+                            </tbody>
+                        </table>
+
+                           <!--   <button class="govuk-button" onClick="whereNow()">Invoice gateway payment</button> -->
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

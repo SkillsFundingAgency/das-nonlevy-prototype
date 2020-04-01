@@ -1,0 +1,66 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version1/provider/providerNav.html" %}
+  {% include "includes/version1/provider/manageNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ href: "javascript:history.back()" }) }} 
+{% endblock %} 
+{% block content %}
+
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Confirm employer
+
+    </h1>
+
+ 
+
+
+    <h2 class="govuk-heading-l" style="margin-top:0">
+      Cyberdyne Inc
+      <span class="govuk-caption-m">Account name: Cyberdyne Inc </span>
+      <span class="govuk-caption-m">Aggrement ID: 4A80X560 </span>
+    </h2>
+
+    <form action="oneOrBulk" method="get" class="form">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+              <label class="govuk-label  bold-label" for="uk-provider-reference-number">
+                      Is this the employer you'd like to create a cohort for?
+
+                </label>   
+
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-true" name="confirmation" type="radio" value="true" checked="true">
+              <label class="govuk-label govuk-radios__label" for="confirmation-true">
+                Yes, use Cyberdyne Inc
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmation" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+                No, choose a different employer
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button">Save and continue</button>
+
+    </form>
+  </div>
+</div>
+</main>
+</div>
+
+{% endblock %}

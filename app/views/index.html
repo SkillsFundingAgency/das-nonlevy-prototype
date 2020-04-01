@@ -5,11 +5,191 @@
 {% endblock %}
 {% block content %}
 
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+<style>
+
+</style>
+
+<div class="">
+
+</div>
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
-            Apprenticeships Non Levy </h1>
+            Apprenticeships Non Levy &amp; EPAO &amp; FAA &amp; RAA </h1>
         <h2 class="govuk-heading-m">Linkies</h2>
+
+
+     <h2 class="govuk-heading-s">V24 Single journey</h2>
+        <!--   <p>Logos version</p> -->
+           <p style="margin-top:25px"><a href="/version-23/RAA/become/guide/showall">Become an apprentice - step by step</a></p>
+
+
+           <p>---</p>
+                  <p style="margin-top:25px"><a href="/version-23/recruit">Recruit</a></p>
+        
+   
+           <hr style="margin:25px 0 25px 0">
+
+     <h2 class="govuk-heading-s">V23 Become an apprentice</h2>
+        <!--   <p>Logos version</p> -->
+           <p style="margin-top:25px"><a href="/version-23/RAA/become/guide/showall">Become an apprentice - step by step</a></p>
+                  <p style="margin-top:25px"><a href="/version-23/recruit">Recruit</a></p>
+         <p style="margin-top:25px"><a href="/version-23/RAA/become">Become an apprentice - linear</a></p>
+   
+           <hr style="margin:25px 0 25px 0">
+
+         <h2 class="govuk-heading-s">V22 FAA/RAA Version</h2>
+          <p>Logos version</p>
+         <p style="margin-top:25px"><a href="/version-22/RAA">FAA home</a></p>
+
+          <p style="margin-top:25px"><a href="/version-22/RAA/reg2">Search v2 - all in one</a></p>
+          <p style="margin-top:25px"><a href="/version-22/RAA/reg3">Search v3 - split up</a></p>
+              <p style="margin-top:25px"><a href="/version-22/RAA/reg4">Search v4 - employer profile has jobs</a></p>
+                 <p style="margin-top:25px"><a href="/version-22/RAA/employerListv2">Search 4b - Employer profile v2</a></p>
+                 <p style="margin-top:25px"><a href="/version-22/RAA/reg5">Search v5 - browse underneath</a></p>
+                  <p style="margin-top:25px"><a href="/version-22/RAA/reg6">Search v6 - extra drop downs</a></p>
+                       <p style="margin-top:25px"><a href="/version-22/RAA/reg7">Search v7 - accordions</a></p>
+                        <p style="margin-top:25px"><a href="/version-22/RAA/reg8">Search v8 - see all/filter down</a></p>
+          <p style="margin-top:25px"><a href="/version-22/RAA/appForm">App form with bot</a></p>
+          <p style="margin-top:25px"><a href="/version-22/RAA//cvbot/operator?">Page for pretending your the bot</a></p>
+           <hr style="margin:25px 0 25px 0">
+
+
+          <h2 class="govuk-heading-s">V21 FAA/RAA Version</h2>
+          <p>Logos version</p>
+         <p style="margin-top:25px"><a href="/version-21/RAA">RAA home</a></p>
+           <hr style="margin:25px 0 25px 0">
+
+  <h2 class="govuk-heading-s">V20 FAA/RAA Version</h2>
+        <p style="margin-top:25px"><a href="/version-20/home">Version 20 Employer Home</a></p>
+         <p style="margin-top:25px"><a href="/version-20/RAA">RAA home</a></p>
+  
+        
+           <hr style="margin:25px 0 25px 0">
+
+
+
+
+
+ <p><a href="endtoend">End to End EPAO</a></p>
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      EPAO versions
+    </span>
+  </summary>
+
+
+        <p style="margin-top:25px"><a href="/version-19/home">Version 19 Home</a></p>
+          <p><a href="/version-19/provider">Version 19 Provider</a><span class="govuk-hint">Has a hybrid journey between proposed and exisitng</span></p>
+           <p><a href="/version-19/provider/manage">Version 19 Provider Manage</a><span class="govuk-hint">Manage existing apprentices, including seeing EPAO rejected</span></p>
+           <p><a href="/version-19/apprentices/reviewApprove/davidJenkins">Version 19 Employer review and approve one apprentice</a></p>
+       
+        <p><a href="/version-19/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-19/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-19/EPAO/epaoOnlyCost">Add EPAO and cost - one page</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version</span></p>
+               <p><a href="/version-19/EPAO/fullCommit">Add EPAO and cost - one page but with current commitment stuff</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version. Also has the full commitment journey so is longer and more hassle</span></p>
+               <p><a href="/version-19/EPAOApprovals">EPAO Approvals</a></p>
+                 <p><a href="/version-19/EPAOApprovals/ticks">EPAO Approvals with ticks</a></p>
+                <p><a href="/version-19/EPAOApprovals/EPAOPipeline">EPAO Pipeline</a></p>
+                <p><a href="/version-19/EPAOApprovals/EPAOPipeline/ticks">EPAO Pipeline with ticks</a></p>
+               <p><a href="/version-19/EPAOReserve">Reserve funding</a></p>        
+           <hr style="margin:25px 0 25px 0">
+
+
+         <h2 class="govuk-heading-s">V18 EPAO Version</h2>
+        <p><a href="/version-18/home">Version 18 Home</a></p>
+          <p><a href="/version-18/provider">Version 18 Provider</a></p>
+       
+        <p><a href="/version-18/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-18/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-18/EPAO/epaoOnlyCost">Add EPAO and cost - one page</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version</span></p>
+               <p><a href="/version-18/EPAO/fullCommit">Add EPAO and cost - one page but with current commitment stuff</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version. Also has the full commitment journey so is longer and more hassle</span></p>
+               <p><a href="/version-18/EPAOApprovals">EPAO Approvals</a></p>
+                 <p><a href="/version-18/EPAOApprovals/ticks">EPAO Approvals with ticks</a></p>
+                <p><a href="/version-18/EPAOApprovals/EPAOPipeline">EPAO Pipeline</a></p>
+                <p><a href="/version-18/EPAOApprovals/EPAOPipeline/ticks">EPAO Pipeline with ticks</a></p>
+               <p><a href="/version-18/EPAOReserve">Reserve funding</a></p>        
+           <hr style="margin:25px 0 25px 0">
+
+                 <h2 class="govuk-heading-s">V17 EPAO Version</h2>
+        <p><a href="/version-17/home">Version 17 Home</a></p>
+          <p><a href="/version-17/provider">Version 17 Provider</a></p>
+       
+        <p><a href="/version-17/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-17/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-17/EPAO/epaoOnlyCost">Add EPAO and cost - one page</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version</span></p>
+               <p><a href="/version-17/EPAO/fullCommit">Add EPAO and cost - one page but with current commitment stuff</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version. Also has the full commitment journey so is longer and more hassle</span></p>
+               <p><a href="/version-17/EPAOApprovals">EPAO Approvals</a></p>
+                 <p><a href="/version-17/EPAOApprovals/ticks">EPAO Approvals with ticks</a></p>
+                <p><a href="/version-17/EPAOApprovals/EPAOPipeline">EPAO Pipeline</a></p>
+                <p><a href="/version-17/EPAOApprovals/EPAOPipeline/ticks">EPAO Pipeline with ticks</a></p>
+               <p><a href="/version-17/EPAOReserve">Reserve funding</a></p>        
+           <hr style="margin:25px 0 25px 0">
+
+           <h2 class="govuk-heading-s">V16 EPAO Version</h2>
+        <p><a href="/version-16/home">Version 16 Home</a></p>
+       
+        <p><a href="/version-16/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-16/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-16/EPAO/epaoOnlyCost">Add EPAO and cost - one page</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version</span></p>
+               <p><a href="/version-16/EPAO/fullCommit">Add EPAO and cost - one page but with current commitment stuff</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version. Also has the full commitment journey so is longer and more hassle</span></p>
+               <p><a href="/version-16/EPAOApprovals">EPAO Approvals</a></p>
+                 <p><a href="/version-16/EPAOApprovals/ticks">EPAO Approvals with ticks</a></p>
+                <p><a href="/version-16/EPAOApprovals/EPAOPipeline">EPAO Pipeline</a></p>
+                <p><a href="/version-16/EPAOApprovals/EPAOPipeline/ticks">EPAO Pipeline with ticks</a></p>
+               <p><a href="/version-16/EPAOReserve">Reserve funding</a></p>        
+           <hr style="margin:25px 0 25px 0">
+
+     <h2 class="govuk-heading-s">V15 EPAO Version</h2>
+        <p><a href="/version-15/home">Version 15 Home</a></p>
+          <p><a href="/version-15/find">FAT</a></p>
+        <p><a href="/version-15/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-15/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-15/EPAO/epaoOnlyCost">Add EPAO and cost - one page</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version</span></p>
+               <p><a href="/version-15/EPAO/fullCommit">Add EPAO and cost - one page but with current commitment stuff</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version. Also has the full commitment journey so is longer and more hassle</span></p>
+               <p><a href="/version-15/EPAOApprovals">EPAO Approvals</a></p>
+                <p><a href="/version-15/EPAOApprovals/ticks">EPAO Approvals with ticks</a></p>
+
+               <p><a href="/version-15/EPAOReserve">Reserve funding</a></p>        
+           <hr style="margin:25px 0 25px 0">
+
+
+    <h2 class="govuk-heading-s">V14 EPAO Version</h2>
+        <p><a href="/version-14/home">Version 14 Home</a></p>
+          <p><a href="/version-14/find">FAT</a></p>
+        <p><a href="/version-14/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-14/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-14/EPAO/epaoOnlyCost">Add EPAO and cost - one page</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version</span></p>
+               <p><a href="/version-14/EPAO/fullCommit">Add EPAO and cost - one page but with current commitment stuff</a><span class="govuk-hint">Everything on one page using JS - will need a non JS version. Also has the full commitment journey so is longer and more hassle</span></p>
+               <p><a href="/version-14/EPAOApprovals">EPAO Approvals</a></p>
+               <p><a href="/version-14/EPAOReserve">Reserve funding</a></p>
+     <!--              <p><a href="/version-14/EPAO/epaoChoice">Choose whether to add an EPAO at the start</a></p> -->
+<!--          <p><a href="/version-14/find">EPAO Find Apprenticeship Training</a></p> -->
+           <p><a href="https://das-epao-fireitup.herokuapp.com">EPAO Fire It Up </a></p>
+                 <p><a href="/version-14/apprentices/manage">Manage apprentices </a></p>
+
+
+        
+
+           <hr style="margin:25px 0 25px 0">
+                  <h2 class="govuk-heading-s">V13 EPAO Version</h2>
+        <p><a href="/version-13/home">Version 13 Home</a></p>
+        <p><a href="/version-13/EPAO/epaoandcost">Add EPAO and Cost</a></p>
+          <p><a href="/version-13/EPAO/epaoandcostv2">Add EPAO and Cost Version 2 </a><span class="govuk-hint">Has costs on same screen as course and EPAO selection</span></p>
+         <p><a href="/version-13/EPAO/epaoOnlyCost">Add cost only in commitment</a></p>
+                  <p><a href="/version-13/EPAO/epaoChoice">Choose whether to add an EPAO at the start</a></p>
+         <p><a href="/version-13/find">EPAO Find Apprenticeship Training</a></p>
+           <p><a href="https://das-epao-fireitup.herokuapp.com">EPAO Fire It Up </a></p>
+                 <p><a href="/version-13/apprentices/manage">Manage apprentices </a></p>
+
+
+        
           <h2 class="govuk-heading-s">V11 Testing Version</h2>
         <p><a href="/version-11/home">Version 11 Home</a></p>
         <p><a href="/version-11/newregister/employerStarted/v3"> >>> Version 11 August Employer started Register</a></p>
@@ -76,5 +256,9 @@
         <p><a href="/version-5/recruit">Version 5 Recruit</a></p>
     </div>
 </div>
+</details>
+</div>
+</div>
+
 
 {% endblock %}

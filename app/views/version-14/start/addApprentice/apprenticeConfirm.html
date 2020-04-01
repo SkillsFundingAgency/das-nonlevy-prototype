@@ -1,0 +1,215 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back",  href: "javascript:history.back()" }) }} 
+{% endblock %} 
+{% block content %}
+
+<script>
+
+// This checks what stuff has been filled in and updates it accordingly
+var trainingProviderName = "{{ data['trainingProviderName'] }}"
+var theFirstFirstName = "{{ data['FirstFirstName'] }}"
+var dobyear = "{{ data['dob-year'] }}"
+var startApprenticesApprenticeshipName = "{{ data['startApprenticesApprenticeshipName'] }}"
+var startdatemonth = "{{ data['start-date-month'] }}"
+
+console.log("arse", trainingProviderName.length, theFirstFirstName.length, dobyear.length, startApprenticesApprenticeshipName.length, startdatemonth.length  )
+
+
+$(document).ready(function() {
+  var changeStuff = function() {
+
+// For the Apprenticeship summary section
+  if ((trainingProviderName.length >= 1)  && (theFirstFirstName.length >= 1) && (dobyear.length >= 1)  && (startApprenticesApprenticeshipName.length >= 1) && (startdatemonth.length >= 1)   ) {
+   // console.log("arse")
+    // $(firstTimeRegMessage).removeClass("rj-dont-display")
+    // localStorage.setItem("registration.firstTimeReg", JSON.stringify("no"));
+    $(doSomethingButton).addClass("rj-dont-display")
+    $(submitButton).removeClass("rj-dont-display")
+    // $(cancelButton).removeClass("recruitSideAddThing");
+    } else {  };
+  
+  if ((startdatemonth.length >= 1)  ) {
+    $(trainingEndDate).removeClass("rj-dont-display")
+    } else {  };
+
+  if ((startApprenticesApprenticeshipName.length >= 1)  ) {
+    $(trainingProviderPayment).removeClass("rj-dont-display")
+    } else {  };
+
+  }
+changeStuff();
+});
+</script>
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+        <form method="get" action="finish">
+            <h1 class="govuk-heading-xl">Review apprenticeship</h1>
+                  <dl class="app-check-your-answers app-check-your-answers--short">
+               <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
+           
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ;">
+           
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#" style="font-weight:400; ;">
+            
+            </a>
+          </dd>
+        </div>
+
+         <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Organisation employing apprentice
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           Assurance Aerospace Ltd
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="chooseEntity" style="font-weight:400; ">
+              Change
+            </a>
+          </dd>
+        </div>
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Training provider doing the thing
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+          {{ data['trainingProviderName'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="chooseEntity" style="font-weight:400; ">
+              Change
+            </a>
+          </dd>
+        </div>
+
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Name
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           {{ data['FirstFirstName'] }} {{ data['FirstLastName'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="chooseEntity" style="font-weight:400; ">
+              Change
+            </a>
+          </dd>
+        </div>
+
+          <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Date of birth
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           {{ data['dob-day'] }} {{ data['dob-month'] }} {{ data['dob-year'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="chooseEntity" style="font-weight:400; ">
+              Change
+            </a>
+          </dd>
+        </div>
+
+
+
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Apprenticeship training course
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           {{ data['startApprenticesApprenticeshipName'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="chooseEntity" style="font-weight:400; ">
+              Change
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+           Planned training start date
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           {{ data['start-date-month'] }} {{ data['start-date-year'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="chooseApp" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+            Planned training end date
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+          {{ data['start-date-month'] }} <span id="trainingEndDate" class="rj-dont-display">2020</span>
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="numberOfApps" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div>
+
+         <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+             Amount you have to pay to the training provider <br />(excluding VAT)
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           <span id="trainingProviderPayment" class="rj-dont-display">£450</span>
+          </dd>
+
+          <dd class="app-check-your-answers__change">
+            <a href="numberOfApps" style="font-weight:400; ">
+              <span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </fieldset>
+</div>
+
+<!--             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="reference">
+                    Reference (optional)
+                </label>
+                <span id="reference-hint" class="govuk-hint">
+                    Add a reference, such as employee number or location - this won't be seen by the training provider
+                </span>
+                <input class="govuk-input" id="reference" name="reference" type="text" aria-describedby="reference-hint" />
+            </div> -->
+
+         <!--    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" /> -->
+
+<button type="submit" id="doSomethingButton" class="govuk-button">Do something </button>
+            <button type="submit" id="submitButton" class="govuk-button rj-dont-display">Add apprenticeship to service </button>
+              <a class="govuk-button clear-button rj-dont-display" id="cancelButton" href="../tasklist" >Cancel</a>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+
+
+
+{% endblock %}

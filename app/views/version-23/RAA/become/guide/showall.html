@@ -1,0 +1,286 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+
+  <main class="govuk-main-wrapper govuk-main-wrapper--l">
+<div class="govuk-width-container">
+<!--     <main class="govuk-main-wrapper govuk-main-wrapper--l"> -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds
+column-minimum">
+      <h1 class="govuk-heading-xl">
+        Become an apprentice
+      </h1>
+      <p class="">Use this step by step list to help you become an apprentice:</p>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+           <span class="app-task-list__section-number">1. </span> What is an apprenticeship
+          </h2>
+
+           <p class="desktopLeft35">An apprenticeship combines practical training in a job with study.</p>
+                <!--      <div class="dummyvideo"> <img class="play-btn-guide" src="https://www.getingofar.gov.uk/img/icons/xplay-btn.png.pagespeed.ic.WsDW9VyeOZ.webp" alt="Play"></div> -->
+          <ul class="app-task-list__items">
+<!--              <li class="app-task-list__item">
+              <a class="task-name mobile16" href="" aria-describedby="eligibility-completed" style="">
+                Who can become an apprentice?
+              </a>
+            </li> -->
+
+            <li class="app-task-list__item">
+              <a class="task-name" href="whatIsAnApprentice" aria-describedby="eligibility-completed" style="">
+                What is an apprenticeship
+              </a>
+<!--                <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityLevy">Levy funded</strong>
+                 <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed arj-dont-display" id="eligibilityCoinvestment">Co-investment funded</strong>
+                  <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed rj-dont-display" id="eligibilityTransfer">Transfer funded</strong> -->
+            </li>
+                        <li class="app-task-list__item">
+              <a class="task-name" href="showMeTheMoney" aria-describedby="eligibility-completed" style="">
+                How much will I be paid
+              </a>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
+                What qualifications do I need
+              </a>
+            </li>
+
+  
+<!--              <li class="app-task-list__item">
+              <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
+                How do I pick an apprenticeship?
+              </a>
+            </li> -->
+            <li class="app-task-list__item">
+              <a class="task-name" href="" aria-describedby="eligibility-completed" style="">
+                What happens during my apprenticeship
+              </a>
+            </li>
+           <li class="app-task-list__item">
+              <a class="task-name" href="whatQualificationsWillIGet" aria-describedby="eligibility-completed" style="">
+                What qualifications will I get
+              </a>
+            </li>
+
+        
+<!-- 
+            <li class="app-task-list__item rj-dont-display" id="forecastMyLevy">
+              <a class="task-name" href="" aria-describedby="eligibility-completed">
+                Forecast my levy funding
+              </a>
+              <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed" rj-dont-display" id="forcastMyLevyComplete">Completed</strong>
+            </li>
+        <li class="app-task-list__item rj-dont-display" id="claimMyFunding">
+              <a class="task-name" href=" " aria-describedby="eligibility-completed">
+               Get funding
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+            </li> -->
+          </ul>
+
+
+        <li>
+          <h2 class="app-task-list__section">
+           <span class="app-task-list__section-number">2. </span> What career is right for me
+          </h2>
+           <p class="desktopLeft35">Find out about careers in different sectors</p>
+   <!--          <div class="dummyvideo"> <img class="play-btn-guide" src="https://www.getingofar.gov.uk/img/icons/xplay-btn.png.pagespeed.ic.WsDW9VyeOZ.webp" alt="Play"></div> -->
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="" aria-describedby="eligibility-completed" style="font-size:19px">
+Explore sectors and careers
+              </a>
+            </li>
+
+  <!--           <li class="app-task-list__item">
+              <a class="task-name" href="checkFundingv1" aria-describedby="eligibility-completed" style="font-size:19px">
+                Some more things about careers
+              </a>
+            </li> -->
+
+ <!--            <li class="app-task-list__item rj-dont-display" id="forecastMyLevy">
+              <a class="task-name" href="" aria-describedby="eligibility-completed">
+                Forecast my levy funding
+              </a>
+              <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed" rj-dont-display" id="forcastMyLevyComplete">Completed</strong>
+            </li>
+        <li class="app-task-list__item rj-dont-display" id="claimMyFunding">
+              <a class="task-name" href=" " aria-describedby="eligibility-completed">
+               Get funding
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+            </li> -->
+          </ul>
+
+          <li>
+              <h2 class="app-task-list__section">
+                      <span class="app-task-list__section-number">3. </span>  Find an apprenticeship
+                    </h2>
+              <p class="desktopLeft35">Search and apply for apprenticeship job listings </p>
+              <ul class="app-task-list__items">
+                  <li class="app-task-list__item">
+                      <a class="task-name" href="../../reg8/apprenticeshipsearch"  aria-describedby="company-information-completed" style="font-size:19px">
+                          Search and apply for an apprenticeship job
+                        </a>
+                  </li>
+                  <li class="app-task-list__item">
+                      <a class="task-name" href=""  aria-describedby="company-information-completed" style="font-size:19px">
+                          Login or create an account to save apprenticeships
+                        </a>
+                  </li>
+<!--                   <li class="app-task-list__item">
+                      <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
+                          Login or create an account to view applications
+                        </a>
+                  </li> -->  
+
+
+              </ul>
+          </li>
+
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span>  Applying for apprenticeships
+          </h2>
+          <p class="desktopLeft35">Guidance on writing an application</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href=""  aria-describedby="company-information-completed" style="font-size:19px">
+                What employers are looking for
+              </a> 
+              <!--strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong-->
+            </li>
+            <li class="app-task-list__item">
+              <a class="task-name" href=""  aria-describedby="company-information-completed" style="font-size:19px">
+                How to write a great application
+              </a> 
+              <!--strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong-->
+            </li>
+            <li class="app-task-list__item">
+                      <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
+                          Login or create an account to view your applications
+                        </a>
+                  </li>
+            <!--li class="app-task-list__item">
+              <a class="task-name" href="" style="font-size:19px">
+                View your saved apprenticeships
+              </a>
+             <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed"" id="savedApps" style="min-width:60px; text-align: center; " id="contact-details-completed"><span>0</span></strong>
+            </li-->
+          </ul>
+        </li>
+        <li>
+
+          <li class="app-task-list__item rj-dont-display" id="forecastMyLevy">
+              <a class="task-name" href="" aria-describedby="eligibility-completed">
+                          Forecast my levy funding
+                        </a>
+              <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed" rj-dont-display" id="forcastMyLevyComplete">Completed</strong>
+          </li>
+          <li class="app-task-list__item rj-dont-display" id="claimMyFunding">
+              <a class="task-name" href=" " aria-describedby="eligibility-completed">
+                         Get funding
+                        </a>
+              <strong class="govuk-tag app-task-list__task-completed rj-dont-display" id="claimMyFundingComplete">Completed</strong>
+          </li>
+          </ul>
+
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="task-list-section-number">5. </span> On your apprenticeship
+          </h2>
+         <p class="desktopLeft35">If you've started an apprenticeship you can view your apprenticeship details</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href=""   aria-describedby="contact-details-completed" style="font-size:19px">
+               Login to view your apprenticeship
+              </a>
+            </li>
+     <!--        <li class="app-task-list__item">
+              <a class="task-name" href=""   aria-describedby="contact-details-completed" style="font-size:19px">
+                Why do I need to commit to my apprenticeship?
+              </a>
+            </li> -->
+            <!--li class="app-task-list__item">
+              <a class="task-name" href="" style="font-size:19px">
+                View your saved training providers
+              </a>
+             <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="contact-details-completed"><span>0</span></strong>
+ 
+            </li-->
+          </ul>
+       </li>
+<!-- 
+         <li>
+          <h2 class="app-task-list__section">
+            <span class="task-list-section-number">6. </span> Your apprenticeship service account
+          </h2>
+         <p style="padding-left:35px">You need an apprenticeship service account to recruit and manage payments for your apprentices.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="">
+                Register for an apprenticeship service account
+              </a>
+             
+            </li> -->
+<!--             <li class="app-task-list__item">
+                          <a class="task-name" href="login" aria-describedby="contact-details-completed">
+                Sign in to your apprenticeship service account
+              </a>
+          
+            </li>
+          </ul>
+       </li> -->
+<!-- 
+       <li>
+          <h2 class="app-task-list__section">
+            <span class="task-list-section-number">7. </span> Recruit apprentices
+          </h2>
+          <p style="padding-left:35px">You can advertise your apprenticeships and view current applications you have been sent.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="">
+                Advertise an apprenticeship
+              </a>
+            </li>
+
+          </ul>
+       </li> -->
+
+<!--        <li>
+          <h2 class="app-task-list__section">
+            <span class="task-list-section-number">8. </span> Review and approve apprentices
+          </h2>
+          <p style="padding-left:35px">Register or sign in to your apprenticeship service account to manage your apprentices.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="#">
+                Information about how this works
+              </a>
+            </li>
+
+          </ul>
+       </li>  -->
+
+
+      </ol>
+    </div>
+  </div>
+<!-- </main> -->
+{% endblock %}
+
+

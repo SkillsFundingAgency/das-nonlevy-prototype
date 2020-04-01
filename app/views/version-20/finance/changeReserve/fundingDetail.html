@@ -1,0 +1,69 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version1/mainNav.html" %}   {% include "includes/version1/financeNav.html" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ 
+{{ govukBackLink({ text: "Back", href: "../changeReserve" }) }} 
+{% endblock %} 
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Reserved funds</h1>
+        <table class="govuk-table details-list">
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row">Status</th>
+                    <td class="govuk-table__cell" scope="row" style="font-weight:700">Not used</td>
+                    <td class="govuk-table__cell" scope="row"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header" scope="row">Apprenticeship</td>
+                        <td class="govuk-table__cell" style="font-weight:700" scope="row">Aeronautical engineer, Level 2</td>
+                        <td class="govuk-table__cell" scope="row"><a href="">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row">Apprenticeship start date</th>
+                    <td class="govuk-table__cell" scope="row" style="font-weight:700">Between 1 July and 30 Sept 2019
+                           <td class="govuk-table__cell " scope="row"><a href="">Change</a></td>
+                    </td>
+                </tr>
+                 <tr class="govuk-table__row">
+                    <td class="govuk-table__header" scope="row">Total cost to you</td>
+                        <td class="govuk-table__cell" scope="row" style="font-weight:700">£900</td>
+                           <td class="govuk-table__cell" scope="row"></td>
+                </tr>
+
+ 
+            </tbody>
+        </table>
+
+
+       
+          <a class="govuk-button" style="margin-bottom:0" <a href="howRecruiting">Use these funds</a>
+              <!--   <a class="govuk-button delete-button" style="" <a href="#">Delete reserved funds</a> -->
+        <!-- <table class="govuk-table details-list">
+           <caption class="govuk-heading-m" style="text-align:left; margin-top:45px">End Point Assessor</caption>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header" scope="row">End point Assessor</td>
+                        <td class="govuk-table__cell" scope="row"></td>
+                </tr>
+            </tbody>
+        </table> -->
+<!--         <div>
+            <textarea class="govuk-textarea" rows="5">The end point assessor has not been declared
+            </textarea>
+        </div> -->
+    </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+{% endblock %}

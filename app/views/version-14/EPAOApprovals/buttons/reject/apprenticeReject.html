@@ -1,0 +1,237 @@
+{% extends "layoutEPAO.html" %}
+ {% block beforeContent %} 
+ {% include "includes/version14/epaoNav.html" %}
+  {% include "includes/version14/financeNav.html" %}
+   {% from "govuk/components/back-link/macro.njk" import govukBackLink %} 
+   {{ govukBackLink({ href: "javascript:history.back()" }) }}
+    {% endblock %} 
+    {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+
+
+        <form method="get" action="finishReject">
+            <h1 class="govuk-heading-xl">Confirm apprenticeship rejection</h1>
+
+
+                  <dl class="app-check-your-answers app-check-your-answers--short">
+               <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style=" font-weight:400; ;">
+           
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ;">
+           
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ;">
+            
+            </a>
+          </dd>
+        </div>
+
+         <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Organisation
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+          Cyberdyne Inc
+          </dd>
+       <!--    <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change
+            </a>
+          </dd> -->
+        </div>
+
+
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Name
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+          David Piggins
+          </dd>
+    <!--       <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change
+            </a>
+          </dd> -->
+        </div>
+
+          <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+          Unique Learner Number
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           1829856585
+          </dd>
+     <!--      <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change
+            </a>
+          </dd> -->
+        </div>
+
+ <!--        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+           Start of training
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           {{ data['start-month'] }} {{ data['start-year'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div> -->
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+            End of training
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           December 2020
+          </dd>
+  <!--         <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd> -->
+        </div>
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           Apprenticeship 
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           Financial Services Administrator: Level 3
+
+          </dd>
+ <!--          <dd class="app-check-your-answers__change">
+            <a href="../courseComplete" style="font-weight:400; ">
+              Change
+            </a>
+          </dd> -->
+        </div>
+
+<!-- This only shows if the user has come from the enter and EPAO name and cost route  -->
+<!-- This is set in routes.js line 2946! - /// EPAO > Enter costs only  > confirm page  -->
+<!-- 
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="width:45%; font-weight:400; ;">
+           End point assessment organisation 
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+               {{ data['epao-name'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="../chooseEPAO" style="font-weight:400; ">
+              Change
+            </a>
+          </dd>
+        </div> -->
+
+
+<!--                 <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+             Cost of apprenticeship training
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           £{{ data['price'] }}
+          </dd>
+
+          <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div> -->
+         <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+             Cost of endpoint assessment 
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+           £2,735
+          </dd>
+
+   <!--        <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd> -->
+<!--         </div>
+
+         <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+             Total cost
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+            £{{ data['epaoTotalCost'] }}
+          </dd> -->
+
+     <!--      <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              <span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div> -->
+
+<!--         <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question" style="font-weight:400; ">
+             Reference (optional)
+          </dt>
+          <dd class="app-check-your-answers__answer" style="font-weight:700; ">
+            {{ data['reference'] }}
+          </dd>
+
+           <dd class="app-check-your-answers__change">
+            <a href="add-apprentice" style="font-weight:400; ">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div> -->
+
+
+      </dl>
+    </div>
+  </fieldset>
+
+</div>
+  <div class="govuk-inset-text" style="width:66%">
+  This can't be undone by you, the employer will be notified and will have to do the thing.
+</div>
+
+
+
+<!--             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="reference">
+                    Reference (optional)
+                </label>
+                <span id="reference-hint" class="govuk-hint">
+                    Add a reference, such as employee number or location - this won't be seen by the training provider
+                </span>
+                <input class="govuk-input" id="reference" name="reference" type="text" aria-describedby="reference-hint" />
+            </div> -->
+
+         <!--    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" /> -->
+
+            <button type="submit" class="govuk-button">Reject apprentice </button>
+              <a  class="govuk-button clear-button" href="../../epaoApprovalsDetails" >Cancel</a>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+
+
+
+{% endblock %}

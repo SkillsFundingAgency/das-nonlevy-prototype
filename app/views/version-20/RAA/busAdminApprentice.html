@@ -1,0 +1,262 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+
+<script>
+function whereNow() {
+        localStorage.setItem("nonLevy.whichApprenticeship", JSON.stringify("finServ"));
+        window.location.href='proSearch';
+    }
+
+</script>
+
+
+<!-- 
+<script>
+$( document ).ready(function() {
+    var appCount=0
+var proCount=0
+ $(".shortlistButton").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + appCount);
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            appCount = appCount + 1;
+            console.log(appCount);
+    //        Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove from saved list");
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save this apprenticeship");
+            appCount--;
+      //      Cookies.set("appCount", appCount);
+            console.log(appCount);
+           $("#bannerCount span").text(Number(proCount) + Number(appCount));
+        }
+    })
+  });
+</script>
+ -->
+<!--script>
+ var fundingStatus =JSON.parse(localStorage.getItem('nonLevy.fundingSet'));
+console.log(fundingStatus)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (fundingStatus=='yes') {
+    $(coInvestPayer).addClass("rj-dont-display")
+   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
+   // document.getElementById("providerName").textContent = "Provider:" ;
+   // $(commitmentStatus).addClass("rj-dont-display");
+   //  $(addDate).addClass("rj-dont-display")
+    }
+else {};
+
+if (fundingStatus=='nope' || fundingStatus=='wakanai' ) {
+       //  $(addDate).addClass("rj-dont-display")
+    }
+else { };
+
+//if (fundingStatus=='transferFunding') {
+  // $(eligibilityTransfer).removeClass("rj-dont-display")
+    //}
+//else { };
+  }
+changeStuff();
+});
+</script-->
+
+<style>
+.data-list dd, .data-list dt  {margin-bottom:0;}
+</style>
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+{% include "includes/RAAUnloggedIn.html" %}
+{% endif %}
+<!-- end of conditional statement -->
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="">
+            <h1 class="govuk-heading-xl" style="">Business Admin Apprentice <span id="reference-hint" class="govuk-hint" style="font-size:20px; margin-top:5px">
+                    Central Financial Services
+                </span></h1>
+            <!--<h3 class="heading-small">Role</h3>-->
+            <p><a href="searchResults">Return to search results</a></p>
+            <p><a href="">Print this page</a></p>
+            <p>To efficiently undertake basic administration and clerical duties</p>
+            {% if data.FAALoggedIn %}
+            <form action="appForm">
+               
+                     <div class="" style="">
+                    <button type="submit" class="govuk-button" style="margin-bottom:2px">Apply</button>
+                    <!--                     <div><a href="EPA/epaosearch" class="shortlistButton" name="funding" value="Financial services administrator" style="font-size:19px; "><span style="padding-left:5px">Find an end-point assessor</span></a></div> -->
+                    <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 Feb 2020</p>
+                </div>
+            </form>
+            {% else %}
+            <form action="signIn">
+              <div class=" " style="">
+                    <button type="submit" class="govuk-button" style="margin-bottom:15px">Sign in to apply</button>
+                    <p style="margin-top:0; text-align: left; font-size:14px">Closing date:10 Feb 2020</p>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+        <h1 class="govuk-heading-l" style="margin-top:25px">Apprenticeship summary</h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <dl class="data-list">
+
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Weekly wage</h3>
+            <p>£136.50</p>
+                        <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                Wages explained
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            Apprentices are paid fof their normal working hours and training that's part of their apprenticeship (usually one day per week).
+                            <p style="margin-top:15px"><a href="">Minimum Wage Rates</a></p>
+                        </div>
+                    </details>
+                     <h3 class="govuk-heading-s" style="margin-bottom:5px">Working week</h3>
+            <p style="margin-bottom:5px">Monday -Friday shifts TBC.</p>
+            <p>Total hours per week: 35.00</p>
+               <h3 class="govuk-heading-s" style="margin-bottom:5px">Expected duration</h3>
+            <p>12 months</p>
+                <h3 class="govuk-heading-s" style="margin-bottom:5px">Possible start date</h3>
+            <p>11 Feb 2020</p>
+               <h3 class="govuk-heading-s" style="margin-bottom:5px">Date posted</h3>
+            <p>15 Jan 2018</p>
+                <h3 class="govuk-heading-s" style="margin-bottom:5px">Distance</h3>
+            <p>7.5 miles</p>
+                    <h3 class="govuk-heading-s" style="margin-bottom:5px">Apprenticeship level</h3>
+            <p>Intermediate</p>
+                   <h3 class="govuk-heading-s" style="margin-bottom:5px">Reference number</h3>
+            <p>VAC001349590</p>
+                   <h3 class="govuk-heading-s" style="margin-bottom:5px">Positions</h3>
+            <p>1 available</p>
+
+
+        </dl>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-body">To efficiently undertake basic administration and clerical duties which may include the following duties as directed:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Data input, data extraction, photocopying, faxing, filing and typing duties.</li>
+                <li>To deal with internal and external post and emails on a day to day basis.</li>
+                <li>To support the team to maintain accurate, timely and legible records.</li>
+                <li>To answer/deal with queries, both face to face and via the telephone, take messages and pass them on to the relevant member of staff in an appropriate and timely manner. </li>
+                <li>To provide appropriate reception cover as and when required. </li>
+                <li>To meet and greet visitors as required. </li>
+                <li>To maintain filing systems in line with organisations policies and procedures. </li>
+                <li>To be a flexible and supportive member of the team. </li>
+                <li>To maintain strict confidentiality at all times. </li>
+                <li>Attend and take part in team meetings & regular reviews with line manager etc. </li>
+                <li>Throughout the training period the post holder will be expected to complete all educational and training as required. </li>
+            </ul>
+    </div>
+    <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-xl" style="">Requirements and prospects </h1>
+    </div>
+
+
+  <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Desired skills</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Good communication skills.</li>
+            </ul>
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Personal qualities</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Enthusiastic</li>
+                <li>Passionate</li>
+                <li>Ambitious</li>
+                <li>Motivated</li>
+            </ul>
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Desired qualifications</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>GCSE's C or above preferable (or equivalent).</li>
+      
+            </ul>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Future prospects</h3>
+            <p>Possible Permanent position</p>
+    </div>
+
+        <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-xl" style="">About the employer </h1>
+    </div>
+
+  <div class="govuk-grid-column-one-half">
+    <p>Financial advisors and estate agent</p>
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Employer</h3>
+            <p>Central Financial Services</p>
+          
+    
+            <h3 class="govuk-heading-s" style="margin-bottom:3px">Address</h3>
+            <p style="margin-bottom: 3px">281 High St North</p>
+            <p style="margin-bottom: 3px">London</p>
+            <p style="">E12 6SL</p>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+            <p>Map thing here</p>
+    </div>
+
+
+    <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-xl" style="">Training </h1>
+    </div>
+
+  <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Training provider</h3>
+            <p>CARE FIRST TRAINING LIMITED</p>
+            <p>Applications for this apprenticeship are being processed by Care First Training Limited</p>
+            <h3 class="govuk-heading-s" style="margin-bottom:5px">Contact</h3>
+            <p>emily laurenza 01277725974</p>
+            <p>emily@carefirsttraining.co.uk</p>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+                  <ul class="govuk-list govuk-list--bullet">
+                <li>Business Administration Level 2/3 and functional skills in English, Maths and ICT if required.</li>
+            </ul>
+              <h3 class="govuk-heading-s" style="margin-bottom:5px; margin-top:15px">Apprenticeship framework</h3>
+                    <p>Business and Administration</p>
+    </div>
+       <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <h1 class="govuk-heading-xl" style="">Before you apply </h1>
+            <p>Before you apply for an apprenticeship you must first create an account. If you already have an account you'll need to sign in.</p>
+         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+  
+
+
+
+</div>
+
+    {% endblock %}
