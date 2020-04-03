@@ -8,13 +8,13 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Confirm your CV</h1>
          <p>You've chosen the following CV for this application: </p>
-         <p> arse {{ data['file-selected'] }} </p>
+         <p> RJ-latest-CV-March2020.pdf {{ data['file-selected'] }} </p>
         <!--                <span id="waste-hint" class="govuk-hint">
                                      The information you provide will help us personalise your experience and will not used for anything else
                                     </span> -->
         <form action="addACV">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                <h2 class="govuk-fieldset__heading">You can use a saved CV or a new one</h2>
+                <h2 class="govuk-fieldset__heading">Is this the CV you want to use?</h2>
             </legend>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
@@ -22,13 +22,13 @@
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
                             <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
-                                Use a saved CV
+                                Yes, use this CV
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
                             <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
-                                Add a new CV
+                                No, use a different CV
                             </label>
                         </div>
                     </div>
