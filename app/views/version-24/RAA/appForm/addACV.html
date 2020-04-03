@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+{% include "includes/RAALoggedIn.html" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Add a CV</h1>
+        <!--  <p>You </p> -->
+        <!--                <span id="waste-hint" class="govuk-hint">
+                                     The information you provide will help us personalise your experience and will not used for anything else
+                                    </span> -->
+        <form action="uploadACV">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading">You can upload your CV or create one using our CV builder</h2>
+            </legend>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                               Create a CV
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                Upload a CV
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="govuk-button">Continue</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

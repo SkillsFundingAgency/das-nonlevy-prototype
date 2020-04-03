@@ -3357,8 +3357,68 @@ router.get('/*/RAA/become/guide/showMeLevelThrees' , function (req, res) {
         }
 })
 
+/// Login or register
+// http://127.0.0.1:3000/version-24/RAA/become/guide/register
+router.get('/*/RAA/become/guide/register/signorregister' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'employer'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/register/signin`)
+           break;
 
-/////////END OF RAA ROUTES //////////////////////////////
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/register/register`)
+           break;
+
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/RAA/become/guide/showall`)
+            break;
+        }
+})
+
+/// Google or not
+// http://127.0.0.1:3000/version-24/RAA/become/guide/register/register
+router.get('/*/RAA/become/guide/register/googleornot' , function (req, res) {
+  var confirmTraining = req.query.assessment
+       switch (true) {
+          case  (confirmTraining == 'employer'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/register/google`)
+           break;
+
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/register/emailandpass`)
+           break;
+
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/RAA/become/guide/showall`)
+            break;
+        }
+})
+
+
+// Set up an account
+// http://127.0.0.1:3000/version-20/RAA
+router.get('/*/RAA/become/guide/register/registeredLite' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = true;
+  res.redirect(`/${req.version}/RAA/reg8/apprenticeshipsearch`)
+  })
+
+/////////END OF RAA/FAA ROUTES //////////////////////////////
 
 
 /// Add apprentices > add apprentices yourself or send to provider

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+{% include "includes/RAALoggedIn.html" %}
+
+<style>
+    input[type="file"] {
+    display: none !important;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+</style>
+
+<script>
+   //  $('#file-upload').bind('change', function() { var fileName = ''; fileName = $(this).val(); $('#file-selected').html(fileName); })
+   function showname() { var name = document.getElementById('datei'); document.getElementById("file-selected").innerHTML = name.files.item(0).name; };
+</script>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Your CV</h1>
+        <!--  <p>You </p> -->
+        <!--                <span id="waste-hint" class="govuk-hint">
+                                     The information you provide will help us personalise your experience and will not used for anything else
+                                    </span> -->
+        <form action="addACV">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading">You can use a saved CV or a new one</h2>
+            </legend>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Choose a CV to upload
+                    </label>
+                    <span id="file-selected"></span>.  
+                    <input id="file-upload" onchange="showname()" type="file" />
+                </fieldset>
+            </div>
+
+
+<!--                   <label class="custom-file-upload">  <input id="files-upload" style="display:block; margin-bottom:35px" type="file" multiple></label> -->            
+                    <!--     <input class="button" id="search-provider" type="submit" value="Check for errors"> -->
+                    <button class="govuk-button">Upload</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

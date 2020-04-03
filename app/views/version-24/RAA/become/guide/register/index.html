@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                                <h1 class="govuk-heading-xl">Sign in or create an account </h1>
+                             <!--    <p>Do you want to tell us about your yourself so that we show you guidance that’s relevant to you?</p> -->
+                    <!--                <span id="waste-hint" class="govuk-hint">
+                                     The information you provide will help us personalise your experience and will not used for anything else
+                                    </span> -->
+                <form action="register/signorregister" >
+                       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">Do you already have an account with this service?</h2>
+                    </legend>
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                      <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                        Yes, I want to login
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
+                                    <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                        No, I want to register
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

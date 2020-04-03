@@ -135,11 +135,21 @@ Explore sectors and careers
                           Search and apply for an apprenticeship job
                         </a>
                   </li>
+
+                  {% if data.FAALoggedIn %}
                   <li class="app-task-list__item">
-                      <a class="task-name" href=""  aria-describedby="company-information-completed" style="font-size:19px">
+                      <a class="task-name" href="../../myApplications"  aria-describedby="company-information-completed" style="font-size:19px">
+                          View your saved apprenticeships
+                        </a>
+                  </li>
+                  {% else %}
+                  <li class="app-task-list__item">
+                      <a class="task-name" href="register"  aria-describedby="company-information-completed" style="font-size:19px">
                           Login or create an account to save apprenticeships
                         </a>
                   </li>
+                  {% endif %}
+
 <!--                   <li class="app-task-list__item">
                       <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
                           Login or create an account to view applications
@@ -169,17 +179,24 @@ Explore sectors and careers
               </a> 
               <!--strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong-->
             </li>
-            <li class="app-task-list__item">
+     
+
+
+        {% if data.FAALoggedIn %}
+                  <li class="app-task-list__item">
+                      <a class="task-name" href="../../myApplications"  aria-describedby="company-information-completed" style="font-size:19px">
+                          View your applications
+                        </a>
+                  </li>
+                  {% else %}
+                 <li class="app-task-list__item">
                       <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
                           Login or create an account to view your applications
                         </a>
                   </li>
-            <!--li class="app-task-list__item">
-              <a class="task-name" href="" style="font-size:19px">
-                View your saved apprenticeships
-              </a>
-             <strong class="govuk-tag app-task-list__govuk-tag app-task-list__task-completed"" id="savedApps" style="min-width:60px; text-align: center; " id="contact-details-completed"><span>0</span></strong>
-            </li-->
+                  {% endif %}
+
+
           </ul>
         </li>
         <li>
