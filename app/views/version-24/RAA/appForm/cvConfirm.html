@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+{% include "includes/RAALoggedIn.html" %}
+
+   <div  id="deletedUserAlertMessage" class="success-summary" > 
+                   <h1 class="govuk-heading-m" style="">CV added</h1>
+                <!--    <p><span style="font-weight:700">ABC EPA Ltd</span> has rejected your request to use them as an EPAO</p>
+                  <p> <a href="">Change the EPAO details</a></p> -->
+                
+               </div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+   <p>Your CV has been uploaded and will be used for your application to Business Admin Apprentice with Central Financial Services</p>
+        <form action="location">
+
+
+       
+            <button class="govuk-button">Continue</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
