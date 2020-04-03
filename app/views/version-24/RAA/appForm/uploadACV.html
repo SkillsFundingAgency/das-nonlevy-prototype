@@ -10,6 +10,9 @@
     display: none !important;
 }
 
+
+
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -19,6 +22,26 @@
     display:inline-block;
     font-family: "GDS Transport", Arial, sans-serif;
 }
+
+@media (max-width: 641px) {
+
+.custom-file-upload {
+   font-size:16px;
+}
+    }
+
+
+
+/* THIS CAN ACTUALLY BE STYLED BETTER USING CSS PSEDO ELEMENTS BUT I FOUND IT OUT AFTER 
+
+e.g. */
+
+/*::-webkit-file-upload-button {
+  background: black;
+  color: red;
+  padding: 1em;
+}
+*/
 
 </style>
 
@@ -40,7 +63,7 @@
         <!--                <span id="waste-hint" class="govuk-hint">
                                      The information you provide will help us personalise your experience and will not used for anything else
                                     </span> -->
-        <form action="addACV">
+        <form action="confirmCV">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                 <h2 class="govuk-fieldset__heading">Upload a CV</h2>
             </legend>
@@ -49,8 +72,8 @@
                     <label for="file-upload" class="custom-file-upload govuk-button--secondary" >
                        <!--  <i class="fa fa-cloud-upload"></i>  -->Choose a CV to upload
                     </label>
-                    <p style="display:inline-block; font-size:19px; padding-left:15px"><span id="file-selected" ></span> </p>
-                    <input id="file-upload" onchange="showname()" type="file" />
+                    <p style="display:inline-block; padding-left:15px"><span id="file-selected" name="file-selected" ></span> </p>
+                    <input id="file-upload" onchange="showname()" type="file" name="file-upload" />
                 </fieldset>
             </div>
 
