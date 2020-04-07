@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+{% include "includes/RAALoggedIn.html" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Your qualifications</h1>
+        <!--  <p>You </p> -->
+        <!--                <span id="waste-hint" class="govuk-hint">
+                                     The information you provide will help us personalise your experience and will not used for anything else
+                                    </span> -->
+        <form action="mathAndEnglish">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading">What is the highest qualification you have?</h2>
+            </legend>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value=" I do not have any qualifications" {{ checked( 'chooseSearch', ' I do not have any qualifications') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
+                                I do not have any qualifications
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-GCSE" name="assessment" type="radio" value="Fewer than 5 GCSEs above grade C or equivalent" {{ checked( 'chooseSearch-GCSE', ' Fewer than 5 GCSEs above grade C or equivalent') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                Fewer than 5 GCSE's above grade C or equivalent
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-GCSEFive" name="assessment" type="radio" value=" 5 or more  GCSEs above grade C or equivalent" {{ checked( 'chooseSearch', ' 5 or more  GCSEs above grade C or equivalent') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                5 or more  GCSE's above grade C or equivalent
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-alevel" name="assessment" type="radio" value=" Fewer than 3 A-levels above grade C or equivalent" {{ checked( 'chooseSearch', ' Fewer than 3 A-levels above grade C or equivalent') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                Fewer than 3 A-levels above grade C or equivalent
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-alevelC" name="assessment" type="radio" value="3 or more A-levels above grade C or equivalent" {{ checked( 'chooseSearch', '3 or more A-levels above grade C or equivalent') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                3 or more A-levels above grade C or equivalent
+                            </label>
+                        </div>
+                         <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-foundation" name="assessment" type="radio" value="A foundation degree or equivalent" {{ checked( 'chooseSearch', 'A foundation degree or equivalent') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                A foundation degree or equivalent
+                            </label>
+                        </div>
+                         <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="chooseSearch-hnd" name="assessment" type="radio" value="An HND or equivalent" {{ checked( 'chooseSearch', 'An HND or equivalent') }}>
+                            <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
+                                An HND or equivalent
+                            </label>
+                        </div>
+
+
+
+
+
+                    </div>
+                </fieldset>
+            </div>
+            <button class="govuk-button">Continue</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+{% include "includes/RAALoggedIn.html" %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Do you have a learning difficulty, disability or health problem?</h1>
+            <!--  <p>You </p> -->
+            <!--                <span id="waste-hint" class="govuk-hint">
+                                     The information you provide will help us personalise your experience and will not used for anything else
+                                    </span> -->
+            
+            <p>Employers who are part of the ‘Positive about disabled people’ scheme will guarantee candidates an interview who meet the apprenticeship criteria if they have a disability.</p>
+
+<p>For this reason we ask you to provide this information so we can inform the employer and provider.</p>
+            <form action="interviewSupprt">
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+                        <!--      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">Do you want us to text you updates?</h2>
+                    </legend> -->
+                        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="how-contacted-conditional" name="learningProblem" type="radio" value="Yes" data-aria-controls="conditional-how-contacted-conditional">
+                                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                                    Yes
+                                </label>
+                            </div>
+                  
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="learningProblem" type="radio" value="No" data-aria-controls="conditional-how-contacted-conditional-2">
+                                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                                    No
+                                </label>
+                            </div>
+                    
+
+                             <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="how-contacted-conditional-3" name="learningProblem" type="radio" value="Prefer not to say" data-aria-controls="conditional-how-contacted-conditional-3">
+                                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                                    Prefer not to say
+                                </label>
+                            </div>
+          
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="govuk-button">Continue</button>
+            </form>
+        </div>
+    </div>
+    </main>
+</div>
+{% endblock %}

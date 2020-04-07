@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+{% include "includes/RAALoggedIn.html" %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                 <div class=" govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl" >Check and apply</h1>
+            <p class="">Please check your answers before submitting your applications</p>
+                 <table class="govuk-table">
+                    <thead>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                            <th class="govuk-table__header" scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <!--tr>
+                        <td class="govuk-table__cell">Organisation</td>
+                        <td style="font-weight:700; font-size:19px">Limited company</td>
+                        <td class="looks-like-a-link-underline">Change</td>
+                      </tr-->
+                    <!--   <h2 class="govuk-heading-s">Vacancy summary</h2> -->
+                        <tr class="govuk-table__row">
+                        <td class="govuk-table__cell restrictWidth" style="font-weight:700;" >CV </td>
+                        <td class="govuk-table__cell restrictWidth" style=" font-size:16px;">RJ-latest-CV-March-2020.pdf</td>
+                        <td class="govuk-table__cell"> <a href="addACV"> Change</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700; ">Location</td>
+                        <td class="govuk-table__cell" style="font-size:16px;">{{ data['address-england'] }}</td>
+                       <td class="govuk-table__cell"> <a href="location">Change</a></td>
+                      </tr>
+                      
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700;">Qualifications</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['assessment'] }}</td>
+                       <td class="govuk-table__cell"> <a href="qualifications">Change</a></td>
+                      </tr>
+
+                       <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700;">Maths and English at Grade C and above</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['mathEnglish'] }}</td>
+                       <td class="govuk-table__cell"> <a href="mathAndEnglish">Change</a></td>
+                      </tr>
+
+                     <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700; border-bottom: none; padding-bottom:0" colspan=2>Why do you want this apprenticeship</td>
+                       <!--  <td class="govuk-table__cell" style=" font-size:16px;"></td> -->
+                       <td class="govuk-table__cell" style="border-bottom: none; padding-bottom:0"> <a href="whyWant">Change</a></td>
+
+                      </tr>
+                       <tr class="govuk-table__row" style="" >
+                        <td class="govuk-table__cell" style="font-size:16px;" colspan=3>
+                        {{ data['whyWant'] }}
+                         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo libero urna, hendrerit posuere est ornare nec. Suspendisse potenti. Nunc malesuada tincidunt nisl, id aliquam justo lacinia gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas vitae pretium urna. Morbi mi ipsum, rutrum non lectus in, commodo tempus tortor. Vivamus ut elit scelerisque nibh finibus rutrum. Mauris euismod nisl nec mi dignissim, elementum malesuada ante rutrum. Donec tempor imperdiet volutpat. Praesent laoreet aliquam diam, et tincidunt massa facilisis at. Vivamus auctor purus tellus, quis blandit ante mattis id.</p> -->
+                       </td>
+                        </tr>
+                    
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700;">Do you have a learning difficulty, disabilty or health problem</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['learningProblem'] }}</td>
+                       <td class="govuk-table__cell"> <a href="learningProblem">Change</a></td>
+                      </tr>
+
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700;">Is there anything we can do to support your interview?</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['interviewSupport'] }}</td>
+                       <td class="govuk-table__cell"> <a href="interviewSupprt">Change</a></td>
+                      </tr>
+                    </tbody>
+                </table>
+              <form action="finish">
+                <button type="submit" class="govuk-button">Apply</button>
+                 <a  class="govuk-button clear-button" href="" >Cancel </a>
+              </form>
+          </div>
+        </div>
+</main>
+
+{% endblock %}
+

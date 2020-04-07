@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+{% include "includes/RAALoggedIn.html" %}
+
+
+<div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-two-thirds">
+         <h1 class="govuk-heading-xl">Why do you want this apprenticeship</h1>
+ <p>Central financial services wants to know why you want to take this apprenticeship with them. </p>
+ <p>In your answer it would be helpful to tell them:</p>
+ <ul class="govuk-list govuk-list--bullet">
+  <li>Reason 1</li>
+  <li>Reason 2</li>
+  <li>Reason 3</li>
+</ul>
+<form action="learningProblem">
+    <fieldset class="govuk-fieldset">
+        <div class="govuk-form-group">
+            <div class="govuk-form-group">
+                <textarea class="govuk-textarea" id="more-detail" name="whyWant" rows="15" aria-describedby="more-detail-hint"></textarea>
+
+            </div>
+        </div>
+        <!--   <div class="govuk-form-group">
+    <label class="govuk-label" for="address-postcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
+  </div> -->
+    </fieldset>
+    <button class="govuk-button">Continue</button>
+</form>
+</div>
+</div>
+{% endblock %}
