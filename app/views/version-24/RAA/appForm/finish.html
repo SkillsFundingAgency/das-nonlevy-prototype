@@ -4,6 +4,11 @@
 {% block content %}
 {% include "includes/RAALoggedIn.html" %}
 
+<style>
+@media (max-width: 641px) {
+.metroLogo img {padding-left:20px;}
+}
+</style>
 
 <div class="govuk-width-container">
 
@@ -17,7 +22,7 @@
     <div style="margin-top:35px"></div>
 
    
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds" style="padding:0">
 
       <h2 class="govuk-heading-l">Similar to your application</h2>
      <!--    <p class="govuk-body">
@@ -25,7 +30,7 @@
         </p> -->
 <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
                 <div class="twoFlexContainer">
-                    <div class="twoFlexItem" style="padding-left:0">
+                    <div class="twoFlexItem" style="padding-left:0; min-width:150px">
                         <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="#">Financial Customer Service Specialist</a> 
                             <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px;">
                                 Metro Bank Plc</span>
@@ -50,7 +55,7 @@
                             </div>
                         </div>
                        <div class="flex-support-meta">
-                            <div class=" " style="margin-right:20px;  width: 125px">
+                            <div class=" " style="margin-right:25px;  width: 125px">
                                 <p style="margin-bottom:0">Journey time:</p>
                             </div>
                             <div class="WideMobile175" style="  ">
@@ -59,7 +64,7 @@
                         </div>
              
                         <div class="flex-support-meta">
-                            <div class=" " style="margin-right:20px; width: 125px ">
+                            <div class=" " style="margin-right:25px; width: 125px ">
                                 <p style="margin-bottom:0">Wage:</p>
                             </div>
                         <div class="WideMobile175" style=" ">
