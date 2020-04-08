@@ -6,14 +6,14 @@
 {% include "includes/RAALoggedIn.html" %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Help with your application</h1>
+        <h1 class="govuk-heading-xl">Apply for an apprenticeship</h1>
         <!--  <p>You </p> -->
         <!--                <span id="waste-hint" class="govuk-hint">
                                      The information you provide will help us personalise your experience and will not used for anything else
                                     </span> -->
-        <form action="appForm/addACV">
+        <form action="appForm/yourCV">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                <h2 class="govuk-fieldset__heading">Do you want help and advice as you apply?</h2>
+                <h2 class="govuk-fieldset__heading">How do you want to apply?</h2>
             </legend>
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
@@ -21,13 +21,13 @@
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="chooseSearch-employer" name="assessment" type="radio" value="employer" {{ checked( 'chooseSearch', 'employer') }}>
                             <label class="govuk-label govuk-radios__label" for="epaoName-city-guilds">
-                                Apply using guidance
+                                Use a CV
                             </label>
                         </div>
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="chooseSearch-job" name="assessment" type="radio" value="job" {{ checked( 'chooseSearch', 'job') }}>
                             <label class="govuk-label govuk-radios__label" for="epaoName-cumbria">
-                                Apply without guidance
+                                Use the application form
                             </label>
                         </div>
                     </div>

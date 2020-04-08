@@ -8,7 +8,17 @@
 {% if data.FAALoggedIn %}
 {% include "includes/RAALoggedIn.html" %}
 {% else %}
-{% include "includes/RAAUnloggedIn.html" %}
+
+<div style="margin-top:-20px; margin-bottom:10px; " class="mobileLeft">
+
+    <p class="mobileSmall" style="display:inline-block; margin-bottom:0"><a href="signIn"><i class="fas fa-sign-out-alt" style="padding-right:3px"></i>Sign in/Create account</a></p>
+
+</div>
+<div style="clear:both"></div>
+ <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+ <div style="margin-bottom:20px"></div>
+
+
 {% endif %}
 
   <main class="govuk-main-wrapper govuk-main-wrapper--l">
@@ -190,7 +200,7 @@ Explore sectors and careers
                   </li>
                   {% else %}
                  <li class="app-task-list__item">
-                      <a class="task-name" href="../../registerReserve"  aria-describedby="company-information-completed" style="font-size:19px">
+                      <a class="task-name" href="#"  aria-describedby="company-information-completed" style="font-size:19px">
                           Login or create an account to view your applications
                         </a>
                   </li>
