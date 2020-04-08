@@ -3224,7 +3224,7 @@ router.get('/*/RAA/signOutTrigger' , function (req, res) {
 // this just adds commas to the total cost, we run it after we have add the epa and training cost together.
 
    req.session.data['FAALoggedIn'] = false;
-  res.redirect(`/${req.version}/RAA/`)
+  res.redirect(`/${req.version}/RAA/become/guide/showall`)
   })
 
 
