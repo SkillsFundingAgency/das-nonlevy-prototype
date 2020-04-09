@@ -42,6 +42,14 @@ if (
     background-color:#fff !important;
 }
 
+#finder-frontend .govuk-option-select, #finder-frontend .filter {
+    margin-bottom:0 !important;
+}
+
+#finder-frontend .govuk-form-group {
+
+}
+
 
 @media (max-width: 641px) {
     .CFSlogo svg {
@@ -116,7 +124,7 @@ if (
                             </select>
                         </div>
                         <div class="filter text-filter">
-                            <div class="govuk-form-group">
+                            <div class="govuk-form-group" style="margin-bottom:0">
                                 <label class="govuk-label   govuk-label--s legend" for="partialCost">
                                     Industry
                                 </label>
@@ -171,7 +179,7 @@ if (
                             </div>
                         </div>
                         <div class="filter text-filter">
-                            <div class="govuk-form-group">
+                            <div class="govuk-form-group" style="margin-bottom:0">
                                 <label class="govuk-label   govuk-label--s legend" for="partialCost">
                                     Apprenticeship level
                                 </label>
@@ -186,7 +194,7 @@ if (
                         </div>
                         <div class="govuk-option-select js-collapsible" style="background-color: #fff">
                             <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
-                                <label class="govuk-label   govuk-label--s legend" for="partialCost">
+                                <label class="govuk-label   govuk-label--s legend" for="partialCost" style="margin-bottom:-10px">
                                     Only show
                                 </label>
                                 <div class="js-selected-counter"></div>
@@ -206,7 +214,7 @@ if (
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="govuk-button" style="margin-left:10px">Update results</button>
+                        <button type="submit" class="govuk-button" style="margin-left:10px; margin-top:15px">Update results</button>
                         <!--  <a class="" href="apprenticeshipsearch">Start again</a> -->
 </form>
 </div>

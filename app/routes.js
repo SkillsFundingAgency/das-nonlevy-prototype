@@ -3428,6 +3428,30 @@ router.get('/*/RAA/become/guide/register/google/registeredLite' , function (req,
   res.redirect(`/${req.version}/RAA/reg8/apprenticeshipsearch`)
   })
 
+
+
+// Sending nav links to correct place
+// Home/checklist nav
+
+ router.get('/*/returnToChecklist', function (req, res) {
+  res.redirect(`/${req.version}/RAA/become/guide/showall`)
+ })
+
+  router.get('/*/*/returnToChecklist', function (req, res) {
+  res.redirect(`/${req.version}/RAA/become/guide/showall`)
+ })
+
+// Sending nav links to correct place
+// My applications link
+
+ router.get('/*/viewMyApplications', function (req, res) {
+  res.redirect(`/${req.version}/RAA/myApplications`)
+ })
+
+  router.get('/*/*/viewMyApplications', function (req, res) {
+  res.redirect(`/${req.version}/RAA/myApplications`)
+ })
+
 /////////END OF RAA/FAA ROUTES //////////////////////////////
 
 
