@@ -23,6 +23,16 @@ if (
     display: none;
 }
 
+.filter-form  {
+    border: 1px solid lightgrey;
+    padding:10px;
+
+}
+
+.options-container {
+    border:0 !important;
+}
+
 .js-enabled .govuk-option-select.js-collapsible button 
 {
     background-color: #fff !important;
@@ -84,7 +94,7 @@ if (
                     <div id="finder-frontend" class="inner-block">
                         <div class="filter text-filter">
                             <div class="govuk-form-group" style="margin-bottom:15px">
-                                <label class="govuk-label   govuk-label--s legend" for="partialCost" style="margin-bottom: 1px">
+                                <label class="govuk-label   govuk-label--s legend" for="partialCost" style="">
                                     Your location
                                 </label>
                                 <span id="reference-hint" class="govuk-hint">
@@ -174,7 +184,7 @@ if (
                                 </select>
                             </div>
                         </div>
-                        <div class="govuk-option-select js-collapsible">
+                        <div class="govuk-option-select js-collapsible" style="background-color: #fff">
                             <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
                                 <label class="govuk-label   govuk-label--s legend" for="partialCost">
                                     Only show
@@ -196,7 +206,7 @@ if (
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="govuk-button" style="">Update results</button>
+                        <button type="submit" class="govuk-button" style="margin-left:10px">Update results</button>
                         <!--  <a class="" href="apprenticeshipsearch">Start again</a> -->
 </form>
 </div>
@@ -205,9 +215,9 @@ if (
 </div>
 
 <div class="govuk-grid-column-two-thirds">
-    <div class="column details" style=" float:left">
+    <div class="column details" style=" float:left;padding-top:20px">
         <div class="govuk-form-group" style="margin-bottom:15px">
-            <label class="govuk-label   govuk-label--s" for="partialCost">
+            <label class="govuk-label   govuk-label--s" for="partialCost" style="">
                 Filter by keywords
             </label>
             <span id="reference-hint" class="govuk-hint">
