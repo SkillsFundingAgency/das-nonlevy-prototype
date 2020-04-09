@@ -5,6 +5,22 @@
 
 {% endblock %}
 {% block content %}
+
+<style>
+
+.googleSign {
+    width:40%;
+  height:auto;
+}
+@media (max-width: 641px) {
+ 
+ .googleSign {
+  width:60%;
+  height:auto;
+}
+
+</style>
+
 <!-- Here is the code to show conditional stuff in liquid-->
 {% if data.FAALoggedIn %}
             <div class="do-a-thing"></div>
@@ -24,9 +40,10 @@
           Sign in
         </h1>
 
-        <p>
-          Put the sign in with Google here
-        </p>
+            <img class="googleSign" src="/public/images/btn_google_signin_light_normal_web@2x.png" width="75%" height="auto">
+      
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
 
         <div class="govuk-form-group" style="margin-bottom:10px">
           <fieldset class="govuk-fieldset">

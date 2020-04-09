@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+            <div class="do-a-thing"></div>
+{% else %}
+            <div class="dont-a-thing"></div>
+{% endif %}
+<!-- end of conditional statement -->
+
+<style>
+
+.googleImage img {
+    width:100%;
+  height:auto;
+}
+@media (max-width: 641px) {
+ 
+ .googleImage img {
+  width:100%;
+  height:auto;
+}
+
+</style>
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+<a href="arse">
+  <div class="googleImage">
+    <img src="/public/images/googleLogin.jpg">
+  </div>
+</a>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+

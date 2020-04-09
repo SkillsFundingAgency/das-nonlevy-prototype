@@ -3418,6 +3418,16 @@ router.get('/*/RAA/become/guide/register/registeredLite' , function (req, res) {
   res.redirect(`/${req.version}/RAA/reg8/apprenticeshipsearch`)
   })
 
+// Set up an account
+// http://127.0.0.1:3000/version-20/RAA
+router.get('/*/RAA/become/guide/register/google/registeredLite' , function (req, res) {
+
+// this just adds commas to the total cost, we run it after we have add the epa and training cost together.
+
+   req.session.data['FAALoggedIn'] = true;
+  res.redirect(`/${req.version}/RAA/reg8/apprenticeshipsearch`)
+  })
+
 /////////END OF RAA/FAA ROUTES //////////////////////////////
 
 
