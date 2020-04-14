@@ -13,20 +13,38 @@
 {% endif %}
 <!-- end of conditional statement -->
 
+<style>
 
+ .googleButton {  
+  width:50%;
+  height: auto;
+  margin-bottom: 25px;
+  margin-left:-5px;
+}
+
+@media (max-width: 641px) {
+   .googleButton { 
+  width:66%;
+  height: auto;
+  margin-bottom: 25px;
+  margin-left:-5px;
+}
+}
+
+
+
+</style>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form action="signInTrigger" method="get" class="form">
-
      <h1 class="govuk-heading-xl">
           Sign in
         </h1>
 
-        <p>
+      <!--   <p>
           <a href="createAnAccount">Create an account</a> 
-        </p>
+        </p> -->
 
         <div class="govuk-form-group" style="margin-bottom:10px">
           <fieldset class="govuk-fieldset">
@@ -57,6 +75,7 @@
            <p><a href="#" style="">I can't access my account</a></p>
 
         <button class="govuk-button" style="margin-top:15px; margin-bottom:15px">Sign in</button>
+    
 
                    <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
@@ -72,9 +91,15 @@
                         </ol>
                         </div>
                     </details>
+                        <p class="box">Or</p>
+     <div class="box">
+  
+        <img class="googleButton" style="" src="/public/images/btn_google_signin_light_normal_web@2x.png">
+      </div>
 
-                   <h2 class="govuk-heading-l">New to this service?</h2>
-                    <p>If you haven't used this service before you must <a href="register">create an account</a>, even if you already have an existing account with "Apprenticeship vacancies".</p>
+
+                   <h2 class="govuk-heading-m">New to this service?</h2>
+                    <p>If you haven't used this service before you must <a href="#">create an account</a>.</p>
                        <p class="govuk-body">Creating an account allows you to:</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>apply for an apprenticeship or traineeship</li>
