@@ -50,6 +50,36 @@ if (
 
 }
 
+    .bmwLogo {
+        padding-left: 0px;
+        margin-left: 400px
+       
+    }
+
+    .bmwLogo img {
+         width:85px;
+        height:auto;
+    }
+
+            .metroLogo {
+        padding-left: 0px;
+        margin-left: 0px
+    }
+
+    .metroLogo img {
+        width: 125px;
+        height: auto;
+        padding: 0;
+    }
+
+  .metroTitle {
+        min-width: 150px;
+        margin-right:45px;
+    }
+
+    .metroWidth {
+        max-width:150px;
+    }
 
 @media (max-width: 641px) {
     .CFSlogo svg {
@@ -59,7 +89,13 @@ if (
 
     .bmwLogo {
         padding-left: 0px;
-        margin-left: 125px
+        margin-left: 125px;
+       
+    }
+
+    .bmwLogo img {
+         width:75px;
+        height:auto;
     }
 
     .metroLogo {
@@ -75,8 +111,14 @@ if (
 
     .metroTitle {
         min-width: 150px;
+        margin-right:0;
     }
 }
+
+
+
+
+
 </style>
 <link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
 <!-- Here is the code to show conditional stuff in liquid-->
@@ -513,7 +555,7 @@ if (
                     </div>
                     <div class="twoFlexItem">
                         <div class="bmwLogo">
-                            <a href="employerProfile"> <img src="/public/images/bmw.png" alt="Bmw logo" height=50% width=50%> </a>
+                            <a href="employerProfile"> <img src="/public/images/bmw.png" alt="Bmw logo" > </a>
                         </div>
                     </div>
                 </div>
@@ -560,14 +602,14 @@ if (
             </div>
             <div style="clear:both"></div>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            <div class="twoFlexContainer">
+            <div class="twoFlexContainer ">
                 <div class="twoFlexItem metroTitle" style="padding-left:0">
                     <h2 class="govuk-heading-m results-header" style="margin-bottom:5px"><a href="findsummary">Financial Customer Service Specialist</a>
                         <span id="reference-hint" class="govuk-hint" style="margin-bottom:5px; margin-top:5px;">
                             Metro Bank Plc</span>
                     </h2>
                 </div>
-                <div class="twoFlexItem">
+                <div class="twoFlexItem metroWidth">
                     <div class="metroLogo">
                         <img src="/public/images/metro.png" alt="metro bank logo">
                     </div>
