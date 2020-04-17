@@ -289,10 +289,23 @@ if (
                             <span id="reference-hint" class="govuk-hint">
                             </span>
                             <input class="govuk-input" id="employer" name="employer" type="text" aria-describedby="employer-hint" value="" />
+
                         </div>
+                        <label class="govuk-label   govuk-label--s" for="partialCost">
+                                Within
+                            </label>
+                            <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 10px; width:100%; ">
+                                <option value="2 miles">10 minutes travel time</option>
+                                <option value="5 miles">20 minutes travel time</option>
+                                <option value="15 miles">30 minutes travel time</option>
+                                <option value="20 miles">40 minutes travel time</option>
+                                <option value="30 miles" selected>50 minutes travel time</option>
+                                <option value="40 miles">60 minutes travel time</option>
+                                <option value="England">England</option>
+                            </select>
                     </div>
                 </div>
-                <div class="accordion-section">
+ <!--                <div class="accordion-section">
                     <div class="accordion-section-header">
                         <h2 class="govuk-heading-m">Employer </h2>
                     </div>
@@ -301,21 +314,21 @@ if (
                             <label class="govuk-label   govuk-label--s" for="employer">
                                 Employer
                             </label>
-                            <!--      <span id="reference-hint" class="govuk-hint">
+                                 <span id="reference-hint" class="govuk-hint">
                             Enter postcode, town or city 
-                        </span> -->
+                        </span>
                             <input class="govuk-input" id="employer" name="employer" type="text" aria-describedby="employer-hint" value="" />
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="accordion-section">
                     <div class="accordion-section-header">
-                        <h2 class="govuk-heading-m">Job role </h2>
+                        <h2 class="govuk-heading-m">Industry </h2>
                     </div>
                     <div class="accordion-section-body">
                         <div class="govuk-form-group" style="margin-top:15px">
                             <label class="govuk-label   govuk-label--s" for="partialCost">
-                                Job role
+                                Industry
                             </label>
                             <select class="govuk-select" id="sort" name="sort" style="margin-bottom: 5px; width:100%">
                                 <option value="All" selected>All</option>
@@ -419,22 +432,32 @@ if (
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                    <label class="govuk-label   govuk-label--s" for="partialCost">
-                        Only show
-                    </label>
-                    <div class="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                            <label class="govuk-label govuk-checkboxes__label" for="waste">
-                                Disability confident
-                            </label>
-                        </div>
+<div class="accordion-section">
+    <div class="accordion-section-header">
+        <h2 class="govuk-heading-m">Disability confident </h2>
+    </div>
+    <div class="accordion-section-body">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                <label class="govuk-label   govuk-label--s" for="partialCost">
+                    Only show
+                </label>
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Disability confident
+                        </label>
                     </div>
-                </fieldset>
-            </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
         </div>
         <div class="twoFlexContainer">
             <div class="twoFlexItem" style="padding-left:0">
