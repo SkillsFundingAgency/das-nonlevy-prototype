@@ -232,25 +232,29 @@ Explore sectors and careers
           </h2>
          <p class="desktopLeft35">If you've started an apprenticeship you can view your apprenticeship details</p>
           <ul class="app-task-list__items">
-            <li class="app-task-list__item">
+              {% if data.FAALoggedIn %}
+                         <li class="app-task-list__item">
+                      <a class="task-name" href="https://projects.invisionapp.com/share/GWWQR9K8RBM#/screens/412443193"  aria-describedby="company-information-completed" style="font-size:19px">
+                          View your apprenticeship
+                        </a>
+                  </li
+     
+               {% else %}
+                      <li class="app-task-list__item">
               <a class="task-name" href="https://projects.invisionapp.com/share/GWWQR9K8RBM#/screens/412443193"   aria-describedby="contact-details-completed" style="font-size:19px">
                Login to view your apprenticeship
               </a>
             </li>
-     <!--        <li class="app-task-list__item">
-              <a class="task-name" href=""   aria-describedby="contact-details-completed" style="font-size:19px">
-                Why do I need to commit to my apprenticeship?
-              </a>
-            </li> -->
-            <!--li class="app-task-list__item">
-              <a class="task-name" href="" style="font-size:19px">
-                View your saved training providers
-              </a>
-             <strong class="govuk-tag app-task-list__task-completed" id="savedPro" style="min-width:60px; text-align: center; " id="contact-details-completed"><span>0</span></strong>
- 
-            </li-->
+          
+                  {% endif %}
+
           </ul>
        </li>
+
+
+
+               
+            
 <!-- 
          <li>
           <h2 class="app-task-list__section">
