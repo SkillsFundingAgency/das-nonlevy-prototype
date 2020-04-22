@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+
+
+
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form action="pass" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">
+Confirm your identity
+        </h1>
+        <p>We've sent a confirmation email to {{ data['email'] }}</p>
+        <p>Use the link in the email to confirm your details and continue creating an account<a href="pass">.</a>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+   I have not received the confirmation email
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   If you have not received the confirmation email, check your junk folder or try creating an account again.
+</div>
+  </div>
+</details>
+
+
+    </div>
+
+  </div>
+{% endblock %}

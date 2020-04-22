@@ -33,9 +33,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="confirmEmail" method="get" class="form">
+      <form action="registerEmailUpdates" method="get" class="form">
      <h1 class="govuk-heading-xl">
-         Create an account
+         Create password
         </h1>
   <!--       <p>
           Put the sign in with Google here
@@ -45,13 +45,21 @@
       
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
  -->
+ <h2 class="govuk-heading-m">Your password must</h2>
+ <ul class="govuk-list govuk-list--bullet">
+  <li>be at least 8 characters</li>
+  <li>contain at least one letter (a-z)</li>
+  <li>contain at least one number (0-9)</li>
+  <li>match with the confirmed password </li>
+</ul>
+
 
         <div class="govuk-form-group" style="margin-bottom:10px">
           <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
 
           </legend>
-          <div class="govuk-form-group">
+    <!--       <div class="govuk-form-group">
               <label class="govuk-label govuk-!-width-three-quarters bold-label" for="email">
                   Email address
               </label>
@@ -59,37 +67,39 @@
               You'll need this to sign in to your account and it will be seen by employers. We'll also send application updates to this email address.
             </span>
               <input class="govuk-input  govuk-!-width-three-quarters" id="email" name="email" type="text" aria-describedby="">
-          </div>
-<!--           <div class="govuk-form-group">
+          </div> -->
+          <div class="govuk-form-group">
               <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
                  Password
               </label>
-              <span id="email-hint" class="govuk-hint  govuk-!-width-three-quarters">
+       <!--        <span id="email-hint" class="govuk-hint  govuk-!-width-three-quarters">
              Password must be a minimum of 8 characters and contain upper and lower case letters and at least one number
-            </span>
+            </span> -->
               <input class="govuk-input  govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="">
           </div>
             <div class="govuk-form-group">
               <label class="govuk-label bold-label " for="password">
                  Confirm password
               </label>
-
+        <!--       <span id="email-hint" class="govuk-hint">
+             Password must be a minimum of 8 characters and contain upper and lower case letters and at least one number
+            </span> -->
               <input class="govuk-input  govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="">
-          </div> -->
+          </div>
 
-            <div class="govuk-checkboxes">
+ <!--            <div class="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                         I accept the <a href="">terms and conditions</a>
                     </label>
                 </div>
-            </div>
+            </div> -->
            </fieldset>
           </div>
           <!--            <p><a href="#" style="">I can't access my account</a></p> -->
 
-                  <button class="govuk-button" style="margin-top:15px; margin-bottom:15px">Continue</button>
+                  <button class="govuk-button" style="margin-top:15px; margin-bottom:15px">Submit</button>
 
                <!--     <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
