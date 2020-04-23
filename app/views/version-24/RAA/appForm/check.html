@@ -74,7 +74,7 @@
                       
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell" style="font-weight:700;">Qualifications</td>
-                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['assessment'] }}</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['assessmentZ'] }}</td>
                        <td class="govuk-table__cell"> <a href="qualifications">Change</a></td>
                       </tr>
 
@@ -114,6 +114,20 @@
                         <td class="govuk-table__cell" style=" font-size:16px;">{{ data['interviewSupport'] }}</td>
                        <td class="govuk-table__cell"> <a href="interviewSupprt">Change</a></td>
                       </tr>
+
+                              <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700;">Your gender</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['where-do-you-live'] }}</td>
+                       <td class="govuk-table__cell"> <a href="gender">Change</a></td>
+                      </tr>
+
+                              <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" style="font-weight:700;">Your ethnicity</td>
+                        <td class="govuk-table__cell" style=" font-size:16px;">{{ data['ethnicgroup'] }} <br /> {{ data['ethnicGroupSub'] }}</td>
+                       <td class="govuk-table__cell"> <a href="ethnicty">Change</a></td>
+                      </tr>
+
+
                     </tbody>
                 </table>
               <form action="finish">

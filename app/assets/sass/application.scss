@@ -295,8 +295,40 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
    font-size:24px;
   }
 
+
+.greyContactBox {
+    background-color: #f8f8f8;
+    border-bottom: 5px solid #1d55a3;
+    height: 100%;
+    padding: 20px;
+    flex:1;
+
+}
+
+.doubleFooterHolder {
+  display: flex;
+}
+
+.sendAMessage {
+  margin: 70px 0 30px 0
+}
+
+
 @media (max-width: 641px) {
   ///   MOBILE
+
+  .sendAMessage {
+  margin: 30px 0 30px 0
+}
+
+  .doubleFooterHolder {
+    display:inline-block;
+  }
+
+  .secondGreyBox {
+    margin-top:30px;
+  }
+
  .mobileSmall {
   font-size:14px;
 }

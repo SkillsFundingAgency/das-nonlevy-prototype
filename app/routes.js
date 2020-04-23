@@ -3452,6 +3452,33 @@ router.get('/*/RAA/become/guide/register/google/registeredLite' , function (req,
   res.redirect(`/${req.version}/RAA/myApplications`)
  })
 
+
+
+  /// ethnicity groups split
+// http://127.0.0.1:3000/version-24/RAA/appForm/ethnicty
+router.get('/*/RAA/appForm/ethnicSplit' , function (req, res) {
+  var confirmTraining = req.query.ethnicgroup
+       switch (true) {
+          case  (confirmTraining == 'asian-or-asian-british'):
+             // req.session.data['showApprenticeBox'] = false;
+             //  req.session.data['showEPAOConfirm'] = true;
+            res.redirect(`/${req.version}/RAA/appForm/ethnicAsian`)
+           break;
+
+           case  (confirmTraining == 'job'):
+             // req.session.data['showEPAOConfirm'] = false;
+             // req.session.data['showApprenticeBox'] = true;
+            res.redirect(`/${req.version}/RAA/become/guide/register/emailandpass`)
+           break;
+
+
+        default:
+            console.log("bork bork bork bork");
+             res.redirect(`/${req.version}/RAA/appForm/check`)
+            break;
+        }
+})
+
 /////////END OF RAA/FAA ROUTES //////////////////////////////
 
 
