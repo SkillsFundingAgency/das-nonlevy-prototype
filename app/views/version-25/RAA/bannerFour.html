@@ -1,6 +1,6 @@
 
 
-{% extends "layoutCookiesThree.html" %}
+{% extends "layoutCookiesFour.html" %}
 {% block beforeContent %}
 {% endblock %}
 {% block content %}
@@ -135,7 +135,52 @@ if ($cookieBanner != null) {
 </script>
 
 
+<style>
 
+
+
+.sideCookie {
+  height: 100%;
+  width: 385px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f3f2f1;
+  overflow-x: hidden;
+/*  transition: 0.5s;*/
+ /* padding-top: 60px;*/
+}
+
+.das-cookie-banner__wrapper {
+ width:100%;
+ margin:0 40px 0 40px;
+}
+
+.das-cookie-banner {
+    max-width:300px;
+}
+
+.das-cookie-banner__wrap .das-cookie-banner__button-wrap {
+    width:100%;
+}
+
+
+ @media (max-width: 641px) {
+ .sideCookie {
+    width:260px ;
+}
+.das-cookie-banner__wrapper {
+    margin:30px;
+    }
+
+.das-cookie-banner {
+    max-width:200px;
+}
+}
+
+
+</style>
 
 
 

@@ -160,9 +160,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     bottom: 0;
     left: 0;
     right: 0;
-      z-index: 1; /* Sit on top */
-
-
+    z-index: 1; /* Sit on top */
 }
 
 
@@ -200,7 +198,7 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     z-index: 2;
     background: #f3f2f1;
     border: none;
-      border-top: grey solid 2px;
+      
 
     @include govuk-media-query($from: tablet) {
       padding: 20px 0;
