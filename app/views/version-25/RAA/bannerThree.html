@@ -1,0 +1,106 @@
+
+
+{% extends "layoutCookiesThree.html" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<style>
+.survey-panel {
+    background: #DEE0E2;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.survey-panel:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #DEE0E2;
+    clear: both;
+}
+
+.survey-panel p {
+    margin-bottom: 0;
+}
+
+.phase-tag {
+    line-height: 1.1428571429;
+    font-weight: 700;
+    text-transform: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #fff;
+    background-color: f47738;
+    font-weight: 900;
+    /* background: orange; */
+    padding: 5px;
+    /* clear: right; */
+    position: relative;
+    float: left;
+    margin-top: 4px;
+    margin-right: 5px
+}
+</style>
+
+<script src="/public/javascripts/cookie.js"></script>
+
+
+
+
+<!-- Here is the code to show conditional stuff in liquid-->
+{% if data.FAALoggedIn %}
+{% include "includes/RAALoggedIn.html" %}
+{% else %}
+
+<div style="margin-top:-20px; margin-bottom:10px; " class="mobileLeft">
+
+    <p class="mobileSmall" style="display:inline-block; margin-bottom:0"><a href="RAA/signIn"><i class="fas fa-sign-out-alt" style="padding-right:3px"></i>Sign in/Create account</a></p>
+
+</div>
+<div style="clear:both"></div>
+ <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+ <div style="margin-bottom:20px"></div>
+{% endif %}
+<!-- end of conditional statement -->
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl ">Find an apprenticeship</h1>
+        <p>Find an apprenticeship in England</p>
+        <div class="govuk-inset-text">
+            You can apply for apprenticeships in <a href="">Scotland</a>,<a href="">Northern Ireland</a> and <a href="">Wales</a>.
+        </div>
+        <a href="RAA/apprenticeshipsearch" class="govuk-button govuk-button--start" style="background-image: none">Search</a>
+        <p>You can also:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="signIn">sign in</a>to your account</li>
+            <li><a href="register">create an account</a> to manage your applications and get alerts about new apprenticeships</li>
+        </ul>
+        <h2 class="govuk-heading-m ">Contact</h2>
+        <h3 class="govuk-heading-s " style="margin-bottom:2px">National Apprenticeship Service</h3>
+        <p style="margin-bottom:2px"><a href="">nationalhelpdesk@findapprenticeship.service.gov</a></p>
+        <!--       <h2 class="govuk-heading-s " style="margin-bottom:0">National Apprenticeship Service</h2> -->
+        <p style="margin-bottom:2px"> Telephone: 0800 015 0400 </p>
+        <p><a href="#"> Find out about call charges</a></p>
+        <hr class="govuk-section-break govuk-section-break--visible" style="border-bottom:2px solid #003078">
+        <h3 class="govuk-heading-s " style="margin-top:15px">Related content</h3>
+        <p style="font-size:14px"><a href="">Become an apprentice</a></p>
+        <p style="font-size:14px"><a href="">Find a traineeship</a></p>
+        <hr class="govuk-section-break govuk-section-break--visible" style="border-bottom:2px solid #003078">
+        <h3 class="govuk-heading-s " style="margin-top:15px">Explore the topic</h3>
+        <p style="font-size:14px; font-weight:700"><a href="">Apprenticeships,14 to 19 education and training for work</a></p>
+        <p style="font-size:14px; font-weight:700"><a href="">Finding a job</a></p>
+        <p style="font-size:14px; font-weight:700"><a href="">Apprenticeships</a></p>
+        <h3 class="govuk-heading-s " style="margin-top:15px">Elsewhere on the web</h3>
+        <p style="font-size:14px"><a href="">Help with your application</a></p>
+    </div>
+</div>
+</main>
+{% endblock %}

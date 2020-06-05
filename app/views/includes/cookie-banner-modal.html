@@ -1,10 +1,21 @@
+<style>
+
+ 
+  .das-cookie-banner {
+margin: 15% auto;
+max-width:66%;
+   }
+
+</style>
 
 
-<div data-module="cookie-banner" role="region" aria-label="cookie banner" class="das-cookie-banner__wrap" >
-   <div class="das-cookie-banner" style="position:fixed; top: 0">
+<div class="modal">
+<div data-module="cookie-banner" role="region" aria-label="cookie banner" class="das-cookie-banner__wrap das-cookie-banner__modal" >
+   <div class="das-cookie-banner" style=>
+
       <div class="das-cookie-banner__wrapper govuk-width-container" >
          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
+            <div class="" style="max-width:85%; margin: 0 auto; padding: 20px 0 20px 0">
                <h2 class="govuk-heading-m das-cookie-banner__header">Tell us whether you accept cookies</h2>
                <p class="das-cookie-banner__message">We use <a href="/help/cookies" class="govuk-link govuk-link--no-visited-state">cookies to collect information</a> about how you use this service. We use this information to make the service work as well as possible and improve this service.</p>
                <div class="das-cookie-banner__buttons">
@@ -26,7 +37,7 @@
       </div>
    </div>
 </div>
-<div id="cookieSpacer" class="fixedBottomCookie" style=""></div>
+</div>
 
 {% if shouldShowCookieMessage %}
 {% endif %}

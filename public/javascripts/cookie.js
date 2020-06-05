@@ -48,8 +48,8 @@ CookieBanner.prototype.hideCookieBanner = function () {
 CookieBanner.prototype.acceptAllCookies = function () {
     this.module.cookieBannerInnerWrap.style.display = 'none';
     this.module.cookieBannerConfirmationMessage.style.display = 'block';
- $("#changeBottomCookie"). removeClass("fixedBottomCookie");
-     console.log("arse");
+$("#cookieSpacer"). removeClass("fixedBottomCookie");
+
 
     window.GOVUK.cookie(this.settings.seenCookieName, true, { days: 365 })
 

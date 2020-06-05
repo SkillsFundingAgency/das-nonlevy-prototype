@@ -144,6 +144,18 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
 
 // cookie banner
 
+.bottom {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+      z-index: 1; /* Sit on top */
+
+
+}
+
+
+
 .fixedBottomCookie {
   padding-bottom: 234px;
 }
@@ -152,7 +164,21 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
   padding-bottom: 0px;
 }
 
-.das-cookie-banner__wrap {
+
+.das-cookie-banner__modal { 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.das-cookie-banner__wrap {  
   .das-cookie-banner {
     display: none; // Hidden by default
     @include govuk-font($size: 16, $weight: 400);
@@ -163,10 +189,24 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     z-index: 2;
     background: #f3f2f1;
     border: none;
+      border-top: grey solid 2px;
+
     @include govuk-media-query($from: tablet) {
       padding: 20px 0;
     }
   }
+
+
+@media (max-width: 641px) {
+  ///   MOBILE
+ 
+  .das-cookie-banner {
+    padding:20px;
+
+  
+}
+    }
+
 
   .das-cookie-banner__header {
     margin-top: 0;
