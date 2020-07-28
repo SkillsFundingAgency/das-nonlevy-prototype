@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+<nav class='greedy'>
+  <ul class='links'>
+    <li id="homeNav"><a href="home">Home</a></li>
+    <li id="financeNav"><a href="volume">Volume</a></li>
+    <li id="apprenticesNav"><a href="money">Money</a></li>
+    <li id="recruitNav"><a href="equality">Equality</a></li>
+    <li id="teamNav"><a href="journey">Journey</a></li>
+<!--     <li id="orgsNav"><a href="orgsNav">Test</a></li>
+    <li id="payeNav"><a href="payeNav">Test</a></li> -->
+
+  </ul>
+  <button id="moreButton">More</button>
+  <ul class='hidden-links hidden'></ul>
+</nav>
+
+
+<style>
+ #recruitNav a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #0b0c0c;
+   
+}
+
+ #recruitNav:after {
+
+    background: #005ea5;
+    content: "";
+    display: block;
+    width: 5px;
+    z-index: 1000;
+    height: 5px;
+    width: auto;
+    margin-top:10px;
+}
+
+</style>
+{% endblock %}
+{% block content %}
+
+
+<script>
+/*
+// putting this here so i don't forget it.
+
+  //store details entered into the form in local storage
+var creategovuk-button = document.getElementById('createAccountgovuk-button');
+EventUtil.addHandler(creategovuk-button, 'click', function(){
+              // save the form info to local storage by first putting the data into an object
+              var userDetails = {
+                email: document.getElementById('email-address').value,
+                password: document.getElementById('password').value
+            };
+
+            //store the object in local storage using json stringify
+              localStorage.setItem("login", JSON.stringify(userDetails));
+
+            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
+            document.cookie =  "emailAddress="  + userDetails.email 
+            // shows the cookie in the console log to check it is working
+            console.log (document.cookie)
+
+        // not needed at the moment
+
+              //hide the login form
+              //$('#login').addClass('hidden');
+              //show the quiz
+           // $('#wrapper').removeClass('hidden')
+    });
+*/
+</script>
+
+<img src="/public/images/4.jpg">
+  
+{% endblock %}
