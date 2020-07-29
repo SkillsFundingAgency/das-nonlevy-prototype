@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layoutJourney.html" %}
 {% block beforeContent %}
 <nav class='greedy'>
   <ul class='links'>
@@ -18,15 +18,10 @@
 
 <style>
 
-body {
- background-color: #DADADA !important
-}
-
  #teamNav a {
     text-decoration: none;
     font-weight: 700;
     color: #0b0c0c;
-}
    
 }
 
@@ -42,41 +37,22 @@ body {
     margin-top:10px;
 }
 
+.govuk-template {
+  background-color: #fff !important
+}
+
+body {
+/* background-color: #DADADA !important*/
+}
+
+
+
 </style>
 {% endblock %}
 {% block content %}
 
 
-<script>
-/*
-// putting this here so i don't forget it.
 
-  //store details entered into the form in local storage
-var creategovuk-button = document.getElementById('createAccountgovuk-button');
-EventUtil.addHandler(creategovuk-button, 'click', function(){
-              // save the form info to local storage by first putting the data into an object
-              var userDetails = {
-                email: document.getElementById('email-address').value,
-                password: document.getElementById('password').value
-            };
-
-            //store the object in local storage using json stringify
-              localStorage.setItem("login", JSON.stringify(userDetails));
-
-            //store the users email address in a cookie to repeat back to them later. Remember that we have some of the data stored in an object in local storage as well -  so we'll use that again if we need it.
-            document.cookie =  "emailAddress="  + userDetails.email 
-            // shows the cookie in the console log to check it is working
-            console.log (document.cookie)
-
-        // not needed at the moment
-
-              //hide the login form
-              //$('#login').addClass('hidden');
-              //show the quiz
-           // $('#wrapper').removeClass('hidden')
-    });
-*/
-</script>
 
 <img src="/public/images/5.jpg">
   
