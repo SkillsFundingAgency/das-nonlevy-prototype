@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+{% include "includes/version1/mainNav.html" %} {% include "includes/version5/recruitNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({ text: "Back", href: "vacancySummary" }) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+        <div class=" govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">How will candidates apply for this vacancy?</h1>
+            <!-- <p>Apprentice candidates will see your vacancy summary in a search along with vacancies from other employers. This is your opportunity to make your vacancy attracts the best candidates</p> -->
+            <form method="get" action="vacancySummary">
+
+             <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="recruitHowMuchPayApp-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading"> How will candidates apply for this vacancy?</h2>
+                    </legend>
+                    <span id="recruitHowMuchPayApp-conditional-hint" class="govuk-hint">
+            All vacancies will be published on Find an apprenticeship
+                </span>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                                     <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="recruitHowMuchPayApp-2" name="recruitHow" type="radio" data-aria-controls="conditional-recruitHowMuchPayApp-conditional-2" value="Find an apprentice" {{ checked("recruitHow", "Find An Apprentice") }}>
+                            <label class="govuk-label govuk-radios__label" for="recruitHowMuchPayApp-2">
+                                Through the Find an Apprenticeship Service
+                            </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="recruitHowMuchPayApp-conditional-1" name="recruitHow" type="radio"  data-aria-controls="conditional-recruitHowMuchPayApp-conditional-1" value="External website" {{ checked("recruitHow", "External Website") }}>
+                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-1">
+                               Through an external website
+                            </label> 
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-recruitHowMuchPayApp-conditional-1">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-email">
+                                    Enter the web address candidates should use to apply for this vacancy
+                                </label>
+
+                              <input class="govuk-input" id="recruitHowMuchPayApp"  name="recruitHowMuchPayAppYearly" type="text" value="{{ data['recruitHowMuchPayAppYearly'] }}"> 
+                                       </div>
+                             <div class="govuk-form-group">
+                 <label class="govuk-label" for="contact-by-email">
+                                    Explain the application process (optional)
+
+                                </label>
+                            <textarea class="govuk-textarea" id="more-detail" name="explainAppProcess" rows="6" aria-describedby="more-detail-hint" value="">{{  data['explainAppProcess'] }}</textarea>
+                            </div>
+                        </div>              
+                </div>
+             </fieldset>
+            </div>
+
+            </div>
+             </fieldset>
+             </div>
+                    <button type="submit" class="govuk-button">Save and continue </button>
+                     <a  class="govuk-button clear-button" href="vacancySummary" >Cancel </a>
+</form>
+</div>
+</div>
+</main>
+</div>
+{% endblock %}
+

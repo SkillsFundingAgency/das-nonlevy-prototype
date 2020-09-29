@@ -1,0 +1,48 @@
+{% extends "layout.html" %} {% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{% endblock %} {% block content %}
+<style>
+.govuk-header__content {
+    display: none;
+    }
+</style>
+
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+<!--             <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl ">Manage apprenticeships</h1>
+            </div> -->
+            <p style="font-size:24px">ABC training invites you to register for the Apprenticeships Service</p>
+            <div class="govuk-grid-column-two-thirds">
+                <p>Dear John,</p>
+                <p>Training Person at ABC Training Ltd invites you to register for the Apprenticeships Service. </p>
+                <p>Registration gives you access to government funding to pay for apprenticeship training. You will also be able to post apprenticeship vacancies on our free apprenticeships job site.</p>
+                <p>Click on the following link to set up your account. This link will expire after 7 days. </p>
+                <a href="" style="font-size:19px">https://manage-apprenticeships.service.gov.uk/service/index</a>
+                 <h2 class="govuk-heading-s" style="margin-top:35px">Information you need to set up an account</h2>
+
+
+
+
+                <p>You will need either: </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>your Government Gateway login for your PAYE scheme</li>
+                    <li>your accounts office reference number and employer PAYE scheme reference</li>
+<!--                     <li>find, save and manage training providers</li>
+                    <li>recruit apprentices</li>
+                    <li>add and manage apprenticeships</li> -->
+                </ul>
+                <p style="margin-bottom:55px">You’re under no obligation to accept this invitation.</p>
+                <p>Follow this link to opt out from receiving future invitation emails: <a href="">https://manage-apprenticeships.service.gov.uk/unsubscribe</a></p>
+                 <p>Let us know through our support team if you’ve received this invitation without prior agreement with Training Provider. <br /> <a href="">https://manage-apprenticeships.service.gov.uk/support</a></p>
+                 <p>This is an automated message. Please do not reply to this email.</p>
+                 <p>Thanks</p>
+                 <p>Apprenticeship service team</p>
+
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

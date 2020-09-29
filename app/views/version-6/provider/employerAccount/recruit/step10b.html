@@ -1,0 +1,160 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back", href: "wholeList" }) }} 
+{% endblock %} 
+{% block content %}
+
+<Script>
+function addMe(clickedID) {
+    console.log("working")
+    var arse = "{{ data['recruitQual'] }}"
+    console.log(arse)
+
+    $(notShown).removeClass("rj-dont-display");
+}
+</script>
+
+<!-- This isn't being used. Just here to cut and paste bits to make stuff work -->
+<script>
+var userAdded = JSON.parse(localStorage.getItem('registration.addingAnotherUser'));
+var forecastDone = JSON.parse(localStorage.getItem('registration.forecastComplete'));
+console.log(forecastDone)
+$(document).ready(function() {
+  var changeStuff = function() {
+  if (userAdded=='yes' && forecastDone !="yes") {
+   // document.getElementById("commitmentsName").textContent = " Hackney Skills & Training Ltd";
+   // document.getElementById("providerName").textContent = "Provider:" ;
+    $(confirmationAdded).removeClass("rj-dont-display")
+   $(teamMemberOne).removeClass("rj-dont-display");
+  //  $(addReference).addClass("rj-dont-display");
+   // $(commitmentStatus).addClass("rj-dont-display");
+   //  $(addDate).addClass("rj-dont-display")
+    }
+else {  
+  //  $(notesStuff).removeClass("rj-dont-display");
+  //  $(addReference).removeClass("rj-dont-display");
+  //  $(commitmentStatus).removeClass("rj-dont-display");
+  //  $(addDate).removeClass("rj-dont-display")
+        };
+
+if (userAdded=='yes' & forecastDone =="yes") {
+   $(teamMemberOne).removeClass("rj-dont-display");
+   $(forecastComplete).removeClass("rj-dont-display");
+    }
+else {  };
+if (userAdded=='No' & forecastDone =="yes") {
+   $(forecastComplete).removeClass("rj-dont-display");
+    }
+else {  };
+if (userAdded=='No' ) {
+   $(trainingProviders).removeClass("rj-dont-display");
+   $(endpointAssessment).removeClass("rj-dont-display");
+    }
+else {  };
+
+  }
+// changeStuff();
+});
+</script>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+              <form method="get" action="wholeList">
+            <h1 class="govuk-heading-xl">Qualifications</h1>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="recruitQual">
+            Type of qualification
+              </label>
+                <select class="govuk-select govuk-!-width-two-thirds" id="recruitQual" name="recruitQual">
+                    <option value="select" selected>Select from list</option>
+                    <option value="GCSE" >GCSE</option>
+                    <option value="AS Level">AS Level</option>
+                    <option value="A Level">A Level</option>
+                    <option value="BTEC">BTEC</option>
+                    <option value="NVQ or SVQ Level 1">NVQ or SVQ Level 1</option>
+                    <option value="NVQ or SVQ Level 2">NVQ or SVQ Level 2</option>
+                    <option value="NVQ or SVQ Level 3">NVQ or SVQ Level 3</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="recruitSubject">
+                    Subject
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="recruitSubject" name="recruitSubject" type="text" aria-describedby="recruitSubject-hint" value=""  />
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label   govuk-label--s" for="recruitSubject">
+                    Grade
+                </label>
+                <input class="govuk-input govuk-!-width-one-half" id="recruitGrade" name="recruitGrade" type="text" aria-describedby="recruitGrade-hint" value=""  />
+            </div>
+
+            <div class="govuk-form-group">
+                      <label class="govuk-label   govuk-label--s" for="recruitSubject">
+                    Is this qualification essential?
+                </label>
+     
+                <span id="changed-name-hint" class="govuk-hint">
+                <!--  This includes changing your last name or spelling your name differently.
+                </span> -->
+                <div class="govuk-radios govuk-radios--inline">
+               <div class="govuk-radios__item">
+                 <input class="govuk-radios__input" id="recruitEssDes" name="recruitEssDes" type="radio" value="Essential">
+                    <label class="govuk-label govuk-radios__label" for="changed-name-1">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name-2" name="recruitEssDes" type="radio" value="Desired">
+                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+            </div>
+            <a class="govuk-button button-grey-secondary" type="submit" onclick="addMe(this.id)">+ Add this qualification </a>
+         </div>
+                </fieldset>
+            </div>
+
+            <!-- table created by the inputs and button above, only works for one entry-->
+            <div class="notShown" id="notShown">
+                             <table class="govuk-table ">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col" style="">Qualification</th>
+                            <th class="govuk-table__header " scope="col" style="">Subject</th>
+                            <th class="govuk-table__header " scope="col" style="">Grade</th>
+                            <th class="govuk-table__header" scope="col" style="">Essential or desired</th>
+                            <th class="govuk-table__header" scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row" id="May18">
+                            <td class="govuk-table__cell" scope="row">GCSE</td>
+                            <td class="govuk-table__cell ">{{ data['recruitSubject'] }}Mathematics</td>
+                            <td class="govuk-table__cell ">{{ data['recruitGrade'] }}C</td>
+                             <td class="govuk-table__cell ">{{ data['recruitEssDes'] }}Essential</td>
+                            <td class="govuk-table__cell" scope="row">
+                                <a href="changeReserve/fundingDetail">Remove</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="govuk-button">Save and return </button>
+              <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+{% endblock %}

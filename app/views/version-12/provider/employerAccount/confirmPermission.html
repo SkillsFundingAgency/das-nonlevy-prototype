@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+ {% include "includes/version6/provider/providerNav.html" %}
+  {% include "includes/version6/provider/homeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<style>
+    .govuk-header__content {display:none ;}
+</style>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+         Get employer permission
+        </h1>
+        <p class="govuk-body">You must have permission from <span style="font-weight:700">{{ data['providerRegisterFirstName'] }} {{ data['providerRegisterLastName'] }}</span> at <span style="font-weight:700">{{ data['providerRegisterEmail'] }}</span> to set up an account on their behalf. </p>
+        <form action="employerApprovalOrNot" method="get" class="form">
+            <div id="addTheError" class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading" style="">Do you have their permission to do this?</h2>
+                    </legend>
+                    <span id="gatewayError" class="govuk-error-message rj-dont-display"> Do you have their permission to do this?          </span>
+                    <div class="govuk-radios ">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+                            <label class="govuk-label govuk-radios__label" for="needed-1">
+                                Yes, the employer has given their permission
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+                            <label class="govuk-label govuk-radios__label" for="needed-2">
+                                No, the employer has not given their permission
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="govuk-button">Continue</button>
+        </form>
+<!--         <div class="govuk-warning-text" style="">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span> Warning about getting a slap from GDPR if you don't do this</strong>
+        </div> -->
+    </div>
+</div>
+{% endblock %}

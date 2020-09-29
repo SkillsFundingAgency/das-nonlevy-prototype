@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.autocomplete-element').each(function() {
+      var selectEl = document.querySelector('#' + $(this).attr('id') )
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: false,
+        defaultValue: '',
+        minLength: 3,
+        selectElement: selectEl,
+        placeholder: 'Start typing to search organisations',
+        showAllValues: false,
+        required: true
+      })
+    })
+  })
+</script>
+
+<script>
+var showSearchResults = "assurance"  //JSON.parse(localStorage.getItem('support.searchQuery')); //this is the search query from the previous page that has been put in local storage. Holding it in LS as need it in the next results page.
+console.log("Search query was: " + showSearchResults) //just showing the search query in the console
+
+    $(document).ready(function() {
+      //  $('input[name=searchResults]').val(showSearchResults); //changes the value in the search box to whatever the user entered in the previous screen
+              $.ajax({
+                type: "GET",
+       
+                 beforeSend: function(xhr) { 
+                    xhr.withCredentials = true;
+                    xhr.setRequestHeader("Authorization", "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ"); 
+                  },
+                //    headers: {"Authorization": "Basic " + "ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ:"}
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                    crossDomain: true,
+                    async: true,
+                    cache: false,
+                processData: false,
+                 url: "https://api.companieshouse.gov.uk/search/companies?q=" + showSearchResults,
+               // url: "https://api.companieshouse.gov.uk/company/05961102",
+
+                success:
+                function(result) {
+                      console.log(result)
+                },
+                  error: function(){
+                    console.log("bork bork bork bork");
+                    }
+            })
+      //  localStorage.setItem("support.searchQuery", JSON.stringify(null));
+    });
+</script>
+
+<script>
+
+                  // companies house pwd: Jok-K4Q-mJo-TtH
+                  // companies house username: rob@digi2al.co.uk
+                  // API Key: ku0-_mtrN08lRDO64kTj1C3phhkSEysJ6wMyIzgZ
+
+
+                        //     var html = '';
+                        //     $.each(result, function(key, value){
+                        //         html += '<div class="column details">';
+                        //         html += '<h2 class="heading-medium results-header" style="margin:0 0 5px 0"><a href="'+value.url+'?id='+value.id+'" class="proName">' +value.headline+ '</a></h2>';
+                        //          html += '<p class="truncate">' +value.snippet+ '</p>';
+
+                        //          html += '<div class="flex-support-meta">';
+                        //             html += '<div class="meta-one" style="padding:0 40px 0 0; font-weight:700; " >Type:</div>';
+                        //             html += '<div class="meta-two"><span>' +value.type+ '</span></div>';
+                        //          html += '</div>';
+
+                        //          html += '<div class="flex-support-meta">';
+                        //             html += '<div class="meta-one" style="padding:0 42px 0 0; font-weight:700; ">Tags:</div>';
+                        //             html += '<div class="meta-two"><span>' +value.tags+ '</span></div>';
+                        //          html += '</div>';
+
+                        //         html += '</div>';
+                        //          html += '<div style="margin-bottom:2.705em"></div>';
+                        //     });
+                        // $('#resultsContainer').html(html);
+
+                        // takes the first result and shows the snippet at the top of the page. A bit crude but shows the general idea
+
+
+
+                        // var headerContent ='';
+                        //     headerContent += '<h2 class="heading-medium">'+result[0].headline+'</h2>';
+                        //     headerContent += '<p>'+result[0].snippet+'</p>';
+
+                        // $('#quick-results').html(headerContent);
+</script>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+  <form action="confirm" method="get" class="form">
+        <h1 class="govuk-heading-xl">
+    Set up as a user
+
+        </h1>
+  <p><span class=" "">If you already have an account <a href="signin">sign in</a></span></p>
+
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+          </legend>
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-width-three-quarters bold-label" for="providerRegisterFirstName">
+                 First name
+              </label>
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterFirstName" name="providerRegisterFirstName" type="text" aria-describedby="First Name">
+          </div>
+          <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterLastName">
+                 Last name
+              </label>
+              <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterLastName" name="providerRegisterLastName" type="text" aria-describedby="Last name">
+          </div>
+
+        
+{% if  data.showOrgContact %}
+<!--       <div class="govuk-form-group">
+          <div class="autocomplete-wrapper" style="margin-bottom:30px; width:75%"  >
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="companyName">
+                Organisation name
+              </label>
+          <select class="autocomplete-element" id="course-name" name="course-name" style="width:75%">
+            <option value="">Select one</option>
+            {% import 'includes/orgs-list.html' as apprenticeshipsData %}
+            {% for apprenticeship in apprenticeshipsData.apprenticeships %}
+            <option value="{{apprenticeship.name}}, Level: {{apprenticeship.level}}{{' (Standard)' if apprenticeship.standard === true}}">{{apprenticeship.name}}</option>
+            {% endfor %}
+          </select>
+        </div> -->
+
+             <div class="govuk-form-group">
+              <label class="govuk-label bold-label govuk-!-width-three-quarters" for="organisationName">
+                 Organisation name
+              </label>
+              <input class="govuk-input govuk-!-width-three-quarters" id="organisationName" name="organisationName" type="text" aria-describedby="organisationName">
+          </div>
+
+{% endif %}
+
+
+
+<div class="govuk-form-group">
+    <label class="govuk-label bold-label govuk-!-width-three-quarters" for="providerRegisterEmail">
+        Email
+    </label>
+    <span id="email-hint" class="govuk-hint">
+        We'll send you an email to confirm your identity.
+    </span>
+    <input class="govuk-input govuk-!-width-three-quarters" id="providerRegisterEmail" name="providerRegisterEmail" type="providerRegisterEmail" aria-describedby="email">
+</div>
+<div class="govuk-form-group">
+    <label class="govuk-label bold-label govuk-!-width-three-quarters" for="password">
+        Create a password
+    </label>
+    <span id="password-hint" class="govuk-hint">
+        Password requires upper and lowercase letters, a number and at least 8 characters.
+    </span>
+    <input class="govuk-input govuk-!-width-three-quarters" id="password" name="password" type="password" aria-describedby="password">
+</div>
+<div class="govuk-form-group">
+    <label class="govuk-label bold-label govuk-!-width-three-quarters" for="confirmPassword">
+        Confirm password
+    </label>
+    <input class="govuk-input govuk-!-width-three-quarters" id="confirmPassword" name="confirmPassword" type="password" aria-describedby="confirmPassword">
+</div>
+</fieldset>
+<div class="govuk-inset-text">
+    By continuing you accept the <a href="#" target="_blank">terms and conditions</a>.
+</div>
+</div>
+<button class="govuk-button">Continue</button>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}

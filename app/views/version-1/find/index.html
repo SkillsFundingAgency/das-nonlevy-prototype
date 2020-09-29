@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block beforeContent %}  {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Home", href: "./home" }) }} {% endblock %} {% block content %}
+{% extends "layout.html" %} {% block beforeContent %}  {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Home", href: "./home" }) }} {% endblock %} {% block content %}
 <style>
 .survey-panel {
     background: #DEE0E2;

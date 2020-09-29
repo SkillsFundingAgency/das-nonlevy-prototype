@@ -1,0 +1,41 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+{% include "includes/version1/mainNav.html" %}  {% include "includes/version5/recruitNav.html" %} 
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back", href: "wholeList" }) }} 
+{% endblock %} 
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+                <div class="govuk-grid-column-two-thirds">
+        <form method="get" action="wholeList">
+            <h1 class="govuk-heading-xl">Brief overview</h1>
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-label--s" for="more-detail">
+                  Write a few sentences to describe your vacancy
+
+
+                  </label>
+                  <span id="more-detail-hint" class="govuk-hint">
+                    Brief overview needs to be engaging to make the candidate want to view the full vacancy.
+
+                  </span>
+                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="6" aria-describedby="more-detail-hint" value="{{ data['more-detail'] }}"></textarea>
+                </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button">Save and return </button>
+              <a  class="govuk-button clear-button" href="wholeList" >Cancel </a>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+
+
+
+{% endblock %}

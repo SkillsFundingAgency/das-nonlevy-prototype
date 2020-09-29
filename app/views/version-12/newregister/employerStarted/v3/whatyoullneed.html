@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>
+    localStorage.setItem("registration.firstTimeReg", JSON.stringify("yes"));
+</script>
+<style>
+    .govuk-header__content {display:none ;}
+</style>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <!--form  method="get" class="form"-->
+                <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+                  Get government funding
+                </h1>
+                <p class="govuk-body">If you’re ready to pay for your apprenticeships using government funding, you can do this now by adding the PAYE scheme for your organisation.</p>
+                <p> If you don’t need to get government funding yet, you can still register an account to:</p>
+                     <ul class="govuk-list govuk-list--bullet" style="margin-bottom:30px">
+                    <li>search and save apprenticeships</li>
+                    <li>save your chosen training providers</li>
+                </ul>
+                <p class="govuk-body">To get government funding now, you can use either of the following:</p>
+               <ul class="govuk-list govuk-list--bullet" style="">
+                    <li>the Government Gateway login for your PAYE scheme</li>
+                    <li>your accounts office reference number and employer PAYE scheme reference</li>
+                </ul>
+                
+               <!--  <details class="govuk-details" style="margin-bottom:10px">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                        What’s an employer PAYE scheme reference?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                      The employer PAYE scheme reference is in two parts. The first part is 3 digits, which identifies the HMRC office number that deals with the organisation’s PAYE. The second part of the reference (which follows a forward slash) is the tax office's reference for the organisation.
+                      </div>
+                </details>
+                 <details class="govuk-details" style="margin-bottom:10px">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                         Where do I find my Government Gateway login?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        Your payroll or finance department should have your organisation’s Government Gateway information if you don’t already know it. If your organisation has a payroll agent, don’t use the agent’s login details.
+
+                        You will need to <a href="">set up a Government Gateway account</a> if you do not already have one.
+                      </div>
+                </details> -->
+
+                <details class="govuk-details" style="">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                         Find your accounts office and PAYE scheme reference numbers
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                      <p> You can find your 13-character accounts office reference number on the letter HMRC sent you when you first registered as an employer.</p>
+                      <p>You will find your employer PAYE scheme reference in the payslip booklet HMRC provided. Contact HMRC or your accountant if you do not have access to the booklet.</p>
+                      </div>
+                </details>
+
+                <!--  <a href="https://www.gov.uk/log-in-register-hmrc-online-services/problems-signing-in" target='_blank' class="link-copy-normal" style="">Can't find your Government Gateway details?</a> -->
+                <form action="employerStartedEmployerWhatYoullNeed" method="get" class="form">
+                    <div id="addTheError" class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading" style="">
+                                   Do you want to add a PAYE scheme to get government funding?
+                                </h2>
+                            </legend>
+                            <span id="gatewayError" class="govuk-error-message rj-dont-display">Do you want to do this now? </span>
+                            <div class="govuk-radios ">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+                                    <label class="govuk-label govuk-radios__label" for="needed-1">
+                                      Yes, add my PAYE scheme details now
+                                    </label>
+                                </div>
+                                <!--      <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-3" name="whatsNeeded" type="radio" value="truthy">
+              <label class="govuk-label govuk-radios__label" for="needed-3">
+                Yes, I want to do the other thing
+              </label>
+            </div> -->
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+                                    <label class="govuk-label govuk-radios__label" for="needed-2">
+                                        No, I’ll do this later
+                                    </label>
+    <!--                                 <span  class="govuk-hint" style="padding-left:15px; width:66%">
+                                         You will need to add PAYE scheme to access apprenticeship funding
+                                    </span> -->
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button">Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

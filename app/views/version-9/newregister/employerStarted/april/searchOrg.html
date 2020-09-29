@@ -1,0 +1,48 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+
+  {% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+   {% endblock %}
+    {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="searchOrgResults" method="get" class="form">
+     <h1 class="govuk-heading-xl" style="">
+Search for your organisation
+
+        </h1>
+      <!--   <p>We need to know the name of your charity, company or public sector body so that we can confirm your identity.</p> -->
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+          <div class="govuk-form-group">
+              <label class="govuk-label  bold-label" for="orgName">
+Enter organisation name
+<!--               <span id="email-hint" class="govuk-hint">
+                Use the organisation name that will be contracting with training providers
+            </span> -->
+
+              </label>
+
+              <input class="govuk-input  id="orgName" name="orgName" type="text" aria-describedby="orgName">
+          </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button">Search</button>
+      </form>
+
+    </div>
+  </div>
+       
+
+  </div>
+{% endblock %}

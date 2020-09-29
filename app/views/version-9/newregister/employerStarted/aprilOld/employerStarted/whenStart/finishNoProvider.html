@@ -1,0 +1,62 @@
+{% extends "layout.html" %} 
+{% block beforeContent %} 
+ {% include "includes/version1/mainNav.html" %}
+  {% include "includes/version1/homeNav.html" %} 
+
+   {% endblock %}
+    {% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Thing is done
+      </h1>
+    </div>
+    <div style="margin-top:35px"></div>
+
+  <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m">What happens next?</h2>
+        <p class="govuk-body">
+           You can do the thing.       
+        </p>
+
+<form action="providerAddEmployerFinishedEmployer" method="get" class="form">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <label class="govuk-label  govuk-label--m" for="uk-provider-reference-number">
+                    What's next
+              </label>   
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-true" name="confirmTraining" type="radio" value="another" checked="true">
+              <label class="govuk-label govuk-radios__label" for="confirmation-true">
+                Reserve an apprenticeship
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="view">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+                Find apprenticeships
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confirmation-false" name="confirmTraining" type="radio" value="homepage">
+              <label class="govuk-label govuk-radios__label" for="confirmation-false">
+               Go to task list
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form>
+</div>
+</main>
+</div>
+
+{% endblock %}

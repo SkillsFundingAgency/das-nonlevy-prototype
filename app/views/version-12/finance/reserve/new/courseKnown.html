@@ -1,0 +1,47 @@
+{% extends "layout.html" %} 
+{% block beforeContent %}
+ {% include "includes/version1/mainNav.html" %}    {% include "includes/version1/financeNav.html" %}
+{% from "back-link/macro.njk" import govukBackLink %} 
+{{ govukBackLink({ text: "Back", href: "./" }) }} 
+{% endblock %} 
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--l">
+        <div class="govuk-grid-row"">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="get" action="reserveCourseKnownCheck">
+            <h1 class="govuk-heading-xl">Do you know which course will be offered?</h1>
+           <!--  <p class="govuk-body-l">Do you want to use a saved apprenticeship?</p> -->
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+<!--                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                       Choose the apprenticeship you want to reserve funding for:
+                      </h1>
+                    </legend> -->
+                   
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-3" name="funding" type="radio" value="Yes">
+                        <label class="govuk-label govuk-radios__label" for="app-3"  >
+                            Yes
+                        </label>
+                      </div>
+                  
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="app-4" name="funding" type="radio" value="No">
+                        <label class="govuk-label govuk-radios__label" for="app-4">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+               <button type="submit" class="govuk-button">Continue</button>
+                </div>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+
+{% endblock %}

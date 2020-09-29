@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "usedServiceBefore"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!--form  method="get" class="form"-->
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:30px">
+          Add your tax details
+        </h1>
+        <p class="govuk-body">To allow you to spend any reserved funds we need to add your tax details. You can skip this for now and still reserve funds, but you won't be able to spend them until you do this. </p>
+         <p class="govuk-body">To do the thing you will need:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>at least one PAYE scheme</li>
+                <li>the Government Gateway login details for your PAYE scheme(s) - ask your payroll department if you don't have access to this information</li>
+              </ul>
+
+        <a href="https://www.gov.uk/log-in-register-hmrc-online-services/problems-signing-in" target='_blank' class="link-copy-normal" style="">Can't find your Government Gateway details?</a>
+
+
+   <form action="addTaxDetailsRegisterReserve" method="get" class="form">
+        <div id="addTheError" class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading" style="margin-top:25px">
+           Do you want to do this now?
+            </h2>
+          </legend>
+
+          <span id="gatewayError" class="govuk-error-message rj-dont-display">
+                Do you want to do this now?
+          </span>
+
+          <div class="govuk-radios ">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-1" name="whatsNeeded" type="radio" value="true">
+              <label class="govuk-label govuk-radios__label" for="needed-1">
+                Yes, I have everything I need
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needed-2" name="whatsNeeded" type="radio" value="false">
+              <label class="govuk-label govuk-radios__label" for="needed-2">
+                No, I'll do it later
+              </label>
+              <span  class="govuk-hint" style="padding-left:15px">
+                    Your funds will still be reserved but to spend them you will need to do the thing
+              </span>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+
+    <button class="govuk-button">Continue</button>
+
+</form>
+
+    </div>
+  </div>
+{% endblock %}

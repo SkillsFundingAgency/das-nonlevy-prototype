@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block beforeContent %} {% from "back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "proResults" }) }} {% endblock %} {% block content %}
+{% extends "layout.html" %} {% block beforeContent %} {% from "govuk/components/back-link/macro.njk" import govukBackLink %} {{ govukBackLink({ text: "Back", href: "proResults" }) }} {% endblock %} {% block content %}
 <script src="/public/javascripts/accordion.js"></script>
 <script>
 function whereNow() {
