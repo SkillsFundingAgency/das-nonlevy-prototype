@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<!-- Main content starts -->
+
+ <!-- Full width heading starts -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{serviceName}} Analytics and dashboard          
+    </h1>
+  </div>
+</div>
+ <!-- Full width heading ends -->
+
+  <!-- Two thirds header section starts -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">    
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">
+      What is Analytics and dashboard work?
+    </h2>
+    <p class="govuk-body">
+      The analytics team handle all the data, analytics and visualisation for the service. This project created 
+    </p>
+    <p class="govuk-body">
+      This documents the Alpha phase of the Provider Growth Limit project, Feb &mdash; May 2020.
+    </p>
+    
+    {{ govukWarningText({
+      text: "No user research has been undertaken on designs created during the Alpha phase.",
+      iconFallbackText: "Warning"
+    }) }} 
+    
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">
+      Who has worked on this?
+    </h2>
+    <ul class="govuk-list govuk-list--bullet">      
+      <li><a  class="govuk-link govuk-link--no-visited-state" href="https://skillsfundingagency.atlassian.net/wiki/people/5caf4ce4f4c2b72785f452e2" title="Link to Helen's profile on Confluence">Helen Dickerson</a> &ndash; Content Designer</li>
+      <li><a  class="govuk-link govuk-link--no-visited-state" href="https://skillsfundingagency.atlassian.net/wiki/people/5b18ff545f02415b9f02adf5" title="Link to Rob's profile on Confluence">Rob Langdon</a> &ndash; Interaction Designer</li>
+      <li><a  class="govuk-link govuk-link--no-visited-state" href="https://skillsfundingagency.atlassian.net/wiki/people/5c3c843b2020af5dbe864c99" title="Link to Tom's profile on Confluence">Tom Hall</a> &ndash; Product Owner</li>
+    </ul>
+  </div>
+  <!-- Two thirds header section ends -->
+
+  <!-- One third header section starts -->
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">
+      <br>Design artefacts
+    </h2>
+    <div class="govuk-inset-text">
+      <ul class='govuk-list govuk-list--bullet'>                
+        <li><a href='https://miro.com/app/board/o9J_ktBoJT8=/' class='govuk-link govuk-link--no-visited-state'>User journey map</a></li>
+        <li><a href='sprint-9/research/provider-portal/growth-limit' class='govuk-link govuk-link--no-visited-state'>Funding tracker screen</a></li>
+        <li><a href='https://drive.google.com/open?id=1NSjettC-b3QafZcLd_zVKfqEVNmiJXKW' class='govuk-link govuk-link--no-visited-state'>Research discovery insights</a></li>
+        <li><a href='https://drive.google.com/open?id=1O09xOm6_ygk38Cj_FbxcKAdGm_1oBDcWfG40InutbrA' class='govuk-link govuk-link--no-visited-state'>Design research analysis</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- One third header section ends -->
+</div>
+
+<div class="govuk-grid-row">
+  <!-- Full width header section starts -->
+  <div class="govuk-grid-column-full">
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+      What have been our design goals and what has been done?
+    </h2>
+    <p class="govuk-body">
+      {{ govukDetails({
+        summaryText: "Alpha design goals",
+        html: "<table class='govuk-table'>                    
+          <thead class='govuk-table__head'>
+            <tr class='govuk-table__row'>
+              <th scope='col' class='govuk-table__header'>What's been done</th>
+              <th scope='col' class='govuk-table__header'>How and why it was done</th>
+            </tr>
+          </thead>
+          <tbody class='govuk-table__body'>
+            <tr class='govuk-table__row'>
+              <td class='govuk-table__cell'>Assessed impact across the service and created a journey map</td>
+              <td class='govuk-table__cell'>Collaborated with other design teams in the Apprenticeship service, iterated based on discussions and steers given. Wanted to identify all users' touchpoints and therefore uncover needs through research.</td>
+            </tr>
+            <tr class='govuk-table__row'>
+              <td class='govuk-table__cell'>Reviewed design thinking with the team and iterated on these</td>
+              <td class='govuk-table__cell'>Utilised the teams' skillsets to stress-test assumptions and validate assumptions. Regular reviews of design led to multiple iterations of possible solutions.</td>
+            </tr>
+            <tr class='govuk-table__row'>
+              <td class='govuk-table__cell'>Built designs for research</td>
+              <td class='govuk-table__cell'>Designs were created by working with other teams’ knowledge and the assumed user needs taken from the discovery research</td>
+            </tr>
+          </tbody>
+        </table>"
+      }) }}     
+    </p>
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+      What would we do next?
+    </h2>
+    {{ govukDetails({
+      summaryText: "Future design goals",
+      html: "<table class='govuk-table'>                    
+        <thead class='govuk-table__head'>
+          <tr class='govuk-table__row'>
+            <th scope='col' class='govuk-table__header'>What could be done</th>
+            <th scope='col' class='govuk-table__header'>Why we would do it</th>
+          </tr>
+        </thead>
+        <tbody class='govuk-table__body'>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>Show data and information (e.g. initial limit and headroom)</td>
+            <td class='govuk-table__cell'>To ensure the information reflects reality and can be used for tasks as expected</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>Notify when a user approaches their growth limit</td>
+            <td class='govuk-table__cell'>To investigate how provider user needs are serviced</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>Understand how best to align agency’s comms strategy</td>
+            <td class='govuk-table__cell'>To inform users about PGL, employers, internal and providers</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>Iterate concepts and artefacts with internal staff</td>
+            <td class='govuk-table__cell'>To be able to internally launch PGL</td>
+          </tr>
+        </tbody>
+      </table>"
+    }) }}     
+    <hr class="govuk-section-break--l">
+  </div>   
+  <!-- Full width header section ends -->
+</div>
+
+<div class="govuk-grid-row">
+  <!-- Sprints section starts -->
+  <div class="govuk-grid-column-two-thirds">
+    <!--  include './sprint-12/_summary.html'  -->
+                
+    
+
+  <!-- One third column starts -->
+  <div class="govuk-grid-column-one-third">
+  </div>
+  <!-- One third column ends -->
+
+</div>
+
+<!-- Main content ends -->
+{% endblock %}
