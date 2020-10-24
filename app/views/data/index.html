@@ -9,33 +9,13 @@
 
 <style>
 
-  .thing{
-    width:300px;
-    height:100px;
-    background-color: #f1f1f1;
-    display:block;
-   
-  }
 
-  .thing::before {
-   content:"";
-
-      background-color:white;
-        color:white;
-        width: 30px;
-        height: 30px;
-        border-radius:50%; 
-        text-align:center;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        border: 3px solid black;
-
-  }
+span.rjValue {
+    padding-left: 28px;
+}
 
 
-
-      #blackcircle {
+      span.rjOuterRadio {
         background-color:white;
         color:white;
         width: 30px;
@@ -46,15 +26,24 @@
         display: flex;
         align-items: center;
         border: 3px solid black;
+        position: absolute;
+        top: 9%;
+        left: 1%;
     }
-    #whitecircle {
-        background-color: black;
-        color: black;
-        width: 20px;
-        height: 20px; 
+
+
+    span.rjInnerRadio {
+        background-color: white;
+        color: white;
+        width: 16px;
+        height: 16px; 
         border-radius:50%;
         margin: 0 auto;
          } 
+
+  .selected span.rjInnerRadio {
+    background-color: #000;
+}
 
 </style>
 
@@ -208,11 +197,11 @@
 
 </div>
 
-<div class="thing"><p style="padding:0;margin:0">text here<p></div>
-
+<!-- <div class="thing"><p style="padding:0;margin:0">text here<p></div> -->
+<!-- 
   <div class="encase">
     <div id="blackcircle">
      <div id="whitecircle"></div>
-   </div>
+   </div> -->
 <!-- Main content ends -->
 {% endblock %}
